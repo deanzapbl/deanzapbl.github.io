@@ -1,0 +1,747 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Phi Beta Lambda — De Anza College</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --maroon: #790000;
+  --maroon-mid: #9a0000;
+  --maroon-bright: #b80000;
+  --orange-red: #FA4E1D;
+  --orange: #FF983A;
+  --gray: #C4C4C4;
+  --cream: #F9F8F6;
+  --bg: #0b0808;
+  --bg2: #150d0d;
+  --bg3: #1c1010;
+  --text: #F9F8F6;
+  --text-dim: rgba(249,248,246,0.55);
+  --text-mid: rgba(249,248,246,0.75);
+  --border: rgba(121,0,0,0.2);
+  --border-soft: rgba(249,248,246,0.07);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+
+/* ─── NAV ─────────────────────────────── */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:1.4rem 2.5rem;display:flex;align-items:center;justify-content:space-between;transition:background .4s,border .4s}
+nav.scrolled{background:rgba(11,8,8,.88);backdrop-filter:blur(16px);border-bottom:1px solid var(--border)}
+.nav-logo{display:flex;align-items:center;gap:.6rem;text-decoration:none}
+.nav-phi{font-family:'Playfair Display',serif;font-size:2rem;color:var(--maroon);line-height:1;transition:color .2s}
+.nav-phi:hover{color:var(--maroon-bright)}
+.nav-name{display:flex;flex-direction:column;gap:1px}
+.nav-name span{font-size:.6rem;letter-spacing:.22em;text-transform:uppercase;color:var(--text-dim);line-height:1.4}
+.hamburger{background:none;border:none;cursor:pointer;display:flex;flex-direction:column;gap:5px;padding:4px}
+.hamburger span{display:block;width:22px;height:1px;background:var(--text-mid);transition:.3s}
+.hamburger:hover span{background:var(--text)}
+
+/* ─── OVERLAY ─────────────────────────── */
+.overlay{position:fixed;inset:0;background:var(--bg);z-index:200;display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:opacity .35s ease}
+.overlay.open{opacity:1;pointer-events:all}
+.overlay-close{position:absolute;top:1.8rem;right:2.5rem;background:none;border:none;color:var(--text-dim);cursor:pointer;font-family:'DM Sans',sans-serif;font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;transition:color .2s}
+.overlay-close:hover{color:var(--text)}
+.overlay-nav{list-style:none;text-align:center}
+.overlay-nav li{overflow:hidden;margin:-.02em 0}
+.overlay-nav a{font-family:'Playfair Display',serif;font-size:clamp(2.5rem,7vw,5.5rem);font-weight:700;color:var(--cream);text-decoration:none;display:block;line-height:1.05;transition:color .2s;letter-spacing:-.03em}
+.overlay-nav a:hover{color:var(--maroon)}
+.overlay-phi-bg{position:absolute;bottom:-1rem;right:2rem;font-family:'Playfair Display',serif;font-size:22rem;color:rgba(121,0,0,.05);pointer-events:none;line-height:1;user-select:none}
+.overlay-index{position:absolute;bottom:2.5rem;left:2.5rem;font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;color:var(--text-dim)}
+
+/* ─── HERO ────────────────────────────── */
+.hero{min-height:100vh;display:flex;flex-direction:column;justify-content:flex-end;padding:0 2.5rem 5rem;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 80% 20%,rgba(121,0,0,.18) 0%,transparent 60%);pointer-events:none}
+.hero-wordmark{line-height:.88;margin-bottom:2.5rem}
+.hero-line{font-family:'Playfair Display',serif;font-size:clamp(5.5rem,17vw,20rem);font-weight:900;display:block;letter-spacing:-.03em;color:var(--cream);animation:fadeUp .9s ease both}
+.hero-line:nth-child(2){animation-delay:.08s}
+.hero-line:nth-child(3){color:var(--maroon);animation-delay:.16s}
+@keyframes fadeUp{from{opacity:0;transform:translateY(40px)}to{opacity:1;transform:translateY(0)}}
+.hero-meta{display:flex;align-items:center;gap:2rem;animation:fadeUp .9s .3s ease both}
+.hero-phi-mark{font-family:'Playfair Display',serif;font-size:2rem;color:var(--maroon)}
+.hero-caption{font-size:.65rem;letter-spacing:.25em;text-transform:uppercase;color:var(--text-dim)}
+.hero-scroll{position:absolute;bottom:2rem;right:2.5rem;display:flex;flex-direction:column;align-items:center;gap:.5rem;font-size:.55rem;letter-spacing:.2em;text-transform:uppercase;color:var(--text-dim);animation:fadeUp .9s .5s ease both}
+.hero-scroll-line{width:1px;height:60px;background:linear-gradient(to bottom,transparent,var(--maroon));animation:scrollPulse 2s ease-in-out infinite}
+@keyframes scrollPulse{0%,100%{opacity:.4}50%{opacity:1}}
+
+/* ─── MARQUEE ─────────────────────────── */
+.marquee-section{padding:3rem 0;overflow:hidden;position:relative}
+.marquee-track{display:flex;gap:10px;margin-bottom:10px;width:max-content}
+.marquee-track.fwd{animation:fwd 50s linear infinite}
+.marquee-track.rev{animation:rev 60s linear infinite}
+.marquee-track.fwd2{animation:fwd 70s linear infinite}
+@keyframes fwd{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+@keyframes rev{from{transform:translateX(-50%)}to{transform:translateX(0)}}
+.mimg{flex-shrink:0;border-radius:2px;overflow:hidden;position:relative;background:var(--bg2)}
+.mimg.sz-s{width:220px;height:160px}
+.mimg.sz-m{width:290px;height:160px}
+.mimg.sz-t{width:150px;height:220px}
+.mimg::after{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(121,0,0,.5) 0%,rgba(20,8,8,.7) 100%)}
+.mimg-label{position:absolute;bottom:.75rem;left:.75rem;z-index:1;font-size:.55rem;letter-spacing:.18em;text-transform:uppercase;color:rgba(249,248,246,.4)}
+
+/* ─── TAGLINE BANNER ──────────────────── */
+.tagline-band{padding:6rem 2.5rem;display:flex;align-items:center;justify-content:space-between;border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+.tagline-text{font-family:'Playfair Display',serif;font-size:clamp(1.6rem,4.5vw,4rem);font-style:italic;color:var(--text-dim);letter-spacing:-.02em;line-height:1.1}
+.tagline-phi{font-family:'Playfair Display',serif;font-size:6rem;color:var(--maroon);opacity:.7;line-height:1}
+
+/* ─── SHARED SECTION ──────────────────── */
+.sec{padding:7rem 2.5rem;max-width:1240px;margin:0 auto}
+.sec-border{border-top:1px solid var(--border-soft)}
+.sec-tag{font-size:.6rem;letter-spacing:.3em;text-transform:uppercase;color:var(--maroon);margin-bottom:2rem;display:flex;align-items:center;gap:1rem}
+.sec-tag::after{content:'';flex:1;max-width:60px;height:1px;background:var(--maroon);opacity:.4}
+.sec-h{font-family:'Playfair Display',serif;font-size:clamp(2.8rem,6vw,5.5rem);font-weight:900;line-height:.95;letter-spacing:-.04em;margin-bottom:2.5rem}
+.sec-body{font-size:1rem;line-height:1.85;color:var(--text-mid);max-width:640px}
+.sec-body p+p{margin-top:1.25rem}
+
+/* ─── ABOUT VALUES ────────────────────── */
+.values-row{display:flex;gap:1px;margin-top:4rem;background:var(--border)}
+.val-item{flex:1;background:var(--bg);padding:2.5rem 1.5rem;text-align:center;transition:background .2s}
+.val-item:hover{background:var(--bg2)}
+.val-glyph{font-family:'Playfair Display',serif;font-size:1.4rem;color:var(--maroon);margin-bottom:.75rem}
+.val-name{font-size:.6rem;letter-spacing:.22em;text-transform:uppercase;color:var(--text-dim);line-height:1.5}
+
+/* ─── EVENTS ──────────────────────────── */
+.event-list{margin-top:3.5rem}
+.ev{display:grid;grid-template-columns:90px 1fr auto;align-items:start;gap:2rem;padding:2rem 0;border-bottom:1px solid var(--border-soft);transition:background .2s;cursor:default}
+.ev:hover{background:rgba(121,0,0,.04)}
+.ev-date{font-size:.6rem;letter-spacing:.15em;text-transform:uppercase;color:var(--maroon);padding-top:.2rem;line-height:1.6}
+.ev-name{font-family:'Playfair Display',serif;font-size:1.3rem;font-weight:700;margin-bottom:.35rem;letter-spacing:-.01em}
+.ev-desc{font-size:.85rem;color:var(--text-dim);line-height:1.7;max-width:560px}
+.ev-badge{font-size:.6rem;letter-spacing:.12em;text-transform:uppercase;color:var(--text-dim);border:1px solid rgba(249,248,246,.12);padding:.3rem .9rem;white-space:nowrap;align-self:start;transition:all .2s}
+.ev:hover .ev-badge{border-color:var(--maroon);color:var(--maroon)}
+
+/* ─── RECRUITMENT ─────────────────────── */
+.rec-grid{display:grid;grid-template-columns:1fr 1fr;gap:4rem;margin-top:4rem;align-items:start}
+.steps{list-style:none}
+.step{display:flex;gap:1.5rem;padding:1.5rem 0;border-bottom:1px solid var(--border-soft)}
+.step-n{font-size:.6rem;letter-spacing:.15em;color:var(--maroon);min-width:28px;padding-top:.2rem}
+.step-h{font-size:1rem;font-weight:500;margin-bottom:.3rem}
+.step-p{font-size:.85rem;color:var(--text-dim);line-height:1.7}
+.cta-card{background:var(--maroon);padding:3rem 2.5rem;display:flex;flex-direction:column;gap:2rem}
+.cta-card h3{font-family:'Playfair Display',serif;font-size:2.2rem;font-weight:700;line-height:1.05;letter-spacing:-.02em}
+.cta-card p{font-size:.9rem;color:rgba(249,248,246,.75);line-height:1.75}
+.cta-btn{display:inline-block;padding:.85rem 2.2rem;background:var(--cream);color:var(--maroon);font-family:'DM Sans',sans-serif;font-size:.65rem;font-weight:500;letter-spacing:.22em;text-transform:uppercase;text-decoration:none;transition:all .2s;cursor:pointer;border:none;align-self:flex-start}
+.cta-btn:hover{background:var(--bg);color:var(--cream)}
+
+/* ─── CONSULTING ──────────────────────── */
+.clients-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;margin-top:4rem;background:var(--border)}
+.client{background:var(--bg);padding:2.5rem 2rem;transition:background .25s;cursor:default}
+.client:hover{background:var(--bg2)}
+.client-name{font-size:1rem;font-weight:500;margin-bottom:.4rem}
+.client-ind{font-size:.6rem;letter-spacing:.18em;text-transform:uppercase;color:var(--maroon)}
+.con-photos{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:2.5rem}
+.con-photo{aspect-ratio:4/3;background:var(--bg2);position:relative;overflow:hidden}
+.con-photo::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(121,0,0,.45) 0%,rgba(20,8,8,.7) 100%)}
+.con-photo::after{content:'Φ';position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-size:2.5rem;color:rgba(249,248,246,.07)}
+
+/* ─── POLARIS ─────────────────────────── */
+.polaris-wrap{display:grid;grid-template-columns:1fr 1fr;gap:6rem;margin-top:3.5rem;align-items:start}
+.polaris-stat{margin-bottom:2.5rem}
+.polaris-num{font-family:'Playfair Display',serif;font-size:5.5rem;font-weight:900;line-height:1;color:var(--maroon);letter-spacing:-.05em}
+.polaris-lbl{font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;color:var(--text-dim);margin-top:.4rem}
+.polaris-tags{display:flex;flex-wrap:wrap;gap:.4rem;margin-top:2.5rem}
+.p-tag{font-size:.6rem;letter-spacing:.14em;text-transform:uppercase;padding:.4rem 1rem;border:1px solid rgba(121,0,0,.4);color:var(--text-dim);transition:all .2s;cursor:default}
+.p-tag:hover{background:var(--maroon);color:var(--cream);border-color:var(--maroon)}
+.polaris-bear{font-family:'Playfair Display',serif;font-size:8rem;text-align:center;color:rgba(121,0,0,.15);line-height:1;margin-bottom:1.5rem;user-select:none}
+
+/* ─── MEMBERS ─────────────────────────── */
+.members-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:2px;margin-top:3rem}
+.member{aspect-ratio:3/4;background:var(--bg2);position:relative;overflow:hidden;cursor:default}
+.member::before{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(121,0,0,.2) 0%,transparent 40%,rgba(11,8,8,.9) 100%)}
+.member-info{position:absolute;bottom:1.25rem;left:1.25rem;right:1.25rem}
+.member-name{font-size:.95rem;font-weight:500;margin-bottom:.2rem}
+.member-role{font-size:.6rem;letter-spacing:.14em;text-transform:uppercase;color:var(--text-dim)}
+.member:nth-child(4n+1){background:#1a0b0b}
+.member:nth-child(4n+2){background:#160909}
+.member:nth-child(4n+3){background:#1e0d0d}
+.member:nth-child(4n){background:#120909}
+
+/* ─── LEADERSHIP ──────────────────────── */
+.exec-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2.5rem 3rem;margin-top:4rem}
+.exec-card{cursor:default}
+.exec-photo{aspect-ratio:1;background:var(--bg2);margin-bottom:1.25rem;position:relative;overflow:hidden}
+.exec-photo::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(121,0,0,.45) 0%,rgba(20,8,8,.75) 100%)}
+.exec-photo::after{content:'Φ';position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-size:3.5rem;color:rgba(249,248,246,.06)}
+.exec-card:nth-child(3n+1) .exec-photo{background:#1a0b0b}
+.exec-card:nth-child(3n+2) .exec-photo{background:#150909}
+.exec-card:nth-child(3n) .exec-photo{background:#1e0e0e}
+.exec-name{font-family:'Playfair Display',serif;font-size:1.1rem;font-weight:700;margin-bottom:.25rem;letter-spacing:-.01em}
+.exec-role{font-size:.6rem;letter-spacing:.16em;text-transform:uppercase;color:var(--maroon)}
+
+/* ─── GALLERY ─────────────────────────── */
+.gallery-grid{display:grid;grid-template-columns:repeat(3,1fr);grid-auto-rows:200px;gap:4px;margin-top:3rem}
+.gitem{background:var(--bg2);position:relative;overflow:hidden;cursor:pointer}
+.gitem.r2{grid-row:span 2}
+.gitem.c2{grid-column:span 2}
+.gitem::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(121,0,0,.4) 0%,rgba(20,8,8,.65) 100%);opacity:0;transition:opacity .3s}
+.gitem:hover::before{opacity:1}
+.gitem::after{content:'Φ';position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-size:2rem;color:rgba(249,248,246,.05)}
+.gitem:nth-child(2n){background:#170a0a}
+.gitem:nth-child(3n){background:#1b0c0c}
+.gitem:nth-child(5n){background:#120808}
+.gallery-caption{text-align:center;margin-top:2rem;font-size:.65rem;letter-spacing:.2em;text-transform:uppercase;color:var(--text-dim)}
+
+/* ─── CONTACT ─────────────────────────── */
+.contact-wrap{display:grid;grid-template-columns:1fr 1fr;gap:6rem;margin-top:4rem;align-items:start}
+.contact-info{list-style:none}
+.ci{padding:1.5rem 0;border-bottom:1px solid var(--border-soft);display:flex;flex-direction:column;gap:.3rem}
+.ci-lbl{font-size:.6rem;letter-spacing:.22em;text-transform:uppercase;color:var(--maroon)}
+.ci-val{font-size:.95rem;color:var(--text-mid)}
+.form-field{margin-bottom:1.5rem}
+.form-field label{display:block;font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;color:var(--text-dim);margin-bottom:.5rem}
+.form-field input,.form-field textarea{width:100%;background:transparent;border:none;border-bottom:1px solid rgba(249,248,246,.15);color:var(--text);font-family:'DM Sans',sans-serif;font-size:.95rem;padding:.6rem 0;outline:none;transition:border-color .2s}
+.form-field input:focus,.form-field textarea:focus{border-color:var(--maroon)}
+.form-field textarea{resize:none;min-height:90px}
+.send-btn{background:transparent;border:1px solid var(--maroon);color:var(--text-mid);font-family:'DM Sans',sans-serif;font-size:.6rem;letter-spacing:.22em;text-transform:uppercase;padding:.9rem 2.5rem;cursor:pointer;transition:all .25s}
+.send-btn:hover{background:var(--maroon);color:var(--cream)}
+
+/* ─── FOOTER ──────────────────────────── */
+footer{padding:3.5rem 2.5rem;border-top:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1.5rem}
+.foot-phi{font-family:'Playfair Display',serif;font-size:2.5rem;color:var(--maroon);line-height:1}
+.foot-copy{font-size:.6rem;letter-spacing:.14em;text-transform:uppercase;color:var(--text-dim)}
+.foot-links{display:flex;gap:2rem;list-style:none}
+.foot-links a{font-size:.6rem;letter-spacing:.14em;text-transform:uppercase;color:var(--text-dim);text-decoration:none;transition:color .2s}
+.foot-links a:hover{color:var(--text)}
+
+/* ─── RESPONSIVE ──────────────────────── */
+@media(max-width:900px){
+  .rec-grid,.polaris-wrap,.contact-wrap{grid-template-columns:1fr;gap:3rem}
+  .members-grid{grid-template-columns:repeat(2,1fr)}
+  .exec-grid{grid-template-columns:repeat(2,1fr)}
+  .clients-grid{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:600px){
+  .hero{padding:0 1.5rem 4rem}
+  .sec{padding:5rem 1.5rem}
+  .values-row{flex-direction:column}
+  .ev{grid-template-columns:1fr;gap:.75rem}
+  .ev-badge{display:none}
+  .gallery-grid{grid-template-columns:1fr 1fr;grid-auto-rows:150px}
+  .gallery-grid .gitem.c2{grid-column:span 1}
+  .members-grid{grid-template-columns:1fr 1fr}
+  .exec-grid{grid-template-columns:1fr 1fr}
+}
+</style>
+</head>
+<body>
+
+<!-- ── OVERLAY NAV ────────────────────── -->
+<div class="overlay" id="overlay">
+  <button class="overlay-close" onclick="closeOverlay()">Close ×</button>
+  <ul class="overlay-nav">
+    <li><a href="#about" onclick="closeOverlay()">About</a></li>
+    <li><a href="#events" onclick="closeOverlay()">Events</a></li>
+    <li><a href="#recruitment" onclick="closeOverlay()">Recruitment</a></li>
+    <li><a href="#consulting" onclick="closeOverlay()">Consulting</a></li>
+    <li><a href="#polaris" onclick="closeOverlay()">Polaris</a></li>
+    <li><a href="#members" onclick="closeOverlay()">Members</a></li>
+    <li><a href="#leadership" onclick="closeOverlay()">Leadership</a></li>
+    <li><a href="#gallery" onclick="closeOverlay()">Gallery</a></li>
+    <li><a href="#contact" onclick="closeOverlay()">Contact</a></li>
+  </ul>
+  <div class="overlay-phi-bg">Φ</div>
+  <div class="overlay-index">De Anza College · Cupertino, CA</div>
+</div>
+
+<!-- ── NAV ───────────────────────────── -->
+<nav id="mainNav">
+  <a href="#" class="nav-logo">
+    <span class="nav-phi">Φ</span>
+    <div class="nav-name">
+      <span>Phi Beta Lambda</span>
+      <span>De Anza College</span>
+    </div>
+  </a>
+  <button class="hamburger" onclick="openOverlay()" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- ── HERO ──────────────────────────── -->
+<section class="hero">
+  <div class="hero-wordmark">
+    <span class="hero-line">Phi</span>
+    <span class="hero-line">Beta</span>
+    <span class="hero-line">Lambda</span>
+  </div>
+  <div class="hero-meta">
+    <span class="hero-phi-mark">Φ</span>
+    <span class="hero-caption">De Anza College · Est. FBLA</span>
+  </div>
+  <div class="hero-scroll">
+    <span>Scroll</span>
+    <div class="hero-scroll-line"></div>
+  </div>
+</section>
+
+<!-- ── PHOTO MARQUEES ─────────────────── -->
+<div class="marquee-section">
+  <div style="overflow:hidden;margin-bottom:10px">
+    <div class="marquee-track fwd">
+      <div class="mimg sz-m"><span class="mimg-label">Shark Tank 2025</span></div>
+      <div class="mimg sz-s"><span class="mimg-label">Club Day</span></div>
+      <div class="mimg sz-m"><span class="mimg-label">Nationals Prep</span></div>
+      <div class="mimg sz-s"><span class="mimg-label">IM Meeting</span></div>
+      <div class="mimg sz-m"><span class="mimg-label">Business Olympics</span></div>
+      <div class="mimg sz-s"><span class="mimg-label">Orientation</span></div>
+      <div class="mimg sz-m"><span class="mimg-label">Exec Board</span></div>
+      <div class="mimg sz-s"><span class="mimg-label">Workshop</span></div>
+      <div class="mimg sz-m"><span class="mimg-label">Shark Tank 2025</span></div>
+      <div class="mimg sz-s"><span class="mimg-label">Club Day</span></div>
+      <div class="mimg sz-m"><span class="mimg-label">Nationals Prep</span></div>
+      <div class="mimg sz-s"><span class="mimg-label">IM Meeting</span></div>
+      <div class="mimg sz-m"><span class="mimg-label">Business Olympics</span></div>
+      <div class="mimg sz-s"><span class="mimg-label">Orientation</span></div>
+      <div class="mimg sz-m"><span class="mimg-label">Exec Board</span></div>
+      <div class="mimg sz-s"><span class="mimg-label">Workshop</span></div>
+    </div>
+  </div>
+  <div style="overflow:hidden;margin-bottom:10px">
+    <div class="marquee-track rev">
+      <div class="mimg sz-t"><span class="mimg-label">Portrait</span></div>
+      <div class="mimg sz-m"><span class="mimg-label">CSS Simulation</span></div>
+      <div class="mimg sz-t"><span class="mimg-label">Member</span></div>
+      <div class="mimg sz-m"><span class="mimg-label">Consulting</span></div>
+      <div class="mimg sz-t"><span class="mimg-label">Polaris</span></div>
+      <div class="mimg sz-m"><span class="mimg-label">Speaker Series</span></div>
+      <div class="mimg sz-t"><span class="mimg-label">Portrait</span></div>
+      <div class="mimg sz-m"><span class="mimg-label">FBLA Nationals</span></div>
+      <div class="mimg sz-t"><span class="mimg-label">Portrait</span></div>
+      <div class="mimg sz-m"><span class="mimg-label">CSS Simulation</span></div>
+      <div class="mimg sz-t"><span class="mimg-label">Member</span></div>
+      <div class="mimg sz-m"><span class="mimg-label">Consulting</span></div>
+      <div class="mimg sz-t"><span class="mimg-label">Polaris</span></div>
+      <div class="mimg sz-m"><span class="mimg-label">Speaker Series</span></div>
+      <div class="mimg sz-t"><span class="mimg-label">Portrait</span></div>
+      <div class="mimg sz-m"><span class="mimg-label">FBLA Nationals</span></div>
+    </div>
+  </div>
+  <div style="overflow:hidden">
+    <div class="marquee-track fwd2">
+      <div class="mimg sz-s"><span class="mimg-label">Community</span></div>
+      <div class="mimg sz-m"><span class="mimg-label">Interview Prep</span></div>
+      <div class="mimg sz-s"><span class="mimg-label">Study Group</span></div>
+      <div class="mimg sz-m"><span class="mimg-label">Alumni Panel</span></div>
+      <div class="mimg sz-s"><span class="mimg-label">Pitch Night</span></div>
+      <div class="mimg sz-m"><span class="mimg-label">Networking</span></div>
+      <div class="mimg sz-s"><span class="mimg-label">Team</span></div>
+      <div class="mimg sz-m"><span class="mimg-label">Keynote</span></div>
+      <div class="mimg sz-s"><span class="mimg-label">Community</span></div>
+      <div class="mimg sz-m"><span class="mimg-label">Interview Prep</span></div>
+      <div class="mimg sz-s"><span class="mimg-label">Study Group</span></div>
+      <div class="mimg sz-m"><span class="mimg-label">Alumni Panel</span></div>
+      <div class="mimg sz-s"><span class="mimg-label">Pitch Night</span></div>
+      <div class="mimg sz-m"><span class="mimg-label">Networking</span></div>
+      <div class="mimg sz-s"><span class="mimg-label">Team</span></div>
+      <div class="mimg sz-m"><span class="mimg-label">Keynote</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- ── TAGLINE ────────────────────────── -->
+<div class="tagline-band">
+  <span class="tagline-text">de anza's business<br>organization for growth.</span>
+  <span class="tagline-phi">Φ</span>
+</div>
+
+<!-- ── ABOUT ─────────────────────────── -->
+<div id="about" class="sec-border">
+  <div class="sec">
+    <div class="sec-tag">01 — About</div>
+    <h2 class="sec-h">The Group<br>for Growth.</h2>
+    <div class="sec-body">
+      <p>Phi Beta Lambda at De Anza College is the premier student business organization cultivating the next generation of industry professionals. Founded on the principles of leadership, ambition, and inclusivity, PBL provides every student — regardless of background — access to real-world professional opportunities.</p>
+      <p>Our community is a resource conglomerate for all De Anza students: a place where cohorts convene, careers begin, and professional identity is forged. We set the standard for extracurricular excellence on campus.</p>
+    </div>
+    <div class="values-row">
+      <div class="val-item">
+        <div class="val-glyph">◈</div>
+        <div class="val-name">Inclusion</div>
+      </div>
+      <div class="val-item">
+        <div class="val-glyph">◈</div>
+        <div class="val-name">Integrity</div>
+      </div>
+      <div class="val-item">
+        <div class="val-glyph">◈</div>
+        <div class="val-name">Curiosity</div>
+      </div>
+      <div class="val-item">
+        <div class="val-glyph">◈</div>
+        <div class="val-name">Courage</div>
+      </div>
+      <div class="val-item">
+        <div class="val-glyph">◈</div>
+        <div class="val-name">Collaboration</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── EVENTS ─────────────────────────── -->
+<div id="events" class="sec-border">
+  <div class="sec">
+    <div class="sec-tag">02 — Events</div>
+    <h2 class="sec-h">What We<br>Build Together.</h2>
+    <div class="event-list">
+      <div class="ev">
+        <div class="ev-date">Spring 2025</div>
+        <div>
+          <div class="ev-name">PBL Shark Tank</div>
+          <div class="ev-desc">Live panel pitches before industry judges spanning Facebook, McAfee, Cisco, and Informatica. Teams compete for full backing in just one hour of ideation to pitch.</div>
+        </div>
+        <div class="ev-badge">Flagship</div>
+      </div>
+      <div class="ev">
+        <div class="ev-date">Quarterly</div>
+        <div>
+          <div class="ev-name">Business Olympics</div>
+          <div class="ev-desc">Multi-discipline competition spanning case strategy, finance, marketing, and operations — required for all internal members.</div>
+        </div>
+        <div class="ev-badge">Competition</div>
+      </div>
+      <div class="ev">
+        <div class="ev-date">Quarterly</div>
+        <div>
+          <div class="ev-name">Crisis Strategy Simulation</div>
+          <div class="ev-desc">Real-time scenario simulations testing rapid-response business judgment under mentorship of industry professionals.</div>
+        </div>
+        <div class="ev-badge">Workshop</div>
+      </div>
+      <div class="ev">
+        <div class="ev-date">Annual</div>
+        <div>
+          <div class="ev-name">FBLA Nationals Preparation</div>
+          <div class="ev-desc">Structured preparation program for members competing at the national FBLA Leadership Conference — covering all case categories.</div>
+        </div>
+        <div class="ev-badge">Prep</div>
+      </div>
+      <div class="ev">
+        <div class="ev-date">Weekly</div>
+        <div>
+          <div class="ev-name">IM General Meetings</div>
+          <div class="ev-desc">Internal member gatherings for updates, workshops, guest speakers, and cohort alignment. Attendance required.</div>
+        </div>
+        <div class="ev-badge">Meeting</div>
+      </div>
+      <div class="ev">
+        <div class="ev-date">Recurring</div>
+        <div>
+          <div class="ev-name">Club Day & Outreach</div>
+          <div class="ev-desc">Main Quad presence during De Anza club days to recruit prospective members and showcase PBL's programs and alumni outcomes.</div>
+        </div>
+        <div class="ev-badge">Outreach</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── RECRUITMENT ────────────────────── -->
+<div id="recruitment" class="sec-border">
+  <div class="sec">
+    <div class="sec-tag">03 — Recruitment</div>
+    <h2 class="sec-h">Join the<br>Chapter.</h2>
+    <div class="rec-grid">
+      <ol class="steps">
+        <li class="step">
+          <span class="step-n">01</span>
+          <div>
+            <div class="step-h">Application Opens</div>
+            <div class="step-p">Submit your interest form during the open application window each quarter. Open to all De Anza students — no prior business experience required.</div>
+          </div>
+        </li>
+        <li class="step">
+          <span class="step-n">02</span>
+          <div>
+            <div class="step-h">Zoom Interviews</div>
+            <div class="step-p">Selected applicants are invited for a 15-minute virtual interview with members of the Executive Board. Monday through Wednesday following application close.</div>
+          </div>
+        </li>
+        <li class="step">
+          <span class="step-n">03</span>
+          <div>
+            <div class="step-h">Decisions Released</div>
+            <div class="step-p">Offers are sent to successful candidates. Signed contracts are due within 48 hours of receiving an offer. Welcome to the chapter.</div>
+          </div>
+        </li>
+        <li class="step">
+          <span class="step-n">04</span>
+          <div>
+            <div class="step-h">IM Orientation</div>
+            <div class="step-p">New internal members attend a mandatory orientation to align with PBL's mission, standards, cohorts, and the academic calendar ahead.</div>
+          </div>
+        </li>
+      </ol>
+      <div class="cta-card">
+        <h3>Ready to grow?</h3>
+        <p>Applications open each quarter. Follow <strong>@deanzapbl</strong> on Instagram for recruitment announcements, interview timelines, and orientation dates.</p>
+        <div>
+          <p style="font-size:.75rem;color:rgba(249,248,246,.6);margin-bottom:1.25rem">50+ member organization · 20+ first-place awards in 2 years · Alumni at Purdue, UCLA, UC Berkeley Haas, Columbia</p>
+          <a href="mailto:deanzacapbl@gmail.com" class="cta-btn">Apply Now →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── CONSULTING ─────────────────────── -->
+<div id="consulting" class="sec-border">
+  <div class="sec">
+    <div class="sec-tag">04 — Consulting</div>
+    <h2 class="sec-h">Real Work.<br>Real Clients.</h2>
+    <div class="sec-body">
+      <p>PBL's consulting division pairs student analysts with real organizations across industries. Members develop data-driven strategy recommendations under the mentorship of industry professionals — building portfolio-ready work from day one.</p>
+    </div>
+    <div class="clients-grid">
+      <div class="client">
+        <div class="client-name">Client Name</div>
+        <div class="client-ind">Technology</div>
+      </div>
+      <div class="client">
+        <div class="client-name">Client Name</div>
+        <div class="client-ind">Finance</div>
+      </div>
+      <div class="client">
+        <div class="client-name">Client Name</div>
+        <div class="client-ind">Retail</div>
+      </div>
+      <div class="client">
+        <div class="client-name">Client Name</div>
+        <div class="client-ind">Healthcare</div>
+      </div>
+      <div class="client">
+        <div class="client-name">Client Name</div>
+        <div class="client-ind">Sustainability</div>
+      </div>
+      <div class="client">
+        <div class="client-name">Client Name</div>
+        <div class="client-ind">Media & Entertainment</div>
+      </div>
+    </div>
+    <div class="con-photos">
+      <div class="con-photo"></div>
+      <div class="con-photo"></div>
+      <div class="con-photo"></div>
+    </div>
+  </div>
+</div>
+
+<!-- ── POLARIS ────────────────────────── -->
+<div id="polaris" class="sec-border">
+  <div class="sec">
+    <div class="sec-tag">05 — Polaris Research Group</div>
+    <h2 class="sec-h">Guided by<br>the North Star.</h2>
+    <div class="polaris-wrap">
+      <div>
+        <div class="sec-body">
+          <p>Polaris Research Group is the research body of Phi Beta Lambda — the North Star of our organization. Named for the guiding star of Ursa Minor, Polaris exists within PBL as a specialized research cohort producing rigorous, publication-ready equity and macro research.</p>
+          <p>Polaris members publish sector analyses, equity models, and strategic research under the PBL umbrella — bridging the gap between student finance and institutional-quality work, with publications targeting SSRN and academic venues.</p>
+        </div>
+        <div class="polaris-tags">
+          <div class="p-tag">Equities</div>
+          <div class="p-tag">Macro</div>
+          <div class="p-tag">Technology</div>
+          <div class="p-tag">Finance</div>
+          <div class="p-tag">Healthcare</div>
+          <div class="p-tag">Energy</div>
+          <div class="p-tag">Consumer</div>
+          <div class="p-tag">SSRN Publications</div>
+          <div class="p-tag">Equity Models</div>
+          <div class="p-tag">Sector Reports</div>
+        </div>
+      </div>
+      <div>
+        <div class="polaris-bear">★</div>
+        <div class="polaris-stat">
+          <div class="polaris-num">100+</div>
+          <div class="polaris-lbl">Members Organization-Wide</div>
+        </div>
+        <div class="polaris-stat">
+          <div class="polaris-num">20+</div>
+          <div class="polaris-lbl">First-Place Competition Awards</div>
+        </div>
+        <div class="polaris-stat">
+          <div class="polaris-num">∞</div>
+          <div class="polaris-lbl">Ambition</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── MEMBERS ────────────────────────── -->
+<div id="members" class="sec-border">
+  <div class="sec">
+    <div class="sec-tag">06 — Members</div>
+    <h2 class="sec-h">Our People.</h2>
+    <div class="members-grid">
+      <div class="member"><div class="member-info"><div class="member-name">Member Name</div><div class="member-role">Finance · IM</div></div></div>
+      <div class="member"><div class="member-info"><div class="member-name">Member Name</div><div class="member-role">Marketing · IM</div></div></div>
+      <div class="member"><div class="member-info"><div class="member-name">Member Name</div><div class="member-role">Technology · IM</div></div></div>
+      <div class="member"><div class="member-info"><div class="member-name">Member Name</div><div class="member-role">Operations · IM</div></div></div>
+      <div class="member"><div class="member-info"><div class="member-name">Member Name</div><div class="member-role">Strategy · IM</div></div></div>
+      <div class="member"><div class="member-info"><div class="member-name">Member Name</div><div class="member-role">Research · Polaris</div></div></div>
+      <div class="member"><div class="member-info"><div class="member-name">Member Name</div><div class="member-role">Consulting · IM</div></div></div>
+      <div class="member"><div class="member-info"><div class="member-name">Member Name</div><div class="member-role">Media · IM</div></div></div>
+    </div>
+  </div>
+</div>
+
+<!-- ── LEADERSHIP ─────────────────────── -->
+<div id="leadership" class="sec-border">
+  <div class="sec">
+    <div class="sec-tag">07 — Leadership</div>
+    <h2 class="sec-h">Executive<br>Board.</h2>
+    <div class="exec-grid">
+      <div class="exec-card">
+        <div class="exec-photo"></div>
+        <div class="exec-name">Javin Ku</div>
+        <div class="exec-role">President</div>
+      </div>
+      <div class="exec-card">
+        <div class="exec-photo"></div>
+        <div class="exec-name">Van Loc Nguyen</div>
+        <div class="exec-role">Vice President</div>
+      </div>
+      <div class="exec-card">
+        <div class="exec-photo"></div>
+        <div class="exec-name">Alan Dang</div>
+        <div class="exec-role">Executive</div>
+      </div>
+      <div class="exec-card">
+        <div class="exec-photo"></div>
+        <div class="exec-name">Zain Darwish</div>
+        <div class="exec-role">Executive</div>
+      </div>
+      <div class="exec-card">
+        <div class="exec-photo"></div>
+        <div class="exec-name">Christopher Wu</div>
+        <div class="exec-role">Director</div>
+      </div>
+      <div class="exec-card">
+        <div class="exec-photo"></div>
+        <div class="exec-name">Carine Chan</div>
+        <div class="exec-role">Director</div>
+      </div>
+      <div class="exec-card">
+        <div class="exec-photo"></div>
+        <div class="exec-name">Addy Hu</div>
+        <div class="exec-role">Director of Media</div>
+      </div>
+      <div class="exec-card">
+        <div class="exec-photo"></div>
+        <div class="exec-name">Nhi Tran</div>
+        <div class="exec-role">Director of Media</div>
+      </div>
+      <div class="exec-card">
+        <div class="exec-photo"></div>
+        <div class="exec-name">Arya Somu</div>
+        <div class="exec-role">VP of Strategy &amp; Development</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── GALLERY ────────────────────────── -->
+<div id="gallery" class="sec-border">
+  <div class="sec">
+    <div class="sec-tag">08 — Gallery</div>
+    <h2 class="sec-h">In the Field.</h2>
+    <div class="gallery-grid">
+      <div class="gitem c2"></div>
+      <div class="gitem r2"></div>
+      <div class="gitem"></div>
+      <div class="gitem"></div>
+      <div class="gitem"></div>
+      <div class="gitem c2"></div>
+      <div class="gitem r2"></div>
+      <div class="gitem"></div>
+      <div class="gitem"></div>
+    </div>
+    <p class="gallery-caption">Photos coming soon — submit yours to deanzacapbl@gmail.com</p>
+  </div>
+</div>
+
+<!-- ── CONTACT ────────────────────────── -->
+<div id="contact" class="sec-border">
+  <div class="sec">
+    <div class="sec-tag">09 — Contact</div>
+    <h2 class="sec-h">Get In<br>Touch.</h2>
+    <div class="contact-wrap">
+      <ul class="contact-info">
+        <li class="ci">
+          <span class="ci-lbl">Email</span>
+          <span class="ci-val">deanzacapbl@gmail.com</span>
+        </li>
+        <li class="ci">
+          <span class="ci-lbl">Instagram</span>
+          <span class="ci-val">@deanzapbl</span>
+        </li>
+        <li class="ci">
+          <span class="ci-lbl">LinkedIn</span>
+          <span class="ci-val">Phi Beta Lambda — De Anza</span>
+        </li>
+        <li class="ci">
+          <span class="ci-lbl">Location</span>
+          <span class="ci-val">De Anza College, Cupertino, CA</span>
+        </li>
+        <li class="ci">
+          <span class="ci-lbl">Meetings</span>
+          <span class="ci-val">MLC Building — see newsletter for room</span>
+        </li>
+      </ul>
+      <div>
+        <div class="form-field">
+          <label>Your Name</label>
+          <input type="text" placeholder="Full name">
+        </div>
+        <div class="form-field">
+          <label>Email Address</label>
+          <input type="email" placeholder="you@email.com">
+        </div>
+        <div class="form-field">
+          <label>Message</label>
+          <textarea placeholder="Say hello or ask about recruitment..."></textarea>
+        </div>
+        <button class="send-btn">Send Message →</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── FOOTER ─────────────────────────── -->
+<footer>
+  <span class="foot-phi">Φ</span>
+  <span class="foot-copy">© 2025 Phi Beta Lambda · De Anza College Chapter</span>
+  <ul class="foot-links">
+    <li><a href="https://instagram.com/deanzapbl" target="_blank">Instagram</a></li>
+    <li><a href="mailto:deanzacapbl@gmail.com">Email</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#recruitment">Join</a></li>
+  </ul>
+</footer>
+
+<script>
+const overlay = document.getElementById('overlay');
+const nav = document.getElementById('mainNav');
+
+function openOverlay() {
+  overlay.classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeOverlay() {
+  overlay.classList.remove('open');
+  document.body.style.overflow = '';
+}
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeOverlay(); });
+
+window.addEventListener('scroll', () => {
+  nav.classList.toggle('scrolled', window.scrollY > 60);
+}, { passive: true });
+</script>
+</body>
+</html>
