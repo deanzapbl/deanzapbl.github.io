@@ -6,716 +6,683 @@
 <title>Phi Beta Lambda — De Anza College</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
 :root {
-  --maroon: #790000;
-  --maroon-mid: #9a0000;
-  --maroon-bright: #b80000;
-  --orange-red: #FA4E1D;
-  --orange: #FF983A;
-  --gray: #C4C4C4;
-  --cream: #F9F8F6;
-  --bg: #0b0808;
-  --bg2: #150d0d;
-  --bg3: #1c1010;
-  --text: #F9F8F6;
-  --text-dim: rgba(249,248,246,0.55);
-  --text-mid: rgba(249,248,246,0.75);
-  --border: rgba(121,0,0,0.2);
-  --border-soft: rgba(249,248,246,0.07);
+  --black: #0a0a0a;
+  --white: #f5f3ef;
+  --red: #c8102e;
+  --red-dark: #8c0a20;
+  --red-glow: rgba(200,16,46,0.12);
+  --gray: #1a1a1a;
+  --gray-mid: #2e2e2e;
+  --gray-light: #888;
+  --border: rgba(245,243,239,0.1);
+  --border-red: rgba(200,16,46,0.3);
 }
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth}
-body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+html{scroll-behavior:smooth;font-size:16px}
+body{background:var(--black);color:var(--white);font-family:'IBM Plex Sans',sans-serif;overflow-x:hidden;-webkit-font-smoothing:antialiased;cursor:none}
 
-/* ─── NAV ─────────────────────────────── */
-nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:1.4rem 2.5rem;display:flex;align-items:center;justify-content:space-between;transition:background .4s,border .4s}
-nav.scrolled{background:rgba(11,8,8,.88);backdrop-filter:blur(16px);border-bottom:1px solid var(--border)}
-.nav-logo{display:flex;align-items:center;gap:.6rem;text-decoration:none}
-.nav-phi{font-family:'Playfair Display',serif;font-size:2rem;color:var(--maroon);line-height:1;transition:color .2s}
-.nav-phi:hover{color:var(--maroon-bright)}
-.nav-name{display:flex;flex-direction:column;gap:1px}
-.nav-name span{font-size:.6rem;letter-spacing:.22em;text-transform:uppercase;color:var(--text-dim);line-height:1.4}
-.hamburger{background:none;border:none;cursor:pointer;display:flex;flex-direction:column;gap:5px;padding:4px}
-.hamburger span{display:block;width:22px;height:1px;background:var(--text-mid);transition:.3s}
-.hamburger:hover span{background:var(--text)}
+/* CURSOR */
+.cursor{position:fixed;width:8px;height:8px;background:var(--red);border-radius:50%;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);transition:width .2s,height .2s,background .2s}
+.cursor-ring{position:fixed;width:36px;height:36px;border:1px solid rgba(200,16,46,0.5);border-radius:50%;pointer-events:none;z-index:9998;transform:translate(-50%,-50%);transition:all .12s ease}
+body:hover .cursor{opacity:1}
 
-/* ─── OVERLAY ─────────────────────────── */
-.overlay{position:fixed;inset:0;background:var(--bg);z-index:200;display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:opacity .35s ease}
-.overlay.open{opacity:1;pointer-events:all}
-.overlay-close{position:absolute;top:1.8rem;right:2.5rem;background:none;border:none;color:var(--text-dim);cursor:pointer;font-family:'DM Sans',sans-serif;font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;transition:color .2s}
-.overlay-close:hover{color:var(--text)}
-.overlay-nav{list-style:none;text-align:center}
-.overlay-nav li{overflow:hidden;margin:-.02em 0}
-.overlay-nav a{font-family:'Playfair Display',serif;font-size:clamp(2.5rem,7vw,5.5rem);font-weight:700;color:var(--cream);text-decoration:none;display:block;line-height:1.05;transition:color .2s;letter-spacing:-.03em}
-.overlay-nav a:hover{color:var(--maroon)}
-.overlay-phi-bg{position:absolute;bottom:-1rem;right:2rem;font-family:'Playfair Display',serif;font-size:22rem;color:rgba(121,0,0,.05);pointer-events:none;line-height:1;user-select:none}
-.overlay-index{position:absolute;bottom:2.5rem;left:2.5rem;font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;color:var(--text-dim)}
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:500;padding:0 2.5rem;height:64px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid transparent;transition:all .4s}
+nav.scrolled{background:rgba(10,10,10,0.92);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-color:var(--border)}
+.nav-left{display:flex;align-items:center;gap:1rem}
+.nav-phi{font-family:'Bebas Neue',sans-serif;font-size:2rem;color:var(--red);letter-spacing:.05em;line-height:1;text-decoration:none}
+.nav-wordmark{font-family:'IBM Plex Mono',monospace;font-size:.65rem;letter-spacing:.18em;text-transform:uppercase;color:rgba(245,243,239,0.45);line-height:1.4;border-left:1px solid var(--border);padding-left:1rem}
+.nav-right{display:flex;align-items:center;gap:2.5rem}
+.nav-links{display:flex;gap:2rem;list-style:none}
+.nav-links a{font-family:'IBM Plex Mono',monospace;font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;color:rgba(245,243,239,0.45);text-decoration:none;transition:color .2s}
+.nav-links a:hover{color:var(--white)}
+.nav-apply{font-family:'IBM Plex Mono',monospace;font-size:.6rem;letter-spacing:.18em;text-transform:uppercase;padding:.55rem 1.4rem;border:1px solid var(--red);color:var(--red);text-decoration:none;transition:all .2s}
+.nav-apply:hover{background:var(--red);color:var(--white)}
+.hamburger{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:4px}
+.hamburger span{display:block;width:20px;height:1px;background:rgba(245,243,239,0.6);transition:.3s}
 
-/* ─── HERO ────────────────────────────── */
-.hero{min-height:100vh;display:flex;flex-direction:column;justify-content:flex-end;padding:0 2.5rem 5rem;position:relative;overflow:hidden}
-.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 80% 20%,rgba(121,0,0,.18) 0%,transparent 60%);pointer-events:none}
-.hero-wordmark{line-height:.88;margin-bottom:2.5rem}
-.hero-line{font-family:'Playfair Display',serif;font-size:clamp(5.5rem,17vw,20rem);font-weight:900;display:block;letter-spacing:-.03em;color:var(--cream);animation:fadeUp .9s ease both}
-.hero-line:nth-child(2){animation-delay:.08s}
-.hero-line:nth-child(3){color:var(--maroon);animation-delay:.16s}
-@keyframes fadeUp{from{opacity:0;transform:translateY(40px)}to{opacity:1;transform:translateY(0)}}
-.hero-meta{display:flex;align-items:center;gap:2rem;animation:fadeUp .9s .3s ease both}
-.hero-phi-mark{font-family:'Playfair Display',serif;font-size:2rem;color:var(--maroon)}
-.hero-caption{font-size:.65rem;letter-spacing:.25em;text-transform:uppercase;color:var(--text-dim)}
-.hero-scroll{position:absolute;bottom:2rem;right:2.5rem;display:flex;flex-direction:column;align-items:center;gap:.5rem;font-size:.55rem;letter-spacing:.2em;text-transform:uppercase;color:var(--text-dim);animation:fadeUp .9s .5s ease both}
-.hero-scroll-line{width:1px;height:60px;background:linear-gradient(to bottom,transparent,var(--maroon));animation:scrollPulse 2s ease-in-out infinite}
-@keyframes scrollPulse{0%,100%{opacity:.4}50%{opacity:1}}
+/* MOBILE OVERLAY */
+.mob-overlay{position:fixed;inset:0;background:var(--black);z-index:400;display:flex;flex-direction:column;justify-content:center;padding:2.5rem;opacity:0;pointer-events:none;transition:opacity .3s ease}
+.mob-overlay.open{opacity:1;pointer-events:all}
+.mob-close{position:absolute;top:1.5rem;right:2rem;background:none;border:none;color:rgba(245,243,239,0.4);font-family:'IBM Plex Mono',monospace;font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;cursor:pointer}
+.mob-links{list-style:none}
+.mob-links a{font-family:'Bebas Neue',sans-serif;font-size:clamp(3rem,10vw,5.5rem);letter-spacing:.04em;color:var(--white);text-decoration:none;display:block;line-height:1.1;transition:color .15s}
+.mob-links a:hover{color:var(--red)}
+.mob-meta{margin-top:3rem;font-family:'IBM Plex Mono',monospace;font-size:.6rem;letter-spacing:.18em;text-transform:uppercase;color:rgba(245,243,239,0.3)}
 
-/* ─── MARQUEE ─────────────────────────── */
-.marquee-section{padding:3rem 0;overflow:hidden;position:relative}
-.marquee-track{display:flex;gap:10px;margin-bottom:10px;width:max-content}
-.marquee-track.fwd{animation:fwd 50s linear infinite}
-.marquee-track.rev{animation:rev 60s linear infinite}
-.marquee-track.fwd2{animation:fwd 70s linear infinite}
-@keyframes fwd{from{transform:translateX(0)}to{transform:translateX(-50%)}}
-@keyframes rev{from{transform:translateX(-50%)}to{transform:translateX(0)}}
-.mimg{flex-shrink:0;border-radius:2px;overflow:hidden;position:relative;background:var(--bg2)}
-.mimg.sz-s{width:220px;height:160px}
-.mimg.sz-m{width:290px;height:160px}
-.mimg.sz-t{width:150px;height:220px}
-.mimg::after{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(121,0,0,.5) 0%,rgba(20,8,8,.7) 100%)}
-.mimg-label{position:absolute;bottom:.75rem;left:.75rem;z-index:1;font-size:.55rem;letter-spacing:.18em;text-transform:uppercase;color:rgba(249,248,246,.4)}
+/* HERO */
+.hero{min-height:100vh;display:grid;grid-template-rows:1fr auto;padding:0 2.5rem;padding-top:64px;position:relative;overflow:hidden}
+.hero-bg{position:absolute;inset:0;background:radial-gradient(ellipse 60% 50% at 70% 40%,rgba(200,16,46,0.07) 0%,transparent 70%);pointer-events:none}
+.hero-grid-lines{position:absolute;inset:0;pointer-events:none;opacity:0.04}
+.hero-grid-lines::before{content:'';position:absolute;inset:0;background-image:linear-gradient(to right,var(--white) 1px,transparent 1px),linear-gradient(to bottom,var(--white) 1px,transparent 1px);background-size:80px 80px}
+.hero-content{display:flex;flex-direction:column;justify-content:flex-end;padding-bottom:4rem;position:relative;z-index:1}
+.hero-eyebrow{font-family:'IBM Plex Mono',monospace;font-size:.65rem;letter-spacing:.28em;text-transform:uppercase;color:var(--red);margin-bottom:2rem;display:flex;align-items:center;gap:1rem;opacity:0;animation:fadeIn .8s .2s forwards}
+.hero-eyebrow::before{content:'';width:32px;height:1px;background:var(--red)}
+.hero-title{font-family:'Bebas Neue',sans-serif;line-height:.9;letter-spacing:.02em;margin-bottom:3rem}
+.hero-title-line{display:block;font-size:clamp(5rem,18vw,22rem);overflow:hidden}
+.hero-title-line span{display:block;animation:slideUp .9s cubic-bezier(0.16,1,0.3,1) both}
+.hero-title-line:nth-child(1) span{animation-delay:.1s}
+.hero-title-line:nth-child(2) span{animation-delay:.18s}
+.hero-title-line:nth-child(3) span{animation-delay:.26s;color:var(--red)}
+.hero-bottom{display:flex;align-items:flex-end;justify-content:space-between;padding:2rem 0;border-top:1px solid var(--border);opacity:0;animation:fadeIn .8s .6s forwards}
+.hero-descriptor{font-family:'Libre Baskerville',serif;font-style:italic;font-size:clamp(1rem,2.5vw,1.5rem);color:rgba(245,243,239,0.55);max-width:440px;line-height:1.55}
+.hero-stat-row{display:flex;gap:3rem}
+.hero-stat{text-align:right}
+.hero-stat-num{font-family:'Bebas Neue',sans-serif;font-size:2.8rem;color:var(--white);letter-spacing:.04em;line-height:1}
+.hero-stat-lbl{font-family:'IBM Plex Mono',monospace;font-size:.55rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gray-light);margin-top:.2rem}
+.hero-scroll-hint{position:absolute;bottom:2rem;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:.6rem;opacity:0;animation:fadeIn 1s 1s forwards}
+.scroll-dot{width:5px;height:5px;background:var(--red);border-radius:50%;animation:scrollBounce 1.8s ease-in-out infinite}
+.scroll-label{font-family:'IBM Plex Mono',monospace;font-size:.5rem;letter-spacing:.25em;text-transform:uppercase;color:rgba(245,243,239,0.25)}
 
-/* ─── TAGLINE BANNER ──────────────────── */
-.tagline-band{padding:6rem 2.5rem;display:flex;align-items:center;justify-content:space-between;border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
-.tagline-text{font-family:'Playfair Display',serif;font-size:clamp(1.6rem,4.5vw,4rem);font-style:italic;color:var(--text-dim);letter-spacing:-.02em;line-height:1.1}
-.tagline-phi{font-family:'Playfair Display',serif;font-size:6rem;color:var(--maroon);opacity:.7;line-height:1}
+/* TICKER */
+.ticker{padding:1.2rem 0;border-top:1px solid var(--border);border-bottom:1px solid var(--border);overflow:hidden;background:var(--gray);position:relative}
+.ticker::before,.ticker::after{content:'';position:absolute;top:0;bottom:0;width:80px;z-index:2}
+.ticker::before{left:0;background:linear-gradient(to right,var(--gray),transparent)}
+.ticker::after{right:0;background:linear-gradient(to left,var(--gray),transparent)}
+.ticker-track{display:flex;gap:0;white-space:nowrap;animation:ticker 30s linear infinite}
+.ticker-item{font-family:'IBM Plex Mono',monospace;font-size:.65rem;letter-spacing:.2em;text-transform:uppercase;color:rgba(245,243,239,0.35);padding:0 2.5rem;display:flex;align-items:center;gap:2.5rem}
+.ticker-item::after{content:'◆';color:var(--red);font-size:.45rem}
 
-/* ─── SHARED SECTION ──────────────────── */
-.sec{padding:7rem 2.5rem;max-width:1240px;margin:0 auto}
-.sec-border{border-top:1px solid var(--border-soft)}
-.sec-tag{font-size:.6rem;letter-spacing:.3em;text-transform:uppercase;color:var(--maroon);margin-bottom:2rem;display:flex;align-items:center;gap:1rem}
-.sec-tag::after{content:'';flex:1;max-width:60px;height:1px;background:var(--maroon);opacity:.4}
-.sec-h{font-family:'Playfair Display',serif;font-size:clamp(2.8rem,6vw,5.5rem);font-weight:900;line-height:.95;letter-spacing:-.04em;margin-bottom:2.5rem}
-.sec-body{font-size:1rem;line-height:1.85;color:var(--text-mid);max-width:640px}
-.sec-body p+p{margin-top:1.25rem}
+/* MARQUEE PHOTOS */
+.marquee-section{padding:2.5rem 0;overflow:hidden}
+.mrow{display:flex;gap:6px;margin-bottom:6px}
+.mrow.fwd{animation:tickerFwd 40s linear infinite}
+.mrow.rev{animation:tickerRev 50s linear infinite}
+.mrow.fwd2{animation:tickerFwd 60s linear infinite}
+.mcard{flex-shrink:0;position:relative;background:var(--gray);overflow:hidden}
+.mcard.sm{width:200px;height:140px}
+.mcard.md{width:280px;height:140px}
+.mcard.tall{width:140px;height:200px}
+.mcard::after{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(200,16,46,0.3) 0%,rgba(10,10,10,0.6) 100%)}
+.mcard-label{position:absolute;bottom:.6rem;left:.7rem;z-index:1;font-family:'IBM Plex Mono',monospace;font-size:.5rem;letter-spacing:.18em;text-transform:uppercase;color:rgba(245,243,239,0.35)}
+.mcard .inner-phi{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-family:'Bebas Neue',sans-serif;font-size:3rem;color:rgba(200,16,46,0.12);z-index:1}
 
-/* ─── ABOUT VALUES ────────────────────── */
-.values-row{display:flex;gap:1px;margin-top:4rem;background:var(--border)}
-.val-item{flex:1;background:var(--bg);padding:2.5rem 1.5rem;text-align:center;transition:background .2s}
-.val-item:hover{background:var(--bg2)}
-.val-glyph{font-family:'Playfair Display',serif;font-size:1.4rem;color:var(--maroon);margin-bottom:.75rem}
-.val-name{font-size:.6rem;letter-spacing:.22em;text-transform:uppercase;color:var(--text-dim);line-height:1.5}
+/* ABOUT */
+.about{display:grid;grid-template-columns:1fr 1fr;border-top:1px solid var(--border)}
+.about-left{padding:6rem 3rem 6rem 2.5rem;border-right:1px solid var(--border)}
+.about-right{padding:6rem 2.5rem 6rem 3rem;display:flex;flex-direction:column;justify-content:space-between}
+.section-tag{font-family:'IBM Plex Mono',monospace;font-size:.6rem;letter-spacing:.25em;text-transform:uppercase;color:var(--red);margin-bottom:2.5rem;display:flex;align-items:center;gap:.8rem}
+.section-tag::before{content:'';width:20px;height:1px;background:var(--red)}
+.section-title{font-family:'Bebas Neue',sans-serif;font-size:clamp(3rem,6vw,7rem);letter-spacing:.02em;line-height:.9;margin-bottom:2.5rem}
+.section-body{font-size:.95rem;line-height:1.9;color:rgba(245,243,239,0.6);max-width:560px}
+.section-body p+p{margin-top:1.25rem}
+.values-list{list-style:none;margin-top:3rem}
+.val-item{display:flex;align-items:center;gap:1.5rem;padding:1.2rem 0;border-bottom:1px solid var(--border)}
+.val-item:first-child{border-top:1px solid var(--border)}
+.val-num{font-family:'IBM Plex Mono',monospace;font-size:.55rem;letter-spacing:.15em;color:var(--red);min-width:24px}
+.val-name{font-size:.9rem;font-weight:500;letter-spacing:.06em;text-transform:uppercase}
+.val-desc{font-size:.8rem;color:rgba(245,243,239,0.4);margin-left:auto;font-style:italic;font-family:'Libre Baskerville',serif}
+.about-quote{font-family:'Libre Baskerville',serif;font-style:italic;font-size:1.5rem;line-height:1.55;color:rgba(245,243,239,0.55);border-left:2px solid var(--red);padding-left:1.5rem;margin-bottom:3rem}
+.about-pill-row{display:flex;flex-wrap:wrap;gap:.5rem}
+.pill{font-family:'IBM Plex Mono',monospace;font-size:.55rem;letter-spacing:.15em;text-transform:uppercase;padding:.4rem 1rem;border:1px solid var(--border-red);color:rgba(200,16,46,0.7);transition:all .2s;cursor:default}
+.pill:hover{background:var(--red);color:var(--white);border-color:var(--red)}
 
-/* ─── EVENTS ──────────────────────────── */
-.event-list{margin-top:3.5rem}
-.ev{display:grid;grid-template-columns:90px 1fr auto;align-items:start;gap:2rem;padding:2rem 0;border-bottom:1px solid var(--border-soft);transition:background .2s;cursor:default}
-.ev:hover{background:rgba(121,0,0,.04)}
-.ev-date{font-size:.6rem;letter-spacing:.15em;text-transform:uppercase;color:var(--maroon);padding-top:.2rem;line-height:1.6}
-.ev-name{font-family:'Playfair Display',serif;font-size:1.3rem;font-weight:700;margin-bottom:.35rem;letter-spacing:-.01em}
-.ev-desc{font-size:.85rem;color:var(--text-dim);line-height:1.7;max-width:560px}
-.ev-badge{font-size:.6rem;letter-spacing:.12em;text-transform:uppercase;color:var(--text-dim);border:1px solid rgba(249,248,246,.12);padding:.3rem .9rem;white-space:nowrap;align-self:start;transition:all .2s}
-.ev:hover .ev-badge{border-color:var(--maroon);color:var(--maroon)}
+/* EVENTS */
+.events-section{border-top:1px solid var(--border);padding:6rem 2.5rem}
+.events-header{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:4rem}
+.events-count{font-family:'Bebas Neue',sans-serif;font-size:6rem;color:rgba(245,243,239,0.06);letter-spacing:.02em;line-height:1}
+.ev-table{width:100%;border-collapse:collapse}
+.ev-row{display:grid;grid-template-columns:100px 1fr 160px auto;align-items:start;gap:2rem;padding:2rem 0;border-bottom:1px solid var(--border);transition:all .2s;cursor:default}
+.ev-row:hover{padding-left:1rem;background:rgba(200,16,46,0.03)}
+.ev-date{font-family:'IBM Plex Mono',monospace;font-size:.6rem;letter-spacing:.15em;text-transform:uppercase;color:var(--red);padding-top:.2rem;line-height:1.7}
+.ev-name{font-family:'Bebas Neue',sans-serif;font-size:1.8rem;letter-spacing:.03em;line-height:1;margin-bottom:.5rem}
+.ev-desc{font-size:.82rem;color:rgba(245,243,239,0.45);line-height:1.75;max-width:500px}
+.ev-type{font-family:'IBM Plex Mono',monospace;font-size:.55rem;letter-spacing:.15em;text-transform:uppercase;padding:.35rem 1rem;border:1px solid var(--border);color:rgba(245,243,239,0.35);align-self:start;transition:all .2s}
+.ev-row:hover .ev-type{border-color:var(--red);color:var(--red)}
+.ev-arrow{font-size:1.2rem;color:rgba(245,243,239,0.15);align-self:center;transition:all .2s;font-style:normal}
+.ev-row:hover .ev-arrow{color:var(--red);transform:translateX(4px)}
 
-/* ─── RECRUITMENT ─────────────────────── */
-.rec-grid{display:grid;grid-template-columns:1fr 1fr;gap:4rem;margin-top:4rem;align-items:start}
-.steps{list-style:none}
-.step{display:flex;gap:1.5rem;padding:1.5rem 0;border-bottom:1px solid var(--border-soft)}
-.step-n{font-size:.6rem;letter-spacing:.15em;color:var(--maroon);min-width:28px;padding-top:.2rem}
-.step-h{font-size:1rem;font-weight:500;margin-bottom:.3rem}
-.step-p{font-size:.85rem;color:var(--text-dim);line-height:1.7}
-.cta-card{background:var(--maroon);padding:3rem 2.5rem;display:flex;flex-direction:column;gap:2rem}
-.cta-card h3{font-family:'Playfair Display',serif;font-size:2.2rem;font-weight:700;line-height:1.05;letter-spacing:-.02em}
-.cta-card p{font-size:.9rem;color:rgba(249,248,246,.75);line-height:1.75}
-.cta-btn{display:inline-block;padding:.85rem 2.2rem;background:var(--cream);color:var(--maroon);font-family:'DM Sans',sans-serif;font-size:.65rem;font-weight:500;letter-spacing:.22em;text-transform:uppercase;text-decoration:none;transition:all .2s;cursor:pointer;border:none;align-self:flex-start}
-.cta-btn:hover{background:var(--bg);color:var(--cream)}
+/* RECRUITMENT */
+.rec-section{border-top:1px solid var(--border)}
+.rec-hero-band{padding:5rem 2.5rem;background:var(--red);position:relative;overflow:hidden}
+.rec-hero-band::before{content:'ΦΒΛ';position:absolute;right:-1rem;top:50%;transform:translateY(-50%);font-family:'Bebas Neue',sans-serif;font-size:16rem;color:rgba(255,255,255,0.06);pointer-events:none;letter-spacing:.02em;line-height:1}
+.rec-band-inner{position:relative;z-index:1;display:flex;align-items:center;justify-content:space-between}
+.rec-band-title{font-family:'Bebas Neue',sans-serif;font-size:clamp(3rem,8vw,9rem);letter-spacing:.02em;line-height:.9;color:var(--white)}
+.rec-band-right{text-align:right}
+.rec-band-sub{font-family:'IBM Plex Mono',monospace;font-size:.65rem;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,0.55);margin-bottom:1.5rem;line-height:1.8}
+.rec-cta-btn{display:inline-block;padding:1rem 2.5rem;background:var(--white);color:var(--red);font-family:'IBM Plex Mono',monospace;font-size:.65rem;font-weight:500;letter-spacing:.2em;text-transform:uppercase;text-decoration:none;transition:all .2s}
+.rec-cta-btn:hover{background:var(--black);color:var(--white)}
+.rec-steps-wrap{padding:5rem 2.5rem;display:grid;grid-template-columns:1fr 1fr;gap:6rem}
+.rec-steps{list-style:none}
+.rec-step{display:flex;gap:2rem;padding:1.75rem 0;border-bottom:1px solid var(--border)}
+.rec-step-n{font-family:'IBM Plex Mono',monospace;font-size:.6rem;letter-spacing:.15em;color:var(--red);min-width:28px;padding-top:.2rem}
+.rec-step-h{font-size:1rem;font-weight:500;margin-bottom:.4rem;letter-spacing:.03em}
+.rec-step-p{font-size:.85rem;color:rgba(245,243,239,0.5);line-height:1.8}
+.rec-info-box{padding:3rem;border:1px solid var(--border);display:flex;flex-direction:column;gap:2rem;align-self:start;position:sticky;top:90px}
+.rec-info-stat{border-bottom:1px solid var(--border);padding-bottom:1.5rem}
+.rec-info-stat:last-of-type{border-bottom:none}
+.rec-info-num{font-family:'Bebas Neue',sans-serif;font-size:4rem;letter-spacing:.04em;color:var(--white);line-height:1}
+.rec-info-lbl{font-family:'IBM Plex Mono',monospace;font-size:.55rem;letter-spacing:.18em;text-transform:uppercase;color:rgba(245,243,239,0.35);margin-top:.3rem}
 
-/* ─── CONSULTING ──────────────────────── */
+/* CONSULTING */
+.consulting-section{border-top:1px solid var(--border);padding:6rem 2.5rem}
 .clients-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;margin-top:4rem;background:var(--border)}
-.client{background:var(--bg);padding:2.5rem 2rem;transition:background .25s;cursor:default}
-.client:hover{background:var(--bg2)}
-.client-name{font-size:1rem;font-weight:500;margin-bottom:.4rem}
-.client-ind{font-size:.6rem;letter-spacing:.18em;text-transform:uppercase;color:var(--maroon)}
-.con-photos{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:2.5rem}
-.con-photo{aspect-ratio:4/3;background:var(--bg2);position:relative;overflow:hidden}
-.con-photo::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(121,0,0,.45) 0%,rgba(20,8,8,.7) 100%)}
-.con-photo::after{content:'Φ';position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-size:2.5rem;color:rgba(249,248,246,.07)}
+.client-tile{background:var(--black);padding:2.5rem 2rem;transition:background .2s;cursor:default}
+.client-tile:hover{background:var(--gray)}
+.client-tile-name{font-size:1rem;font-weight:500;margin-bottom:.35rem;letter-spacing:.03em}
+.client-tile-ind{font-family:'IBM Plex Mono',monospace;font-size:.55rem;letter-spacing:.2em;text-transform:uppercase;color:var(--red)}
+.consulting-desc{font-size:.95rem;line-height:1.9;color:rgba(245,243,239,0.55);max-width:680px;margin-top:1.5rem}
 
-/* ─── POLARIS ─────────────────────────── */
-.polaris-wrap{display:grid;grid-template-columns:1fr 1fr;gap:6rem;margin-top:3.5rem;align-items:start}
-.polaris-stat{margin-bottom:2.5rem}
-.polaris-num{font-family:'Playfair Display',serif;font-size:5.5rem;font-weight:900;line-height:1;color:var(--maroon);letter-spacing:-.05em}
-.polaris-lbl{font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;color:var(--text-dim);margin-top:.4rem}
-.polaris-tags{display:flex;flex-wrap:wrap;gap:.4rem;margin-top:2.5rem}
-.p-tag{font-size:.6rem;letter-spacing:.14em;text-transform:uppercase;padding:.4rem 1rem;border:1px solid rgba(121,0,0,.4);color:var(--text-dim);transition:all .2s;cursor:default}
-.p-tag:hover{background:var(--maroon);color:var(--cream);border-color:var(--maroon)}
-.polaris-bear{font-family:'Playfair Display',serif;font-size:8rem;text-align:center;color:rgba(121,0,0,.15);line-height:1;margin-bottom:1.5rem;user-select:none}
+/* POLARIS */
+.polaris-section{border-top:1px solid var(--border);}
+.polaris-header{padding:5rem 2.5rem 0;display:grid;grid-template-columns:1fr 1fr;gap:6rem}
+.polaris-star{font-size:8rem;color:rgba(200,16,46,0.15);line-height:1;margin-bottom:1rem;user-select:none}
+.polaris-stats-row{display:flex;gap:0;border-top:1px solid var(--border);margin-top:4rem}
+.polaris-stat-block{flex:1;padding:3rem 2.5rem;border-right:1px solid var(--border)}
+.polaris-stat-block:last-child{border-right:none}
+.p-num{font-family:'Bebas Neue',sans-serif;font-size:5rem;color:var(--red);letter-spacing:.04em;line-height:1}
+.p-lbl{font-family:'IBM Plex Mono',monospace;font-size:.55rem;letter-spacing:.2em;text-transform:uppercase;color:rgba(245,243,239,0.35);margin-top:.4rem}
+.polaris-tags{display:flex;flex-wrap:wrap;gap:.4rem;margin-top:2rem}
 
-/* ─── MEMBERS ─────────────────────────── */
+/* MEMBERS */
+.members-section{border-top:1px solid var(--border);padding:6rem 2.5rem}
 .members-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:2px;margin-top:3rem}
-.member{aspect-ratio:3/4;background:var(--bg2);position:relative;overflow:hidden;cursor:default}
-.member::before{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(121,0,0,.2) 0%,transparent 40%,rgba(11,8,8,.9) 100%)}
-.member-info{position:absolute;bottom:1.25rem;left:1.25rem;right:1.25rem}
-.member-name{font-size:.95rem;font-weight:500;margin-bottom:.2rem}
-.member-role{font-size:.6rem;letter-spacing:.14em;text-transform:uppercase;color:var(--text-dim)}
-.member:nth-child(4n+1){background:#1a0b0b}
-.member:nth-child(4n+2){background:#160909}
-.member:nth-child(4n+3){background:#1e0d0d}
-.member:nth-child(4n){background:#120909}
+.member-card{aspect-ratio:2/3;background:var(--gray);position:relative;overflow:hidden;cursor:default}
+.member-card::before{content:'';position:absolute;inset:0;background:linear-gradient(180deg,transparent 30%,rgba(10,10,10,0.95) 100%)}
+.member-card::after{content:'Φ';position:absolute;top:1rem;right:1rem;font-family:'Bebas Neue',sans-serif;font-size:2rem;color:rgba(200,16,46,0.15);line-height:1}
+.member-info{position:absolute;bottom:1.25rem;left:1.25rem;right:1.25rem;z-index:1}
+.member-name{font-size:.95rem;font-weight:500;margin-bottom:.2rem;letter-spacing:.02em}
+.member-role{font-family:'IBM Plex Mono',monospace;font-size:.5rem;letter-spacing:.15em;text-transform:uppercase;color:rgba(245,243,239,0.4)}
+.member-card:nth-child(4n+2){background:#1c1010}
+.member-card:nth-child(4n+3){background:#181212}
+.member-card:nth-child(4n){background:#141010}
 
-/* ─── LEADERSHIP ──────────────────────── */
-.exec-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2.5rem 3rem;margin-top:4rem}
+/* LEADERSHIP */
+.leadership-section{border-top:1px solid var(--border);padding:6rem 2.5rem}
+.exec-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:3rem 4rem;margin-top:4rem}
 .exec-card{cursor:default}
-.exec-photo{aspect-ratio:1;background:var(--bg2);margin-bottom:1.25rem;position:relative;overflow:hidden}
-.exec-photo::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(121,0,0,.45) 0%,rgba(20,8,8,.75) 100%)}
-.exec-photo::after{content:'Φ';position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-size:3.5rem;color:rgba(249,248,246,.06)}
-.exec-card:nth-child(3n+1) .exec-photo{background:#1a0b0b}
-.exec-card:nth-child(3n+2) .exec-photo{background:#150909}
-.exec-card:nth-child(3n) .exec-photo{background:#1e0e0e}
-.exec-name{font-family:'Playfair Display',serif;font-size:1.1rem;font-weight:700;margin-bottom:.25rem;letter-spacing:-.01em}
-.exec-role{font-size:.6rem;letter-spacing:.16em;text-transform:uppercase;color:var(--maroon)}
+.exec-photo-wrap{aspect-ratio:4/5;background:var(--gray);margin-bottom:1.25rem;position:relative;overflow:hidden}
+.exec-photo-wrap::after{content:'Φ';position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-family:'Bebas Neue',sans-serif;font-size:5rem;color:rgba(200,16,46,0.08)}
+.exec-card:nth-child(3n+1) .exec-photo-wrap{background:#180b0b}
+.exec-card:nth-child(3n+2) .exec-photo-wrap{background:#141010}
+.exec-card:nth-child(3n) .exec-photo-wrap{background:#1c1111}
+.exec-name{font-family:'Bebas Neue',sans-serif;font-size:1.5rem;letter-spacing:.03em;line-height:1;margin-bottom:.3rem}
+.exec-role{font-family:'IBM Plex Mono',monospace;font-size:.55rem;letter-spacing:.18em;text-transform:uppercase;color:var(--red)}
 
-/* ─── GALLERY ─────────────────────────── */
-.gallery-grid{display:grid;grid-template-columns:repeat(3,1fr);grid-auto-rows:200px;gap:4px;margin-top:3rem}
-.gitem{background:var(--bg2);position:relative;overflow:hidden;cursor:pointer}
+/* GALLERY */
+.gallery-section{border-top:1px solid var(--border);padding:6rem 2.5rem}
+.gallery-grid{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:180px;gap:4px;margin-top:3rem}
+.gitem{background:var(--gray);position:relative;overflow:hidden;cursor:pointer}
 .gitem.r2{grid-row:span 2}
 .gitem.c2{grid-column:span 2}
-.gitem::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(121,0,0,.4) 0%,rgba(20,8,8,.65) 100%);opacity:0;transition:opacity .3s}
+.gitem::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(200,16,46,0.35) 0%,rgba(10,10,10,0.7) 100%);opacity:0;transition:opacity .3s}
 .gitem:hover::before{opacity:1}
-.gitem::after{content:'Φ';position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-size:2rem;color:rgba(249,248,246,.05)}
-.gitem:nth-child(2n){background:#170a0a}
-.gitem:nth-child(3n){background:#1b0c0c}
-.gitem:nth-child(5n){background:#120808}
-.gallery-caption{text-align:center;margin-top:2rem;font-size:.65rem;letter-spacing:.2em;text-transform:uppercase;color:var(--text-dim)}
+.gitem::after{content:'Φ';position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-family:'Bebas Neue',sans-serif;font-size:2.5rem;color:rgba(200,16,46,0.07)}
+.gitem:nth-child(2n+1){background:#1a1010}
+.gitem:nth-child(3n){background:#171212}
+.gitem:nth-child(5n){background:#130e0e}
+.gallery-note{margin-top:2rem;font-family:'IBM Plex Mono',monospace;font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;color:rgba(245,243,239,0.25);text-align:center}
 
-/* ─── CONTACT ─────────────────────────── */
-.contact-wrap{display:grid;grid-template-columns:1fr 1fr;gap:6rem;margin-top:4rem;align-items:start}
-.contact-info{list-style:none}
-.ci{padding:1.5rem 0;border-bottom:1px solid var(--border-soft);display:flex;flex-direction:column;gap:.3rem}
-.ci-lbl{font-size:.6rem;letter-spacing:.22em;text-transform:uppercase;color:var(--maroon)}
-.ci-val{font-size:.95rem;color:var(--text-mid)}
-.form-field{margin-bottom:1.5rem}
-.form-field label{display:block;font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;color:var(--text-dim);margin-bottom:.5rem}
-.form-field input,.form-field textarea{width:100%;background:transparent;border:none;border-bottom:1px solid rgba(249,248,246,.15);color:var(--text);font-family:'DM Sans',sans-serif;font-size:.95rem;padding:.6rem 0;outline:none;transition:border-color .2s}
-.form-field input:focus,.form-field textarea:focus{border-color:var(--maroon)}
-.form-field textarea{resize:none;min-height:90px}
-.send-btn{background:transparent;border:1px solid var(--maroon);color:var(--text-mid);font-family:'DM Sans',sans-serif;font-size:.6rem;letter-spacing:.22em;text-transform:uppercase;padding:.9rem 2.5rem;cursor:pointer;transition:all .25s}
-.send-btn:hover{background:var(--maroon);color:var(--cream)}
+/* CONTACT */
+.contact-section{border-top:1px solid var(--border);display:grid;grid-template-columns:1fr 1fr}
+.contact-left{padding:6rem 3rem 6rem 2.5rem;border-right:1px solid var(--border)}
+.contact-right{padding:6rem 2.5rem 6rem 3rem}
+.contact-info{list-style:none;margin-top:3rem}
+.ci{padding:1.5rem 0;border-bottom:1px solid var(--border);display:flex;justify-content:space-between;align-items:baseline}
+.ci-lbl{font-family:'IBM Plex Mono',monospace;font-size:.55rem;letter-spacing:.22em;text-transform:uppercase;color:var(--red)}
+.ci-val{font-size:.9rem;color:rgba(245,243,239,0.6);letter-spacing:.02em}
+.form-field{margin-bottom:2rem}
+.form-field label{display:block;font-family:'IBM Plex Mono',monospace;font-size:.55rem;letter-spacing:.22em;text-transform:uppercase;color:rgba(245,243,239,0.35);margin-bottom:.75rem}
+.form-field input,.form-field textarea{width:100%;background:transparent;border:none;border-bottom:1px solid rgba(245,243,239,0.1);color:var(--white);font-family:'IBM Plex Sans',sans-serif;font-size:.95rem;padding:.65rem 0;outline:none;transition:border-color .2s}
+.form-field input:focus,.form-field textarea:focus{border-color:var(--red)}
+.form-field textarea{resize:none;min-height:100px}
+.send-btn{background:transparent;border:1px solid rgba(245,243,239,0.15);color:rgba(245,243,239,0.45);font-family:'IBM Plex Mono',monospace;font-size:.6rem;letter-spacing:.22em;text-transform:uppercase;padding:1rem 2.5rem;cursor:pointer;transition:all .25s}
+.send-btn:hover{border-color:var(--red);color:var(--white);background:var(--red)}
 
-/* ─── FOOTER ──────────────────────────── */
-footer{padding:3.5rem 2.5rem;border-top:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1.5rem}
-.foot-phi{font-family:'Playfair Display',serif;font-size:2.5rem;color:var(--maroon);line-height:1}
-.foot-copy{font-size:.6rem;letter-spacing:.14em;text-transform:uppercase;color:var(--text-dim)}
+/* FOOTER */
+footer{border-top:1px solid var(--border);padding:2.5rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem}
+.foot-logo{font-family:'Bebas Neue',sans-serif;font-size:3rem;color:var(--red);letter-spacing:.04em;line-height:1}
+.foot-copy{font-family:'IBM Plex Mono',monospace;font-size:.55rem;letter-spacing:.16em;text-transform:uppercase;color:rgba(245,243,239,0.25)}
 .foot-links{display:flex;gap:2rem;list-style:none}
-.foot-links a{font-size:.6rem;letter-spacing:.14em;text-transform:uppercase;color:var(--text-dim);text-decoration:none;transition:color .2s}
-.foot-links a:hover{color:var(--text)}
+.foot-links a{font-family:'IBM Plex Mono',monospace;font-size:.55rem;letter-spacing:.18em;text-transform:uppercase;color:rgba(245,243,239,0.3);text-decoration:none;transition:color .2s}
+.foot-links a:hover{color:var(--white)}
 
-/* ─── RESPONSIVE ──────────────────────── */
-@media(max-width:900px){
-  .rec-grid,.polaris-wrap,.contact-wrap{grid-template-columns:1fr;gap:3rem}
-  .members-grid{grid-template-columns:repeat(2,1fr)}
-  .exec-grid{grid-template-columns:repeat(2,1fr)}
-  .clients-grid{grid-template-columns:repeat(2,1fr)}
+/* KEYFRAMES */
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+@keyframes slideUp{from{transform:translateY(110%)}to{transform:translateY(0)}}
+@keyframes scrollBounce{0%,100%{transform:translateY(0)}50%{transform:translateY(8px)}}
+@keyframes tickerFwd{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+@keyframes tickerRev{from{transform:translateX(-50%)}to{transform:translateX(0)}}
+@keyframes ticker{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+/* RESPONSIVE */
+@media(max-width:1024px){
+  .about,.contact-section{grid-template-columns:1fr}
+  .about-left{border-right:none;border-bottom:1px solid var(--border)}
+  .contact-left{border-right:none;border-bottom:1px solid var(--border)}
+  .rec-steps-wrap{grid-template-columns:1fr}
+  .polaris-header{grid-template-columns:1fr}
 }
-@media(max-width:600px){
-  .hero{padding:0 1.5rem 4rem}
-  .sec{padding:5rem 1.5rem}
-  .values-row{flex-direction:column}
-  .ev{grid-template-columns:1fr;gap:.75rem}
-  .ev-badge{display:none}
-  .gallery-grid{grid-template-columns:1fr 1fr;grid-auto-rows:150px}
-  .gallery-grid .gitem.c2{grid-column:span 1}
-  .members-grid{grid-template-columns:1fr 1fr}
+@media(max-width:768px){
+  nav{padding:0 1.5rem}
+  .nav-links,.nav-apply{display:none}
+  .hamburger{display:flex}
+  .hero{padding:0 1.5rem;padding-top:64px}
+  .ev-row{grid-template-columns:80px 1fr;gap:1rem}
+  .ev-type,.ev-arrow{display:none}
+  .members-grid{grid-template-columns:repeat(2,1fr)}
   .exec-grid{grid-template-columns:1fr 1fr}
+  .clients-grid{grid-template-columns:1fr 1fr}
+  .polaris-stats-row{flex-direction:column}
+  .polaris-stat-block{border-right:none;border-bottom:1px solid var(--border)}
+  .rec-band-inner{flex-direction:column;gap:2rem;align-items:flex-start}
+  .rec-band-right{text-align:left}
+  .gallery-grid{grid-template-columns:repeat(2,1fr);grid-auto-rows:140px}
+  .gallery-grid .gitem.c2{grid-column:span 1}
+  .hero-stat-row{gap:1.5rem}
+  .about-left,.about-right,.consulting-section,.events-section,.leadership-section,.members-section,.gallery-section,.polaris-header,.rec-steps-wrap,.contact-left,.contact-right{padding-left:1.5rem;padding-right:1.5rem}
+  .events-header{flex-direction:column;align-items:flex-start;gap:1rem}
+  .hero-bottom{flex-direction:column;align-items:flex-start;gap:2rem}
+}
+@media(max-width:480px){
+  .exec-grid{grid-template-columns:1fr}
+  .hero-stat-row{gap:1.5rem}
 }
 </style>
 </head>
 <body>
 
-<!-- ── OVERLAY NAV ────────────────────── -->
-<div class="overlay" id="overlay">
-  <button class="overlay-close" onclick="closeOverlay()">Close ×</button>
-  <ul class="overlay-nav">
-    <li><a href="#about" onclick="closeOverlay()">About</a></li>
-    <li><a href="#events" onclick="closeOverlay()">Events</a></li>
-    <li><a href="#recruitment" onclick="closeOverlay()">Recruitment</a></li>
-    <li><a href="#consulting" onclick="closeOverlay()">Consulting</a></li>
-    <li><a href="#polaris" onclick="closeOverlay()">Polaris</a></li>
-    <li><a href="#members" onclick="closeOverlay()">Members</a></li>
-    <li><a href="#leadership" onclick="closeOverlay()">Leadership</a></li>
-    <li><a href="#gallery" onclick="closeOverlay()">Gallery</a></li>
-    <li><a href="#contact" onclick="closeOverlay()">Contact</a></li>
+<!-- CUSTOM CURSOR -->
+<div class="cursor" id="cursor"></div>
+<div class="cursor-ring" id="cursorRing"></div>
+
+<!-- MOBILE OVERLAY -->
+<div class="mob-overlay" id="mobOverlay">
+  <button class="mob-close" onclick="closeMob()">Close ×</button>
+  <ul class="mob-links">
+    <li><a href="#about" onclick="closeMob()">About</a></li>
+    <li><a href="#events" onclick="closeMob()">Events</a></li>
+    <li><a href="#recruitment" onclick="closeMob()">Recruitment</a></li>
+    <li><a href="#consulting" onclick="closeMob()">Consulting</a></li>
+    <li><a href="#polaris" onclick="closeMob()">Polaris</a></li>
+    <li><a href="#leadership" onclick="closeMob()">Leadership</a></li>
+    <li><a href="#contact" onclick="closeMob()">Contact</a></li>
   </ul>
-  <div class="overlay-phi-bg">Φ</div>
-  <div class="overlay-index">De Anza College · Cupertino, CA</div>
+  <div class="mob-meta">De Anza College · Cupertino, CA · Est. FBLA</div>
 </div>
 
-<!-- ── NAV ───────────────────────────── -->
-<nav id="mainNav">
-  <a href="#" class="nav-logo">
-    <span class="nav-phi">Φ</span>
-    <div class="nav-name">
-      <span>Phi Beta Lambda</span>
-      <span>De Anza College</span>
-    </div>
-  </a>
-  <button class="hamburger" onclick="openOverlay()" aria-label="Menu">
-    <span></span><span></span><span></span>
-  </button>
+<!-- NAV -->
+<nav id="nav">
+  <div class="nav-left">
+    <a href="#" class="nav-phi">Φ</a>
+    <div class="nav-wordmark">Phi Beta Lambda<br>De Anza College</div>
+  </div>
+  <div class="nav-right">
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#events">Events</a></li>
+      <li><a href="#recruitment">Recruitment</a></li>
+      <li><a href="#polaris">Polaris</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <a href="mailto:deanzacapbl@gmail.com" class="nav-apply">Apply</a>
+    <button class="hamburger" onclick="openMob()"><span></span><span></span><span></span></button>
+  </div>
 </nav>
 
-<!-- ── HERO ──────────────────────────── -->
-<section class="hero">
-  <div class="hero-wordmark">
-    <span class="hero-line">Phi</span>
-    <span class="hero-line">Beta</span>
-    <span class="hero-line">Lambda</span>
+<!-- HERO -->
+<section class="hero" id="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-grid-lines"></div>
+  <div class="hero-content">
+    <div class="hero-eyebrow">De Anza College · Cupertino, CA · Est. FBLA</div>
+    <h1 class="hero-title">
+      <span class="hero-title-line"><span>Phi</span></span>
+      <span class="hero-title-line"><span>Beta</span></span>
+      <span class="hero-title-line"><span>Lambda</span></span>
+    </h1>
+    <div class="hero-bottom">
+      <p class="hero-descriptor">De Anza's premier student business organization — building careers, community, and leaders.</p>
+      <div class="hero-stat-row">
+        <div class="hero-stat">
+          <div class="hero-stat-num">100+</div>
+          <div class="hero-stat-lbl">Members</div>
+        </div>
+        <div class="hero-stat">
+          <div class="hero-stat-num">20+</div>
+          <div class="hero-stat-lbl">Awards</div>
+        </div>
+        <div class="hero-stat">
+          <div class="hero-stat-num">∞</div>
+          <div class="hero-stat-lbl">Ambition</div>
+        </div>
+      </div>
+    </div>
   </div>
-  <div class="hero-meta">
-    <span class="hero-phi-mark">Φ</span>
-    <span class="hero-caption">De Anza College · Est. FBLA</span>
-  </div>
-  <div class="hero-scroll">
-    <span>Scroll</span>
-    <div class="hero-scroll-line"></div>
+  <div class="hero-scroll-hint">
+    <div class="scroll-dot"></div>
+    <div class="scroll-label">Scroll</div>
   </div>
 </section>
 
-<!-- ── PHOTO MARQUEES ─────────────────── -->
-<div class="marquee-section">
-  <div style="overflow:hidden;margin-bottom:10px">
-    <div class="marquee-track fwd">
-      <div class="mimg sz-m"><span class="mimg-label">Shark Tank 2025</span></div>
-      <div class="mimg sz-s"><span class="mimg-label">Club Day</span></div>
-      <div class="mimg sz-m"><span class="mimg-label">Nationals Prep</span></div>
-      <div class="mimg sz-s"><span class="mimg-label">IM Meeting</span></div>
-      <div class="mimg sz-m"><span class="mimg-label">Business Olympics</span></div>
-      <div class="mimg sz-s"><span class="mimg-label">Orientation</span></div>
-      <div class="mimg sz-m"><span class="mimg-label">Exec Board</span></div>
-      <div class="mimg sz-s"><span class="mimg-label">Workshop</span></div>
-      <div class="mimg sz-m"><span class="mimg-label">Shark Tank 2025</span></div>
-      <div class="mimg sz-s"><span class="mimg-label">Club Day</span></div>
-      <div class="mimg sz-m"><span class="mimg-label">Nationals Prep</span></div>
-      <div class="mimg sz-s"><span class="mimg-label">IM Meeting</span></div>
-      <div class="mimg sz-m"><span class="mimg-label">Business Olympics</span></div>
-      <div class="mimg sz-s"><span class="mimg-label">Orientation</span></div>
-      <div class="mimg sz-m"><span class="mimg-label">Exec Board</span></div>
-      <div class="mimg sz-s"><span class="mimg-label">Workshop</span></div>
-    </div>
+<!-- TICKER -->
+<div class="ticker">
+  <div class="ticker-track">
+    <div class="ticker-item">Phi Beta Lambda</div>
+    <div class="ticker-item">De Anza College</div>
+    <div class="ticker-item">FBLA Nationals</div>
+    <div class="ticker-item">Shark Tank 2025</div>
+    <div class="ticker-item">Polaris Research</div>
+    <div class="ticker-item">Student Consulting</div>
+    <div class="ticker-item">Business Olympics</div>
+    <div class="ticker-item">Cupertino, CA</div>
+    <div class="ticker-item">Phi Beta Lambda</div>
+    <div class="ticker-item">De Anza College</div>
+    <div class="ticker-item">FBLA Nationals</div>
+    <div class="ticker-item">Shark Tank 2025</div>
+    <div class="ticker-item">Polaris Research</div>
+    <div class="ticker-item">Student Consulting</div>
+    <div class="ticker-item">Business Olympics</div>
+    <div class="ticker-item">Cupertino, CA</div>
   </div>
-  <div style="overflow:hidden;margin-bottom:10px">
-    <div class="marquee-track rev">
-      <div class="mimg sz-t"><span class="mimg-label">Portrait</span></div>
-      <div class="mimg sz-m"><span class="mimg-label">CSS Simulation</span></div>
-      <div class="mimg sz-t"><span class="mimg-label">Member</span></div>
-      <div class="mimg sz-m"><span class="mimg-label">Consulting</span></div>
-      <div class="mimg sz-t"><span class="mimg-label">Polaris</span></div>
-      <div class="mimg sz-m"><span class="mimg-label">Speaker Series</span></div>
-      <div class="mimg sz-t"><span class="mimg-label">Portrait</span></div>
-      <div class="mimg sz-m"><span class="mimg-label">FBLA Nationals</span></div>
-      <div class="mimg sz-t"><span class="mimg-label">Portrait</span></div>
-      <div class="mimg sz-m"><span class="mimg-label">CSS Simulation</span></div>
-      <div class="mimg sz-t"><span class="mimg-label">Member</span></div>
-      <div class="mimg sz-m"><span class="mimg-label">Consulting</span></div>
-      <div class="mimg sz-t"><span class="mimg-label">Polaris</span></div>
-      <div class="mimg sz-m"><span class="mimg-label">Speaker Series</span></div>
-      <div class="mimg sz-t"><span class="mimg-label">Portrait</span></div>
-      <div class="mimg sz-m"><span class="mimg-label">FBLA Nationals</span></div>
+</div>
+
+<!-- MARQUEE PHOTOS -->
+<div class="marquee-section">
+  <div style="overflow:hidden;margin-bottom:6px">
+    <div class="mrow fwd" style="display:flex;gap:6px">
+      <div class="mcard md"><div class="inner-phi">Φ</div><span class="mcard-label">Shark Tank 2025</span></div>
+      <div class="mcard sm"><div class="inner-phi">Φ</div><span class="mcard-label">Club Day</span></div>
+      <div class="mcard md"><div class="inner-phi">Φ</div><span class="mcard-label">Nationals Prep</span></div>
+      <div class="mcard sm"><div class="inner-phi">Φ</div><span class="mcard-label">IM Meeting</span></div>
+      <div class="mcard md"><div class="inner-phi">Φ</div><span class="mcard-label">Business Olympics</span></div>
+      <div class="mcard sm"><div class="inner-phi">Φ</div><span class="mcard-label">Orientation</span></div>
+      <div class="mcard md"><div class="inner-phi">Φ</div><span class="mcard-label">Exec Board</span></div>
+      <div class="mcard sm"><div class="inner-phi">Φ</div><span class="mcard-label">Workshop</span></div>
+      <div class="mcard md"><div class="inner-phi">Φ</div><span class="mcard-label">Shark Tank 2025</span></div>
+      <div class="mcard sm"><div class="inner-phi">Φ</div><span class="mcard-label">Club Day</span></div>
+      <div class="mcard md"><div class="inner-phi">Φ</div><span class="mcard-label">Nationals Prep</span></div>
+      <div class="mcard sm"><div class="inner-phi">Φ</div><span class="mcard-label">IM Meeting</span></div>
+      <div class="mcard md"><div class="inner-phi">Φ</div><span class="mcard-label">Business Olympics</span></div>
+      <div class="mcard sm"><div class="inner-phi">Φ</div><span class="mcard-label">Orientation</span></div>
+      <div class="mcard md"><div class="inner-phi">Φ</div><span class="mcard-label">Exec Board</span></div>
+      <div class="mcard sm"><div class="inner-phi">Φ</div><span class="mcard-label">Workshop</span></div>
     </div>
   </div>
   <div style="overflow:hidden">
-    <div class="marquee-track fwd2">
-      <div class="mimg sz-s"><span class="mimg-label">Community</span></div>
-      <div class="mimg sz-m"><span class="mimg-label">Interview Prep</span></div>
-      <div class="mimg sz-s"><span class="mimg-label">Study Group</span></div>
-      <div class="mimg sz-m"><span class="mimg-label">Alumni Panel</span></div>
-      <div class="mimg sz-s"><span class="mimg-label">Pitch Night</span></div>
-      <div class="mimg sz-m"><span class="mimg-label">Networking</span></div>
-      <div class="mimg sz-s"><span class="mimg-label">Team</span></div>
-      <div class="mimg sz-m"><span class="mimg-label">Keynote</span></div>
-      <div class="mimg sz-s"><span class="mimg-label">Community</span></div>
-      <div class="mimg sz-m"><span class="mimg-label">Interview Prep</span></div>
-      <div class="mimg sz-s"><span class="mimg-label">Study Group</span></div>
-      <div class="mimg sz-m"><span class="mimg-label">Alumni Panel</span></div>
-      <div class="mimg sz-s"><span class="mimg-label">Pitch Night</span></div>
-      <div class="mimg sz-m"><span class="mimg-label">Networking</span></div>
-      <div class="mimg sz-s"><span class="mimg-label">Team</span></div>
-      <div class="mimg sz-m"><span class="mimg-label">Keynote</span></div>
+    <div class="mrow rev" style="display:flex;gap:6px">
+      <div class="mcard tall"><div class="inner-phi">Φ</div><span class="mcard-label">Portrait</span></div>
+      <div class="mcard md"><div class="inner-phi">Φ</div><span class="mcard-label">CSS Simulation</span></div>
+      <div class="mcard tall"><div class="inner-phi">Φ</div><span class="mcard-label">Member</span></div>
+      <div class="mcard md"><div class="inner-phi">Φ</div><span class="mcard-label">Consulting</span></div>
+      <div class="mcard tall"><div class="inner-phi">Φ</div><span class="mcard-label">Polaris</span></div>
+      <div class="mcard md"><div class="inner-phi">Φ</div><span class="mcard-label">Speaker Series</span></div>
+      <div class="mcard tall"><div class="inner-phi">Φ</div><span class="mcard-label">Portrait</span></div>
+      <div class="mcard md"><div class="inner-phi">Φ</div><span class="mcard-label">FBLA Nationals</span></div>
+      <div class="mcard tall"><div class="inner-phi">Φ</div><span class="mcard-label">Portrait</span></div>
+      <div class="mcard md"><div class="inner-phi">Φ</div><span class="mcard-label">CSS Simulation</span></div>
+      <div class="mcard tall"><div class="inner-phi">Φ</div><span class="mcard-label">Member</span></div>
+      <div class="mcard md"><div class="inner-phi">Φ</div><span class="mcard-label">Consulting</span></div>
+      <div class="mcard tall"><div class="inner-phi">Φ</div><span class="mcard-label">Polaris</span></div>
+      <div class="mcard md"><div class="inner-phi">Φ</div><span class="mcard-label">Speaker Series</span></div>
+      <div class="mcard tall"><div class="inner-phi">Φ</div><span class="mcard-label">Portrait</span></div>
+      <div class="mcard md"><div class="inner-phi">Φ</div><span class="mcard-label">FBLA Nationals</span></div>
     </div>
   </div>
 </div>
 
-<!-- ── TAGLINE ────────────────────────── -->
-<div class="tagline-band">
-  <span class="tagline-text">de anza's business<br>organization for growth.</span>
-  <span class="tagline-phi">Φ</span>
-</div>
-
-<!-- ── ABOUT ─────────────────────────── -->
-<div id="about" class="sec-border">
-  <div class="sec">
-    <div class="sec-tag">01 — About</div>
-    <h2 class="sec-h">The Group<br>for Growth.</h2>
-    <div class="sec-body">
+<!-- ABOUT -->
+<section id="about" class="about">
+  <div class="about-left">
+    <div class="section-tag">01 — About</div>
+    <h2 class="section-title">The Group<br>For Growth.</h2>
+    <div class="section-body">
       <p>Phi Beta Lambda at De Anza College is the premier student business organization cultivating the next generation of industry professionals. Founded on the principles of leadership, ambition, and inclusivity, PBL provides every student — regardless of background — access to real-world professional opportunities.</p>
       <p>Our community is a resource conglomerate for all De Anza students: a place where cohorts convene, careers begin, and professional identity is forged. We set the standard for extracurricular excellence on campus.</p>
     </div>
-    <div class="values-row">
-      <div class="val-item">
-        <div class="val-glyph">◈</div>
-        <div class="val-name">Inclusion</div>
-      </div>
-      <div class="val-item">
-        <div class="val-glyph">◈</div>
-        <div class="val-name">Integrity</div>
-      </div>
-      <div class="val-item">
-        <div class="val-glyph">◈</div>
-        <div class="val-name">Curiosity</div>
-      </div>
-      <div class="val-item">
-        <div class="val-glyph">◈</div>
-        <div class="val-name">Courage</div>
-      </div>
-      <div class="val-item">
-        <div class="val-glyph">◈</div>
-        <div class="val-name">Collaboration</div>
+    <ul class="values-list">
+      <li class="val-item"><span class="val-num">01</span><span class="val-name">Inclusion</span><span class="val-desc">Everyone belongs</span></li>
+      <li class="val-item"><span class="val-num">02</span><span class="val-name">Integrity</span><span class="val-desc">We do what's right</span></li>
+      <li class="val-item"><span class="val-num">03</span><span class="val-name">Curiosity</span><span class="val-desc">Always learning</span></li>
+      <li class="val-item"><span class="val-num">04</span><span class="val-name">Courage</span><span class="val-desc">Bold action</span></li>
+      <li class="val-item"><span class="val-num">05</span><span class="val-name">Collaboration</span><span class="val-desc">Stronger together</span></li>
+    </ul>
+  </div>
+  <div class="about-right">
+    <blockquote class="about-quote">"A place where cohorts convene, careers begin, and professional identity is forged."</blockquote>
+    <div>
+      <div class="section-tag">What we offer</div>
+      <div class="about-pill-row">
+        <div class="pill">FBLA Nationals</div>
+        <div class="pill">Consulting</div>
+        <div class="pill">Polaris Research</div>
+        <div class="pill">Shark Tank</div>
+        <div class="pill">Business Olympics</div>
+        <div class="pill">Speaker Series</div>
+        <div class="pill">Interview Prep</div>
+        <div class="pill">Networking</div>
+        <div class="pill">Alumni Network</div>
+        <div class="pill">Case Competitions</div>
       </div>
     </div>
   </div>
-</div>
+</section>
 
-<!-- ── EVENTS ─────────────────────────── -->
-<div id="events" class="sec-border">
-  <div class="sec">
-    <div class="sec-tag">02 — Events</div>
-    <h2 class="sec-h">What We<br>Build Together.</h2>
-    <div class="event-list">
-      <div class="ev">
-        <div class="ev-date">Spring 2025</div>
-        <div>
-          <div class="ev-name">PBL Shark Tank</div>
-          <div class="ev-desc">Live panel pitches before industry judges spanning Facebook, McAfee, Cisco, and Informatica. Teams compete for full backing in just one hour of ideation to pitch.</div>
-        </div>
-        <div class="ev-badge">Flagship</div>
-      </div>
-      <div class="ev">
-        <div class="ev-date">Quarterly</div>
-        <div>
-          <div class="ev-name">Business Olympics</div>
-          <div class="ev-desc">Multi-discipline competition spanning case strategy, finance, marketing, and operations — required for all internal members.</div>
-        </div>
-        <div class="ev-badge">Competition</div>
-      </div>
-      <div class="ev">
-        <div class="ev-date">Quarterly</div>
-        <div>
-          <div class="ev-name">Crisis Strategy Simulation</div>
-          <div class="ev-desc">Real-time scenario simulations testing rapid-response business judgment under mentorship of industry professionals.</div>
-        </div>
-        <div class="ev-badge">Workshop</div>
-      </div>
-      <div class="ev">
-        <div class="ev-date">Annual</div>
-        <div>
-          <div class="ev-name">FBLA Nationals Preparation</div>
-          <div class="ev-desc">Structured preparation program for members competing at the national FBLA Leadership Conference — covering all case categories.</div>
-        </div>
-        <div class="ev-badge">Prep</div>
-      </div>
-      <div class="ev">
-        <div class="ev-date">Weekly</div>
-        <div>
-          <div class="ev-name">IM General Meetings</div>
-          <div class="ev-desc">Internal member gatherings for updates, workshops, guest speakers, and cohort alignment. Attendance required.</div>
-        </div>
-        <div class="ev-badge">Meeting</div>
-      </div>
-      <div class="ev">
-        <div class="ev-date">Recurring</div>
-        <div>
-          <div class="ev-name">Club Day & Outreach</div>
-          <div class="ev-desc">Main Quad presence during De Anza club days to recruit prospective members and showcase PBL's programs and alumni outcomes.</div>
-        </div>
-        <div class="ev-badge">Outreach</div>
+<!-- EVENTS -->
+<section id="events" class="events-section">
+  <div class="events-header">
+    <div>
+      <div class="section-tag">02 — Events</div>
+      <h2 class="section-title">What We<br>Build Together.</h2>
+    </div>
+    <div class="events-count">06</div>
+  </div>
+  <div>
+    <div class="ev-row">
+      <div class="ev-date">Spring 2025</div>
+      <div><div class="ev-name">PBL Shark Tank</div><div class="ev-desc">Live panel pitches before industry judges spanning Facebook, McAfee, Cisco, and Informatica. One hour from ideation to pitch.</div></div>
+      <div class="ev-type">Flagship</div>
+      <em class="ev-arrow">→</em>
+    </div>
+    <div class="ev-row">
+      <div class="ev-date">Quarterly</div>
+      <div><div class="ev-name">Business Olympics</div><div class="ev-desc">Multi-discipline competition spanning case strategy, finance, marketing, and operations — required for all internal members.</div></div>
+      <div class="ev-type">Competition</div>
+      <em class="ev-arrow">→</em>
+    </div>
+    <div class="ev-row">
+      <div class="ev-date">Quarterly</div>
+      <div><div class="ev-name">Crisis Strategy Simulation</div><div class="ev-desc">Real-time scenario simulations testing rapid-response business judgment under mentorship of industry professionals.</div></div>
+      <div class="ev-type">Workshop</div>
+      <em class="ev-arrow">→</em>
+    </div>
+    <div class="ev-row">
+      <div class="ev-date">Annual</div>
+      <div><div class="ev-name">FBLA Nationals Prep</div><div class="ev-desc">Structured preparation program for members competing at the national FBLA Leadership Conference — all case categories.</div></div>
+      <div class="ev-type">Prep</div>
+      <em class="ev-arrow">→</em>
+    </div>
+    <div class="ev-row">
+      <div class="ev-date">Weekly</div>
+      <div><div class="ev-name">IM General Meetings</div><div class="ev-desc">Internal member gatherings for updates, workshops, guest speakers, and cohort alignment. Attendance required.</div></div>
+      <div class="ev-type">Meeting</div>
+      <em class="ev-arrow">→</em>
+    </div>
+    <div class="ev-row">
+      <div class="ev-date">Recurring</div>
+      <div><div class="ev-name">Club Day & Outreach</div><div class="ev-desc">Main Quad presence during De Anza club days to recruit prospective members and showcase PBL's programs.</div></div>
+      <div class="ev-type">Outreach</div>
+      <em class="ev-arrow">→</em>
+    </div>
+  </div>
+</section>
+
+<!-- RECRUITMENT -->
+<section id="recruitment" class="rec-section">
+  <div class="rec-hero-band">
+    <div class="rec-band-inner">
+      <h2 class="rec-band-title">Join the<br>Chapter.</h2>
+      <div class="rec-band-right">
+        <div class="rec-band-sub">Applications open each quarter<br>Follow @deanzapbl for dates</div>
+        <a href="mailto:deanzacapbl@gmail.com" class="rec-cta-btn">Apply Now →</a>
       </div>
     </div>
   </div>
-</div>
-
-<!-- ── RECRUITMENT ────────────────────── -->
-<div id="recruitment" class="sec-border">
-  <div class="sec">
-    <div class="sec-tag">03 — Recruitment</div>
-    <h2 class="sec-h">Join the<br>Chapter.</h2>
-    <div class="rec-grid">
-      <ol class="steps">
-        <li class="step">
-          <span class="step-n">01</span>
-          <div>
-            <div class="step-h">Application Opens</div>
-            <div class="step-p">Submit your interest form during the open application window each quarter. Open to all De Anza students — no prior business experience required.</div>
-          </div>
-        </li>
-        <li class="step">
-          <span class="step-n">02</span>
-          <div>
-            <div class="step-h">Zoom Interviews</div>
-            <div class="step-p">Selected applicants are invited for a 15-minute virtual interview with members of the Executive Board. Monday through Wednesday following application close.</div>
-          </div>
-        </li>
-        <li class="step">
-          <span class="step-n">03</span>
-          <div>
-            <div class="step-h">Decisions Released</div>
-            <div class="step-p">Offers are sent to successful candidates. Signed contracts are due within 48 hours of receiving an offer. Welcome to the chapter.</div>
-          </div>
-        </li>
-        <li class="step">
-          <span class="step-n">04</span>
-          <div>
-            <div class="step-h">IM Orientation</div>
-            <div class="step-p">New internal members attend a mandatory orientation to align with PBL's mission, standards, cohorts, and the academic calendar ahead.</div>
-          </div>
-        </li>
-      </ol>
-      <div class="cta-card">
-        <h3>Ready to grow?</h3>
-        <p>Applications open each quarter. Follow <strong>@deanzapbl</strong> on Instagram for recruitment announcements, interview timelines, and orientation dates.</p>
-        <div>
-          <p style="font-size:.75rem;color:rgba(249,248,246,.6);margin-bottom:1.25rem">50+ member organization · 20+ first-place awards in 2 years · Alumni at Purdue, UCLA, UC Berkeley Haas, Columbia</p>
-          <a href="mailto:deanzacapbl@gmail.com" class="cta-btn">Apply Now →</a>
-        </div>
+  <div class="rec-steps-wrap">
+    <ol class="rec-steps">
+      <li class="rec-step">
+        <span class="rec-step-n">01</span>
+        <div><div class="rec-step-h">Application Opens</div><div class="rec-step-p">Submit your interest form during the open application window each quarter. Open to all De Anza students — no prior business experience required.</div></div>
+      </li>
+      <li class="rec-step">
+        <span class="rec-step-n">02</span>
+        <div><div class="rec-step-h">Zoom Interviews</div><div class="rec-step-p">Selected applicants are invited for a 15-minute virtual interview with members of the Executive Board. Monday through Wednesday following application close.</div></div>
+      </li>
+      <li class="rec-step">
+        <span class="rec-step-n">03</span>
+        <div><div class="rec-step-h">Decisions Released</div><div class="rec-step-p">Offers are sent to successful candidates. Signed contracts are due within 48 hours of receiving an offer.</div></div>
+      </li>
+      <li class="rec-step">
+        <span class="rec-step-n">04</span>
+        <div><div class="rec-step-h">IM Orientation</div><div class="rec-step-p">New internal members attend a mandatory orientation to align with PBL's mission, standards, cohorts, and the academic calendar ahead.</div></div>
+      </li>
+    </ol>
+    <div class="rec-info-box">
+      <div class="rec-info-stat">
+        <div class="rec-info-num">100+</div>
+        <div class="rec-info-lbl">Member Organization</div>
       </div>
+      <div class="rec-info-stat">
+        <div class="rec-info-num">20+</div>
+        <div class="rec-info-lbl">First-Place Awards in 2 Years</div>
+      </div>
+      <div class="rec-info-stat">
+        <div class="rec-info-num">4+</div>
+        <div class="rec-info-lbl">Top University Alumni Placements</div>
+      </div>
+      <div style="font-size:.8rem;color:rgba(245,243,239,0.4);line-height:1.8;font-style:italic;font-family:'Libre Baskerville',serif">Alumni at Purdue, UCLA, UC Berkeley Haas, Columbia, and beyond.</div>
     </div>
   </div>
-</div>
+</section>
 
-<!-- ── CONSULTING ─────────────────────── -->
-<div id="consulting" class="sec-border">
-  <div class="sec">
-    <div class="sec-tag">04 — Consulting</div>
-    <h2 class="sec-h">Real Work.<br>Real Clients.</h2>
-    <div class="sec-body">
-      <p>PBL's consulting division pairs student analysts with real organizations across industries. Members develop data-driven strategy recommendations under the mentorship of industry professionals — building portfolio-ready work from day one.</p>
+<!-- CONSULTING -->
+<section id="consulting" class="consulting-section">
+  <div class="section-tag">04 — Consulting</div>
+  <h2 class="section-title">Real Work.<br>Real Clients.</h2>
+  <p class="consulting-desc">PBL's consulting division pairs student analysts with real organizations across industries. Members develop data-driven strategy recommendations under the mentorship of industry professionals — building portfolio-ready work from day one.</p>
+  <div class="clients-grid">
+    <div class="client-tile"><div class="client-tile-name">Client Name</div><div class="client-tile-ind">Technology</div></div>
+    <div class="client-tile"><div class="client-tile-name">Client Name</div><div class="client-tile-ind">Finance</div></div>
+    <div class="client-tile"><div class="client-tile-name">Client Name</div><div class="client-tile-ind">Retail</div></div>
+    <div class="client-tile"><div class="client-tile-name">Client Name</div><div class="client-tile-ind">Healthcare</div></div>
+    <div class="client-tile"><div class="client-tile-name">Client Name</div><div class="client-tile-ind">Sustainability</div></div>
+    <div class="client-tile"><div class="client-tile-name">Client Name</div><div class="client-tile-ind">Media & Entertainment</div></div>
+  </div>
+</section>
+
+<!-- POLARIS -->
+<section id="polaris" class="polaris-section">
+  <div class="polaris-header">
+    <div>
+      <div class="section-tag">05 — Polaris Research Group</div>
+      <h2 class="section-title">Guided by<br>the North Star.</h2>
+      <div class="section-body">
+        <p>Polaris Research Group is the research body of Phi Beta Lambda — the North Star of our organization. Named for the guiding star of Ursa Minor, Polaris exists within PBL as a specialized research cohort producing rigorous, publication-ready equity and macro research.</p>
+        <p>Polaris members publish sector analyses, equity models, and strategic research under the PBL umbrella — bridging the gap between student finance and institutional-quality work, with publications targeting SSRN and academic venues.</p>
+      </div>
+      <div class="polaris-tags">
+        <div class="pill">Equities</div>
+        <div class="pill">Macro</div>
+        <div class="pill">Technology</div>
+        <div class="pill">Finance</div>
+        <div class="pill">Healthcare</div>
+        <div class="pill">Energy</div>
+        <div class="pill">SSRN Publications</div>
+        <div class="pill">Equity Models</div>
+        <div class="pill">Sector Reports</div>
+      </div>
     </div>
-    <div class="clients-grid">
-      <div class="client">
-        <div class="client-name">Client Name</div>
-        <div class="client-ind">Technology</div>
-      </div>
-      <div class="client">
-        <div class="client-name">Client Name</div>
-        <div class="client-ind">Finance</div>
-      </div>
-      <div class="client">
-        <div class="client-name">Client Name</div>
-        <div class="client-ind">Retail</div>
-      </div>
-      <div class="client">
-        <div class="client-name">Client Name</div>
-        <div class="client-ind">Healthcare</div>
-      </div>
-      <div class="client">
-        <div class="client-name">Client Name</div>
-        <div class="client-ind">Sustainability</div>
-      </div>
-      <div class="client">
-        <div class="client-name">Client Name</div>
-        <div class="client-ind">Media & Entertainment</div>
-      </div>
-    </div>
-    <div class="con-photos">
-      <div class="con-photo"></div>
-      <div class="con-photo"></div>
-      <div class="con-photo"></div>
+    <div>
+      <div class="polaris-star">★</div>
+      <div class="section-body"><p>We're not just another club. Polaris exists to prove that college students can produce institutional-quality research — and we do.</p></div>
     </div>
   </div>
-</div>
-
-<!-- ── POLARIS ────────────────────────── -->
-<div id="polaris" class="sec-border">
-  <div class="sec">
-    <div class="sec-tag">05 — Polaris Research Group</div>
-    <h2 class="sec-h">Guided by<br>the North Star.</h2>
-    <div class="polaris-wrap">
-      <div>
-        <div class="sec-body">
-          <p>Polaris Research Group is the research body of Phi Beta Lambda — the North Star of our organization. Named for the guiding star of Ursa Minor, Polaris exists within PBL as a specialized research cohort producing rigorous, publication-ready equity and macro research.</p>
-          <p>Polaris members publish sector analyses, equity models, and strategic research under the PBL umbrella — bridging the gap between student finance and institutional-quality work, with publications targeting SSRN and academic venues.</p>
-        </div>
-        <div class="polaris-tags">
-          <div class="p-tag">Equities</div>
-          <div class="p-tag">Macro</div>
-          <div class="p-tag">Technology</div>
-          <div class="p-tag">Finance</div>
-          <div class="p-tag">Healthcare</div>
-          <div class="p-tag">Energy</div>
-          <div class="p-tag">Consumer</div>
-          <div class="p-tag">SSRN Publications</div>
-          <div class="p-tag">Equity Models</div>
-          <div class="p-tag">Sector Reports</div>
-        </div>
-      </div>
-      <div>
-        <div class="polaris-bear">★</div>
-        <div class="polaris-stat">
-          <div class="polaris-num">100+</div>
-          <div class="polaris-lbl">Members Organization-Wide</div>
-        </div>
-        <div class="polaris-stat">
-          <div class="polaris-num">20+</div>
-          <div class="polaris-lbl">First-Place Competition Awards</div>
-        </div>
-        <div class="polaris-stat">
-          <div class="polaris-num">∞</div>
-          <div class="polaris-lbl">Ambition</div>
-        </div>
-      </div>
-    </div>
+  <div class="polaris-stats-row">
+    <div class="polaris-stat-block"><div class="p-num">100+</div><div class="p-lbl">Members Org-Wide</div></div>
+    <div class="polaris-stat-block"><div class="p-num">20+</div><div class="p-lbl">First-Place Awards</div></div>
+    <div class="polaris-stat-block"><div class="p-num">∞</div><div class="p-lbl">Ambition</div></div>
+    <div class="polaris-stat-block"><div class="p-num">1</div><div class="p-lbl">De Anza's Best Club</div></div>
   </div>
-</div>
+</section>
 
-<!-- ── MEMBERS ────────────────────────── -->
-<div id="members" class="sec-border">
-  <div class="sec">
-    <div class="sec-tag">06 — Members</div>
-    <h2 class="sec-h">Our People.</h2>
-    <div class="members-grid">
-      <div class="member"><div class="member-info"><div class="member-name">Member Name</div><div class="member-role">Finance · IM</div></div></div>
-      <div class="member"><div class="member-info"><div class="member-name">Member Name</div><div class="member-role">Marketing · IM</div></div></div>
-      <div class="member"><div class="member-info"><div class="member-name">Member Name</div><div class="member-role">Technology · IM</div></div></div>
-      <div class="member"><div class="member-info"><div class="member-name">Member Name</div><div class="member-role">Operations · IM</div></div></div>
-      <div class="member"><div class="member-info"><div class="member-name">Member Name</div><div class="member-role">Strategy · IM</div></div></div>
-      <div class="member"><div class="member-info"><div class="member-name">Member Name</div><div class="member-role">Research · Polaris</div></div></div>
-      <div class="member"><div class="member-info"><div class="member-name">Member Name</div><div class="member-role">Consulting · IM</div></div></div>
-      <div class="member"><div class="member-info"><div class="member-name">Member Name</div><div class="member-role">Media · IM</div></div></div>
-    </div>
+<!-- MEMBERS -->
+<section id="members" class="members-section">
+  <div class="section-tag">06 — Members</div>
+  <h2 class="section-title">Our People.</h2>
+  <div class="members-grid">
+    <div class="member-card"><div class="member-info"><div class="member-name">Member Name</div><div class="member-role">Finance · IM</div></div></div>
+    <div class="member-card"><div class="member-info"><div class="member-name">Member Name</div><div class="member-role">Marketing · IM</div></div></div>
+    <div class="member-card"><div class="member-info"><div class="member-name">Member Name</div><div class="member-role">Technology · IM</div></div></div>
+    <div class="member-card"><div class="member-info"><div class="member-name">Member Name</div><div class="member-role">Operations · IM</div></div></div>
+    <div class="member-card"><div class="member-info"><div class="member-name">Member Name</div><div class="member-role">Strategy · IM</div></div></div>
+    <div class="member-card"><div class="member-info"><div class="member-name">Member Name</div><div class="member-role">Research · Polaris</div></div></div>
+    <div class="member-card"><div class="member-info"><div class="member-name">Member Name</div><div class="member-role">Consulting · IM</div></div></div>
+    <div class="member-card"><div class="member-info"><div class="member-name">Member Name</div><div class="member-role">Media · IM</div></div></div>
   </div>
-</div>
+</section>
 
-<!-- ── LEADERSHIP ─────────────────────── -->
-<div id="leadership" class="sec-border">
-  <div class="sec">
-    <div class="sec-tag">07 — Leadership</div>
-    <h2 class="sec-h">Executive<br>Board.</h2>
-    <div class="exec-grid">
-      <div class="exec-card">
-        <div class="exec-photo"></div>
-        <div class="exec-name">Javin Ku</div>
-        <div class="exec-role">President</div>
-      </div>
-      <div class="exec-card">
-        <div class="exec-photo"></div>
-        <div class="exec-name">Van Loc Nguyen</div>
-        <div class="exec-role">Vice President</div>
-      </div>
-      <div class="exec-card">
-        <div class="exec-photo"></div>
-        <div class="exec-name">Alan Dang</div>
-        <div class="exec-role">Executive</div>
-      </div>
-      <div class="exec-card">
-        <div class="exec-photo"></div>
-        <div class="exec-name">Zain Darwish</div>
-        <div class="exec-role">Executive</div>
-      </div>
-      <div class="exec-card">
-        <div class="exec-photo"></div>
-        <div class="exec-name">Christopher Wu</div>
-        <div class="exec-role">Director</div>
-      </div>
-      <div class="exec-card">
-        <div class="exec-photo"></div>
-        <div class="exec-name">Carine Chan</div>
-        <div class="exec-role">Director</div>
-      </div>
-      <div class="exec-card">
-        <div class="exec-photo"></div>
-        <div class="exec-name">Addy Hu</div>
-        <div class="exec-role">Director of Media</div>
-      </div>
-      <div class="exec-card">
-        <div class="exec-photo"></div>
-        <div class="exec-name">Nhi Tran</div>
-        <div class="exec-role">Director of Media</div>
-      </div>
-      <div class="exec-card">
-        <div class="exec-photo"></div>
-        <div class="exec-name">Arya Somu</div>
-        <div class="exec-role">VP of Strategy &amp; Development</div>
-      </div>
-    </div>
+<!-- LEADERSHIP -->
+<section id="leadership" class="leadership-section">
+  <div class="section-tag">07 — Leadership</div>
+  <h2 class="section-title">Executive<br>Board.</h2>
+  <div class="exec-grid">
+    <div class="exec-card"><div class="exec-photo-wrap"></div><div class="exec-name">Javin Ku</div><div class="exec-role">President</div></div>
+    <div class="exec-card"><div class="exec-photo-wrap"></div><div class="exec-name">Van Loc Nguyen</div><div class="exec-role">Vice President</div></div>
+    <div class="exec-card"><div class="exec-photo-wrap"></div><div class="exec-name">Alan Dang</div><div class="exec-role">Executive</div></div>
+    <div class="exec-card"><div class="exec-photo-wrap"></div><div class="exec-name">Zain Darwish</div><div class="exec-role">Executive</div></div>
+    <div class="exec-card"><div class="exec-photo-wrap"></div><div class="exec-name">Christopher Wu</div><div class="exec-role">Director</div></div>
+    <div class="exec-card"><div class="exec-photo-wrap"></div><div class="exec-name">Carine Chan</div><div class="exec-role">Director</div></div>
+    <div class="exec-card"><div class="exec-photo-wrap"></div><div class="exec-name">Addy Hu</div><div class="exec-role">Director of Media</div></div>
+    <div class="exec-card"><div class="exec-photo-wrap"></div><div class="exec-name">Nhi Tran</div><div class="exec-role">Director of Media</div></div>
+    <div class="exec-card"><div class="exec-photo-wrap"></div><div class="exec-name">Arya Somu</div><div class="exec-role">VP of Strategy & Development</div></div>
   </div>
-</div>
+</section>
 
-<!-- ── GALLERY ────────────────────────── -->
-<div id="gallery" class="sec-border">
-  <div class="sec">
-    <div class="sec-tag">08 — Gallery</div>
-    <h2 class="sec-h">In the Field.</h2>
-    <div class="gallery-grid">
-      <div class="gitem c2"></div>
-      <div class="gitem r2"></div>
-      <div class="gitem"></div>
-      <div class="gitem"></div>
-      <div class="gitem"></div>
-      <div class="gitem c2"></div>
-      <div class="gitem r2"></div>
-      <div class="gitem"></div>
-      <div class="gitem"></div>
-    </div>
-    <p class="gallery-caption">Photos coming soon — submit yours to deanzacapbl@gmail.com</p>
+<!-- GALLERY -->
+<section id="gallery" class="gallery-section">
+  <div class="section-tag">08 — Gallery</div>
+  <h2 class="section-title">In the Field.</h2>
+  <div class="gallery-grid">
+    <div class="gitem c2"></div>
+    <div class="gitem r2"></div>
+    <div class="gitem"></div>
+    <div class="gitem"></div>
+    <div class="gitem r2"></div>
+    <div class="gitem c2"></div>
+    <div class="gitem"></div>
+    <div class="gitem"></div>
   </div>
-</div>
+  <p class="gallery-note">Photos coming soon — submit yours to deanzacapbl@gmail.com</p>
+</section>
 
-<!-- ── CONTACT ────────────────────────── -->
-<div id="contact" class="sec-border">
-  <div class="sec">
-    <div class="sec-tag">09 — Contact</div>
-    <h2 class="sec-h">Get In<br>Touch.</h2>
-    <div class="contact-wrap">
-      <ul class="contact-info">
-        <li class="ci">
-          <span class="ci-lbl">Email</span>
-          <span class="ci-val">deanzacapbl@gmail.com</span>
-        </li>
-        <li class="ci">
-          <span class="ci-lbl">Instagram</span>
-          <span class="ci-val">@deanzapbl</span>
-        </li>
-        <li class="ci">
-          <span class="ci-lbl">LinkedIn</span>
-          <span class="ci-val">Phi Beta Lambda — De Anza</span>
-        </li>
-        <li class="ci">
-          <span class="ci-lbl">Location</span>
-          <span class="ci-val">De Anza College, Cupertino, CA</span>
-        </li>
-        <li class="ci">
-          <span class="ci-lbl">Meetings</span>
-          <span class="ci-val">MLC Building — see newsletter for room</span>
-        </li>
-      </ul>
-      <div>
-        <div class="form-field">
-          <label>Your Name</label>
-          <input type="text" placeholder="Full name">
-        </div>
-        <div class="form-field">
-          <label>Email Address</label>
-          <input type="email" placeholder="you@email.com">
-        </div>
-        <div class="form-field">
-          <label>Message</label>
-          <textarea placeholder="Say hello or ask about recruitment..."></textarea>
-        </div>
-        <button class="send-btn">Send Message →</button>
-      </div>
-    </div>
+<!-- CONTACT -->
+<section id="contact" class="contact-section">
+  <div class="contact-left">
+    <div class="section-tag">09 — Contact</div>
+    <h2 class="section-title">Get In<br>Touch.</h2>
+    <ul class="contact-info">
+      <li class="ci"><span class="ci-lbl">Email</span><span class="ci-val">deanzacapbl@gmail.com</span></li>
+      <li class="ci"><span class="ci-lbl">Instagram</span><span class="ci-val">@deanzapbl</span></li>
+      <li class="ci"><span class="ci-lbl">LinkedIn</span><span class="ci-val">Phi Beta Lambda — De Anza</span></li>
+      <li class="ci"><span class="ci-lbl">Location</span><span class="ci-val">De Anza College, Cupertino, CA</span></li>
+      <li class="ci"><span class="ci-lbl">Meetings</span><span class="ci-val">MLC Building</span></li>
+    </ul>
   </div>
-</div>
+  <div class="contact-right">
+    <div class="section-tag" style="margin-top:2rem">Send a message</div>
+    <div class="form-field"><label>Your Name</label><input type="text" placeholder="Full name"></div>
+    <div class="form-field"><label>Email Address</label><input type="email" placeholder="you@email.com"></div>
+    <div class="form-field"><label>Message</label><textarea placeholder="Say hello or ask about recruitment..."></textarea></div>
+    <button class="send-btn">Send Message →</button>
+  </div>
+</section>
 
-<!-- ── FOOTER ─────────────────────────── -->
+<!-- FOOTER -->
 <footer>
-  <span class="foot-phi">Φ</span>
+  <span class="foot-logo">ΦΒΛ</span>
   <span class="foot-copy">© 2025 Phi Beta Lambda · De Anza College Chapter</span>
   <ul class="foot-links">
     <li><a href="https://instagram.com/deanzapbl" target="_blank">Instagram</a></li>
@@ -726,22 +693,39 @@ footer{padding:3.5rem 2.5rem;border-top:1px solid var(--border);display:flex;ali
 </footer>
 
 <script>
-const overlay = document.getElementById('overlay');
-const nav = document.getElementById('mainNav');
-
-function openOverlay() {
-  overlay.classList.add('open');
-  document.body.style.overflow = 'hidden';
-}
-function closeOverlay() {
-  overlay.classList.remove('open');
-  document.body.style.overflow = '';
-}
-document.addEventListener('keydown', e => { if (e.key === 'Escape') closeOverlay(); });
-
+/* NAV SCROLL */
+const nav = document.getElementById('nav');
 window.addEventListener('scroll', () => {
   nav.classList.toggle('scrolled', window.scrollY > 60);
 }, { passive: true });
+
+/* MOBILE MENU */
+function openMob() {
+  document.getElementById('mobOverlay').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeMob() {
+  document.getElementById('mobOverlay').classList.remove('open');
+  document.body.style.overflow = '';
+}
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeMob(); });
+
+/* CURSOR */
+const cursor = document.getElementById('cursor');
+const ring = document.getElementById('cursorRing');
+let mx = 0, my = 0, rx = 0, ry = 0;
+document.addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; cursor.style.left = mx + 'px'; cursor.style.top = my + 'px'; });
+(function animRing() {
+  rx += (mx - rx) * 0.15;
+  ry += (my - ry) * 0.15;
+  ring.style.left = rx + 'px';
+  ring.style.top = ry + 'px';
+  requestAnimationFrame(animRing);
+})();
+document.querySelectorAll('a,button,.pill,.p-tag,.client-tile,.ev-row,.val-item,.member-card,.exec-card,.gitem').forEach(el => {
+  el.addEventListener('mouseenter', () => { cursor.style.width = '14px'; cursor.style.height = '14px'; ring.style.width = '52px'; ring.style.height = '52px'; ring.style.borderColor = 'rgba(200,16,46,0.8)'; });
+  el.addEventListener('mouseleave', () => { cursor.style.width = '8px'; cursor.style.height = '8px'; ring.style.width = '36px'; ring.style.height = '36px'; ring.style.borderColor = 'rgba(200,16,46,0.5)'; });
+});
 </script>
 </body>
 </html>
