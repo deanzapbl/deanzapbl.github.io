@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Leadership — Phi Beta Lambda De Anza</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Unbounded:wght@400;700&family=DM+Sans:wght@300;400;500&family=IBM+Plex+Mono:wght@400;500&family=Playfair+Display:ital,wght@1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<style id="group-banner-css">
+@keyframes groupFloat{
+  0%{transform:translateY(0) translateX(0) scale(1)}
+  25%{transform:translateY(-6px) translateX(5px) scale(1.005)}
+  50%{transform:translateY(-3px) translateX(-4px) scale(1.003)}
+  75%{transform:translateY(-7px) translateX(3px) scale(1.005)}
+  100%{transform:translateY(0) translateX(0) scale(1)}
+}
+@keyframes groupIn{
+  from{opacity:0;transform:translateY(30px) scale(.98)}
+  to{opacity:1;transform:translateY(0) scale(1)}
+}
+.group-banner{
+  position:relative;
+  width:90%;
+  margin:0 auto 5rem;
+  border-radius:20px;
+  overflow:visible;
+  opacity:0;
+}
+.group-banner.visible{
+  animation:
+    groupIn .9s cubic-bezier(.16,1,.3,1) forwards,
+    groupFloat 8s ease-in-out 1s infinite;
+}
+.group-banner-img{
+  width:100%;
+  display:block;
+  border-radius:20px;
+  height:500px;
+  object-fit:cover;
+  object-position:center 18%;
+}
+/* white glow */
+.group-banner-glow{
+  position:absolute;
+  inset:-1px;
+  border-radius:21px;
+  pointer-events:none;
+  z-index:2;
+  box-shadow:
+    0 0 0 1px rgba(255,255,255,.14),
+    0 0 20px 5px rgba(255,255,255,.12),
+    0 0 55px 12px rgba(255,255,255,.08),
+    0 0 100px 22px rgba(255,255,255,.04),
+    0 28px 90px 0 rgba(0,0,0,.75);
+}
+/* top rim white highlight */
+.group-banner::before{
+  content:'';
+  position:absolute;
+  top:0;left:0;right:0;height:1px;
+  background:linear-gradient(90deg,
+    transparent 5%,
+    rgba(255,255,255,.4) 30%,
+    rgba(255,255,255,.65) 50%,
+    rgba(255,255,255,.4) 70%,
+    transparent 95%);
+  border-radius:20px 20px 0 0;
+  z-index:3;pointer-events:none;
+}
+/* vignette */
+.group-banner::after{
+  content:'';
+  position:absolute;
+  inset:0;border-radius:20px;
+  background:radial-gradient(ellipse 95% 95% at 50% 50%,transparent 45%,rgba(10,10,10,.4) 100%);
+  pointer-events:none;z-index:1;
+}
+</style>
+</head>
+<body>
+<div class="cur" id="cur"></div>
+<div class="cur-ring" id="ring"></div>
+
+<!-- MOBILE OVERLAY -->
+<div class="mob-overlay" id="mob">
+  <button class="mob-close" onclick="closeMob()">Close ×</button>
+  <ul class="mob-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="leadership.html">Leadership</a></li>
+    <li><a href="events.html">Events</a></li>
+    <li><a href="accolades.html">Accolades</a></li>
+    <li><a href="alumni.html">Alumni</a></li>
+    <li><a href="polaris.html">Polaris</a></li>
+    <li><a href="consulting.html">Consulting</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+  <div class="mob-meta">De Anza College · Cupertino, CA</div>
+</div>
+
+<!-- NAV -->
+<nav id="nav">
+  <div class="nav-left">
+    <a href="index.html" style="background:none;border:none;cursor:pointer;padding:0;display:flex;align-items:center;text-decoration:none">
+      <span style="font-family:'Playfair Display',serif;font-size:1.8rem;color:rgba(245,243,239,0.88);line-height:1;user-select:none">Φ</span>
+    </a>
+    <div class="nav-wordmark" style="border-left:1px solid var(--border);padding-left:1rem">Phi Beta Lambda<br>De Anza Chapter</div>
+  </div>
+  <div class="nav-right" style="display:flex;align-items:center;gap:2.5rem">
+    <ul class="nav-links">
+      <li><a id="nl-home" href="index.html">Home</a></li>
+      <li><a id="nl-leadership" href="leadership.html">Leadership</a></li>
+      <li><a id="nl-events" href="events.html">Events</a></li>
+      <li><a id="nl-accolades" href="accolades.html">Accolades</a></li>
+      <li><a id="nl-alumni" href="alumni.html">Alumni</a></li>
+      <li><a id="nl-polaris" href="polaris.html">Polaris</a></li>
+      <li><a id="nl-consulting" href="consulting.html">Consulting</a></li>
+    </ul>
+    <a href="https://forms.gle/2zixWcFPcGG6sCBF7" target="_blank" class="nav-apply" style="flex-shrink:0">Apply</a>
+    <button class="hamburger" onclick="openMob()"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+
+<div class="page active">
+
+<section class="page-hero">
+  <div class="hero-tag">Leadership</div>
+  <h1 class="page-title"><span>Our</span><span>People.</span></h1>
+  <p class="page-sub">The officers who build, run, and grow PBL every quarter.</p>
+</section>
+<div class="sw">
+  <!-- GROUP PHOTO BANNER -->
+  <div class="group-banner" id="groupBanner">
+    <img src="images/leadership-pbl-executive-board.jpg" alt="PBL Executive Board" class="group-banner-img"> <!-- originally base64-encoded image -->
+    <div class="group-banner-glow"></div>
+  </div>
+
+  <div class="sec-tag">Executive Board</div>
+  <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:3.5rem 3rem;margin-bottom:5rem" class="g3">
+    <div class="person-card"><div class="person-photo" style="background:#180b0b"><img src="images/leadership-nisa-pradhan.jpg" alt="Nisa Pradhan" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:2;object-position:center top"> <!-- originally base64-encoded image --><div class="person-photo-grad"></div></div><div class="person-name">Nisa Pradhan</div><div class="person-role">President</div><a class="person-li" href="https://linkedin.com/in/nisapradhan" target="_blank">LinkedIn →</a></div>
+    <div class="person-card"><div class="person-photo" style="background:#141010"><img src="images/leadership-carine-chan.jpg" alt="Carine Chan" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:2;object-position:center top"> <!-- originally base64-encoded image --><div class="person-photo-grad"></div></div><div class="person-name">Carine Chan</div><div class="person-role">Vice President</div><a class="person-li" href="https://linkedin.com/in/carinewchan" target="_blank">LinkedIn →</a></div>
+    <div class="person-card"><div class="person-photo" style="background:#1c1111"><img src="images/leadership-arya-somu.jpg" alt="Arya Somu" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:2;object-position:center top"> <!-- originally base64-encoded image --><div class="person-photo-grad"></div></div><div class="person-name">Arya Somu</div><div class="person-role">VP of Strategy &amp; Development</div><a class="person-li" href="https://linkedin.com/in/aryasomu" target="_blank">LinkedIn →</a></div>
+    <div class="person-card"><div class="person-photo" style="background:#180b0b"><img src="images/leadership-george-huang.jpg" alt="George Huang" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:2;object-position:center top"> <!-- originally base64-encoded image --><div class="person-photo-grad"></div></div><div class="person-name">George Huang</div><div class="person-role">VP of Finance</div><a class="person-li" href="https://linkedin.com/in/george-huang-403590214" target="_blank">LinkedIn →</a></div>
+    <div class="person-card"><div class="person-photo" style="background:#141010"><img src="images/leadership-addy-hu.jpg" alt="Addy Hu" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:2;object-position:center top"> <!-- originally base64-encoded image --><div class="person-photo-grad"></div></div><div class="person-name">Addy Hu</div><div class="person-role">VP of Operations</div><a class="person-li" href="https://linkedin.com/in/addyhu" target="_blank">LinkedIn →</a></div>
+    <div class="person-card"><div class="person-photo" style="background:#1c1111"><img src="images/leadership-nhi-tran.jpg" alt="Nhi Tran" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:2;object-position:center top"> <!-- originally base64-encoded image --><div class="person-photo-grad"></div></div><div class="person-name">Nhi Tran</div><div class="person-role">VP of Marketing</div><a class="person-li" href="https://linkedin.com/in/nhi-tran-b3516b311" target="_blank">LinkedIn →</a></div>
+    <div class="person-card"><div class="person-photo" style="background:#180b0b"><img src="images/leadership-christina-tran.jpg" alt="Christina Tran" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:2;object-position:center top"> <!-- originally base64-encoded image --><div class="person-photo-grad"></div></div><div class="person-name">Christina Tran</div><div class="person-role">VP of Club Affairs</div><a class="person-li" href="https://linkedin.com/in/tranchristina103" target="_blank">LinkedIn →</a></div>
+  </div>
+  <div style="border-top:1px solid var(--border);padding-top:4rem">
+    <div class="sec-tag">Board of Directors</div>
+    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:3rem" class="g4">
+      <div class="person-card"><div class="person-photo" style="background:#141010"><span class="exec-initials">AH</span><img src="images/leadership-anna-huynh.jpg" alt="Anna Huynh" onerror="this.style.display='none'"> <!-- originally: https://lh3.googleusercontent.com/sitesv/AA5AbUBxOvI2obqcgufMcQXk7ZKqsKn6pb6fDcSMKgFGhTy4reMq7Udwt4XCbd_9rpk0da9k0z5d... --><div class="person-photo-grad"></div></div><div class="person-name">Anna Huynh</div><div class="person-role">Director of Finance</div><a class="person-li" href="https://linkedin.com/in/anna-huynh-1878b634b" target="_blank">LinkedIn →</a></div>
+      <div class="person-card"><div class="person-photo" style="background:#1c1111"><img src="images/leadership-iker-jimenez.jpg" alt="Iker Jimenez" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:2;object-position:center top"> <!-- originally base64-encoded image --><div class="person-photo-grad"></div></div><div class="person-name">Iker Jimenez</div><div class="person-role">Director of Strategy &amp; Dev</div><a class="person-li" href="https://linkedin.com/in/ikeramoxjimenez" target="_blank">LinkedIn →</a></div>
+      <div class="person-card"><div class="person-photo" style="background:#180b0b"><span class="exec-initials">JN</span><img src="images/leadership-jordan-nguyen.jpg" alt="Jordan Nguyen" onerror="this.style.display='none'"> <!-- originally: https://lh3.googleusercontent.com/sitesv/AA5AbUDcLxr1LiwAt7KaPVW7ge6Y10ctejF-fkJ61RYps8gZ7-7ryba8cmPV5GYHtbz1asJbDXP6... --><div class="person-photo-grad"></div></div><div class="person-name">Jordan Nguyen</div><div class="person-role">Director of Marketing</div><a class="person-li" href="https://linkedin.com/in/jnguyen2006" target="_blank">LinkedIn →</a></div>
+      <div class="person-card"><div class="person-photo" style="background:#141010"><img src="images/leadership-dianne-johnson.jpg" alt="Dianne Johnson" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:2;object-position:center top"> <!-- originally base64-encoded image --><div class="person-photo-grad"></div></div><div class="person-name">Dianne Johnson</div><div class="person-role">Director of Operations</div><a class="person-li" href="https://linkedin.com/in/dianne-johnson-275859352" target="_blank">LinkedIn →</a></div>
+    </div>
+  </div>
+  <div style="margin-top:4rem;display:flex;gap:1rem;flex-wrap:wrap">
+    <a href="https://forms.gle/2zixWcFPcGG6sCBF7" target="_blank" class="btn btn-red">Apply to Join →</a>
+    <a href="https://www.instagram.com/deanzapbl/" target="_blank" class="btn btn-outline">@deanzapbl</a>
+  </div>
+</div>
+
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <span class="foot-logo">ΦΒΛ</span>
+  <span class="foot-copy">© 2025 Phi Beta Lambda · De Anza College</span>
+  <ul class="foot-links">
+    <li><a href="https://instagram.com/deanzapbl" target="_blank">Instagram</a></li>
+    <li><a href="https://discord.gg/w7zap3SfUm" target="_blank">Discord</a></li>
+    <li><a href="https://linktr.ee/deanzapbl" target="_blank">Linktree</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+</footer>
+<script src="main.js"></script>
+</body>
+</html>

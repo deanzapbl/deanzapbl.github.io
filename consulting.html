@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Consulting — Phi Beta Lambda De Anza</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Unbounded:wght@400;700&family=DM+Sans:wght@300;400;500&family=IBM+Plex+Mono:wght@400;500&family=Playfair+Display:ital,wght@1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+
+</head>
+<body>
+<div class="cur" id="cur"></div>
+<div class="cur-ring" id="ring"></div>
+
+<!-- MOBILE OVERLAY -->
+<div class="mob-overlay" id="mob">
+  <button class="mob-close" onclick="closeMob()">Close ×</button>
+  <ul class="mob-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="leadership.html">Leadership</a></li>
+    <li><a href="events.html">Events</a></li>
+    <li><a href="accolades.html">Accolades</a></li>
+    <li><a href="alumni.html">Alumni</a></li>
+    <li><a href="polaris.html">Polaris</a></li>
+    <li><a href="consulting.html">Consulting</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+  <div class="mob-meta">De Anza College · Cupertino, CA</div>
+</div>
+
+<!-- NAV -->
+<nav id="nav">
+  <div class="nav-left">
+    <a href="index.html" style="background:none;border:none;cursor:pointer;padding:0;display:flex;align-items:center;text-decoration:none">
+      <span style="font-family:'Playfair Display',serif;font-size:1.8rem;color:rgba(245,243,239,0.88);line-height:1;user-select:none">Φ</span>
+    </a>
+    <div class="nav-wordmark" style="border-left:1px solid var(--border);padding-left:1rem">Phi Beta Lambda<br>De Anza Chapter</div>
+  </div>
+  <div class="nav-right" style="display:flex;align-items:center;gap:2.5rem">
+    <ul class="nav-links">
+      <li><a id="nl-home" href="index.html">Home</a></li>
+      <li><a id="nl-leadership" href="leadership.html">Leadership</a></li>
+      <li><a id="nl-events" href="events.html">Events</a></li>
+      <li><a id="nl-accolades" href="accolades.html">Accolades</a></li>
+      <li><a id="nl-alumni" href="alumni.html">Alumni</a></li>
+      <li><a id="nl-polaris" href="polaris.html">Polaris</a></li>
+      <li><a id="nl-consulting" href="consulting.html">Consulting</a></li>
+    </ul>
+    <a href="https://forms.gle/2zixWcFPcGG6sCBF7" target="_blank" class="nav-apply" style="flex-shrink:0">Apply</a>
+    <button class="hamburger" onclick="openMob()"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+
+<div class="page active">
+
+<section class="page-hero">
+  <div class="hero-tag">Consulting</div>
+  <h1 class="page-title"><span>Real Work.</span><span>Real Clients.</span></h1>
+  <p class="page-sub">Student analysts. Real organizations. Portfolio-ready work from day one.</p>
+</section>
+<div class="sw">
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:6rem;margin-bottom:5rem;align-items:start" class="g2">
+    <div>
+      <div class="sec-tag">What We Do</div>
+      <div class="sec-body"><p>PBL's consulting division pairs student analysts with real organizations across industries. Members develop data-driven strategy recommendations under the mentorship of industry professionals — building portfolio-ready work from day one.</p><p style="margin-top:1.25rem">Whether market entry analysis, operational improvement, or brand strategy — our teams deliver work that matters.</p></div>
+      <div style="display:flex;flex-wrap:wrap;gap:.4rem;margin-top:2rem"><span class="pill">Market Analysis</span><span class="pill">Brand Strategy</span><span class="pill">Operations</span><span class="pill">Financial Modeling</span><span class="pill">Go-to-Market</span><span class="pill">Data Analysis</span></div>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:2px">
+      <div style="background:var(--gray);padding:2.5rem;display:flex;gap:2rem;align-items:flex-start"><span style="font-family:'Bebas Neue',sans-serif;font-size:3.5rem;color:var(--red);line-height:1;min-width:60px">01</span><div><div style="font-size:1rem;font-weight:500;margin-bottom:.4rem">Intake &amp; Scoping</div><div style="font-size:.85rem;color:rgba(245,243,239,.5);line-height:1.75">Client presents their challenge. Our team scopes the project and assembles the right analysts.</div></div></div>
+      <div style="background:var(--gray);padding:2.5rem;display:flex;gap:2rem;align-items:flex-start"><span style="font-family:'Bebas Neue',sans-serif;font-size:3.5rem;color:var(--red);line-height:1;min-width:60px">02</span><div><div style="font-size:1rem;font-weight:500;margin-bottom:.4rem">Research &amp; Analysis</div><div style="font-size:.85rem;color:rgba(245,243,239,.5);line-height:1.75">Analysts conduct primary and secondary research, building models under professional mentorship.</div></div></div>
+      <div style="background:var(--gray);padding:2.5rem;display:flex;gap:2rem;align-items:flex-start"><span style="font-family:'Bebas Neue',sans-serif;font-size:3.5rem;color:var(--red);line-height:1;min-width:60px">03</span><div><div style="font-size:1rem;font-weight:500;margin-bottom:.4rem">Delivery &amp; Impact</div><div style="font-size:.85rem;color:rgba(245,243,239,.5);line-height:1.75">Teams present strategic recommendations directly to clients — polished, actionable, portfolio-ready.</div></div></div>
+    </div>
+  </div>
+  <div style="border-top:1px solid var(--border);padding-top:4rem;margin-bottom:3rem">
+    <div class="sec-tag">Our Sponsors</div>
+    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--border)" class="g4">
+      <div style="background:var(--gray);padding:3rem 2rem;display:flex;flex-direction:column;align-items:center;gap:1.25rem;text-align:center;transition:background .2s" onmouseover="this.style.background='#222'" onmouseout="this.style.background='var(--gray)'"><img src="images/consulting-kpmg.jpg" alt="KPMG" style="height:40px;width:auto;filter:brightness(0) invert(.65);object-fit:contain" onerror="this.style.display='none'"> <!-- originally: https://lh3.googleusercontent.com/sitesv/AA5AbUBkvfTcB_WAn9DIyqeQLPRMWFD6_SLoamC47c23h_WuRv3EHo_eXsz12QQIm7KUns26LSDS... --><div style="font-size:1rem;font-weight:500">KPMG</div><div style="font-family:'IBM Plex Mono',monospace;font-size:.5rem;letter-spacing:.18em;text-transform:uppercase;color:var(--red)">Accounting &amp; Consulting</div></div>
+      <div style="background:var(--gray);padding:3rem 2rem;display:flex;flex-direction:column;align-items:center;gap:1.25rem;text-align:center;transition:background .2s" onmouseover="this.style.background='#222'" onmouseout="this.style.background='var(--gray)'"><img src="images/consulting-star-one.jpg" alt="Star One" style="height:40px;width:auto;filter:brightness(0) invert(.65);object-fit:contain" onerror="this.style.display='none'"> <!-- originally: https://lh3.googleusercontent.com/sitesv/AA5AbUAPRe5YQP9McmO_JNBbCRyPj93fUSxynoQQxdKP-Ii_jinUsx4rQeEElNboGE7vX_2ljcXZ... --><div style="font-size:1rem;font-weight:500">Star One Credit Union</div><div style="font-family:'IBM Plex Mono',monospace;font-size:.5rem;letter-spacing:.18em;text-transform:uppercase;color:var(--red)">Financial Services</div></div>
+      <div style="background:var(--gray);padding:3rem 2rem;display:flex;flex-direction:column;align-items:center;gap:1.25rem;text-align:center;transition:background .2s" onmouseover="this.style.background='#222'" onmouseout="this.style.background='var(--gray)'"><img src="images/consulting-fee.jpg" alt="FEE" style="height:40px;width:auto;filter:brightness(0) invert(.65);object-fit:contain" onerror="this.style.display='none'"> <!-- originally: https://lh3.googleusercontent.com/sitesv/AA5AbUCn32j9vLOT6wTUrEGceOMX75cwCnP4l6Z6K2FwItMxRjEfhYv7cVh5SWSzDELkpJ973C8N... --><div style="font-size:1rem;font-weight:500">Foundation for Economic Education</div><div style="font-family:'IBM Plex Mono',monospace;font-size:.5rem;letter-spacing:.18em;text-transform:uppercase;color:var(--red)">Economics Education</div></div>
+      <div style="background:var(--gray);padding:3rem 2rem;display:flex;flex-direction:column;align-items:center;gap:1.25rem;text-align:center;transition:background .2s" onmouseover="this.style.background='#222'" onmouseout="this.style.background='var(--gray)'"><img src="images/consulting-keypoint.jpg" alt="KeyPoint" style="height:40px;width:auto;filter:brightness(0) invert(.65);object-fit:contain" onerror="this.style.display='none'"> <!-- originally: https://lh3.googleusercontent.com/sitesv/AA5AbUAj8sl_u2g11ITJIK2T96XIqb9Wn6sm9z1RaTa1SVZFsrmjiIJWa7EXKhsTlmE1BkNJ0Urn... --><div style="font-size:1rem;font-weight:500">KeyPoint Credit Union</div><div style="font-family:'IBM Plex Mono',monospace;font-size:.5rem;letter-spacing:.18em;text-transform:uppercase;color:var(--red)">Financial Services</div></div>
+    </div>
+  </div>
+  <div style="background:var(--gray);padding:4rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:2rem">
+    <div><div style="font-family:'Bebas Neue',sans-serif;font-size:2.5rem;letter-spacing:.02em;line-height:1;margin-bottom:.5rem">Interested in Working With Us?</div><div style="font-size:.9rem;color:rgba(245,243,239,.55)">Reach out to explore a consulting partnership.</div></div>
+    <a href="mailto:deanzacapbl@gmail.com" class="btn btn-red">Get in Touch →</a>
+  </div>
+</div>
+
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <span class="foot-logo">ΦΒΛ</span>
+  <span class="foot-copy">© 2025 Phi Beta Lambda · De Anza College</span>
+  <ul class="foot-links">
+    <li><a href="https://instagram.com/deanzapbl" target="_blank">Instagram</a></li>
+    <li><a href="https://discord.gg/w7zap3SfUm" target="_blank">Discord</a></li>
+    <li><a href="https://linktr.ee/deanzapbl" target="_blank">Linktree</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+</footer>
+<script src="main.js"></script>
+</body>
+</html>

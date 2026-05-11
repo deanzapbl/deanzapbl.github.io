@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Community Service Project — Phi Beta Lambda De Anza</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Unbounded:wght@400;700&family=DM+Sans:wght@300;400;500&family=IBM+Plex+Mono:wght@400;500&family=Playfair+Display:ital,wght@1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+
+</head>
+<body>
+<div class="cur" id="cur"></div>
+<div class="cur-ring" id="ring"></div>
+
+<!-- MOBILE OVERLAY -->
+<div class="mob-overlay" id="mob">
+  <button class="mob-close" onclick="closeMob()">Close ×</button>
+  <ul class="mob-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="leadership.html">Leadership</a></li>
+    <li><a href="events.html">Events</a></li>
+    <li><a href="accolades.html">Accolades</a></li>
+    <li><a href="alumni.html">Alumni</a></li>
+    <li><a href="polaris.html">Polaris</a></li>
+    <li><a href="consulting.html">Consulting</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+  <div class="mob-meta">De Anza College · Cupertino, CA</div>
+</div>
+
+<!-- NAV -->
+<nav id="nav">
+  <div class="nav-left">
+    <a href="index.html" style="background:none;border:none;cursor:pointer;padding:0;display:flex;align-items:center;text-decoration:none">
+      <span style="font-family:'Playfair Display',serif;font-size:1.8rem;color:rgba(245,243,239,0.88);line-height:1;user-select:none">Φ</span>
+    </a>
+    <div class="nav-wordmark" style="border-left:1px solid var(--border);padding-left:1rem">Phi Beta Lambda<br>De Anza Chapter</div>
+  </div>
+  <div class="nav-right" style="display:flex;align-items:center;gap:2.5rem">
+    <ul class="nav-links">
+      <li><a id="nl-home" href="index.html">Home</a></li>
+      <li><a id="nl-leadership" href="leadership.html">Leadership</a></li>
+      <li><a id="nl-events" href="events.html">Events</a></li>
+      <li><a id="nl-accolades" href="accolades.html">Accolades</a></li>
+      <li><a id="nl-alumni" href="alumni.html">Alumni</a></li>
+      <li><a id="nl-polaris" href="polaris.html">Polaris</a></li>
+      <li><a id="nl-consulting" href="consulting.html">Consulting</a></li>
+    </ul>
+    <a href="https://forms.gle/2zixWcFPcGG6sCBF7" target="_blank" class="nav-apply" style="flex-shrink:0">Apply</a>
+    <button class="hamburger" onclick="openMob()"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+
+<div class="page active">
+
+<section class="page-hero">
+  <div class="hero-tag">Community Service Project</div>
+  <h1 class="page-title"><span>Give Back.</span><span>Lead Forward.</span></h1>
+  <p class="page-sub">PBL's Community Service Project division — where members serve the community and develop as leaders.</p>
+</section>
+<div class="sw">
+
+  <!-- ABOUT CSP -->
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:6rem;margin-bottom:5rem;align-items:start" class="g2">
+    <div>
+      <div class="sec-tag">What is CSP</div>
+      <div class="sec-body">
+        <p>The Community Service Project (CSP) is PBL's dedicated division for community outreach and service. Our members volunteer across the Bay Area — planting trees, packing food, and supporting nonprofits and local organizations that make a difference.</p>
+        <p style="margin-top:1.25rem">CSP is more than just volunteering. It's where PBL members grow as leaders, build empathy, and demonstrate that business excellence and community care go hand in hand. Every quarter, we organize service events open to all internal members.</p>
+      </div>
+      <div style="display:flex;flex-wrap:wrap;gap:.4rem;margin-top:2rem">
+        <span class="pill">Environmental Service</span>
+        <span class="pill">Food Security</span>
+        <span class="pill">Community Outreach</span>
+        <span class="pill">Leadership Development</span>
+        <span class="pill">Nonprofit Partnerships</span>
+        <span class="pill">Bay Area</span>
+      </div>
+    </div>
+    <div style="border:1px solid var(--border);padding:3rem">
+      <div style="font-family:'Bebas Neue',sans-serif;font-size:1.4rem;letter-spacing:.03em;margin-bottom:2rem">Follow Our Work</div>
+      <div style="font-family:'IBM Plex Mono',monospace;font-size:.6rem;letter-spacing:.18em;text-transform:uppercase;color:rgba(245,243,239,.35);margin-bottom:1rem">Instagram</div>
+      <a href="https://www.instagram.com/pblcsp/" target="_blank" style="display:flex;align-items:center;justify-content:space-between;padding:1.25rem 1.5rem;background:var(--gray);text-decoration:none;transition:background .2s;margin-bottom:2px" onmouseover="this.style.background='#222'" onmouseout="this.style.background='var(--gray)'">
+        <div>
+          <div style="font-family:'Bebas Neue',sans-serif;font-size:1.4rem;letter-spacing:.04em;color:var(--white)">@pblcsp</div>
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:.5rem;letter-spacing:.15em;text-transform:uppercase;color:rgba(245,243,239,.35);margin-top:.2rem">Community Service Project · De Anza PBL</div>
+        </div>
+        <span style="font-size:1.5rem;color:rgba(245,243,239,.25)">→</span>
+      </a>
+      <a href="https://www.instagram.com/deanzapbl/" target="_blank" style="display:flex;align-items:center;justify-content:space-between;padding:1.25rem 1.5rem;background:var(--gray);text-decoration:none;transition:background .2s" onmouseover="this.style.background='#222'" onmouseout="this.style.background='var(--gray)'">
+        <div>
+          <div style="font-family:'Bebas Neue',sans-serif;font-size:1.4rem;letter-spacing:.04em;color:var(--white)">@deanzapbl</div>
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:.5rem;letter-spacing:.15em;text-transform:uppercase;color:rgba(245,243,239,.35);margin-top:.2rem">Main Chapter Instagram</div>
+        </div>
+        <span style="font-size:1.5rem;color:rgba(245,243,239,.25)">→</span>
+      </a>
+    </div>
+  </div>
+
+  <!-- PAST EVENTS -->
+  <div style="border-top:1px solid var(--border);padding-top:4rem;margin-bottom:4rem">
+    <div class="sec-tag">Past Service Events</div>
+
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:2px;background:var(--border)" class="g2">
+      <div style="background:var(--black);position:relative;overflow:hidden">
+        <div style="aspect-ratio:16/9;position:relative;overflow:hidden;background:#1a1010">
+          <img src="images/contact-our-city-forest.jpg" alt="Our City Forest" style="width:100%;height:100%;object-fit:cover" onerror="this.style.display='none'"> <!-- originally: https://lh3.googleusercontent.com/sitesv/AA5AbUBHHazLyUpz9maAjrDJa7sw_aJqk3QxYe8KqRGn5Urf2rFGEQAOO9XUlbBDB1KkGBom88Ox... -->
+          <div style="position:absolute;inset:0;background:linear-gradient(180deg,transparent 40%,rgba(10,10,10,.8) 100%)"></div>
+        </div>
+        <div style="padding:2rem">
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:.55rem;letter-spacing:.18em;text-transform:uppercase;color:var(--red);margin-bottom:.75rem">Winter 2026 · Environmental</div>
+          <div style="font-family:'Bebas Neue',sans-serif;font-size:1.8rem;letter-spacing:.03em;line-height:1;margin-bottom:.75rem">PBL × Our City Forest</div>
+          <div style="font-size:.88rem;color:rgba(245,243,239,.55);line-height:1.8">Over three days, our members volunteered with Our City Forest, planting trees and supporting environmental sustainability across the Bay Area — demonstrating leadership, teamwork, and commitment to community service.</div>
+        </div>
+      </div>
+
+      <div style="background:var(--black);position:relative;overflow:hidden">
+        <div style="aspect-ratio:16/9;position:relative;overflow:hidden;background:#1a1010">
+          <img src="images/contact-hunger-at-home.jpg" alt="Hunger at Home" style="width:100%;height:100%;object-fit:cover" onerror="this.style.display='none'"> <!-- originally: https://lh3.googleusercontent.com/sitesv/AA5AbUDycMwmQnJCYPkd6EclDhkUf6YoOkl7yI8GvXv-1WErLOAyVqoAKFv9-PiF2M5D1CPkvDWA... -->
+          <div style="position:absolute;inset:0;background:linear-gradient(180deg,transparent 40%,rgba(10,10,10,.8) 100%)"></div>
+        </div>
+        <div style="padding:2rem">
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:.55rem;letter-spacing:.18em;text-transform:uppercase;color:var(--red);margin-bottom:.75rem">Feb 2025 · Food Security</div>
+          <div style="font-family:'Bebas Neue',sans-serif;font-size:1.8rem;letter-spacing:.03em;line-height:1;margin-bottom:.75rem">Hunger at Home</div>
+          <div style="font-size:.88rem;color:rgba(245,243,239,.55);line-height:1.8">Internal Members served the community by making lunch boxes and packing food for Hunger at Home, helping address food insecurity across the South Bay.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- GET INVOLVED -->
+  <div style="background:var(--red);padding:4rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:2rem">
+    <div>
+      <div style="font-family:'Bebas Neue',sans-serif;font-size:3rem;letter-spacing:.02em;line-height:1;margin-bottom:.75rem">Get Involved</div>
+      <div style="font-size:.9rem;color:rgba(245,243,239,.8);max-width:480px">CSP events are open to all PBL internal members each quarter. Follow <strong>@pblcsp</strong> on Instagram to stay updated on upcoming service opportunities.</div>
+    </div>
+    <div style="display:flex;gap:1rem;flex-wrap:wrap">
+      <a href="https://www.instagram.com/pblcsp/" target="_blank" class="btn" style="background:var(--white);color:var(--red)">Follow @pblcsp →</a>
+      <a href="https://forms.gle/2zixWcFPcGG6sCBF7" target="_blank" class="btn" style="background:transparent;border:1px solid rgba(245,243,239,.5);color:var(--white)">Apply to PBL →</a>
+    </div>
+  </div>
+
+</div>
+
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <span class="foot-logo">ΦΒΛ</span>
+  <span class="foot-copy">© 2025 Phi Beta Lambda · De Anza College</span>
+  <ul class="foot-links">
+    <li><a href="https://instagram.com/deanzapbl" target="_blank">Instagram</a></li>
+    <li><a href="https://discord.gg/w7zap3SfUm" target="_blank">Discord</a></li>
+    <li><a href="https://linktr.ee/deanzapbl" target="_blank">Linktree</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+</footer>
+<script src="main.js"></script>
+</body>
+</html>

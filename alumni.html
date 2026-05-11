@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Alumni — Phi Beta Lambda De Anza</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Unbounded:wght@400;700&family=DM+Sans:wght@300;400;500&family=IBM+Plex+Mono:wght@400;500&family=Playfair+Display:ital,wght@1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+
+</head>
+<body>
+<div class="cur" id="cur"></div>
+<div class="cur-ring" id="ring"></div>
+
+<!-- MOBILE OVERLAY -->
+<div class="mob-overlay" id="mob">
+  <button class="mob-close" onclick="closeMob()">Close ×</button>
+  <ul class="mob-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="leadership.html">Leadership</a></li>
+    <li><a href="events.html">Events</a></li>
+    <li><a href="accolades.html">Accolades</a></li>
+    <li><a href="alumni.html">Alumni</a></li>
+    <li><a href="polaris.html">Polaris</a></li>
+    <li><a href="consulting.html">Consulting</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+  <div class="mob-meta">De Anza College · Cupertino, CA</div>
+</div>
+
+<!-- NAV -->
+<nav id="nav">
+  <div class="nav-left">
+    <a href="index.html" style="background:none;border:none;cursor:pointer;padding:0;display:flex;align-items:center;text-decoration:none">
+      <span style="font-family:'Playfair Display',serif;font-size:1.8rem;color:rgba(245,243,239,0.88);line-height:1;user-select:none">Φ</span>
+    </a>
+    <div class="nav-wordmark" style="border-left:1px solid var(--border);padding-left:1rem">Phi Beta Lambda<br>De Anza Chapter</div>
+  </div>
+  <div class="nav-right" style="display:flex;align-items:center;gap:2.5rem">
+    <ul class="nav-links">
+      <li><a id="nl-home" href="index.html">Home</a></li>
+      <li><a id="nl-leadership" href="leadership.html">Leadership</a></li>
+      <li><a id="nl-events" href="events.html">Events</a></li>
+      <li><a id="nl-accolades" href="accolades.html">Accolades</a></li>
+      <li><a id="nl-alumni" href="alumni.html">Alumni</a></li>
+      <li><a id="nl-polaris" href="polaris.html">Polaris</a></li>
+      <li><a id="nl-consulting" href="consulting.html">Consulting</a></li>
+    </ul>
+    <a href="https://forms.gle/2zixWcFPcGG6sCBF7" target="_blank" class="nav-apply" style="flex-shrink:0">Apply</a>
+    <button class="hamburger" onclick="openMob()"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+
+<div class="page active">
+
+<section class="page-hero">
+  <div class="hero-tag">Alumni</div>
+  <h1 class="page-title"><span>Where They</span><span>Go Next.</span></h1>
+  <p class="page-sub">PBL alumni go on to the world's best universities and companies. This is just the beginning.</p>
+</section>
+<div class="sw">
+  <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:2px;background:var(--border)" class="g4">
+    <div style="background:#180b0b;position:relative;overflow:hidden;cursor:default"><div style="aspect-ratio:3/4;position:relative;display:flex;align-items:center;justify-content:center"><span class="exec-initials">JK</span><img src="images/alumni-javin-ku.jpg" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:2" onerror="this.style.display='none'" alt="Javin Ku"> <!-- originally: https://lh3.googleusercontent.com/sitesv/AA5AbUB7sJiWOr4E4EVDanvMwN-467e63wBCxV8HTkh3qIpKD7qF_Q2f-t6twgTqZ5kYxGjh7NRB... --><div style="position:absolute;inset:0;background:linear-gradient(180deg,transparent 40%,rgba(10,10,10,.95) 100%);z-index:3"></div><div style="position:absolute;bottom:1.25rem;left:1.25rem;right:1.25rem;z-index:4"><div style="font-family:'Bebas Neue',sans-serif;font-size:1.2rem;letter-spacing:.03em;line-height:1;margin-bottom:.3rem">Javin Ku</div><div style="font-family:'IBM Plex Mono',monospace;font-size:.5rem;letter-spacing:.15em;text-transform:uppercase;color:var(--red)">UC Berkeley Haas</div></div></div></div>
+    <div style="background:#141010;position:relative;overflow:hidden;cursor:default"><div style="aspect-ratio:3/4;position:relative;display:flex;align-items:center;justify-content:center"><span class="exec-initials">AD</span><img src="images/alumni-alan-dang.jpg" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:2" onerror="this.style.display='none'" alt="Alan Dang"> <!-- originally: https://lh3.googleusercontent.com/sitesv/AA5AbUA5qqTDHL_TM66ehstyayN90Vlkk8pa9JzvSRXayYVhfWx0_2OG0p6ED96diUKQzJqHEfPi... --><div style="position:absolute;inset:0;background:linear-gradient(180deg,transparent 40%,rgba(10,10,10,.95) 100%);z-index:3"></div><div style="position:absolute;bottom:1.25rem;left:1.25rem;right:1.25rem;z-index:4"><div style="font-family:'Bebas Neue',sans-serif;font-size:1.2rem;letter-spacing:.03em;line-height:1;margin-bottom:.3rem">Alan Dang</div><div style="font-family:'IBM Plex Mono',monospace;font-size:.5rem;letter-spacing:.15em;text-transform:uppercase;color:var(--red)">UC Berkeley Haas</div></div></div></div>
+    <div style="background:#1c1111;position:relative;overflow:hidden;cursor:default"><div style="aspect-ratio:3/4;position:relative;display:flex;align-items:center;justify-content:center"><span class="exec-initials">ZD</span><img src="images/alumni-zain-darwish.jpg" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:2" onerror="this.style.display='none'" alt="Zain Darwish"> <!-- originally: https://lh3.googleusercontent.com/sitesv/AA5AbUAd7h63xGJ8y-47y79lsc8vXdsNrubFqMiCE6zQ3tgtEqlxP-TTe9UH9h2hZCcEMWf8u_Zd... --><div style="position:absolute;inset:0;background:linear-gradient(180deg,transparent 40%,rgba(10,10,10,.95) 100%);z-index:3"></div><div style="position:absolute;bottom:1.25rem;left:1.25rem;right:1.25rem;z-index:4"><div style="font-family:'Bebas Neue',sans-serif;font-size:1.2rem;letter-spacing:.03em;line-height:1;margin-bottom:.3rem">Zain Darwish</div><div style="font-family:'IBM Plex Mono',monospace;font-size:.5rem;letter-spacing:.15em;text-transform:uppercase;color:var(--red)">UC Berkeley · Economics</div></div></div></div>
+    <div style="background:#180b0b;position:relative;overflow:hidden;cursor:default"><div style="aspect-ratio:3/4;position:relative;display:flex;align-items:center;justify-content:center"><span class="exec-initials">VN</span><img src="images/alumni-van-loc-nguyen.jpg" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:2" onerror="this.style.display='none'" alt="Van Loc Nguyen"> <!-- originally: https://lh3.googleusercontent.com/sitesv/AA5AbUAHQ3n1v9FsMpbxv81XLEr544ONNSS7CKf-cN1xWUw7UTqxQNR3sSyJIsxEHE-xYN4xozNX... --><div style="position:absolute;inset:0;background:linear-gradient(180deg,transparent 40%,rgba(10,10,10,.95) 100%);z-index:3"></div><div style="position:absolute;bottom:1.25rem;left:1.25rem;right:1.25rem;z-index:4"><div style="font-family:'Bebas Neue',sans-serif;font-size:1.2rem;letter-spacing:.03em;line-height:1;margin-bottom:.3rem">Van Loc Nguyen</div><div style="font-family:'IBM Plex Mono',monospace;font-size:.5rem;letter-spacing:.15em;text-transform:uppercase;color:var(--red)">USC Marshall</div></div></div></div>
+    <div style="background:#141010;position:relative;overflow:hidden;cursor:default"><div style="aspect-ratio:3/4;position:relative;display:flex;align-items:center;justify-content:center"><span class="exec-initials">RT</span><img src="images/alumni-rachel-tran.jpg" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:2" onerror="this.style.display='none'" alt="Rachel Tran"> <!-- originally: https://lh3.googleusercontent.com/sitesv/AA5AbUDukEOeZpTMGQQHh5O4QOsEy1i8P2L2739JR7A0uAVNc6n-xO4rucpTKsp7nby-nXr71bHM... --><div style="position:absolute;inset:0;background:linear-gradient(180deg,transparent 40%,rgba(10,10,10,.95) 100%);z-index:3"></div><div style="position:absolute;bottom:1.25rem;left:1.25rem;right:1.25rem;z-index:4"><div style="font-family:'Bebas Neue',sans-serif;font-size:1.2rem;letter-spacing:.03em;line-height:1;margin-bottom:.3rem">Rachel Tran</div><div style="font-family:'IBM Plex Mono',monospace;font-size:.5rem;letter-spacing:.15em;text-transform:uppercase;color:var(--red)">UC San Diego · Business Econ</div></div></div></div>
+    <div style="background:#1c1111;position:relative;overflow:hidden;cursor:default"><div style="aspect-ratio:3/4;position:relative;display:flex;align-items:center;justify-content:center"><span class="exec-initials">KN</span><img src="images/alumni-katelyn-nguyen.jpg" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:2" onerror="this.style.display='none'" alt="Katelyn Nguyen"> <!-- originally: https://lh3.googleusercontent.com/sitesv/AA5AbUAaT-TRTewoOs4Ifr4XPNHJesur0OlZ9FI4vE5w8Yho97s7JStPiXiUFp_fzRg9Qqs8O0lg... --><div style="position:absolute;inset:0;background:linear-gradient(180deg,transparent 40%,rgba(10,10,10,.95) 100%);z-index:3"></div><div style="position:absolute;bottom:1.25rem;left:1.25rem;right:1.25rem;z-index:4"><div style="font-family:'Bebas Neue',sans-serif;font-size:1.2rem;letter-spacing:.03em;line-height:1;margin-bottom:.3rem">Katelyn Nguyen</div><div style="font-family:'IBM Plex Mono',monospace;font-size:.5rem;letter-spacing:.15em;text-transform:uppercase;color:var(--red)">Santa Clara · Accounting</div></div></div></div>
+    <div style="background:#180b0b;position:relative;overflow:hidden;cursor:default"><div style="aspect-ratio:3/4;position:relative;display:flex;align-items:center;justify-content:center"><span class="exec-initials">AP</span><img src="images/alumni-arthur-poon.jpg" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:2" onerror="this.style.display='none'" alt="Arthur Poon"> <!-- originally: https://lh3.googleusercontent.com/sitesv/AA5AbUCq3SHPD7YyboXhrg9rHC4aGCQ90JDk8-iAmUJplVMglj46j0H6Bo9hb32cqFw9MCaam_ju... --><div style="position:absolute;inset:0;background:linear-gradient(180deg,transparent 40%,rgba(10,10,10,.95) 100%);z-index:3"></div><div style="position:absolute;bottom:1.25rem;left:1.25rem;right:1.25rem;z-index:4"><div style="font-family:'Bebas Neue',sans-serif;font-size:1.2rem;letter-spacing:.03em;line-height:1;margin-bottom:.3rem">Arthur Poon</div><div style="font-family:'IBM Plex Mono',monospace;font-size:.5rem;letter-spacing:.15em;text-transform:uppercase;color:var(--red)">NYU · Finance</div></div></div></div>
+    <div style="background:#141010;position:relative;overflow:hidden;cursor:default"><div style="aspect-ratio:3/4;position:relative;display:flex;align-items:center;justify-content:center"><span class="exec-initials">FP</span><img src="images/alumni-floria-pan.jpg" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:2" onerror="this.style.display='none'" alt="Floria Pan"> <!-- originally: https://lh3.googleusercontent.com/sitesv/AA5AbUDk5ix3OQ-YojBfkWdx2mZ30x_K4yQ6_ddnjGw00pZhck_NLOR-w10xNFvyzJigqUF-N1fp... --><div style="position:absolute;inset:0;background:linear-gradient(180deg,transparent 40%,rgba(10,10,10,.95) 100%);z-index:3"></div><div style="position:absolute;bottom:1.25rem;left:1.25rem;right:1.25rem;z-index:4"><div style="font-family:'Bebas Neue',sans-serif;font-size:1.2rem;letter-spacing:.03em;line-height:1;margin-bottom:.3rem">Floria Pan</div><div style="font-family:'IBM Plex Mono',monospace;font-size:.5rem;letter-spacing:.15em;text-transform:uppercase;color:var(--red)">UC Berkeley · Political Econ</div></div></div></div>
+  </div>
+  <div style="margin-top:3rem;padding:2.5rem 3rem;border:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1.5rem">
+    <div><div class="sec-tag">Are you a PBL alum?</div><div style="font-size:.9rem;color:rgba(245,243,239,.5)">Get featured on this page — reach out to us.</div></div>
+    <a href="mailto:deanzacapbl@gmail.com" class="btn btn-outline">Contact Us →</a>
+  </div>
+</div>
+
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <span class="foot-logo">ΦΒΛ</span>
+  <span class="foot-copy">© 2025 Phi Beta Lambda · De Anza College</span>
+  <ul class="foot-links">
+    <li><a href="https://instagram.com/deanzapbl" target="_blank">Instagram</a></li>
+    <li><a href="https://discord.gg/w7zap3SfUm" target="_blank">Discord</a></li>
+    <li><a href="https://linktr.ee/deanzapbl" target="_blank">Linktree</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+</footer>
+<script src="main.js"></script>
+</body>
+</html>

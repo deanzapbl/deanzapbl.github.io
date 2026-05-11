@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Events — Phi Beta Lambda De Anza</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Unbounded:wght@400;700&family=DM+Sans:wght@300;400;500&family=IBM+Plex+Mono:wght@400;500&family=Playfair+Display:ital,wght@1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<style>
+.ev-feat{display:grid;grid-template-columns:1fr 1fr;min-height:500px;border-bottom:1px solid var(--border)}
+.ev-feat-img{position:relative;overflow:hidden;background:#1a1010}
+.ev-feat-img img{width:100%;height:100%;object-fit:cover;opacity:.7;transition:opacity .4s}
+.ev-feat-img:hover img{opacity:.9}
+.ev-feat-img::after{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(200,16,46,.18) 0%,rgba(10,10,10,.5) 100%)}
+.ev-feat-body{padding:4rem;display:flex;flex-direction:column;justify-content:center;gap:1.25rem;background:var(--gray)}
+.ev-feat-badges{display:flex;align-items:center;gap:.5rem;flex-wrap:wrap}
+.ev-feat-type{font-family:'IBM Plex Mono',monospace;font-size:.52rem;letter-spacing:.18em;text-transform:uppercase;padding:.3rem .85rem;border:1px solid rgba(200,16,46,.5);color:rgba(220,55,65,.95)}
+.ev-feat-datestr{font-family:'IBM Plex Mono',monospace;font-size:.52rem;letter-spacing:.15em;text-transform:uppercase;padding:.3rem .85rem;border:1px solid rgba(245,243,239,.18);color:rgba(245,243,239,.6)}
+.ev-feat-title{font-family:'Unbounded',sans-serif;font-weight:700;font-size:clamp(1.4rem,2.5vw,2.4rem);line-height:1.1;color:var(--white)}
+.ev-feat-desc{font-size:.92rem;color:rgba(245,243,239,.6);line-height:1.85;max-width:480px}
+.ev-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border)}
+.ev-gi{background:var(--black);display:flex;flex-direction:column;cursor:default;transition:background .2s;overflow:hidden}
+.ev-gi:hover{background:var(--gray)}
+.ev-gi-img{aspect-ratio:16/9;position:relative;overflow:hidden;background:#1a1010;flex-shrink:0}
+.ev-gi-img img{width:100%;height:100%;object-fit:cover;opacity:.6;transition:all .4s}
+.ev-gi:hover .ev-gi-img img{opacity:.85;transform:scale(1.04)}
+.ev-gi-img::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,transparent 30%,rgba(10,10,10,.65) 100%)}
+.ev-gi-body{padding:1.5rem;flex:1;display:flex;flex-direction:column;gap:.55rem}
+.ev-gi-badges{display:flex;align-items:center;gap:.4rem;flex-wrap:wrap}
+.ev-gi-type{font-family:'IBM Plex Mono',monospace;font-size:.45rem;letter-spacing:.16em;text-transform:uppercase;padding:.22rem .65rem;border:1px solid rgba(200,16,46,.4);color:rgba(220,55,65,.9)}
+.ev-gi-date{font-family:'IBM Plex Mono',monospace;font-size:.45rem;letter-spacing:.13em;text-transform:uppercase;padding:.22rem .65rem;border:1px solid rgba(245,243,239,.15);color:rgba(245,243,239,.5)}
+.ev-gi-title{font-family:'Unbounded',sans-serif;font-weight:700;font-size:.75rem;line-height:1.35;color:var(--white)}
+.ev-gi-desc{font-family:'DM Sans',sans-serif;font-size:.82rem;color:rgba(245,243,239,.5);line-height:1.75;margin-top:2px}
+@media(max-width:900px){.ev-feat{grid-template-columns:1fr}.ev-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:600px){.ev-grid{grid-template-columns:1fr}.ev-feat-body{padding:2rem}}
+</style>
+</head>
+<body>
+<div class="cur" id="cur"></div>
+<div class="cur-ring" id="ring"></div>
+
+<!-- MOBILE OVERLAY -->
+<div class="mob-overlay" id="mob">
+  <button class="mob-close" onclick="closeMob()">Close ×</button>
+  <ul class="mob-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="leadership.html">Leadership</a></li>
+    <li><a href="events.html">Events</a></li>
+    <li><a href="accolades.html">Accolades</a></li>
+    <li><a href="alumni.html">Alumni</a></li>
+    <li><a href="polaris.html">Polaris</a></li>
+    <li><a href="consulting.html">Consulting</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+  <div class="mob-meta">De Anza College · Cupertino, CA</div>
+</div>
+
+<!-- NAV -->
+<nav id="nav">
+  <div class="nav-left">
+    <a href="index.html" style="background:none;border:none;cursor:pointer;padding:0;display:flex;align-items:center;text-decoration:none">
+      <span style="font-family:'Playfair Display',serif;font-size:1.8rem;color:rgba(245,243,239,0.88);line-height:1;user-select:none">Φ</span>
+    </a>
+    <div class="nav-wordmark" style="border-left:1px solid var(--border);padding-left:1rem">Phi Beta Lambda<br>De Anza Chapter</div>
+  </div>
+  <div class="nav-right" style="display:flex;align-items:center;gap:2.5rem">
+    <ul class="nav-links">
+      <li><a id="nl-home" href="index.html">Home</a></li>
+      <li><a id="nl-leadership" href="leadership.html">Leadership</a></li>
+      <li><a id="nl-events" href="events.html">Events</a></li>
+      <li><a id="nl-accolades" href="accolades.html">Accolades</a></li>
+      <li><a id="nl-alumni" href="alumni.html">Alumni</a></li>
+      <li><a id="nl-polaris" href="polaris.html">Polaris</a></li>
+      <li><a id="nl-consulting" href="consulting.html">Consulting</a></li>
+    </ul>
+    <a href="https://forms.gle/2zixWcFPcGG6sCBF7" target="_blank" class="nav-apply" style="flex-shrink:0">Apply</a>
+    <button class="hamburger" onclick="openMob()"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+
+<div class="page active">
+
+<section class="page-hero">
+  <div class="hero-tag">Events</div>
+  <h1 class="page-title"><span>What We</span><span>Build Together.</span></h1>
+  <p class="page-sub">Competitions, workshops, community service, and conferences — every quarter.</p>
+</section>
+
+<div class="ev-feat">
+  <div class="ev-feat-img"><img src="images/events-slc-2026.jpg" onerror="this.style.display='none'" alt=""> <!-- originally: https://lh3.googleusercontent.com/sitesv/AA5AbUDwHnCRdgC4MDzpBVFiuFGzRcrIseKi9rjhQlkZZH8YPT42HfkRcJhbgXwbfOHyXcGK5T02... --></div>
+  <div class="ev-feat-body">
+    <div class="ev-feat-badges"><span class="ev-feat-type">Upcoming</span><span class="ev-feat-datestr">Spring 2026 · Emeryville, CA</span></div>
+    <div class="ev-feat-title">State Leadership Conference 2026</div>
+    <div class="ev-feat-desc">Our members will be competing at the State Leadership Conference in Emeryville, participating in multiple case competitions and objective tests at the state level.</div>
+  </div>
+</div>
+<div class="ev-grid">
+<div class="ev-gi"><div class="ev-gi-img"><img src="images/events-our-city-forest.jpg" onerror="this.style.display='none'" alt=""> <!-- originally: https://lh3.googleusercontent.com/sitesv/AA5AbUBHHazLyUpz9maAjrDJa7sw_aJqk3QxYe8KqRGn5Urf2rFGEQAOO9XUlbBDB1KkGBom88Ox... --></div><div class="ev-gi-body"><div class="ev-gi-badges"><span class="ev-gi-type">Service</span><span class="ev-gi-date">Winter 2026 · Bay Area, CA</span></div><div class="ev-gi-title">PBL × Our City Forest</div><div class="ev-gi-desc">Over three days, members volunteered with Our City Forest planting trees and supporting environmental sustainability — demonstrating leadership, teamwork, and community commitment.</div></div></div>
+<div class="ev-gi"><div class="ev-gi-img"><img src="images/events-dais.jpg" onerror="this.style.display='none'" alt=""> <!-- originally: https://lh3.googleusercontent.com/sitesv/AA5AbUDXRChRgb-rXlQgygHcQQZX-mOWWt754os_Tc0zjkst4EjxdGj1hqHcqFzxjJ6b_EPYyBj7... --></div><div class="ev-gi-body"><div class="ev-gi-badges"><span class="ev-gi-type">Competition</span><span class="ev-gi-date">Oct 10–11, 2025 · De Anza College</span></div><div class="ev-gi-title">De Anza Innovation Summit (DAIS)</div><div class="ev-gi-desc">Inspired by the Harvard Innovation Challenge, participants form teams, analyze a business case, and develop an innovative solution presented to executive-level judges.</div></div></div>
+<div class="ev-gi"><div class="ev-gi-img"><img src="images/events-state-fall-lc.jpg" onerror="this.style.display='none'" alt=""> <!-- originally: https://lh3.googleusercontent.com/sitesv/AA5AbUBMeai0-4j881weByTN33XyLJuJaL2OhNehaTSkr72k3rTRI_YS34tkVcU1Fi6JyJVhSu6V... --></div><div class="ev-gi-body"><div class="ev-gi-badges"><span class="ev-gi-type">Conference</span><span class="ev-gi-date">Nov 7–8, 2025 · San Diego, CA</span></div><div class="ev-gi-title">State Fall Leadership Conference</div><div class="ev-gi-desc">62 of our members attended FBLA's California State Fall Leadership Conference to participate in case competitions. 6 teams earned top placements.</div></div></div>
+<div class="ev-gi"><div class="ev-gi-img"><img src="images/events-national-blc.jpg" onerror="this.style.display='none'" alt=""> <!-- originally: https://lh3.googleusercontent.com/sitesv/AA5AbUB2rgIegDlH9lQ57Aervra2iWMezUr50PKx7RqgYJkn2lf3m6-629BJN521gbZBaRqrgGls... --></div><div class="ev-gi-body"><div class="ev-gi-badges"><span class="ev-gi-type">National</span><span class="ev-gi-date">May 30–Jun 1, 2025 · Dallas, TX</span></div><div class="ev-gi-title">National Business Leadership Conference</div><div class="ev-gi-desc">13 teams and individuals proudly placed and represented De Anza College at FBLA's National Conference on the national stage.</div></div></div>
+<div class="ev-gi"><div class="ev-gi-img"><img src="images/events-shark-tank.jpg" onerror="this.style.display='none'" alt=""> <!-- originally: https://lh3.googleusercontent.com/sitesv/AA5AbUC9U1YiypZh9cnRioMcf1Kk4ageTVgNh5nVbDqnusa7NQrrx39VUUvXfwx1csjKyOKuzvpx... --></div><div class="ev-gi-body"><div class="ev-gi-badges"><span class="ev-gi-type">Flagship</span><span class="ev-gi-date">Spring 2025 · De Anza College</span></div><div class="ev-gi-title">PBL Shark Tank</div><div class="ev-gi-desc">50 participants across 10 teams built full pitches in just one hour before a panel of industry judges from Facebook, McAfee, Cisco, and Informatica.</div></div></div>
+<div class="ev-gi"><div class="ev-gi-img"><img src="images/events-crisis-simulation.jpg" onerror="this.style.display='none'" alt=""> <!-- originally: https://lh3.googleusercontent.com/sitesv/AA5AbUDXVPkhOYZhVbcrV5eijSREhi0eXkGM-wQ4DldMJmlPnXQOo72kkDK8GQ85qEcnen2PbZ_R... --></div><div class="ev-gi-body"><div class="ev-gi-badges"><span class="ev-gi-type">Workshop</span><span class="ev-gi-date">Spring 2025 · De Anza College</span></div><div class="ev-gi-title">Crisis Strategy Simulation</div><div class="ev-gi-desc">IMs delivered 10-minute presentations addressing crises at companies like Disney and Nvidia — with outstanding research, strategy, and creativity.</div></div></div>
+<div class="ev-gi"><div class="ev-gi-img"><img src="images/events-business-olympics.jpg" onerror="this.style.display='none'" alt=""> <!-- originally: https://lh3.googleusercontent.com/sitesv/AA5AbUAv8QcV8tyMzaQ54FBJ_EjBCohuKy-BtV78-go1RNthMuQAGaNL6rh6h6RiAGlv7vBM4jQR... --></div><div class="ev-gi-body"><div class="ev-gi-badges"><span class="ev-gi-type">Competition</span><span class="ev-gi-date">Spring 2025 · De Anza College</span></div><div class="ev-gi-title">Business Olympics</div><div class="ev-gi-desc">Teams competed in Price is Right, VC or Trash, Business Jeopardy, and more — each member taking on a unique challenge.</div></div></div>
+<div class="ev-gi"><div class="ev-gi-img"><img src="images/events-state-blc.jpg" onerror="this.style.display='none'" alt=""> <!-- originally: https://lh3.googleusercontent.com/sitesv/AA5AbUAx058yD4N4lIl6yYFwX5V4GNzEuMduzvENrXH7OzDysODJWbUhvKXb8LhIehr5xZfULBFh... --></div><div class="ev-gi-body"><div class="ev-gi-badges"><span class="ev-gi-type">Conference</span><span class="ev-gi-date">Mar 6–9, 2025 · San Diego, CA</span></div><div class="ev-gi-title">State Business Leadership Conference</div><div class="ev-gi-desc">49 IMs competed at FBLA's State Conference where 33 teams and individuals placed top 5 within their competition.</div></div></div>
+<div class="ev-gi"><div class="ev-gi-img"><img src="images/events-hunger-at-home.jpg" onerror="this.style.display='none'" alt=""> <!-- originally: https://lh3.googleusercontent.com/sitesv/AA5AbUDycMwmQnJCYPkd6EclDhkUf6YoOkl7yI8GvXv-1WErLOAyVqoAKFv9-PiF2M5D1CPkvDWA... --></div><div class="ev-gi-body"><div class="ev-gi-badges"><span class="ev-gi-type">Service</span><span class="ev-gi-date">Feb 16, 2025 · San Jose, CA</span></div><div class="ev-gi-title">CSP — Hunger at Home</div><div class="ev-gi-desc">Internal Members served the community by making lunch boxes and packing food for Hunger at Home, addressing food insecurity across the South Bay.</div></div></div>
+<div class="ev-gi"><div class="ev-gi-img"><img src="images/events-fall-lc.jpg" onerror="this.style.display='none'" alt=""> <!-- originally: https://lh3.googleusercontent.com/sitesv/AA5AbUAq_6P-un6zQZS-aQhpBGItop_AbKGScwU1qtTyyPh4v9UrCbtfcrWD04_1DAPHlbv7r9oG... --></div><div class="ev-gi-body"><div class="ev-gi-badges"><span class="ev-gi-type">Conference</span><span class="ev-gi-date">Fall 2024 · Emeryville, CA</span></div><div class="ev-gi-title">Fall Leadership Conference</div><div class="ev-gi-desc">40 students competed across marketing, finance, entrepreneurship, and impromptu speaking at FBLA's Fall Leadership Conference.</div></div></div>
+<div class="ev-gi"><div class="ev-gi-img"><img src="images/events-dabc.jpg" onerror="this.style.display='none'" alt=""> <!-- originally: https://lh3.googleusercontent.com/sitesv/AA5AbUCllT0bnVjTzn7Uy2sKBdEaYqh5NR9aQWXIXL1TCZ1fOIdvx2RmpagMf4iJRWwm_Ih8rCOI... --></div><div class="ev-gi-body"><div class="ev-gi-badges"><span class="ev-gi-type">Flagship</span><span class="ev-gi-date">Fall 2024 · De Anza College</span></div><div class="ev-gi-title">De Anza Business Conference</div><div class="ev-gi-desc">De Anza's first-ever Business Conference. 60+ participants competed in 3 case competitions spanning Marketing, Finance, and Operations.</div></div></div>
+</div>
+
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <span class="foot-logo">ΦΒΛ</span>
+  <span class="foot-copy">© 2025 Phi Beta Lambda · De Anza College</span>
+  <ul class="foot-links">
+    <li><a href="https://instagram.com/deanzapbl" target="_blank">Instagram</a></li>
+    <li><a href="https://discord.gg/w7zap3SfUm" target="_blank">Discord</a></li>
+    <li><a href="https://linktr.ee/deanzapbl" target="_blank">Linktree</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+</footer>
+<script src="main.js"></script>
+</body>
+</html>

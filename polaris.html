@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Polaris Research Group — Phi Beta Lambda De Anza</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Unbounded:wght@400;700&family=DM+Sans:wght@300;400;500&family=IBM+Plex+Mono:wght@400;500&family=Playfair+Display:ital,wght@1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+
+</head>
+<body>
+<div class="cur" id="cur"></div>
+<div class="cur-ring" id="ring"></div>
+
+<!-- MOBILE OVERLAY -->
+<div class="mob-overlay" id="mob">
+  <button class="mob-close" onclick="closeMob()">Close ×</button>
+  <ul class="mob-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="leadership.html">Leadership</a></li>
+    <li><a href="events.html">Events</a></li>
+    <li><a href="accolades.html">Accolades</a></li>
+    <li><a href="alumni.html">Alumni</a></li>
+    <li><a href="polaris.html">Polaris</a></li>
+    <li><a href="consulting.html">Consulting</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+  <div class="mob-meta">De Anza College · Cupertino, CA</div>
+</div>
+
+<!-- NAV -->
+<nav id="nav">
+  <div class="nav-left">
+    <a href="index.html" style="background:none;border:none;cursor:pointer;padding:0;display:flex;align-items:center;text-decoration:none">
+      <span style="font-family:'Playfair Display',serif;font-size:1.8rem;color:rgba(245,243,239,0.88);line-height:1;user-select:none">Φ</span>
+    </a>
+    <div class="nav-wordmark" style="border-left:1px solid var(--border);padding-left:1rem">Phi Beta Lambda<br>De Anza Chapter</div>
+  </div>
+  <div class="nav-right" style="display:flex;align-items:center;gap:2.5rem">
+    <ul class="nav-links">
+      <li><a id="nl-home" href="index.html">Home</a></li>
+      <li><a id="nl-leadership" href="leadership.html">Leadership</a></li>
+      <li><a id="nl-events" href="events.html">Events</a></li>
+      <li><a id="nl-accolades" href="accolades.html">Accolades</a></li>
+      <li><a id="nl-alumni" href="alumni.html">Alumni</a></li>
+      <li><a id="nl-polaris" href="polaris.html">Polaris</a></li>
+      <li><a id="nl-consulting" href="consulting.html">Consulting</a></li>
+    </ul>
+    <a href="https://forms.gle/2zixWcFPcGG6sCBF7" target="_blank" class="nav-apply" style="flex-shrink:0">Apply</a>
+    <button class="hamburger" onclick="openMob()"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+
+<div class="page active">
+
+<section class="page-hero">
+  <div class="hero-tag">Polaris Research Group</div>
+  <h1 class="page-title"><span>Guided by</span><span>the North Star.</span></h1>
+  <p class="page-sub">Where leadership meets specialization — producing rigorous, institutional-quality research.</p>
+</section>
+<div class="sw">
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:6rem;margin-bottom:5rem;align-items:start" class="g2">
+    <div>
+      <div class="sec-tag">About Polaris</div>
+      <div class="sec-body">
+        <p>Polaris Research Group (PRG) is a selective cohort within Phi Beta Lambda designed to cultivate elite undergraduate talent through rigorous, high-impact research and strategic thought leadership.</p>
+        <p style="margin-top:1.25rem">Inspired by the North Star, Polaris represents our commitment to guiding students into the premier worlds of high finance, strategy, technology, and macroeconomics. Through sector-based research, executive mentorship, and thought-driven publications, PRG is where leadership meets specialization.</p>
+      </div>
+      <div style="display:flex;flex-wrap:wrap;gap:.4rem;margin-top:2rem">
+        <span class="pill">Macroeconomics</span><span class="pill">Equities</span><span class="pill">Technology</span><span class="pill">Finance</span><span class="pill">Healthcare</span><span class="pill">Energy</span><span class="pill">SSRN Publications</span><span class="pill">Equity Models</span><span class="pill">Sector Reports</span>
+      </div>
+    </div>
+    <div style="border:1px solid var(--border);padding:3rem">
+      <div style="font-family:'Bebas Neue',sans-serif;font-size:1.5rem;letter-spacing:.03em;margin-bottom:2rem">Team Structure</div>
+      <div style="border-bottom:1px solid var(--border);padding:1.25rem 0;display:flex;justify-content:space-between;align-items:baseline"><span style="font-family:'IBM Plex Mono',monospace;font-size:.6rem;letter-spacing:.18em;text-transform:uppercase;color:rgba(245,243,239,.4)">Total Members</span><span style="font-family:'Bebas Neue',sans-serif;font-size:3rem;color:var(--red);line-height:1">12</span></div>
+      <div style="border-bottom:1px solid var(--border);padding:1.25rem 0;display:flex;justify-content:space-between;align-items:baseline"><span style="font-family:'IBM Plex Mono',monospace;font-size:.6rem;letter-spacing:.18em;text-transform:uppercase;color:rgba(245,243,239,.4)">Project Heads</span><span style="font-family:'Bebas Neue',sans-serif;font-size:3rem;color:var(--red);line-height:1">1</span></div>
+      <div style="padding:1.25rem 0;display:flex;justify-content:space-between;align-items:baseline"><span style="font-family:'IBM Plex Mono',monospace;font-size:.6rem;letter-spacing:.18em;text-transform:uppercase;color:rgba(245,243,239,.4)">Analysts per Team</span><span style="font-family:'Bebas Neue',sans-serif;font-size:3rem;color:var(--red);line-height:1">3</span></div>
+      <div style="margin-top:1.5rem;border-top:1px solid var(--border);padding-top:1.5rem"><div style="font-family:'IBM Plex Mono',monospace;font-size:.6rem;letter-spacing:.18em;text-transform:uppercase;color:rgba(245,243,239,.35);margin-bottom:.75rem">Research Tracks</div><span class="pill" style="margin:.2rem">Macroeconomics</span><span class="pill" style="margin:.2rem">Equity</span><span class="pill" style="margin:.2rem">TBD — Fall Quarter</span></div>
+    </div>
+  </div>
+  <div style="border-top:1px solid var(--border);padding-top:4rem;margin-bottom:4rem">
+    <div class="sec-tag">Leadership</div>
+    <div style="display:grid;grid-template-columns:repeat(5,1fr);gap:2.5rem" class="g5">
+      <div style="text-align:center"><div style="width:110px;height:110px;border-radius:50%;background:#180b0b;margin:0 auto 1rem;position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center;border:1px solid var(--border-red)"><span style="font-family:'Bebas Neue',sans-serif;font-size:1.8rem;color:rgba(200,16,46,.3)">NP</span><img src="images/polaris-nisa-pradhan.jpg" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:2" onerror="this.style.display='none'" alt="Nisa Pradhan"> <!-- originally: https://lh3.googleusercontent.com/sitesv/AA5AbUBAXgm4MhVCUFBezX-KNb2OewkqTs6qEWbLN2-cDP2leByfR3goE5BzvWXif5xUGWKxd057... --></div><div style="font-family:'Bebas Neue',sans-serif;font-size:1.1rem;letter-spacing:.03em">Nisa Pradhan</div><div style="font-family:'IBM Plex Mono',monospace;font-size:.5rem;letter-spacing:.15em;text-transform:uppercase;color:var(--red);margin-top:.2rem">Macroeconomics Advisor</div></div>
+      <div style="text-align:center"><div style="width:110px;height:110px;border-radius:50%;background:#141010;margin:0 auto 1rem;position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center;border:1px solid var(--border-red)"><span style="font-family:'Bebas Neue',sans-serif;font-size:1.8rem;color:rgba(200,16,46,.3)">AS</span><img src="images/polaris-arya-somu.jpg" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:2" onerror="this.style.display='none'" alt="Arya Somu"> <!-- originally: https://lh3.googleusercontent.com/sitesv/AA5AbUAgtDBy8RsXjQPsnE_R9bTrHTmOAY_4OLvofgUDPr6YXFrkrCMa5roXtI472qgKY81E1VwW... --></div><div style="font-family:'Bebas Neue',sans-serif;font-size:1.1rem;letter-spacing:.03em">Arya Somu</div><div style="font-family:'IBM Plex Mono',monospace;font-size:.5rem;letter-spacing:.15em;text-transform:uppercase;color:var(--red);margin-top:.2rem">President · Equities Advisor</div></div>
+      <div style="text-align:center"><div style="width:110px;height:110px;border-radius:50%;background:#1c1111;margin:0 auto 1rem;position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center;border:1px solid var(--border-red)"><span style="font-family:'Bebas Neue',sans-serif;font-size:1.8rem;color:rgba(200,16,46,.3)">IJ</span><img src="images/polaris-iker-jimenez.jpg" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:2" onerror="this.style.display='none'" alt="Iker Jimenez"> <!-- originally: https://lh3.googleusercontent.com/sitesv/AA5AbUD5X4kCNZ66K7piKOAE-ys2NseK90N9aGPK7ebxR5I1OqPsSXZjzU0zhGTjaxeHinrKcEBd... --></div><div style="font-family:'Bebas Neue',sans-serif;font-size:1.1rem;letter-spacing:.03em">Iker Jimenez</div><div style="font-family:'IBM Plex Mono',monospace;font-size:.5rem;letter-spacing:.15em;text-transform:uppercase;color:var(--red);margin-top:.2rem">Hiring Committee</div></div>
+      <div style="text-align:center"><div style="width:110px;height:110px;border-radius:50%;background:#180b0b;margin:0 auto 1rem;position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center;border:1px solid var(--border-red)"><span style="font-family:'Bebas Neue',sans-serif;font-size:1.8rem;color:rgba(200,16,46,.3)">NT</span><img src="images/polaris-nhi-tran.jpg" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:2" onerror="this.style.display='none'" alt="Nhi Tran"> <!-- originally: https://lh3.googleusercontent.com/sitesv/AA5AbUCHF-L6wkVfPOjTSBSNh8osI9A6KVFkgFcjhpD-lqc4CQLtzs7_LmsJLOUIaeUd3mJNRXjo... --></div><div style="font-family:'Bebas Neue',sans-serif;font-size:1.1rem;letter-spacing:.03em">Nhi Tran</div><div style="font-family:'IBM Plex Mono',monospace;font-size:.5rem;letter-spacing:.15em;text-transform:uppercase;color:var(--red);margin-top:.2rem">Marketing Committee</div></div>
+      <div style="text-align:center"><div style="width:110px;height:110px;border-radius:50%;background:#141010;margin:0 auto 1rem;position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center;border:1px solid var(--border-red)"><span style="font-family:'Bebas Neue',sans-serif;font-size:1.8rem;color:rgba(200,16,46,.3)">JN</span><img src="images/polaris-jordan-nguyen.jpg" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:2" onerror="this.style.display='none'" alt="Jordan Nguyen"> <!-- originally: https://lh3.googleusercontent.com/sitesv/AA5AbUAnYlF8kEsPxVde-1pd3g49r90DEX4n_KceBwSJ--kO75enzJJS9jwg4Zsc-rb6oWhQHf0m... --></div><div style="font-family:'Bebas Neue',sans-serif;font-size:1.1rem;letter-spacing:.03em">Jordan Nguyen</div><div style="font-family:'IBM Plex Mono',monospace;font-size:.5rem;letter-spacing:.15em;text-transform:uppercase;color:var(--red);margin-top:.2rem">Marketing Committee</div></div>
+    </div>
+  </div>
+  <div style="background:var(--red);padding:4rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:2rem">
+    <div><div style="font-family:'Bebas Neue',sans-serif;font-size:3rem;letter-spacing:.02em;line-height:1;margin-bottom:.75rem">Ready to Research?</div><div style="font-size:.9rem;color:rgba(245,243,239,.75);max-width:480px">Polaris recruitment begins in Fall Quarter. Follow us on Instagram for announcements.</div></div>
+    <div style="display:flex;gap:1rem;flex-wrap:wrap">
+      <a href="https://docs.google.com/forms/d/e/1FAIpQLSchwznMoX4I-1wtBzK6W7Qmw_-_nI_arVZgDiEnja4wmSh39g/viewform" target="_blank" class="btn" style="background:var(--white);color:var(--red)">Apply to Polaris →</a>
+      <a href="https://www.instagram.com/deanzapbl/" target="_blank" class="btn" style="background:transparent;border:1px solid rgba(245,243,239,.4);color:var(--white)">@deanzapbl</a>
+    </div>
+  </div>
+</div>
+
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <span class="foot-logo">ΦΒΛ</span>
+  <span class="foot-copy">© 2025 Phi Beta Lambda · De Anza College</span>
+  <ul class="foot-links">
+    <li><a href="https://instagram.com/deanzapbl" target="_blank">Instagram</a></li>
+    <li><a href="https://discord.gg/w7zap3SfUm" target="_blank">Discord</a></li>
+    <li><a href="https://linktr.ee/deanzapbl" target="_blank">Linktree</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+</footer>
+<script src="main.js"></script>
+</body>
+</html>
