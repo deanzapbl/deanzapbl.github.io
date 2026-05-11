@@ -6,9 +6,349 @@
 <title>Polaris Research Group — Phi Beta Lambda De Anza</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Unbounded:wght@400;700&family=DM+Sans:wght@300;400;500&family=IBM+Plex+Mono:wght@400;500&family=Playfair+Display:ital,wght@1,400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Open+Sauce+One:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500&family=Playfair+Display:ital,wght@1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
+<style>
+/* ── PRG Brand Overrides — scoped to Polaris page only ──────── */
+body { background: #011c43; }
 
+.prg-page {
+  --red: #0000ff;
+  --black: #011c43;
+  --gray: #01244d;
+  --gray2: #022e5c;
+  --border: rgba(186,169,194,.2);
+  --border-red: rgba(186,169,194,.25);
+  --gray-light: #baa9c2;
+  background: #011c43;
+}
+
+/* section tag overrides */
+.prg-page .sec-tag {
+  font-family: 'Open Sauce One', Avenir, system-ui, sans-serif;
+  color: #baa9c2;
+  letter-spacing: .22em;
+}
+.prg-page .sec-tag::before { background: #baa9c2; }
+
+.prg-page .sec-body {
+  font-family: 'Open Sauce One', Avenir, system-ui, sans-serif;
+  color: rgba(186,169,194,.75);
+}
+
+.prg-page .sec-h {
+  font-family: Georgia, "Georgia Pro", serif;
+  color: #ffffff;
+}
+
+/* pill overrides */
+.prg-page .pill {
+  font-family: 'Open Sauce One', Avenir, system-ui, sans-serif;
+  border-color: rgba(186,169,194,.35);
+  color: #baa9c2;
+}
+.prg-page .pill:hover {
+  background: #0000ff;
+  color: #fff;
+  border-color: #0000ff;
+}
+
+/* ── Hero ───────────────────────────────────────────────────── */
+.prg-hero {
+  padding: 10rem 2.5rem 7rem;
+  background: linear-gradient(160deg, #011c43 0%, #021b42 55%, #010e28 100%);
+  position: relative;
+  overflow: hidden;
+  border-bottom: 1px solid rgba(186,169,194,.2);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  min-height: 82vh;
+}
+.prg-hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse 65% 75% at 80% 45%, rgba(0,0,255,.06) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.prg-wordmark-row {
+  display: flex;
+  align-items: center;
+  gap: 1.4rem;
+  margin-bottom: 3rem;
+  opacity: 0;
+  animation: fadeIn .8s .1s forwards;
+  position: relative;
+  z-index: 1;
+}
+.prg-mark {
+  font-family: Georgia, "Georgia Pro", serif;
+  font-size: 2.6rem;
+  font-weight: 700;
+  color: #ffffff;
+  line-height: 1;
+  letter-spacing: -.01em;
+  display: block;
+}
+.prg-sub-label {
+  font-family: 'Open Sauce One', Avenir, system-ui, sans-serif;
+  font-size: .58rem;
+  letter-spacing: .28em;
+  text-transform: uppercase;
+  color: #baa9c2;
+  display: block;
+  margin-top: .3rem;
+}
+
+.prg-title-main {
+  font-family: Georgia, "Georgia Pro", serif;
+  font-size: clamp(4.5rem, 13vw, 13rem);
+  font-weight: 700;
+  line-height: .88;
+  letter-spacing: -.01em;
+  color: #ffffff;
+  position: relative;
+  z-index: 1;
+  margin-bottom: 2.5rem;
+}
+.prg-title-main span {
+  display: block;
+  opacity: 0;
+  transform: translateY(60px);
+  animation: slideUp .9s cubic-bezier(.16,1,.3,1) forwards;
+}
+.prg-title-main span:nth-child(1) { animation-delay: .15s; }
+.prg-title-main span:nth-child(2) { animation-delay: .25s; color: #baa9c2; }
+
+.prg-tagline {
+  font-family: 'Open Sauce One', Avenir, system-ui, sans-serif;
+  font-size: clamp(.9rem, 1.8vw, 1.15rem);
+  color: rgba(186,169,194,.75);
+  max-width: 560px;
+  line-height: 1.8;
+  position: relative;
+  z-index: 1;
+  opacity: 0;
+  animation: fadeIn .8s .55s forwards;
+}
+
+/* ── Section divider ────────────────────────────────────────── */
+.prg-rule {
+  border: none;
+  height: 1px;
+  background: rgba(186,169,194,.2);
+  margin: 5rem 0;
+}
+
+/* ── Four Pillars ───────────────────────────────────────────── */
+.prg-pillars {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  border: 1px solid rgba(186,169,194,.2);
+  margin-bottom: 5rem;
+}
+.prg-pillar {
+  padding: 2.5rem 2rem;
+  border-right: 1px solid rgba(186,169,194,.2);
+}
+.prg-pillar:last-child { border-right: none; }
+.prg-pillar-num {
+  font-family: 'Open Sauce One', Avenir, system-ui, sans-serif;
+  font-size: .5rem;
+  letter-spacing: .22em;
+  text-transform: uppercase;
+  color: rgba(186,169,194,.35);
+  margin-bottom: 1.5rem;
+}
+.prg-pillar-h {
+  font-family: Georgia, "Georgia Pro", serif;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: .85rem;
+  line-height: 1.3;
+}
+.prg-pillar-p {
+  font-family: 'Open Sauce One', Avenir, system-ui, sans-serif;
+  font-size: .82rem;
+  color: rgba(186,169,194,.68);
+  line-height: 1.8;
+}
+
+/* ── Team Structure box ─────────────────────────────────────── */
+.prg-struct-box {
+  border: 1px solid rgba(186,169,194,.2);
+  padding: 3rem;
+}
+.prg-struct-h {
+  font-family: Georgia, "Georgia Pro", serif;
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 2rem;
+  letter-spacing: .01em;
+}
+.prg-stat-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  padding: 1.25rem 0;
+  border-bottom: 1px solid rgba(186,169,194,.12);
+}
+.prg-stat-row:last-of-type { border-bottom: none; padding-bottom: 0; }
+.prg-stat-lbl {
+  font-family: 'Open Sauce One', Avenir, system-ui, sans-serif;
+  font-size: .58rem;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: rgba(186,169,194,.45);
+}
+.prg-stat-val {
+  font-family: Georgia, "Georgia Pro", serif;
+  font-size: 3rem;
+  color: #ffffff;
+  line-height: 1;
+  font-weight: 700;
+}
+.prg-tracks-label {
+  font-family: 'Open Sauce One', Avenir, system-ui, sans-serif;
+  font-size: .55rem;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: rgba(186,169,194,.35);
+  margin-bottom: .75rem;
+}
+
+/* ── Leadership grid ────────────────────────────────────────── */
+.prg-leader-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2.5rem;
+}
+.prg-leader-card { text-align: center; }
+.prg-leader-photo {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background: rgba(1,24,64,.9);
+  margin: 0 auto 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(186,169,194,.25);
+  position: relative;
+  overflow: hidden;
+}
+.prg-leader-initials {
+  font-family: Georgia, "Georgia Pro", serif;
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: rgba(186,169,194,.35);
+  user-select: none;
+}
+.prg-leader-photo img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 2;
+}
+.prg-leader-name {
+  font-family: Georgia, "Georgia Pro", serif;
+  font-size: .95rem;
+  font-weight: 700;
+  color: #ffffff;
+  line-height: 1.2;
+}
+.prg-leader-title {
+  font-family: 'Open Sauce One', Avenir, system-ui, sans-serif;
+  font-size: .48rem;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: #baa9c2;
+  margin-top: .3rem;
+}
+
+/* ── CTA block ──────────────────────────────────────────────── */
+.prg-cta {
+  border: 1px solid rgba(186,169,194,.2);
+  background: linear-gradient(135deg, #021840 0%, #011c43 100%);
+  padding: 4rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+.prg-cta-h {
+  font-family: Georgia, "Georgia Pro", serif;
+  font-size: 2.4rem;
+  font-weight: 700;
+  color: #ffffff;
+  line-height: 1.1;
+  margin-bottom: .75rem;
+}
+.prg-cta-sub {
+  font-family: 'Open Sauce One', Avenir, system-ui, sans-serif;
+  font-size: .88rem;
+  color: rgba(186,169,194,.7);
+  max-width: 480px;
+}
+.prg-btn-primary {
+  display: inline-block;
+  font-family: 'Open Sauce One', Avenir, system-ui, sans-serif;
+  font-size: .62rem;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  padding: 1rem 2.5rem;
+  text-decoration: none;
+  background: #0000ff;
+  color: #ffffff;
+  border: 1px solid #0000ff;
+  transition: all .2s;
+}
+.prg-btn-primary:hover { background: transparent; color: #0000ff; }
+.prg-btn-outline {
+  display: inline-block;
+  font-family: 'Open Sauce One', Avenir, system-ui, sans-serif;
+  font-size: .62rem;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  padding: 1rem 2.5rem;
+  text-decoration: none;
+  background: transparent;
+  color: #baa9c2;
+  border: 1px solid rgba(186,169,194,.35);
+  transition: all .2s;
+}
+.prg-btn-outline:hover { border-color: #baa9c2; color: #ffffff; }
+
+/* ── Footer on navy bg ──────────────────────────────────────── */
+footer {
+  background: #011c43;
+  border-top-color: rgba(186,169,194,.15);
+}
+
+/* ── Responsive ─────────────────────────────────────────────── */
+@media(max-width:900px) {
+  .prg-pillars { grid-template-columns: 1fr 1fr; }
+  .prg-pillar { border-right: none; border-bottom: 1px solid rgba(186,169,194,.2); }
+  .prg-pillar:nth-child(odd) { border-right: 1px solid rgba(186,169,194,.2); }
+  .prg-pillar:nth-child(3), .prg-pillar:nth-child(4) { border-bottom: none; }
+  .prg-leader-grid { grid-template-columns: repeat(4, 1fr); gap: 1.5rem; }
+}
+@media(max-width:700px) {
+  .prg-hero { padding: 8rem 1.5rem 5rem; }
+  .prg-pillars { grid-template-columns: 1fr; }
+  .prg-pillar { border-right: none; border-bottom: 1px solid rgba(186,169,194,.2); }
+  .prg-pillar:last-child { border-bottom: none; }
+  .prg-leader-grid { grid-template-columns: repeat(2, 1fr); }
+  .prg-cta { padding: 2.5rem 1.5rem; }
+}
+</style>
 </head>
 <body>
 <div class="cur" id="cur"></div>
@@ -53,53 +393,203 @@
   </div>
 </nav>
 
-<div class="page active">
+<div class="page active prg-page">
 
-<section class="page-hero">
-  <div class="hero-tag">Polaris Research Group</div>
-  <h1 class="page-title"><span>Guided by</span><span>the North Star.</span></h1>
-  <p class="page-sub">Where leadership meets specialization — producing rigorous, institutional-quality research.</p>
+<!-- ── HERO ───────────────────────────────────────────────── -->
+<section class="prg-hero">
+
+  <!-- PRG wordmark + North Star -->
+  <div class="prg-wordmark-row">
+    <!-- North Star: two overlapping 4-pointed stars rotated 45° -->
+    <svg width="52" height="52" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <path d="M50 2L61 39L98 50L61 61L50 98L39 61L2 50L39 39Z" fill="white"/>
+      <path d="M50 2L61 39L98 50L61 61L50 98L39 61L2 50L39 39Z" fill="white" transform="rotate(45 50 50)" opacity="0.5"/>
+    </svg>
+    <div>
+      <span class="prg-mark">PRG</span>
+      <span class="prg-sub-label">Polaris Research Group</span>
+    </div>
+  </div>
+
+  <!-- Hero title -->
+  <h1 class="prg-title-main">
+    <span>A launchpad for</span>
+    <span>tomorrow's leaders.</span>
+  </h1>
+
+  <!-- Tagline -->
+  <p class="prg-tagline">Where leadership meets specialization — producing rigorous, institutional-quality research.</p>
+
 </section>
+
+<!-- ── MAIN CONTENT ────────────────────────────────────────── -->
 <div class="sw">
+
+  <!-- About + Team Structure -->
   <div style="display:grid;grid-template-columns:1fr 1fr;gap:6rem;margin-bottom:5rem;align-items:start" class="g2">
+
+    <!-- About copy -->
     <div>
       <div class="sec-tag">About Polaris</div>
       <div class="sec-body">
-        <p>Polaris Research Group (PRG) is a selective cohort within Phi Beta Lambda designed to cultivate elite undergraduate talent through rigorous, high-impact research and strategic thought leadership.</p>
+        <p>PRG is a selective cohort within Phi Beta Lambda designed to cultivate elite undergraduate talent through rigorous, high-impact research and strategic thought leadership.</p>
         <p style="margin-top:1.25rem">Inspired by the North Star, Polaris represents our commitment to guiding students into the premier worlds of high finance, strategy, technology, and macroeconomics. Through sector-based research, executive mentorship, and thought-driven publications, PRG is where leadership meets specialization.</p>
       </div>
       <div style="display:flex;flex-wrap:wrap;gap:.4rem;margin-top:2rem">
         <span class="pill">Macroeconomics</span><span class="pill">Equities</span><span class="pill">Technology</span><span class="pill">Finance</span><span class="pill">Healthcare</span><span class="pill">Energy</span><span class="pill">SSRN Publications</span><span class="pill">Equity Models</span><span class="pill">Sector Reports</span>
       </div>
     </div>
-    <div style="border:1px solid var(--border);padding:3rem">
-      <div style="font-family:'Bebas Neue',sans-serif;font-size:1.5rem;letter-spacing:.03em;margin-bottom:2rem">Team Structure</div>
-      <div style="border-bottom:1px solid var(--border);padding:1.25rem 0;display:flex;justify-content:space-between;align-items:baseline"><span style="font-family:'IBM Plex Mono',monospace;font-size:.6rem;letter-spacing:.18em;text-transform:uppercase;color:rgba(245,243,239,.4)">Total Members</span><span style="font-family:'Bebas Neue',sans-serif;font-size:3rem;color:var(--red);line-height:1">12</span></div>
-      <div style="border-bottom:1px solid var(--border);padding:1.25rem 0;display:flex;justify-content:space-between;align-items:baseline"><span style="font-family:'IBM Plex Mono',monospace;font-size:.6rem;letter-spacing:.18em;text-transform:uppercase;color:rgba(245,243,239,.4)">Project Heads</span><span style="font-family:'Bebas Neue',sans-serif;font-size:3rem;color:var(--red);line-height:1">1</span></div>
-      <div style="padding:1.25rem 0;display:flex;justify-content:space-between;align-items:baseline"><span style="font-family:'IBM Plex Mono',monospace;font-size:.6rem;letter-spacing:.18em;text-transform:uppercase;color:rgba(245,243,239,.4)">Analysts per Team</span><span style="font-family:'Bebas Neue',sans-serif;font-size:3rem;color:var(--red);line-height:1">3</span></div>
-      <div style="margin-top:1.5rem;border-top:1px solid var(--border);padding-top:1.5rem"><div style="font-family:'IBM Plex Mono',monospace;font-size:.6rem;letter-spacing:.18em;text-transform:uppercase;color:rgba(245,243,239,.35);margin-bottom:.75rem">Research Tracks</div><span class="pill" style="margin:.2rem">Macroeconomics</span><span class="pill" style="margin:.2rem">Equity</span><span class="pill" style="margin:.2rem">TBD — Fall Quarter</span></div>
-    </div>
-  </div>
-  <div style="border-top:1px solid var(--border);padding-top:4rem;margin-bottom:4rem">
-    <div class="sec-tag">Leadership</div>
-    <div style="display:grid;grid-template-columns:repeat(5,1fr);gap:2.5rem" class="g5">
-      <div style="text-align:center"><div style="width:110px;height:110px;border-radius:50%;background:#180b0b;margin:0 auto 1rem;position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center;border:1px solid var(--border-red)"><span style="font-family:'Bebas Neue',sans-serif;font-size:1.8rem;color:rgba(200,16,46,.3)">NP</span><img src="images/polaris-nisa-pradhan.jpg" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:2" onerror="this.style.display='none'" alt="Nisa Pradhan"> <!-- originally: https://lh3.googleusercontent.com/sitesv/AA5AbUBAXgm4MhVCUFBezX-KNb2OewkqTs6qEWbLN2-cDP2leByfR3goE5BzvWXif5xUGWKxd057... --></div><div style="font-family:'Bebas Neue',sans-serif;font-size:1.1rem;letter-spacing:.03em">Nisa Pradhan</div><div style="font-family:'IBM Plex Mono',monospace;font-size:.5rem;letter-spacing:.15em;text-transform:uppercase;color:var(--red);margin-top:.2rem">Macroeconomics Advisor</div></div>
-      <div style="text-align:center"><div style="width:110px;height:110px;border-radius:50%;background:#141010;margin:0 auto 1rem;position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center;border:1px solid var(--border-red)"><span style="font-family:'Bebas Neue',sans-serif;font-size:1.8rem;color:rgba(200,16,46,.3)">AS</span><img src="images/polaris-arya-somu.jpg" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:2" onerror="this.style.display='none'" alt="Arya Somu"> <!-- originally: https://lh3.googleusercontent.com/sitesv/AA5AbUAgtDBy8RsXjQPsnE_R9bTrHTmOAY_4OLvofgUDPr6YXFrkrCMa5roXtI472qgKY81E1VwW... --></div><div style="font-family:'Bebas Neue',sans-serif;font-size:1.1rem;letter-spacing:.03em">Arya Somu</div><div style="font-family:'IBM Plex Mono',monospace;font-size:.5rem;letter-spacing:.15em;text-transform:uppercase;color:var(--red);margin-top:.2rem">President · Equities Advisor</div></div>
-      <div style="text-align:center"><div style="width:110px;height:110px;border-radius:50%;background:#1c1111;margin:0 auto 1rem;position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center;border:1px solid var(--border-red)"><span style="font-family:'Bebas Neue',sans-serif;font-size:1.8rem;color:rgba(200,16,46,.3)">IJ</span><img src="images/polaris-iker-jimenez.jpg" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:2" onerror="this.style.display='none'" alt="Iker Jimenez"> <!-- originally: https://lh3.googleusercontent.com/sitesv/AA5AbUD5X4kCNZ66K7piKOAE-ys2NseK90N9aGPK7ebxR5I1OqPsSXZjzU0zhGTjaxeHinrKcEBd... --></div><div style="font-family:'Bebas Neue',sans-serif;font-size:1.1rem;letter-spacing:.03em">Iker Jimenez</div><div style="font-family:'IBM Plex Mono',monospace;font-size:.5rem;letter-spacing:.15em;text-transform:uppercase;color:var(--red);margin-top:.2rem">Hiring Committee</div></div>
-      <div style="text-align:center"><div style="width:110px;height:110px;border-radius:50%;background:#180b0b;margin:0 auto 1rem;position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center;border:1px solid var(--border-red)"><span style="font-family:'Bebas Neue',sans-serif;font-size:1.8rem;color:rgba(200,16,46,.3)">NT</span><img src="images/polaris-nhi-tran.jpg" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:2" onerror="this.style.display='none'" alt="Nhi Tran"> <!-- originally: https://lh3.googleusercontent.com/sitesv/AA5AbUCHF-L6wkVfPOjTSBSNh8osI9A6KVFkgFcjhpD-lqc4CQLtzs7_LmsJLOUIaeUd3mJNRXjo... --></div><div style="font-family:'Bebas Neue',sans-serif;font-size:1.1rem;letter-spacing:.03em">Nhi Tran</div><div style="font-family:'IBM Plex Mono',monospace;font-size:.5rem;letter-spacing:.15em;text-transform:uppercase;color:var(--red);margin-top:.2rem">Marketing Committee</div></div>
-      <div style="text-align:center"><div style="width:110px;height:110px;border-radius:50%;background:#141010;margin:0 auto 1rem;position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center;border:1px solid var(--border-red)"><span style="font-family:'Bebas Neue',sans-serif;font-size:1.8rem;color:rgba(200,16,46,.3)">JN</span><img src="images/polaris-jordan-nguyen.jpg" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:2" onerror="this.style.display='none'" alt="Jordan Nguyen"> <!-- originally: https://lh3.googleusercontent.com/sitesv/AA5AbUAnYlF8kEsPxVde-1pd3g49r90DEX4n_KceBwSJ--kO75enzJJS9jwg4Zsc-rb6oWhQHf0m... --></div><div style="font-family:'Bebas Neue',sans-serif;font-size:1.1rem;letter-spacing:.03em">Jordan Nguyen</div><div style="font-family:'IBM Plex Mono',monospace;font-size:.5rem;letter-spacing:.15em;text-transform:uppercase;color:var(--red);margin-top:.2rem">Marketing Committee</div></div>
-    </div>
-  </div>
-  <div style="background:var(--red);padding:4rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:2rem">
-    <div><div style="font-family:'Bebas Neue',sans-serif;font-size:3rem;letter-spacing:.02em;line-height:1;margin-bottom:.75rem">Ready to Research?</div><div style="font-size:.9rem;color:rgba(245,243,239,.75);max-width:480px">Polaris recruitment begins in Fall Quarter. Follow us on Instagram for announcements.</div></div>
-    <div style="display:flex;gap:1rem;flex-wrap:wrap">
-      <a href="https://docs.google.com/forms/d/e/1FAIpQLSchwznMoX4I-1wtBzK6W7Qmw_-_nI_arVZgDiEnja4wmSh39g/viewform" target="_blank" class="btn" style="background:var(--white);color:var(--red)">Apply to Polaris →</a>
-      <a href="https://www.instagram.com/deanzapbl/" target="_blank" class="btn" style="background:transparent;border:1px solid rgba(245,243,239,.4);color:var(--white)">@deanzapbl</a>
-    </div>
-  </div>
-</div>
 
-</div>
+    <!-- Team Structure -->
+    <div class="prg-struct-box">
+      <div class="prg-struct-h">Team Structure</div>
+      <div class="prg-stat-row">
+        <span class="prg-stat-lbl">Total Members</span>
+        <span class="prg-stat-val">12</span>
+      </div>
+      <div class="prg-stat-row">
+        <span class="prg-stat-lbl">Project Heads</span>
+        <span class="prg-stat-val">1</span>
+      </div>
+      <div class="prg-stat-row">
+        <span class="prg-stat-lbl">Analysts per Team</span>
+        <span class="prg-stat-val">3</span>
+      </div>
+      <div style="margin-top:1.5rem;border-top:1px solid rgba(186,169,194,.12);padding-top:1.5rem">
+        <div class="prg-tracks-label">Research Tracks</div>
+        <span class="pill" style="margin:.2rem">Macroeconomics</span><span class="pill" style="margin:.2rem">Equity</span><span class="pill" style="margin:.2rem">TBD — Fall Quarter</span>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Divider -->
+  <hr class="prg-rule">
+
+  <!-- Four Strategy Pillars -->
+  <div>
+    <div class="sec-tag" style="margin-bottom:2.5rem">Strategy Pillars</div>
+    <div class="prg-pillars">
+      <div class="prg-pillar">
+        <div class="prg-pillar-num">01</div>
+        <div class="prg-pillar-h">Elite Specialization</div>
+        <p class="prg-pillar-p">PRG selects and develops students with exceptional talent and interest in finance, product/tech, marketing, strategy, innovation, and macroeconomics.</p>
+      </div>
+      <div class="prg-pillar">
+        <div class="prg-pillar-num">02</div>
+        <div class="prg-pillar-h">Thought Leadership</div>
+        <p class="prg-pillar-p">PRG's goal is to create and share strategic, data-driven research that reflects professional quality.</p>
+      </div>
+      <div class="prg-pillar">
+        <div class="prg-pillar-num">03</div>
+        <div class="prg-pillar-h">Career Navigation</div>
+        <p class="prg-pillar-p">PRG serves as a compass, preparing members for internships, graduate school, and c-suite level careers.</p>
+      </div>
+      <div class="prg-pillar">
+        <div class="prg-pillar-num">04</div>
+        <div class="prg-pillar-h">Collaborative Rigor</div>
+        <p class="prg-pillar-p">Teams work in high-performance cohorts to publish reports and lead discussions within the larger Phi Beta Lambda community.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Divider -->
+  <hr class="prg-rule">
+
+  <!-- Leadership -->
+  <div style="margin-bottom:5rem">
+    <div class="sec-tag">Leadership</div>
+    <div class="prg-leader-grid">
+
+      <div class="prg-leader-card">
+        <div class="prg-leader-photo">
+          <span class="prg-leader-initials">AS</span>
+          <img src="images/polaris-arya-somu.jpg" onerror="this.style.display='none'" alt="Arya Somu">
+        </div>
+        <div class="prg-leader-name">Arya Somu</div>
+        <div class="prg-leader-title">President</div>
+      </div>
+
+      <div class="prg-leader-card">
+        <div class="prg-leader-photo">
+          <span class="prg-leader-initials">NM</span>
+          <img src="images/polaris-nikunj-more.jpg" onerror="this.style.display='none'" alt="Nikunj More">
+        </div>
+        <div class="prg-leader-name">Nikunj More</div>
+        <div class="prg-leader-title">Co-Portfolio Manager</div>
+      </div>
+
+      <div class="prg-leader-card">
+        <div class="prg-leader-photo">
+          <span class="prg-leader-initials">IB</span>
+          <img src="images/polaris-ilay-botzer.jpg" onerror="this.style.display='none'" alt="Ilay Botzer">
+        </div>
+        <div class="prg-leader-name">Ilay Botzer</div>
+        <div class="prg-leader-title">Co-Portfolio Manager</div>
+      </div>
+
+      <div class="prg-leader-card">
+        <div class="prg-leader-photo">
+          <span class="prg-leader-initials">AM</span>
+          <img src="images/polaris-angelo-maniraho.jpg" onerror="this.style.display='none'" alt="Angelo Maniraho">
+        </div>
+        <div class="prg-leader-name">Angelo Maniraho</div>
+        <div class="prg-leader-title">Co-Head of Macroeconomic Research</div>
+      </div>
+
+      <div class="prg-leader-card">
+        <div class="prg-leader-photo">
+          <span class="prg-leader-initials">LQ</span>
+          <img src="images/polaris-lisa-qian.jpg" onerror="this.style.display='none'" alt="Lisa Qian">
+        </div>
+        <div class="prg-leader-name">Lisa Qian</div>
+        <div class="prg-leader-title">Co-Head of Macroeconomic Research</div>
+      </div>
+
+      <div class="prg-leader-card">
+        <div class="prg-leader-photo">
+          <span class="prg-leader-initials">KK</span>
+          <img src="images/polaris-kyle-krawez.jpg" onerror="this.style.display='none'" alt="Kyle Krawez">
+        </div>
+        <div class="prg-leader-name">Kyle Krawez</div>
+        <div class="prg-leader-title">Managing Director</div>
+      </div>
+
+      <div class="prg-leader-card">
+        <div class="prg-leader-photo">
+          <span class="prg-leader-initials">AK</span>
+          <img src="images/polaris-arin-kumar.jpg" onerror="this.style.display='none'" alt="Arin Kumar">
+        </div>
+        <div class="prg-leader-name">Arin Kumar</div>
+        <div class="prg-leader-title">Managing Director</div>
+      </div>
+
+      <div class="prg-leader-card">
+        <div class="prg-leader-photo">
+          <span class="prg-leader-initials">EH</span>
+          <img src="images/polaris-evan-hoeffner.jpg" onerror="this.style.display='none'" alt="Evan Hoeffner">
+        </div>
+        <div class="prg-leader-name">Evan Hoeffner</div>
+        <div class="prg-leader-title">Managing Director</div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- CTA -->
+  <div class="prg-cta">
+    <div>
+      <div class="prg-cta-h">Ready to Research?</div>
+      <div class="prg-cta-sub">Polaris recruitment begins in Fall Quarter. Follow us on Instagram for announcements.</div>
+    </div>
+    <div style="display:flex;gap:1rem;flex-wrap:wrap">
+      <a href="https://docs.google.com/forms/d/e/1FAIpQLSchwznMoX4I-1wtBzK6W7Qmw_-_nI_arVZgDiEnja4wmSh39g/viewform" target="_blank" class="prg-btn-primary">Apply to Polaris →</a>
+      <a href="https://www.instagram.com/deanzapbl/" target="_blank" class="prg-btn-outline">@deanzapbl</a>
+    </div>
+  </div>
+
+</div><!-- /.sw -->
+</div><!-- /.prg-page -->
 
 <!-- FOOTER -->
 <footer>
