@@ -8,6 +8,26 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Unbounded:wght@400;700&family=DM+Sans:wght@300;400;500&family=IBM+Plex+Mono:wght@400;500&family=Playfair+Display:ital,wght@1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
+<style id="parallax-hero-css">
+.page-hero{min-height:100vh;display:flex;flex-direction:column;justify-content:center;padding:9rem 2.5rem 5rem;position:relative;overflow:hidden;border-bottom:1px solid var(--border);background:#050505;cursor:none}
+.plx-l3,.plx-l2,.plx-l1{position:absolute;pointer-events:none;will-change:transform}
+.plx-l3{inset:-30px;background-image:radial-gradient(circle,rgba(200,16,46,.05) 1px,transparent 1px);background-size:64px 64px;transition:transform .12s ease-out}
+.plx-l2{inset:-20px;background-image:radial-gradient(circle,rgba(200,16,46,.1) 1.5px,transparent 1.5px);background-size:32px 32px;transition:transform .08s ease-out}
+.plx-l1{inset:-12px;background-image:radial-gradient(circle,rgba(200,16,46,.2) 2px,transparent 2px);background-size:14px 14px;transition:transform .05s ease-out}
+.plx-vignette{position:absolute;inset:0;background:radial-gradient(ellipse 75% 75% at 50% 50%,transparent 30%,#050505 100%);pointer-events:none;z-index:1}
+.plx-crt{position:absolute;inset:0;background:repeating-linear-gradient(0deg,transparent,transparent 2px,rgba(0,0,0,.03) 2px,rgba(0,0,0,.03) 4px);pointer-events:none;z-index:2}
+.plx-scan{position:absolute;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent 0%,rgba(200,16,46,.45) 30%,rgba(200,16,46,.7) 50%,rgba(200,16,46,.45) 70%,transparent 100%);animation:heroScan 5s linear infinite;pointer-events:none;z-index:4}
+.plx-text{position:relative;z-index:3;will-change:transform;transition:transform .07s ease-out}
+.plx-cursor{position:absolute;width:28px;height:28px;border:1px solid rgba(200,16,46,.45);border-radius:50%;pointer-events:none;transform:translate(-50%,-50%);z-index:10;transition:opacity .18s;opacity:0}
+.page-hero:hover .plx-cursor{opacity:1}
+.page-hero .hero-tag,.page-hero .page-sub,.page-hero .page-hero-wm,.page-hero .page-hero-year{position:relative;z-index:3}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+@keyframes slideUp{from{opacity:0;transform:translateY(60px)}to{opacity:1;transform:translateY(0)}}
+@keyframes slideUpGlitch{0%{opacity:0;transform:translateY(50px)}60%{opacity:1;transform:translateY(0)}62%{transform:translateX(-3px)}64%{transform:translateX(3px)}66%{transform:translateX(-2px)}68%,100%{transform:translateX(0);opacity:1}}
+@keyframes heroBlink{0%,100%{opacity:1}50%{opacity:.2}}
+@keyframes heroScan{0%{top:-2px;opacity:0}5%{opacity:1}95%{opacity:1}100%{top:100%;opacity:0}}
+@media(max-width:768px){.page-hero{padding:7rem 1.5rem 4rem;min-height:90vh}}
+</style>
 <style>
 .ev-feat{display:grid;grid-template-columns:1fr 1fr;min-height:500px;border-bottom:1px solid var(--border)}
 .ev-feat-img{position:relative;overflow:hidden;background:#1a1010}
@@ -40,53 +60,41 @@
 <body>
 <div class="cur" id="cur"></div>
 <div class="cur-ring" id="ring"></div>
-
 <div class="mob-overlay" id="mob">
   <button class="mob-close" onclick="closeMob()">Close ×</button>
   <ul class="mob-links">
-    <li><a href="index.html">Home</a></li>
-    <li><a href="leadership.html">Leadership</a></li>
-    <li><a href="events.html">Events</a></li>
-    <li><a href="accolades.html">Accolades</a></li>
-    <li><a href="alumni.html">Alumni</a></li>
-    <li><a href="polaris.html">Polaris</a></li>
-    <li><a href="consulting.html">Consulting</a></li>
-    <li><a href="contact.html">Contact</a></li>
+    <li><a href="index.html">Home</a></li><li><a href="leadership.html">Leadership</a></li><li><a href="events.html">Events</a></li><li><a href="accolades.html">Accolades</a></li><li><a href="alumni.html">Alumni</a></li><li><a href="polaris.html">Polaris</a></li><li><a href="consulting.html">Consulting</a></li><li><a href="contact.html">Contact</a></li>
   </ul>
   <div class="mob-meta">De Anza College · Cupertino, CA</div>
 </div>
-
 <nav id="nav">
   <div class="nav-left">
-    <a href="index.html" style="background:none;border:none;cursor:pointer;padding:0;display:flex;align-items:center;text-decoration:none">
-      <span style="font-family:'Playfair Display',serif;font-size:1.8rem;color:rgba(245,243,239,0.88);line-height:1;user-select:none">Φ</span>
-    </a>
+    <a href="index.html" style="background:none;border:none;cursor:pointer;padding:0;display:flex;align-items:center;text-decoration:none"><span style="font-family:'Playfair Display',serif;font-size:1.8rem;color:rgba(245,243,239,0.88);line-height:1;user-select:none">Φ</span></a>
     <div class="nav-wordmark" style="border-left:1px solid var(--border);padding-left:1rem">Phi Beta Lambda<br>De Anza Chapter</div>
   </div>
   <div class="nav-right" style="display:flex;align-items:center;gap:2.5rem">
     <ul class="nav-links">
-      <li><a id="nl-home" href="index.html">Home</a></li>
-      <li><a id="nl-leadership" href="leadership.html">Leadership</a></li>
-      <li><a id="nl-events" href="events.html">Events</a></li>
-      <li><a id="nl-accolades" href="accolades.html">Accolades</a></li>
-      <li><a id="nl-alumni" href="alumni.html">Alumni</a></li>
-      <li><a id="nl-polaris" href="polaris.html">Polaris</a></li>
-      <li><a id="nl-consulting" href="consulting.html">Consulting</a></li>
+      <li><a id="nl-home" href="index.html">Home</a></li><li><a id="nl-leadership" href="leadership.html">Leadership</a></li><li><a id="nl-events" href="events.html">Events</a></li><li><a id="nl-accolades" href="accolades.html">Accolades</a></li><li><a id="nl-alumni" href="alumni.html">Alumni</a></li><li><a id="nl-polaris" href="polaris.html">Polaris</a></li><li><a id="nl-consulting" href="consulting.html">Consulting</a></li>
     </ul>
     <a href="https://forms.gle/2zixWcFPcGG6sCBF7" target="_blank" class="nav-apply" style="flex-shrink:0">Apply</a>
     <button class="hamburger" onclick="openMob()"><span></span><span></span><span></span></button>
   </div>
 </nav>
-
 <div class="page active">
-
 <section class="page-hero">
-  <div class="hero-tag">Events</div>
-  <h1 class="page-title"><span>What We</span><span>Build Together.</span></h1>
-  <p class="page-sub">Competitions, workshops, community service, and conferences — every quarter.</p>
+  <div class="plx-l3"></div>
+  <div class="plx-l2"></div>
+  <div class="plx-l1"></div>
+  <div class="plx-vignette"></div>
+  <div class="plx-crt"></div>
+  <div class="plx-scan"></div>
+  <div class="plx-cursor"></div>
+  <div class="plx-text">
+    <div class="hero-tag">Events</div>
+    <h1 class="page-title"><span>What We</span><span>Build Together.</span></h1>
+    <p class="page-sub">Competitions, workshops, community service, and conferences — every quarter.</p>
+  </div>
 </section>
-
-<!-- FEATURED: SLC 2026 -->
 <div class="ev-feat">
   <div class="ev-feat-img"><img src="images/events-slc-2026.jpg" alt="State Leadership Conference 2026"></div>
   <div class="ev-feat-body">
@@ -95,40 +103,22 @@
     <div class="ev-feat-desc">Our members competed at the California State Leadership Conference in Emeryville, participating in multiple case competitions and objective tests — continuing De Anza PBL's tradition of top placements at the state level.</div>
   </div>
 </div>
-
 <div class="ev-grid">
-
-  <!-- Our City Forest — Winter 2026 -->
   <div class="ev-gi"><div class="ev-gi-img"><img src="images/events-our-city-forest.jpg" alt="Our City Forest"></div><div class="ev-gi-body"><div class="ev-gi-badges"><span class="ev-gi-type">Service</span><span class="ev-gi-date">Winter 2026 · San Jose, CA</span></div><div class="ev-gi-title">PBL × Our City Forest</div><div class="ev-gi-desc">Over three days, PBL members volunteered with Our City Forest — planting 100 trees, engaging 203 volunteers, logging 609 volunteer hours, and raising $1,000. Projected long-term community benefit: $88,018.</div></div></div>
-
-  <!-- DAIS — Oct 10, 2025 -->
   <div class="ev-gi"><div class="ev-gi-img"><img src="images/events-dais.jpg" alt="De Anza Innovation Summit"></div><div class="ev-gi-body"><div class="ev-gi-badges"><span class="ev-gi-type">Competition</span><span class="ev-gi-date">Oct 10, 2025 · De Anza College</span></div><div class="ev-gi-title">De Anza Innovation Summit (DAIS)</div><div class="ev-gi-desc">The first-ever De Anza Innovation Summit brought together 80+ participants across 21 teams to tackle a real-world business challenge in just five hours, with executive judges from industry and Professor Jeffrey West.</div></div></div>
-
-  <!-- State Fall LC — Nov 8–9, 2025 -->
   <div class="ev-gi"><div class="ev-gi-img"><img src="images/events-state-fall-lc.jpg" alt="State Fall Leadership Conference 2025"></div><div class="ev-gi-body"><div class="ev-gi-badges"><span class="ev-gi-type">Conference</span><span class="ev-gi-date">Nov 8–9, 2025 · La Jolla, San Diego, CA</span></div><div class="ev-gi-title">State Fall Leadership Conference 2025</div><div class="ev-gi-desc">De Anza PBL brought home the most placements at the conference. Top finishes: 🥇 Om Bathija, Shakil Musthafa, Timothy Nguyen, Bryant Vo (Entrepreneurship Pitch) · 🥈 Derick Nguyen (Public Speaking) · 🥉 Jacob Chen, Vincent Shao, Joshua Morris, Ella Yang (Hospitality Management).</div></div></div>
-
-  <!-- Nationals — May 31–Jun 2, 2025 -->
   <div class="ev-gi"><div class="ev-gi-img"><img src="images/events-national-blc.jpg" alt="National Business Leadership Conference 2025"></div><div class="ev-gi-body"><div class="ev-gi-badges"><span class="ev-gi-type">National</span><span class="ev-gi-date">May 31–Jun 2, 2025 · Dallas, TX</span></div><div class="ev-gi-title">National Business Leadership Conference</div><div class="ev-gi-desc">13 teams and individuals represented De Anza College at FBLA's National Business Leadership Conference in Dallas, competing on the national stage across multiple business disciplines.</div></div></div>
-
-  <!-- Shark Tank — Spring 2025 -->
   <div class="ev-gi"><div class="ev-gi-img"><img src="images/events-shark-tank.jpg" alt="PBL Shark Tank"></div><div class="ev-gi-body"><div class="ev-gi-badges"><span class="ev-gi-type">Flagship</span><span class="ev-gi-date">Spring 2025 · De Anza College</span></div><div class="ev-gi-title">PBL Shark Tank</div><div class="ev-gi-desc">50 participants across 10 teams built full pitches in just one hour before a panel of industry judges from Facebook, McAfee, Cisco, and Informatica — De Anza PBL's premier entrepreneurship showcase.</div></div></div>
-
-  <!-- Fall LC 2024 — Nov 16–17, 2024 -->
-  <div class="ev-gi"><div class="ev-gi-img"><img src="images/events-fall-lc-2024.jpg" alt="Fall Leadership Conference 2024"></div><div class="ev-gi-body"><div class="ev-gi-badges"><span class="ev-gi-type">Conference</span><span class="ev-gi-date">Nov 16–17, 2024 · Emeryville, CA</span></div><div class="ev-gi-title">Fall Leadership Conference 2024</div><div class="ev-gi-desc">De Anza PBL competed at the 2024 Fall Business Leadership Conference at Hilton Garden Inn San Francisco/Oakland Bay Bridge in Emeryville, with the finance case study team winning 1st place against 15 other teams from across California.</div></div></div>
-
-</div>
-</div>
-
+  <div class="ev-gi"><div class="ev-gi-img"><img src="images/events-fall-lc-2024.jpg" alt="Fall Leadership Conference 2024"></div><div class="ev-gi-body"><div class="ev-gi-badges"><span class="ev-gi-type">Conference</span><span class="ev-gi-date">Nov 16–17, 2024 · Emeryville, CA</span></div><div class="ev-gi-title">Fall Leadership Conference 2024</div><div class="ev-gi-desc">De Anza PBL competed at the 2024 Fall Business Leadership Conference in Emeryville, with the finance case study team winning 1st place against 15 other teams from across California.</div></div></div>
+</div></div>
 <footer>
   <span class="foot-logo">ΦΒΛ</span>
   <span class="foot-copy">© 2025 Phi Beta Lambda · De Anza College</span>
   <ul class="foot-links">
-    <li><a href="https://instagram.com/deanzapbl" target="_blank">Instagram</a></li>
-    <li><a href="https://discord.gg/w7zap3SfUm" target="_blank">Discord</a></li>
-    <li><a href="https://linktr.ee/deanzapbl" target="_blank">Linktree</a></li>
-    <li><a href="contact.html">Contact</a></li>
+    <li><a href="https://instagram.com/deanzapbl" target="_blank">Instagram</a></li><li><a href="https://discord.gg/w7zap3SfUm" target="_blank">Discord</a></li><li><a href="https://linktr.ee/deanzapbl" target="_blank">Linktree</a></li><li><a href="contact.html">Contact</a></li>
   </ul>
 </footer>
 <script src="main.js"></script>
+<script>(function(){var hero=document.querySelector('.page-hero');if(!hero)return;var l1=hero.querySelector('.plx-l1'),l2=hero.querySelector('.plx-l2'),l3=hero.querySelector('.plx-l3'),txt=hero.querySelector('.plx-text'),cur=hero.querySelector('.plx-cursor');hero.addEventListener('mousemove',function(e){var r=hero.getBoundingClientRect(),cx=e.clientX-r.left,cy=e.clientY-r.top,hw=r.width/2,hh=r.height/2,rx=(cx-hw)/hw,ry=(cy-hh)/hh;if(l1)l1.style.transform='translate('+(rx*14)+'px,'+(ry*14)+'px)';if(l2)l2.style.transform='translate('+(rx*26)+'px,'+(ry*26)+'px)';if(l3)l3.style.transform='translate('+(rx*42)+'px,'+(ry*42)+'px)';if(txt)txt.style.transform='translate('+(rx*-7)+'px,'+(ry*-7)+'px)';if(cur){cur.style.left=cx+'px';cur.style.top=cy+'px';}});hero.addEventListener('mouseleave',function(){if(l1)l1.style.transform='';if(l2)l2.style.transform='';if(l3)l3.style.transform='';if(txt)txt.style.transform='';});})();</script>
 </body>
 </html>
