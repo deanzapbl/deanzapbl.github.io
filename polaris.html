@@ -117,7 +117,22 @@ body{background:#080808}
   animation:fadeIn .6s 1.5s forwards;
 }
 
-.prg-wm{display:none}
+
+.prg-wm-text{
+  position:absolute;
+  right:-1rem;
+  top:50%;
+  transform:translateY(-50%);
+  font-family:Georgia,"Georgia Pro",serif;
+  font-weight:700;
+  font-size:14rem;
+  color:rgba(0,102,255,.05);
+  line-height:1;
+  user-select:none;
+  pointer-events:none;
+  z-index:0;
+  letter-spacing:-.02em;
+}
 
 .prg-rule{border:none;height:1px;background:rgba(186,169,194,.2);margin:5rem 0}
 .prg-pillars{display:grid;grid-template-columns:repeat(4,1fr);border:1px solid rgba(186,169,194,.2);margin-bottom:5rem}
@@ -197,10 +212,19 @@ footer{background:#080808;border-top-color:rgba(100,140,255,.15)}
 <div class="page active prg-page">
 
 <section class="prg-hero">
+  <div class="prg-wm-text">PRG</div>
   <div class="prg-hero-top">
-    <div class="prg-pill">
-      <span class="prg-pill-dot"></span>
-      <span class="prg-mark">PRG · Polaris Research Group · 2025–26</span>
+    <div style="display:flex;align-items:center;gap:.75rem">
+      <span style="font-family:'Playfair Display',serif;font-size:1.5rem;color:rgba(245,243,239,.5);line-height:1">Φ</span>
+      <span style="width:1px;height:22px;background:rgba(245,243,239,.15);display:inline-block"></span>
+      <div style="display:flex;align-items:center;gap:.5rem">
+        <svg width="16" height="16" viewBox="0 0 100 100" fill="none" style="animation:pulseS 3s ease-in-out infinite"><path d="M50 2L61 39L98 50L61 61L50 98L39 61L2 50L39 39Z" fill="white" opacity=".9"/><path d="M50 2L61 39L98 50L61 61L50 98L39 61L2 50L39 39Z" fill="#0066ff" transform="rotate(45 50 50)" opacity=".55"/></svg>
+        <span style="font-family:Georgia,serif;font-weight:700;font-size:1rem;color:#ffffff;letter-spacing:.06em;line-height:1">PRG</span>
+      </div>
+      <div class="prg-pill">
+        <span class="prg-pill-dot"></span>
+        <span class="prg-mark">Polaris Research Group · 2025–26</span>
+      </div>
     </div>
   </div>
 
