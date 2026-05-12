@@ -110,9 +110,11 @@
   background:linear-gradient(270deg, transparent, rgba(245,243,239,.12));
 }
 .sponsor-track-outer{
-  overflow:hidden;
+  overflow:visible;
   position:relative;
   z-index:1;
+  /* clip only horizontally so tooltips above are visible */
+  clip-path:inset(0 0 -200px 0);
 }
 .sponsor-track-outer::before,
 .sponsor-track-outer::after{
@@ -346,18 +348,36 @@
     <div class="sec-tag">About PBL</div>
     <h2 class="sec-h">The Group<br>For Growth.</h2>
     <div class="sec-body">
-      <p>As De Anza's chapter of Phi Beta Lambda, we strive to create a constructively critical environment that facilitates exploration, ethical decision-making, and professional development for all De Anza students.</p>
-      <p style="margin-top:1.25rem">We empower aspiring business leaders through professional development, innovation, and collaboration — offering case competitions, community service projects, professional workshops, and networking events. Open to all majors.</p>
+      <p>De Anza's <strong>most decorated</strong> business organization. Since our founding, we've claimed <strong>100+ competitive awards</strong> at regional, state, and national levels — and we're just getting started.</p>
+      <p style="margin-top:1.25rem">We train the next generation of business leaders through real consulting work, rigorous case competitions, and a network that extends from De Anza to Berkeley, USC, and beyond. Open to all majors.</p>
     </div>
   </div>
   <div class="about-right">
     <blockquote class="about-quote">"A place where cohorts convene, careers begin, and professional identity is forged."</blockquote>
-    <div>
-      <div class="sec-tag">What we offer</div>
-      <div class="pill-row">
-        <span class="pill">FBLA Nationals</span><span class="pill">Consulting</span><span class="pill">Polaris Research</span>
-        <span class="pill">Shark Tank</span><span class="pill">Business Olympics</span><span class="pill">Speaker Series</span>
-        <span class="pill">Interview Prep</span><span class="pill">Networking</span><span class="pill">Alumni Network</span>
+    <div style="margin-top:2rem;border-top:1px solid var(--border);padding-top:2rem">
+      <div class="sec-tag">Our Divisions</div>
+      <div style="display:flex;flex-direction:column;gap:2px;margin-top:1rem">
+        <a href="consulting.html" style="display:flex;align-items:center;justify-content:space-between;padding:1.1rem 1.5rem;background:var(--gray);text-decoration:none;transition:background .2s" onmouseover="this.style.background='#222'" onmouseout="this.style.background='var(--gray)'">
+          <div>
+            <div style="font-family:'Bebas Neue',sans-serif;font-size:1.15rem;letter-spacing:.04em;color:var(--white)">Consulting Division</div>
+            <div style="font-family:'IBM Plex Mono',monospace;font-size:.45rem;letter-spacing:.14em;text-transform:uppercase;color:rgba(245,243,239,.35);margin-top:.2rem">Real Clients · Portfolio-Ready Work</div>
+          </div>
+          <span style="font-size:1.2rem;color:rgba(245,243,239,.2)">→</span>
+        </a>
+        <a href="polaris.html" style="display:flex;align-items:center;justify-content:space-between;padding:1.1rem 1.5rem;background:var(--gray);text-decoration:none;transition:background .2s" onmouseover="this.style.background='#222'" onmouseout="this.style.background='var(--gray)'">
+          <div>
+            <div style="font-family:'Bebas Neue',sans-serif;font-size:1.15rem;letter-spacing:.04em;color:var(--white)">Polaris Research Group</div>
+            <div style="font-family:'IBM Plex Mono',monospace;font-size:.45rem;letter-spacing:.14em;text-transform:uppercase;color:rgba(245,243,239,.35);margin-top:.2rem">Student-Led Research · Published Work</div>
+          </div>
+          <span style="font-size:1.2rem;color:rgba(245,243,239,.2)">→</span>
+        </a>
+        <a href="accolades.html" style="display:flex;align-items:center;justify-content:space-between;padding:1.1rem 1.5rem;background:var(--gray);text-decoration:none;transition:background .2s" onmouseover="this.style.background='#222'" onmouseout="this.style.background='var(--gray)'">
+          <div>
+            <div style="font-family:'Bebas Neue',sans-serif;font-size:1.15rem;letter-spacing:.04em;color:var(--white)">FBLA Competitions</div>
+            <div style="font-family:'IBM Plex Mono',monospace;font-size:.45rem;letter-spacing:.14em;text-transform:uppercase;color:rgba(245,243,239,.35);margin-top:.2rem">Regional · State · National Level</div>
+          </div>
+          <span style="font-size:1.2rem;color:rgba(245,243,239,.2)">→</span>
+        </a>
       </div>
     </div>
   </div>
@@ -368,56 +388,166 @@
   <div class="sponsor-strip-label">Our Sponsors &amp; Partners</div>
   <div class="sponsor-track-outer">
     <div class="sponsor-track" id="sponsorTrack">
-
       <div class="sponsor-logo" data-name="KPMG" data-type="Accounting &amp; Consulting">
         <img src="images/consulting-kpmg.jpg" alt="KPMG">
         <span class="sponsor-logo-name">KPMG</span>
         <div class="sponsor-tooltip"><div class="sponsor-tooltip-name">KPMG</div><div class="sponsor-tooltip-type">Accounting &amp; Consulting</div></div>
       </div>
-
       <div class="sponsor-logo" data-name="Star One Credit Union" data-type="Financial Services">
         <img src="images/consulting-star-one.jpg" alt="Star One Credit Union">
         <span class="sponsor-logo-name">Star One</span>
         <div class="sponsor-tooltip"><div class="sponsor-tooltip-name">Star One Credit Union</div><div class="sponsor-tooltip-type">Financial Services</div></div>
       </div>
-
       <div class="sponsor-logo" data-name="Foundation for Economic Education" data-type="Economics Education">
-        <img src="images/consulting-fee.jpg" alt="FEE">
+        <img src="images/consulting-fee.jpg" alt="Foundation for Economic Education">
         <span class="sponsor-logo-name">FEE</span>
         <div class="sponsor-tooltip"><div class="sponsor-tooltip-name">Foundation for Economic Education</div><div class="sponsor-tooltip-type">Economics Education</div></div>
       </div>
-
       <div class="sponsor-logo" data-name="KeyPoint Credit Union" data-type="Financial Services">
         <img src="images/consulting-keypoint.jpg" alt="KeyPoint Credit Union">
         <span class="sponsor-logo-name">KeyPoint CU</span>
         <div class="sponsor-tooltip"><div class="sponsor-tooltip-name">KeyPoint Credit Union</div><div class="sponsor-tooltip-type">Financial Services</div></div>
       </div>
-
-      <!-- duplicates for seamless loop -->
       <div class="sponsor-logo" data-name="KPMG" data-type="Accounting &amp; Consulting">
         <img src="images/consulting-kpmg.jpg" alt="KPMG">
         <span class="sponsor-logo-name">KPMG</span>
         <div class="sponsor-tooltip"><div class="sponsor-tooltip-name">KPMG</div><div class="sponsor-tooltip-type">Accounting &amp; Consulting</div></div>
       </div>
-
       <div class="sponsor-logo" data-name="Star One Credit Union" data-type="Financial Services">
         <img src="images/consulting-star-one.jpg" alt="Star One Credit Union">
         <span class="sponsor-logo-name">Star One</span>
         <div class="sponsor-tooltip"><div class="sponsor-tooltip-name">Star One Credit Union</div><div class="sponsor-tooltip-type">Financial Services</div></div>
       </div>
-
       <div class="sponsor-logo" data-name="Foundation for Economic Education" data-type="Economics Education">
-        <img src="images/consulting-fee.jpg" alt="FEE">
+        <img src="images/consulting-fee.jpg" alt="Foundation for Economic Education">
         <span class="sponsor-logo-name">FEE</span>
         <div class="sponsor-tooltip"><div class="sponsor-tooltip-name">Foundation for Economic Education</div><div class="sponsor-tooltip-type">Economics Education</div></div>
       </div>
-
       <div class="sponsor-logo" data-name="KeyPoint Credit Union" data-type="Financial Services">
         <img src="images/consulting-keypoint.jpg" alt="KeyPoint Credit Union">
         <span class="sponsor-logo-name">KeyPoint CU</span>
         <div class="sponsor-tooltip"><div class="sponsor-tooltip-name">KeyPoint Credit Union</div><div class="sponsor-tooltip-type">Financial Services</div></div>
       </div>
-
+      <div class="sponsor-logo" data-name="KPMG" data-type="Accounting &amp; Consulting">
+        <img src="images/consulting-kpmg.jpg" alt="KPMG">
+        <span class="sponsor-logo-name">KPMG</span>
+        <div class="sponsor-tooltip"><div class="sponsor-tooltip-name">KPMG</div><div class="sponsor-tooltip-type">Accounting &amp; Consulting</div></div>
+      </div>
+      <div class="sponsor-logo" data-name="Star One Credit Union" data-type="Financial Services">
+        <img src="images/consulting-star-one.jpg" alt="Star One Credit Union">
+        <span class="sponsor-logo-name">Star One</span>
+        <div class="sponsor-tooltip"><div class="sponsor-tooltip-name">Star One Credit Union</div><div class="sponsor-tooltip-type">Financial Services</div></div>
+      </div>
+      <div class="sponsor-logo" data-name="Foundation for Economic Education" data-type="Economics Education">
+        <img src="images/consulting-fee.jpg" alt="Foundation for Economic Education">
+        <span class="sponsor-logo-name">FEE</span>
+        <div class="sponsor-tooltip"><div class="sponsor-tooltip-name">Foundation for Economic Education</div><div class="sponsor-tooltip-type">Economics Education</div></div>
+      </div>
+      <div class="sponsor-logo" data-name="KeyPoint Credit Union" data-type="Financial Services">
+        <img src="images/consulting-keypoint.jpg" alt="KeyPoint Credit Union">
+        <span class="sponsor-logo-name">KeyPoint CU</span>
+        <div class="sponsor-tooltip"><div class="sponsor-tooltip-name">KeyPoint Credit Union</div><div class="sponsor-tooltip-type">Financial Services</div></div>
+      </div>
+      <div class="sponsor-logo" data-name="KPMG" data-type="Accounting &amp; Consulting">
+        <img src="images/consulting-kpmg.jpg" alt="KPMG">
+        <span class="sponsor-logo-name">KPMG</span>
+        <div class="sponsor-tooltip"><div class="sponsor-tooltip-name">KPMG</div><div class="sponsor-tooltip-type">Accounting &amp; Consulting</div></div>
+      </div>
+      <div class="sponsor-logo" data-name="Star One Credit Union" data-type="Financial Services">
+        <img src="images/consulting-star-one.jpg" alt="Star One Credit Union">
+        <span class="sponsor-logo-name">Star One</span>
+        <div class="sponsor-tooltip"><div class="sponsor-tooltip-name">Star One Credit Union</div><div class="sponsor-tooltip-type">Financial Services</div></div>
+      </div>
+      <div class="sponsor-logo" data-name="Foundation for Economic Education" data-type="Economics Education">
+        <img src="images/consulting-fee.jpg" alt="Foundation for Economic Education">
+        <span class="sponsor-logo-name">FEE</span>
+        <div class="sponsor-tooltip"><div class="sponsor-tooltip-name">Foundation for Economic Education</div><div class="sponsor-tooltip-type">Economics Education</div></div>
+      </div>
+      <div class="sponsor-logo" data-name="KeyPoint Credit Union" data-type="Financial Services">
+        <img src="images/consulting-keypoint.jpg" alt="KeyPoint Credit Union">
+        <span class="sponsor-logo-name">KeyPoint CU</span>
+        <div class="sponsor-tooltip"><div class="sponsor-tooltip-name">KeyPoint Credit Union</div><div class="sponsor-tooltip-type">Financial Services</div></div>
+      </div>
+      <div class="sponsor-logo" data-name="KPMG" data-type="Accounting &amp; Consulting">
+        <img src="images/consulting-kpmg.jpg" alt="KPMG">
+        <span class="sponsor-logo-name">KPMG</span>
+        <div class="sponsor-tooltip"><div class="sponsor-tooltip-name">KPMG</div><div class="sponsor-tooltip-type">Accounting &amp; Consulting</div></div>
+      </div>
+      <div class="sponsor-logo" data-name="Star One Credit Union" data-type="Financial Services">
+        <img src="images/consulting-star-one.jpg" alt="Star One Credit Union">
+        <span class="sponsor-logo-name">Star One</span>
+        <div class="sponsor-tooltip"><div class="sponsor-tooltip-name">Star One Credit Union</div><div class="sponsor-tooltip-type">Financial Services</div></div>
+      </div>
+      <div class="sponsor-logo" data-name="Foundation for Economic Education" data-type="Economics Education">
+        <img src="images/consulting-fee.jpg" alt="Foundation for Economic Education">
+        <span class="sponsor-logo-name">FEE</span>
+        <div class="sponsor-tooltip"><div class="sponsor-tooltip-name">Foundation for Economic Education</div><div class="sponsor-tooltip-type">Economics Education</div></div>
+      </div>
+      <div class="sponsor-logo" data-name="KeyPoint Credit Union" data-type="Financial Services">
+        <img src="images/consulting-keypoint.jpg" alt="KeyPoint Credit Union">
+        <span class="sponsor-logo-name">KeyPoint CU</span>
+        <div class="sponsor-tooltip"><div class="sponsor-tooltip-name">KeyPoint Credit Union</div><div class="sponsor-tooltip-type">Financial Services</div></div>
+      </div>
+      <div class="sponsor-logo" data-name="KPMG" data-type="Accounting &amp; Consulting">
+        <img src="images/consulting-kpmg.jpg" alt="KPMG">
+        <span class="sponsor-logo-name">KPMG</span>
+        <div class="sponsor-tooltip"><div class="sponsor-tooltip-name">KPMG</div><div class="sponsor-tooltip-type">Accounting &amp; Consulting</div></div>
+      </div>
+      <div class="sponsor-logo" data-name="Star One Credit Union" data-type="Financial Services">
+        <img src="images/consulting-star-one.jpg" alt="Star One Credit Union">
+        <span class="sponsor-logo-name">Star One</span>
+        <div class="sponsor-tooltip"><div class="sponsor-tooltip-name">Star One Credit Union</div><div class="sponsor-tooltip-type">Financial Services</div></div>
+      </div>
+      <div class="sponsor-logo" data-name="Foundation for Economic Education" data-type="Economics Education">
+        <img src="images/consulting-fee.jpg" alt="Foundation for Economic Education">
+        <span class="sponsor-logo-name">FEE</span>
+        <div class="sponsor-tooltip"><div class="sponsor-tooltip-name">Foundation for Economic Education</div><div class="sponsor-tooltip-type">Economics Education</div></div>
+      </div>
+      <div class="sponsor-logo" data-name="KeyPoint Credit Union" data-type="Financial Services">
+        <img src="images/consulting-keypoint.jpg" alt="KeyPoint Credit Union">
+        <span class="sponsor-logo-name">KeyPoint CU</span>
+        <div class="sponsor-tooltip"><div class="sponsor-tooltip-name">KeyPoint Credit Union</div><div class="sponsor-tooltip-type">Financial Services</div></div>
+      </div>
+      <div class="sponsor-logo" data-name="KPMG" data-type="Accounting &amp; Consulting">
+        <img src="images/consulting-kpmg.jpg" alt="KPMG">
+        <span class="sponsor-logo-name">KPMG</span>
+        <div class="sponsor-tooltip"><div class="sponsor-tooltip-name">KPMG</div><div class="sponsor-tooltip-type">Accounting &amp; Consulting</div></div>
+      </div>
+      <div class="sponsor-logo" data-name="Star One Credit Union" data-type="Financial Services">
+        <img src="images/consulting-star-one.jpg" alt="Star One Credit Union">
+        <span class="sponsor-logo-name">Star One</span>
+        <div class="sponsor-tooltip"><div class="sponsor-tooltip-name">Star One Credit Union</div><div class="sponsor-tooltip-type">Financial Services</div></div>
+      </div>
+      <div class="sponsor-logo" data-name="Foundation for Economic Education" data-type="Economics Education">
+        <img src="images/consulting-fee.jpg" alt="Foundation for Economic Education">
+        <span class="sponsor-logo-name">FEE</span>
+        <div class="sponsor-tooltip"><div class="sponsor-tooltip-name">Foundation for Economic Education</div><div class="sponsor-tooltip-type">Economics Education</div></div>
+      </div>
+      <div class="sponsor-logo" data-name="KeyPoint Credit Union" data-type="Financial Services">
+        <img src="images/consulting-keypoint.jpg" alt="KeyPoint Credit Union">
+        <span class="sponsor-logo-name">KeyPoint CU</span>
+        <div class="sponsor-tooltip"><div class="sponsor-tooltip-name">KeyPoint Credit Union</div><div class="sponsor-tooltip-type">Financial Services</div></div>
+      </div>
+      <div class="sponsor-logo" data-name="KPMG" data-type="Accounting &amp; Consulting">
+        <img src="images/consulting-kpmg.jpg" alt="KPMG">
+        <span class="sponsor-logo-name">KPMG</span>
+        <div class="sponsor-tooltip"><div class="sponsor-tooltip-name">KPMG</div><div class="sponsor-tooltip-type">Accounting &amp; Consulting</div></div>
+      </div>
+      <div class="sponsor-logo" data-name="Star One Credit Union" data-type="Financial Services">
+        <img src="images/consulting-star-one.jpg" alt="Star One Credit Union">
+        <span class="sponsor-logo-name">Star One</span>
+        <div class="sponsor-tooltip"><div class="sponsor-tooltip-name">Star One Credit Union</div><div class="sponsor-tooltip-type">Financial Services</div></div>
+      </div>
+      <div class="sponsor-logo" data-name="Foundation for Economic Education" data-type="Economics Education">
+        <img src="images/consulting-fee.jpg" alt="Foundation for Economic Education">
+        <span class="sponsor-logo-name">FEE</span>
+        <div class="sponsor-tooltip"><div class="sponsor-tooltip-name">Foundation for Economic Education</div><div class="sponsor-tooltip-type">Economics Education</div></div>
+      </div>
+      <div class="sponsor-logo" data-name="KeyPoint Credit Union" data-type="Financial Services">
+        <img src="images/consulting-keypoint.jpg" alt="KeyPoint Credit Union">
+        <span class="sponsor-logo-name">KeyPoint CU</span>
+        <div class="sponsor-tooltip"><div class="sponsor-tooltip-name">KeyPoint Credit Union</div><div class="sponsor-tooltip-type">Financial Services</div></div>
+      </div>
     </div>
   </div>
 </div>
