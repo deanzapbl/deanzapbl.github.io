@@ -29,51 +29,81 @@
 @media(max-width:768px){.page-hero{padding:7rem 1.5rem 4rem;min-height:90vh}}
 </style>
 <style>
-.acc-block{border:1px solid rgba(200,16,46,.35);padding:3rem;margin-bottom:2px;position:relative;overflow:hidden}
-.acc-block-gray{background:var(--gray);padding:3rem;margin-bottom:2px;position:relative;overflow:hidden}
-.acc-year-bg{position:absolute;top:1rem;right:2rem;font-family:'Bebas Neue',sans-serif;font-size:10rem;color:rgba(200,16,46,.04);line-height:1;pointer-events:none;user-select:none}
-.acc-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:2rem}
-.acc-stat{background:var(--gray);border:1px solid var(--border);padding:.6rem .85rem}
-.acc-stat-n{font-family:'Bebas Neue',sans-serif;font-size:1.8rem;color:var(--white);line-height:1}
-.acc-stat-l{font-family:'IBM Plex Mono',monospace;font-size:.45rem;letter-spacing:.15em;text-transform:uppercase;color:rgba(245,243,239,.35);margin-top:.2rem}
-.acc-chap-pills{display:flex;flex-wrap:wrap;gap:.4rem;margin-bottom:2rem}
-.acc-chap-pill{font-family:'IBM Plex Mono',monospace;font-size:.48rem;letter-spacing:.13em;text-transform:uppercase;padding:.3rem .85rem;border:1px solid rgba(200,16,46,.4);color:rgba(220,55,65,.9)}
-.acc-cols{display:grid;grid-template-columns:1fr 1fr;gap:3rem}
-.acc-col-h{font-family:'IBM Plex Mono',monospace;font-size:.5rem;letter-spacing:.2em;text-transform:uppercase;color:rgba(245,243,239,.35);margin-bottom:.75rem}
-.award-row{display:flex;flex-direction:column;padding:.55rem 0;border-bottom:1px solid rgba(245,243,239,.06)}
-.award-row:last-child{border-bottom:none}
-.award-row.gold .award-place{color:var(--white)}
-.award-row.silver .award-place{color:rgba(245,243,239,.75)}
-.award-row.bronze .award-place{color:rgba(245,243,239,.6)}
-.award-place{font-family:'DM Sans',sans-serif;font-size:.85rem;font-weight:500;line-height:1.3}
-.award-names{font-family:'IBM Plex Mono',monospace;font-size:.48rem;letter-spacing:.1em;color:rgba(245,243,239,.38);margin-top:.2rem}
+/* ── Accolades page layout ── */
+.acc-wrap{max-width:1300px;margin:0 auto;padding:4rem 2.5rem 6rem}
 
-/* ── Timeline layout ── */
-.tl-wrap{display:grid;grid-template-columns:72px 1fr;gap:0;max-width:1400px;margin:0 auto;padding:0 2.5rem 5rem}
-.tl-axis{display:flex;flex-direction:column;align-items:center;padding-top:.5rem;position:relative}
-.tl-dot{width:12px;height:12px;border-radius:50%;flex-shrink:0;position:relative;z-index:2}
-.tl-dot.active{background:var(--red);box-shadow:0 0 0 3px rgba(200,16,46,.15)}
-.tl-dot.past{background:transparent;border:1.5px solid rgba(245,243,239,.2)}
-.tl-line{width:1px;flex:1;min-height:20px}
-.tl-line.active{background:linear-gradient(180deg,rgba(200,16,46,.5),rgba(200,16,46,.15))}
-.tl-line.past{background:rgba(245,243,239,.08)}
-.tl-year{font-family:'Bebas Neue',sans-serif;font-size:1rem;letter-spacing:.12em;writing-mode:vertical-rl;transform:rotate(180deg);line-height:1;padding:.5rem 0;flex-shrink:0}
-.tl-year.active{color:rgba(200,16,46,.6)}
-.tl-year.past{color:rgba(245,243,239,.15)}
-.tl-content{padding-left:1.5rem}
-.tl-section{margin-bottom:3px}
+/* Year section header */
+.acc-yr{display:flex;align-items:center;gap:1.5rem;margin-bottom:2.5rem;margin-top:4rem}
+.acc-yr:first-child{margin-top:0}
+.acc-yr-n{font-family:'Bebas Neue',sans-serif;font-size:3rem;letter-spacing:.04em;line-height:1}
+.acc-yr-n.cur{color:#c8102e}
+.acc-yr-n.past{color:rgba(245,243,239,.15)}
+.acc-yr-line{flex:1;height:1px}
+.acc-yr-line.cur{background:rgba(200,16,46,.3)}
+.acc-yr-line.past{background:rgba(245,243,239,.07)}
+.acc-yr-meta{font-family:'IBM Plex Mono',monospace;font-size:.52rem;letter-spacing:.18em;text-transform:uppercase}
+.acc-yr-meta.cur{color:rgba(200,16,46,.55)}
+.acc-yr-meta.past{color:rgba(245,243,239,.2)}
 
-/* stat mini */
-.stat-mini{display:grid;grid-template-columns:1fr 1fr;gap:2px;margin-top:1.5rem}
-.stat-mini-cell{background:#111;padding:.75rem 1rem}
-.stat-mini-n{font-family:'Bebas Neue',sans-serif;font-size:1.6rem;color:var(--white);line-height:1}
-.stat-mini-l{font-family:'IBM Plex Mono',monospace;font-size:.42rem;letter-spacing:.14em;text-transform:uppercase;color:rgba(245,243,239,.3);margin-top:.15rem}
+/* Conference label */
+.acc-conf{font-family:'IBM Plex Mono',monospace;font-size:.55rem;letter-spacing:.18em;text-transform:uppercase;color:rgba(245,243,239,.35);margin-bottom:1.5rem;display:flex;align-items:center;gap:.75rem}
+.acc-conf::before{content:'';width:20px;height:1px;background:rgba(200,16,46,.5)}
 
-@media(max-width:800px){
-  .acc-cols{grid-template-columns:1fr}
-  .acc-stats{grid-template-columns:repeat(2,1fr)}
-  .tl-wrap{grid-template-columns:48px 1fr;padding:0 1.5rem 4rem}
-  .tl-year{font-size:.8rem}
+/* Stats row */
+.acc-stats{display:grid;grid-template-columns:repeat(5,1fr);gap:3px;margin-bottom:2.5rem}
+.acc-stat{background:#111;padding:1rem 1.25rem}
+.acc-stat-n{font-family:'Bebas Neue',sans-serif;font-size:2rem;line-height:1}
+.acc-stat-n.gold{color:#f5f3ef}
+.acc-stat-n.silver{color:rgba(245,243,239,.65)}
+.acc-stat-n.bronze{color:rgba(245,243,239,.45)}
+.acc-stat-n.red{color:#c8102e}
+.acc-stat-l{font-family:'IBM Plex Mono',monospace;font-size:.42rem;letter-spacing:.14em;text-transform:uppercase;color:rgba(245,243,239,.28);margin-top:.2rem}
+
+/* Chapter pills */
+.acc-pills{display:flex;flex-wrap:wrap;gap:.35rem;margin-bottom:2rem}
+.acc-pill{font-family:'IBM Plex Mono',monospace;font-size:.45rem;letter-spacing:.13em;text-transform:uppercase;padding:.28rem .75rem;border:1px solid rgba(200,16,46,.4);color:rgba(220,55,65,.9)}
+
+/* Medal color blocks */
+.medal-block{border-left:3px solid;padding:1.5rem 2rem;margin-bottom:3px}
+.medal-block.gold{border-color:#c8a94a;background:#0d0d0d}
+.medal-block.silver{border-color:rgba(180,180,190,.45);background:#0b0b0b}
+.medal-block.bronze{border-color:rgba(160,100,55,.5);background:#0a0a0a}
+.medal-block.fourth{border-color:rgba(245,243,239,.1);background:#0a0a0a}
+.medal-label{font-family:'IBM Plex Mono',monospace;font-size:.5rem;letter-spacing:.2em;text-transform:uppercase;margin-bottom:1rem}
+.medal-label.gold{color:#c8a94a}
+.medal-label.silver{color:rgba(180,180,190,.65)}
+.medal-label.bronze{color:rgba(160,100,55,.7)}
+.medal-label.fourth{color:rgba(245,243,239,.2)}
+.medal-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem}
+.medal-grid.two{grid-template-columns:repeat(2,1fr)}
+.medal-grid.four{grid-template-columns:repeat(4,1fr)}
+.medal-item-name{font-size:.95rem;font-weight:500;line-height:1.3;color:var(--white)}
+.medal-item-name.silver{color:rgba(245,243,239,.75)}
+.medal-item-name.bronze{color:rgba(245,243,239,.55)}
+.medal-item-name.fourth{color:rgba(245,243,239,.35)}
+.medal-item-names{font-family:'IBM Plex Mono',monospace;font-size:.48rem;letter-spacing:.08em;color:rgba(245,243,239,.3);margin-top:.25rem;line-height:1.6}
+
+/* Past year blocks */
+.acc-past-grid{display:grid;grid-template-columns:1fr 1fr;gap:3px;margin-bottom:3px}
+.acc-past-block{background:#0d0d0d;padding:2rem 2.5rem;opacity:.8}
+.acc-past-conf{font-family:'IBM Plex Mono',monospace;font-size:.5rem;letter-spacing:.16em;text-transform:uppercase;color:rgba(245,243,239,.3);margin-bottom:1.25rem;display:flex;align-items:center;gap:.6rem}
+.acc-past-conf::before{content:'';width:14px;height:1px;background:rgba(245,243,239,.2)}
+.awr{display:flex;flex-direction:column;padding:.5rem 0;border-bottom:1px solid rgba(245,243,239,.05)}
+.awr:last-child{border-bottom:none}
+.awr-p{font-size:.9rem;font-weight:500;line-height:1.3}
+.awr-p.g{color:var(--white)}
+.awr-p.s{color:rgba(245,243,239,.7)}
+.awr-p.b{color:rgba(245,243,239,.5)}
+.awr-p.f{color:rgba(245,243,239,.3)}
+.awr-n{font-family:'IBM Plex Mono',monospace;font-size:.46rem;letter-spacing:.09em;color:rgba(245,243,239,.28);margin-top:.15rem}
+.acc-sub-h{font-family:'IBM Plex Mono',monospace;font-size:.48rem;letter-spacing:.18em;text-transform:uppercase;color:rgba(245,243,239,.25);margin:.9rem 0 .5rem}
+
+@media(max-width:900px){
+  .medal-grid{grid-template-columns:1fr 1fr}
+  .medal-grid.four{grid-template-columns:1fr 1fr}
+  .acc-stats{grid-template-columns:repeat(3,1fr)}
+  .acc-past-grid{grid-template-columns:1fr}
+  .acc-wrap{padding:3rem 1.5rem 5rem}
 }
 </style>
 </head>
@@ -115,202 +145,193 @@
     <p class="page-sub">From regional to national — our members compete and win at every level.</p>
   </div>
 </section>
-<div class="tl-wrap">
+<div class="acc-wrap">
 
-  <!-- ═══ LEFT AXIS ═══════════════════════════════════════════════════════ -->
-  <div class="tl-axis">
-    <div class="tl-dot active"></div>
-    <div class="tl-line active" style="min-height:200px"></div>
-    <div class="tl-year active">2026</div>
-    <div class="tl-line active" style="min-height:200px"></div>
-    <div class="tl-line past" style="min-height:12px"></div>
-    <div class="tl-dot past"></div>
-    <div class="tl-line past" style="min-height:80px"></div>
-    <div class="tl-year past">2025</div>
-    <div class="tl-line past" style="min-height:80px"></div>
-    <div class="tl-dot past"></div>
-    <div class="tl-line past" style="min-height:20px"></div>
-    <div class="tl-year past">2024</div>
-    <div class="tl-line past" style="min-height:20px"></div>
-    <div class="tl-dot past"></div>
+  <!-- ════ 2026 ════════════════════════════════════════════════════════════ -->
+  <div class="acc-yr">
+    <div class="acc-yr-n cur">2026</div>
+    <div class="acc-yr-line cur"></div>
+    <div class="acc-yr-meta cur">State Leadership Conference · Sweepstakes Award</div>
   </div>
 
-  <!-- ═══ RIGHT CONTENT ════════════════════════════════════════════════════ -->
-  <div class="tl-content">
+  <div class="acc-conf">2026 State Leadership Conference &middot; Emeryville, CA &middot; Spring 2026</div>
 
-    <!-- ── 2026 SLC ──────────────────────────────────────────────────────── -->
-    <div class="tl-section acc-block">
-      <div class="acc-year-bg">2026</div>
-      <div class="sec-tag">2026 State Leadership Conference · Emeryville, CA</div>
-      <div class="acc-stats">
-        <div class="acc-stat"><div class="acc-stat-n">4</div><div class="acc-stat-l">Chapter awards</div></div>
-        <div class="acc-stat"><div class="acc-stat-n">#1</div><div class="acc-stat-l">Chapter size</div></div>
-        <div class="acc-stat"><div class="acc-stat-n">#1</div><div class="acc-stat-l">Largest membership</div></div>
-        <div class="acc-stat"><div class="acc-stat-n">🏆</div><div class="acc-stat-l">Sweepstakes</div></div>
+  <!-- Stats -->
+  <div class="acc-stats">
+    <div class="acc-stat"><div class="acc-stat-n gold">6</div><div class="acc-stat-l">Gold Medals</div></div>
+    <div class="acc-stat"><div class="acc-stat-n silver">8</div><div class="acc-stat-l">Silver Medals</div></div>
+    <div class="acc-stat"><div class="acc-stat-n bronze">2</div><div class="acc-stat-l">Bronze Medals</div></div>
+    <div class="acc-stat"><div class="acc-stat-n red">4</div><div class="acc-stat-l">Chapter Awards</div></div>
+    <div class="acc-stat" style="background:#c8102e"><div class="acc-stat-n" style="color:#fff;font-size:1.5rem">🏆</div><div class="acc-stat-l" style="color:rgba(255,255,255,.7)">Sweepstakes</div></div>
+  </div>
+
+  <!-- Chapter pills -->
+  <div class="acc-pills">
+    <span class="acc-pill">State of Chapter Award</span>
+    <span class="acc-pill">Largest State Chapter Award</span>
+    <span class="acc-pill">Largest Membership Award</span>
+    <span class="acc-pill">Sweepstakes Award</span>
+  </div>
+
+  <!-- GOLD -->
+  <div class="medal-block gold">
+    <div class="medal-label gold">🥇 Gold &mdash; 6 Placements</div>
+    <div class="medal-grid">
+      <div><div class="medal-item-name">Entrepreneurship Pitch</div><div class="medal-item-names">William Devanney &middot; Shakil Musthafa &middot; Timothy Nguyen &middot; Bryant Vo</div></div>
+      <div><div class="medal-item-name">Hospitality Management</div><div class="medal-item-names">Anna Huynh &middot; Jayden Phan &middot; Francisco Rodriguez &middot; Haley Truong</div></div>
+      <div><div class="medal-item-name">Impromptu Speaking</div><div class="medal-item-names">Nikunj More</div></div>
+      <div><div class="medal-item-name">Public Speaking</div><div class="medal-item-names">Derick Nguyen</div></div>
+      <div><div class="medal-item-name">State of Chapter</div><div class="medal-item-names">Carine Chan &middot; Nisa Pradhan &middot; Arya Somu</div></div>
+      <div><div class="medal-item-name">Community Service Project</div><div class="medal-item-names">Arin Kumar &middot; Lisa Qian &middot; Derick Nguyen &middot; Angelo Maniraho &middot; Bryant Vo &middot; Harika Talluri &middot; Ruirui Wu &middot; Sophia Guidicotti &middot; Anusha Shringi &middot; Rameesha Farrukh &middot; Elena Burgos</div></div>
+    </div>
+  </div>
+
+  <!-- SILVER -->
+  <div class="medal-block silver">
+    <div class="medal-label silver">🥈 Silver &mdash; 8 Placements</div>
+    <div class="medal-grid four">
+      <div><div class="medal-item-name silver">Accounting Case</div><div class="medal-item-names">Nikunj More &middot; Shakil Musthafa</div></div>
+      <div><div class="medal-item-name silver">Business Ethics</div><div class="medal-item-names">Iker Amox Jimenez &middot; George Huang &middot; Jordan Nguyen</div></div>
+      <div><div class="medal-item-name silver">Business Presentation</div><div class="medal-item-names">Tran Dang &middot; Jing Xuan Jason Zhou</div></div>
+      <div><div class="medal-item-name silver">Digital Design &amp; Comm.</div><div class="medal-item-names">Nhi Tran</div></div>
+      <div><div class="medal-item-name silver">Emerging Business Issues</div><div class="medal-item-names">Jacob Eliashberg &middot; Rameesha Farrukh &middot; Joseph Leytes</div></div>
+      <div><div class="medal-item-name silver">Entrepreneurship Pitch</div><div class="medal-item-names">Om Bathija &middot; Rivers Calareso</div></div>
+      <div><div class="medal-item-name silver">Finance</div><div class="medal-item-names">Elena Burgos &middot; Evan Hoeffner &middot; Jocelyn Ramirez</div></div>
+      <div><div class="medal-item-name silver">Impromptu Speaking</div><div class="medal-item-names">Anusha Shringi</div></div>
+    </div>
+  </div>
+
+  <!-- BRONZE -->
+  <div class="medal-block bronze">
+    <div class="medal-label bronze">🥉 Bronze &mdash; 2 Placements</div>
+    <div class="medal-grid two">
+      <div><div class="medal-item-name bronze">Emerging Business Issues</div><div class="medal-item-names">Anirudh Ahluwalia &middot; Parker Elsey &middot; Angelo Maniraho</div></div>
+      <div><div class="medal-item-name bronze">Impromptu Speaking</div><div class="medal-item-names">Timothy Nguyen</div></div>
+    </div>
+  </div>
+
+  <!-- OBJECTIVE TESTS -->
+  <div class="medal-block fourth" style="margin-top:3px">
+    <div class="medal-label fourth">Objective Tests</div>
+    <div class="medal-grid">
+      <div><div class="medal-item-name fourth">2nd &mdash; Foundations of Computer Science</div><div class="medal-item-names">Arya Somu</div></div>
+      <div><div class="medal-item-name fourth">2nd &mdash; Sports Management &amp; Marketing</div><div class="medal-item-names">Shang-rong Ma</div></div>
+      <div><div class="medal-item-name fourth">3rd &mdash; Foundations of Technology</div><div class="medal-item-names">Dawit Mekuria</div></div>
+      <div><div class="medal-item-name fourth">3rd &mdash; International Business</div><div class="medal-item-names">Ruirui Wu</div></div>
+      <div><div class="medal-item-name fourth">4th &mdash; Business Law</div><div class="medal-item-names">Haley Truong</div></div>
+      <div><div class="medal-item-name fourth">4th &mdash; Foundations of Entrepreneurship</div><div class="medal-item-names">Angelo Maniraho</div></div>
+    </div>
+  </div>
+
+  <!-- TEAM EVENTS (4th/5th) -->
+  <div class="medal-block fourth">
+    <div class="medal-label fourth">Team Events</div>
+    <div class="medal-grid four">
+      <div><div class="medal-item-name fourth">3rd &mdash; Emerging Business Issues</div><div class="medal-item-names">Anirudh Ahluwalia &middot; Parker Elsey &middot; Angelo Maniraho</div></div>
+      <div><div class="medal-item-name fourth">4th &mdash; Accounting Case</div><div class="medal-item-names">Phillip Chang &middot; Thin Thida Soe &middot; Pak Hei Wong &middot; Rebecca Yim</div></div>
+      <div><div class="medal-item-name fourth">4th &mdash; Finance Case</div><div class="medal-item-names">Ilay Botzer &middot; Dianne Johnson &middot; Kyle Krawez &middot; Arin Kumar</div></div>
+      <div><div class="medal-item-name fourth">4th &mdash; Hospitality Management</div><div class="medal-item-names">Jacob Chen &middot; Joshua Morris &middot; Vincent Shao &middot; Ella Yang</div></div>
+      <div><div class="medal-item-name fourth">4th &mdash; Management Case</div><div class="medal-item-names">Cyrus Nakar &middot; Derick Nguyen &middot; Wenyu Qian &middot; Bryant Vo</div></div>
+      <div><div class="medal-item-name fourth">4th &mdash; Marketing &amp; Sales</div><div class="medal-item-names">Addy Hu &middot; Olivia Ma &middot; Anusha Shringi &middot; Edward Wong</div></div>
+      <div><div class="medal-item-name fourth">4th &mdash; Technology &amp; Computer Science</div><div class="medal-item-names">Shang-rong Ma &middot; Dawit Mekuria &middot; Jeremy Mendoza</div></div>
+      <div><div class="medal-item-name fourth">5th &mdash; Digital Design &amp; Communications</div><div class="medal-item-names">Emmanuel Aceves &middot; Sophia Guidicotti &middot; Ruirui Wu</div></div>
+    </div>
+  </div>
+
+  <!-- 2026 Internal events -->
+  <div class="acc-past-grid" style="margin-top:3px">
+    <div class="acc-past-block">
+      <div class="acc-past-conf">Shark Tank 2026 &middot; De Anza College</div>
+      <div class="awr"><div class="awr-p g">🥇 1st &mdash; Team #1</div><div class="awr-n">Harika Talluri &middot; Ella Yang &middot; Tran Dang &middot; Moles Kali &middot; Elena Burgos</div></div>
+      <div class="awr"><div class="awr-p s">🥈 2nd &mdash; Team #7</div><div class="awr-n">Arnav Junday &middot; Teevra Singh &middot; Ridhi Thapar &middot; Ashwika Agarwal &middot; Ruhi Teji</div></div>
+      <div class="awr"><div class="awr-p b">🥉 3rd &mdash; Team #3</div><div class="awr-n">Francisco Rodriguez &middot; Jayden Phan &middot; Parker Elsey &middot; Evan Hoeffner &middot; Mihir Thakar</div></div>
+      <div class="acc-sub-h">Special recognition</div>
+      <div class="awr"><div class="awr-p f">Most Innovative</div><div class="awr-n">Rodriguez &middot; Phan &middot; Elsey &middot; Hoeffner &middot; Thakar</div></div>
+      <div class="awr"><div class="awr-p f">Most Environmental</div><div class="awr-n">Morris &middot; Chen &middot; Shao &middot; Manney &middot; Chang</div></div>
+      <div class="awr"><div class="awr-p f">Most Entertaining</div><div class="awr-n">Lakshya Saini &middot; Zhen Huey Lee</div></div>
+    </div>
+    <div class="acc-past-block">
+      <div class="acc-past-conf">Consulting 2026 &middot; De Anza College</div>
+      <div class="acc-sub-h">Spring &mdash; Clients: UC Berkeley IEEE, Star One CU, Azalea Jewelry</div>
+      <div class="awr"><div class="awr-p g">🥇 1st &mdash; Azalea Jewelry</div><div class="awr-n">Jedrick Lachica &middot; Jasmine Perlas &middot; Amy Tran &middot; Jayden Mai &middot; Lucas Avila</div></div>
+      <div class="awr"><div class="awr-p s">🥈 2nd &mdash; Azalea Jewelry</div><div class="awr-n">Anya Faria &middot; Janet Wong &middot; Amaan Hussain &middot; Gabriel Heiss</div></div>
+      <div class="awr"><div class="awr-p b">🥉 3rd &mdash; Star One Credit Union</div><div class="awr-n">Walter Paco &middot; Noah Zabala-Taa &middot; Adonis Escobar &middot; Juliana Estrada</div></div>
+      <div class="acc-sub-h">Fall &mdash; Clients: Hunger at Home, VIDA, Palm &amp; Stone</div>
+      <div class="awr"><div class="awr-p g">🥇 1st &mdash; Hunger at Home</div><div class="awr-n">Evan Hoeffner &middot; Ilay Botzer &middot; Zhen Huey Lee &middot; Leo Chao</div></div>
+      <div class="awr"><div class="awr-p s">🥈 2nd &mdash; Palm &amp; Stone</div><div class="awr-n">Timothy Le &middot; Amaan Hussain &middot; Justin Aung &middot; Kirin Husain</div></div>
+      <div class="awr"><div class="awr-p b">🥉 3rd &mdash; VIDA</div><div class="awr-n">Jasmine Perlas &middot; Jedrick Lachica &middot; Emmanuel Aceves &middot; Elara Lwin</div></div>
+    </div>
+  </div>
+
+  <!-- ════ 2025 ════════════════════════════════════════════════════════════ -->
+  <div class="acc-yr" style="margin-top:5rem">
+    <div class="acc-yr-n past">2025</div>
+    <div class="acc-yr-line past"></div>
+    <div class="acc-yr-meta past">Nationals &middot; State &middot; State Fall LC &middot; DAIS &middot; Regional</div>
+  </div>
+
+  <div class="acc-past-grid">
+    <!-- Nationals -->
+    <div class="acc-past-block">
+      <div class="acc-past-conf">2025 Nationals &middot; May 31&ndash;Jun 2 &middot; Dallas, TX</div>
+      <div class="awr"><div class="awr-p g">🥇 1st &mdash; Accounting</div><div class="awr-n">Alan Dang &middot; Katelyn Nguyen &middot; Yihan Pan &middot; Rachel Tran</div></div>
+      <div class="awr"><div class="awr-p g">🥇 1st &mdash; Business Ethics</div><div class="awr-n">Javin Ku</div></div>
+      <div class="awr"><div class="awr-p g">🥇 1st &mdash; Hospitality Management</div><div class="awr-n">Allissa Iida &middot; Taranjit Kaur &middot; Jasmine Perlas &middot; Christina Tran</div></div>
+      <div class="awr"><div class="awr-p s">🥈 2nd &mdash; Community Service</div><div class="awr-n">Carine Chan &middot; George Huang &middot; Suyash Jevaria</div></div>
+      <div class="awr"><div class="awr-p b">🥉 3rd &mdash; Marketing</div><div class="awr-n">Thu Tran &middot; Nhi Tran &middot; Tram Lieng</div></div>
+      <div class="awr"><div class="awr-p f">4th &mdash; Emerging Business Issues</div><div class="awr-n">Zain Darwish &middot; Javin Ku</div></div>
+      <div class="awr"><div class="awr-p f">5th &mdash; Business Presentation</div><div class="awr-n">Dianne Johnson &middot; Vinh Nguyen &middot; Jocelyn Ramirez</div></div>
+    </div>
+    <!-- 2025 State -->
+    <div class="acc-past-block">
+      <div class="acc-past-conf">2025 State &middot; Mar 7&ndash;9 &middot; San Diego, CA</div>
+      <div class="awr"><div class="awr-p g">🥇 1st &mdash; Accounting</div><div class="awr-n">Alan Dang &middot; Katelyn Nguyen &middot; Floria Pan &middot; Rachel Tran</div></div>
+      <div class="awr"><div class="awr-p g">🥇 1st &mdash; Management</div><div class="awr-n">Cyrus Nakar &middot; Anqi Lin &middot; Allyson Huynh</div></div>
+      <div class="awr"><div class="awr-p g">🥇 1st &mdash; Ethics</div><div class="awr-n">Javin Ku</div></div>
+      <div class="awr"><div class="awr-p g">🥇 1st &mdash; Hospitality Management</div><div class="awr-n">Carine Chan &middot; Sylvie Nghiem &middot; George Huang &middot; Leo Huang</div></div>
+      <div class="awr"><div class="awr-p s">🥈 2nd &mdash; Ethics</div><div class="awr-n">Fun Lee &middot; Jordan Nguyen &middot; Iker Jimenez</div></div>
+      <div class="awr"><div class="awr-p s">🥈 2nd &mdash; Business Presentation</div><div class="awr-n">Zineerah Ahmed &middot; Dianne Johnson &middot; Jocelyn Ramirez</div></div>
+      <div class="awr"><div class="awr-p s">🥈 2nd &mdash; Pitch</div><div class="awr-n">Arya Somu &middot; Nisa Pradhan &middot; Arthur Poon</div></div>
+      <div class="awr"><div class="awr-p b">🥉 3rd &mdash; Accounting</div><div class="awr-n">Chris Wu &middot; Neal Singh &middot; Alan Tran</div></div>
+      <div class="acc-sub-h">Objective Tests</div>
+      <div class="awr"><div class="awr-p g">🥇 1st &mdash; Accounting</div><div class="awr-n">Alan Dang</div></div>
+      <div class="awr"><div class="awr-p g">🥇 1st &mdash; Leadership</div><div class="awr-n">Minh Le</div></div>
+      <div class="awr"><div class="awr-p g">🥇 1st &mdash; Impromptu Speaking</div><div class="awr-n">VJ Lukka</div></div>
+      <div class="awr"><div class="awr-p g">🥇 1st &mdash; Sticker Design</div><div class="awr-n">Nhi Tran</div></div>
+      <div class="awr"><div class="awr-p g">🥇 1st &mdash; Stock Market</div><div class="awr-n">Vincent Shao</div></div>
+    </div>
+  </div>
+
+  <div class="acc-past-grid">
+    <!-- State Fall LC 2025 -->
+    <div class="acc-past-block">
+      <div class="acc-past-conf">State Fall LC 2025 &middot; Nov 8&ndash;9 &middot; La Jolla, San Diego</div>
+      <div class="acc-pills" style="margin-bottom:1rem"><span class="acc-pill">Greatest Membership Award</span><span class="acc-pill">Conference Attendance Award</span></div>
+      <div class="awr"><div class="awr-p g">🥇 Entrepreneurship Pitch</div><div class="awr-n">Om Bathija &middot; Shakil Musthafa &middot; Timothy Nguyen &middot; Bryant Vo</div></div>
+      <div class="awr"><div class="awr-p s">🥈 Public Speaking</div><div class="awr-n">Derick Nguyen</div></div>
+      <div class="awr"><div class="awr-p b">🥉 Hospitality Management</div><div class="awr-n">Jacob Chen &middot; Vincent Shao &middot; Joshua Morris &middot; Ella Yang</div></div>
+      <div class="awr"><div class="awr-p f">4th &mdash; Finance</div><div class="awr-n">Carine Chan &middot; George Huang &middot; Christina Tran &middot; Anna Huynh</div></div>
+      <div class="awr"><div class="awr-p f">5th &mdash; Entrepreneurship Pitch</div><div class="awr-n">Coosemans &middot; More &middot; Pradhan &middot; Somu</div></div>
+    </div>
+    <!-- DAIS + Fall LC 2024 -->
+    <div style="display:flex;flex-direction:column;gap:3px">
+      <div class="acc-past-block">
+        <div class="acc-past-conf">De Anza Innovation Summit &middot; Oct 10, 2025</div>
+        <div class="awr"><div class="awr-p g">🥇 1st Place</div><div class="awr-n">Allyson Huynh &middot; Gloria Gao &middot; Rameesha Farrukh &middot; Nabiha Shahid</div></div>
+        <div class="awr"><div class="awr-p s">🥈 2nd Place</div><div class="awr-n">Anusha Shringi &middot; Ruirui Wu &middot; Aarush Muralinathan &middot; Timothy Le</div></div>
+        <div class="awr"><div class="awr-p b">🥉 3rd Place</div><div class="awr-n">Cyrus Nakar &middot; Kyle Krawez &middot; Su Waisy &middot; VJ Lukka</div></div>
       </div>
-      <div class="acc-col-h">Chapter awards</div>
-      <div class="acc-chap-pills"><span class="acc-chap-pill">State of Chapter Award</span><span class="acc-chap-pill">Largest State Chapter Award</span><span class="acc-chap-pill">Largest Membership Award</span><span class="acc-chap-pill">Sweepstakes Award</span></div>
-      <div class="acc-cols">
-        <div>
-          <div class="acc-col-h">Individual placements — 🥇 Gold</div>
-          <div class="award-row gold"><div class="award-place">🥇 Entrepreneurship Pitch</div><div class="award-names">William Devanney · Shakil Musthafa · Timothy Nguyen · Bryant Vo</div></div>
-          <div class="award-row gold"><div class="award-place">🥇 Hospitality Management</div><div class="award-names">Anna Huynh · Jayden Phan · Francisco Rodriguez · Haley Truong</div></div>
-          <div class="award-row gold"><div class="award-place">🥇 Impromptu Speaking</div><div class="award-names">Nikunj More</div></div>
-          <div class="award-row gold"><div class="award-place">🥇 Public Speaking</div><div class="award-names">Derick Nguyen</div></div>
-          <div class="award-row gold"><div class="award-place">🥇 State of Chapter</div><div class="award-names">Carine Chan · Nisa Pradhan · Arya Somu</div></div>
-          <div class="award-row gold"><div class="award-place">🥇 Community Service Project</div><div class="award-names">Arin Kumar · Lisa Qian · Derick Nguyen · Angelo Maniraho · Bryant Vo · Harika Talluri · Ruirui Wu · Sophia Guidicotti · Anusha Shringi · Rameesha Farrukh · Elena Burgos</div></div>
-          <!-- stat mini fills left-col gap -->
-          <div class="stat-mini">
-            <div class="stat-mini-cell"><div class="stat-mini-n">6</div><div class="stat-mini-l">Gold Medals</div></div>
-            <div class="stat-mini-cell"><div class="stat-mini-n">8</div><div class="stat-mini-l">Silver Medals</div></div>
-            <div class="stat-mini-cell"><div class="stat-mini-n">2</div><div class="stat-mini-l">Bronze Medals</div></div>
-            <div class="stat-mini-cell"><div class="stat-mini-n">16+</div><div class="stat-mini-l">Total Placements</div></div>
-          </div>
-        </div>
-        <div>
-          <div class="acc-col-h">Individual placements — 🥈 Silver &amp; below</div>
-          <div class="award-row silver"><div class="award-place">🥈 Accounting Case</div><div class="award-names">Nikunj More · Shakil Musthafa</div></div>
-          <div class="award-row silver"><div class="award-place">🥈 Business Ethics</div><div class="award-names">Iker Amox Jimenez · George Huang · Jordan Nguyen</div></div>
-          <div class="award-row silver"><div class="award-place">🥈 Business Presentation</div><div class="award-names">Tran Dang · Jing Xuan Jason Zhou</div></div>
-          <div class="award-row silver"><div class="award-place">🥈 Digital Design &amp; Communication</div><div class="award-names">Nhi Tran</div></div>
-          <div class="award-row silver"><div class="award-place">🥈 Emerging Business Issues</div><div class="award-names">Jacob Eliashberg · Rameesha Farrukh · Joseph Leytes</div></div>
-          <div class="award-row silver"><div class="award-place">🥈 Entrepreneurship Pitch</div><div class="award-names">Om Bathija · Rivers Calareso</div></div>
-          <div class="award-row silver"><div class="award-place">🥈 Finance</div><div class="award-names">Elena Burgos · Evan Hoeffner · Jocelyn Ramirez</div></div>
-          <div class="award-row silver"><div class="award-place">🥈 Impromptu Speaking</div><div class="award-names">Anusha Shringi</div></div>
-          <div class="award-row bronze"><div class="award-place">🥉 Emerging Business Issues</div><div class="award-names">Anirudh Ahluwalia · Parker Elsey · Angelo Maniraho</div></div>
-          <div class="award-row bronze"><div class="award-place">🥉 Impromptu Speaking</div><div class="award-names">Timothy Nguyen</div></div>
-          <div class="award-row"><div class="award-place">4th — Accounting Case</div><div class="award-names">Phillip Chang · Thin Thida Soe · Rebecca Yim</div></div>
-          <div class="award-row"><div class="award-place">4th — Finance</div><div class="award-names">Ilay Botzer · Dianne Johnson · Kyle Krawez · Arin Kumar</div></div>
-          <div class="award-row"><div class="award-place">4th — Hospitality Management</div><div class="award-names">Jacob Chen · Joshua D Morris · Vincent Shao · Ella Yang</div></div>
-          <div class="award-row"><div class="award-place">4th — Management</div><div class="award-names">Cyrus Nakar · Derick Nguyen · Wenyu Qian · Bryant Vo</div></div>
-          <div class="award-row"><div class="award-place">4th — Marketing &amp; Sales</div><div class="award-names">Addy Hu · Olivia Ma · Anusha Shringi · Edward Wong</div></div>
-          <div class="award-row"><div class="award-place">4th — Technology &amp; Computer Science</div><div class="award-names">Shang-Rong Ma · Dawit Mekuria</div></div>
-        </div>
+      <!-- ════ 2024 ══ -->
+      <div class="acc-past-block">
+        <div class="acc-past-conf">Fall LC 2024 &middot; Nov 16&ndash;17 &middot; Emeryville, CA</div>
+        <div class="awr"><div class="awr-p g">🥇 1st &mdash; Finance Case Study</div><div class="awr-n">Allison Trinh &middot; Alan Dang &middot; Van Loc Nguyen &middot; Zain Darwish</div></div>
+        <div class="awr"><div class="awr-p s">🥈 2nd &mdash; Impromptu Speaking</div><div class="awr-n">Javin Ku</div></div>
+        <div class="awr"><div class="awr-p b">🥉 3rd &mdash; Marketing Case Study</div><div class="awr-n">Addy Hu &middot; Chris Wu &middot; Neal Singh &middot; Rushil Vaswani</div></div>
       </div>
     </div>
+  </div>
 
-    <!-- ── 2026 Internal ──────────────────────────────────────────────────── -->
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:3px;margin-bottom:3px">
-      <div class="acc-block-gray">
-        <div class="sec-tag">Shark Tank 2026 · De Anza College</div>
-        <div class="acc-stats" style="grid-template-columns:repeat(3,1fr)">
-          <div class="acc-stat"><div class="acc-stat-n">50+</div><div class="acc-stat-l">Participants</div></div>
-          <div class="acc-stat"><div class="acc-stat-n">11</div><div class="acc-stat-l">Teams</div></div>
-          <div class="acc-stat"><div class="acc-stat-n">2h</div><div class="acc-stat-l">Pitch time</div></div>
-        </div>
-        <div class="acc-col-h">Top teams</div>
-        <div class="award-row gold"><div class="award-place">🥇 1st Place — Team #1</div><div class="award-names">Harika Talluri · Ella Yang · Tran Dang · Moles Kali · Elena Burgos</div></div>
-        <div class="award-row silver"><div class="award-place">🥈 2nd Place — Team #7</div><div class="award-names">Arnav Junday · Teevra Singh · Ridhi Thapar · Ashwika Agarwal · Ruhi Teji</div></div>
-        <div class="award-row bronze"><div class="award-place">🥉 3rd Place — Team #3</div><div class="award-names">Francisco Rodriguez · Jayden Phan · Parker Elsey · Evan Hoeffner · Mihir Thakar</div></div>
-        <div style="margin-top:1.25rem" class="acc-col-h">Special recognition</div>
-        <div class="award-row"><div class="award-place">Most Innovative</div><div class="award-names">Francisco Rodriguez · Jayden Phan · Parker Elsey · Evan Hoeffner · Mihir Thakar</div></div>
-        <div class="award-row"><div class="award-place">Most Environmental</div><div class="award-names">Joshua Morris · Jacob Chen · Vincent Shao · Parav Manney · Phillip Chang</div></div>
-        <div class="award-row"><div class="award-place">Most Entertaining</div><div class="award-names">Lakshya Saini · Zhen Huey Lee</div></div>
-      </div>
-      <div class="acc-block-gray">
-        <div class="sec-tag">Consulting 2026 · De Anza College</div>
-        <div class="acc-col-h" style="margin-top:.5rem">Spring Quarter — Clients: UC Berkeley IEEE, Star One Credit Union, Azalea Jewelry</div>
-        <div class="award-row gold"><div class="award-place">🥇 1st Place — Azalea Jewelry</div><div class="award-names">Jedrick Lachica · Jasmine Perlas · Amy Tran · Jayden Mai · Lucas Avila</div></div>
-        <div class="award-row silver"><div class="award-place">🥈 2nd Place — Azalea Jewelry</div><div class="award-names">Anya Faria · Janet Wong · Amaan Hussain · Gabriel Heiss</div></div>
-        <div class="award-row bronze"><div class="award-place">🥉 3rd Place — Star One Credit Union</div><div class="award-names">Walter Paco · Noah Zabala-Taa · Adonis Escobar · Juliana Estrada</div></div>
-        <div style="margin-top:1.25rem" class="acc-col-h">Fall Quarter — Clients: Hunger at Home, VIDA, Palm &amp; Stone</div>
-        <div class="award-row gold"><div class="award-place">🥇 1st Place — Hunger at Home</div><div class="award-names">Evan Hoeffner · Ilay Botzer · Zhen Huey Lee · Leo Chao</div></div>
-        <div class="award-row silver"><div class="award-place">🥈 2nd Place — Palm &amp; Stone</div><div class="award-names">Timothy Le · Amaan Hussain · Justin Aung · Kirin Husain</div></div>
-        <div class="award-row bronze"><div class="award-place">🥉 3rd Place — VIDA</div><div class="award-names">Jasmine Perlas · Jedrick Lachica · Emmanuel Aceves · Elara Lwin</div></div>
-      </div>
-    </div>
-
-    <!-- ── 2025 DAIS ───────────────────────────────────────────────────────── -->
-    <div class="tl-section acc-block-gray" style="margin-bottom:3px">
-      <div class="sec-tag">De Anza Innovation Summit 2025 · Oct 10, 2025</div>
-      <div class="acc-stats" style="grid-template-columns:repeat(3,1fr)">
-        <div class="acc-stat"><div class="acc-stat-n">80+</div><div class="acc-stat-l">Participants</div></div>
-        <div class="acc-stat"><div class="acc-stat-n">21</div><div class="acc-stat-l">Teams</div></div>
-        <div class="acc-stat"><div class="acc-stat-n">5h</div><div class="acc-stat-l">Challenge window</div></div>
-      </div>
-      <div class="acc-col-h">Top teams</div>
-      <div class="award-row gold"><div class="award-place">🥇 1st Place</div><div class="award-names">Allyson Huynh · Gloria Gao · Rameesha Farrukh · Nabiha Shahid</div></div>
-      <div class="award-row silver"><div class="award-place">🥈 2nd Place</div><div class="award-names">Anusha Shringi · Ruirui Wu · Aarush Muralinathan · Timothy Le</div></div>
-      <div class="award-row bronze"><div class="award-place">🥉 3rd Place</div><div class="award-names">Cyrus Nakar · Kyle Krawez · Su Waisy · VJ Lukka</div></div>
-    </div>
-
-    <!-- ── 2025 Nationals ─────────────────────────────────────────────────── -->
-    <div class="tl-section acc-block" style="margin-bottom:3px">
-      <div class="acc-year-bg">2025</div>
-      <div class="sec-tag">2025 National Conference · May 31–Jun 2, 2025 · Dallas, TX</div>
-      <div class="acc-cols">
-        <div>
-          <div class="acc-col-h">Case competitions</div>
-          <div class="award-row gold"><div class="award-place">🥇 1st — Accounting</div><div class="award-names">Alan Dang · Katelyn Nguyen · Yihan Pan · Rachel Tran</div></div>
-          <div class="award-row gold"><div class="award-place">🥇 1st — Business Ethics</div><div class="award-names">Javin Ku</div></div>
-          <div class="award-row gold"><div class="award-place">🥇 1st — Hospitality Management</div><div class="award-names">Allissa Iida · Taranjit Kaur · Jasmine Perlas · Christina Tran</div></div>
-          <div class="award-row silver"><div class="award-place">🥈 2nd — Community Service</div><div class="award-names">Carine Chan · George Huang · Suyash Jevaria</div></div>
-          <div class="award-row bronze"><div class="award-place">🥉 3rd — Marketing</div><div class="award-names">Thu Tran · Nhi Tran · Tram Lieng</div></div>
-          <div class="award-row"><div class="award-place">4th — Emerging Business Issues</div><div class="award-names">Zain Darwish · Javin Ku</div></div>
-          <div class="award-row"><div class="award-place">5th — Business Presentation</div><div class="award-names">Dianne Johnson · Vinh Nguyen · Jocelyn Ramirez</div></div>
-          <div class="award-row"><div class="award-place">7th — Marketing</div><div class="award-names">Addy Hu · Suyash Jevaria · Rushil Vaswani</div></div>
-          <div class="award-row"><div class="award-place">8th — Hospitality Management</div><div class="award-names">Teresa Hsu · Anna Huynh · Bochen Tong · Yujing Chu</div></div>
-          <div class="award-row"><div class="award-place">9th — Hospitality Management</div><div class="award-names">Carine Chan · George Huang · Leo Huang · Sylvie Nghiem</div></div>
-        </div>
-        <div>
-          <div class="acc-col-h">Objective tests</div>
-          <div class="award-row"><div class="award-place">4th — Foundation of Economics</div><div class="award-names">Nhi Tran</div></div>
-          <div class="award-row"><div class="award-place">6th — Foundation of Economics</div><div class="award-names">Iker Amox Jimenez</div></div>
-        </div>
-      </div>
-    </div>
-
-    <!-- ── 2025 State + Regional ──────────────────────────────────────────── -->
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:3px;margin-bottom:3px">
-      <div class="acc-block-gray">
-        <div class="sec-tag">2025 State · Mar 7–9, 2025 · San Diego</div>
-        <div class="acc-col-h">Case competitions</div>
-        <div class="award-row gold"><div class="award-place">🥇 1st — Accounting</div><div class="award-names">Alan Dang · Katelyn Nguyen · Floria Pan · Rachel Tran</div></div>
-        <div class="award-row gold"><div class="award-place">🥇 1st — Management</div><div class="award-names">Cyrus Nakar · Anqi Lin · Allyson Huynh</div></div>
-        <div class="award-row gold"><div class="award-place">🥇 1st — Ethics</div><div class="award-names">Javin Ku</div></div>
-        <div class="award-row gold"><div class="award-place">🥇 1st — Hospitality Management</div><div class="award-names">Carine Chan · Sylvie Nghiem · George Huang · Leo Huang</div></div>
-        <div class="award-row silver"><div class="award-place">🥈 2nd — Ethics</div><div class="award-names">Fun Lee · Jordan Nguyen · Iker Jimenez</div></div>
-        <div class="award-row silver"><div class="award-place">🥈 2nd — Business Presentation</div><div class="award-names">Zineerah Ahmed · Dianne Johnson · Jocelyn Ramirez</div></div>
-        <div class="award-row silver"><div class="award-place">🥈 2nd — Pitch</div><div class="award-names">Arya Somu · Nisa Pradhan · Arthur Poon</div></div>
-        <div class="award-row bronze"><div class="award-place">🥉 3rd — Accounting</div><div class="award-names">Chris Wu · Neal Singh · Alan Tran</div></div>
-        <div style="margin-top:1.25rem" class="acc-col-h">Objective tests</div>
-        <div class="award-row gold"><div class="award-place">🥇 1st — Accounting</div><div class="award-names">Alan Dang</div></div>
-        <div class="award-row gold"><div class="award-place">🥇 1st — Leadership</div><div class="award-names">Minh Le</div></div>
-        <div class="award-row silver"><div class="award-place">🥈 2nd — Accounting</div><div class="award-names">Floria Pan</div></div>
-        <div class="award-row silver"><div class="award-place">🥈 2nd — Supply Chain</div><div class="award-names">Kelvin Shein</div></div>
-        <div class="award-row silver"><div class="award-place">🥈 2nd — Entrepreneurship</div><div class="award-names">Arya Somu</div></div>
-        <div class="award-row bronze"><div class="award-place">🥉 3rd — Hospitality</div><div class="award-names">Bochen Tong</div></div>
-        <div class="award-row bronze"><div class="award-place">🥉 3rd — Supply Chain</div><div class="award-names">Christina Tran</div></div>
-        <div style="margin-top:1.25rem" class="acc-col-h">Solo events</div>
-        <div class="award-row gold"><div class="award-place">🥇 1st — Impromptu Speaking</div><div class="award-names">VJ Lukka</div></div>
-        <div class="award-row gold"><div class="award-place">🥇 1st — Sticker Design</div><div class="award-names">Nhi Tran</div></div>
-        <div class="award-row gold"><div class="award-place">🥇 1st — Stock Market</div><div class="award-names">Vincent Shao</div></div>
-      </div>
-      <div style="display:flex;flex-direction:column;gap:3px">
-        <div class="acc-block-gray" style="flex:1">
-          <div class="sec-tag">State Fall LC 2025 · Nov 8–9, 2025 · La Jolla, San Diego</div>
-          <div class="acc-chap-pills" style="margin-top:.75rem"><span class="acc-chap-pill">Greatest Membership Award</span><span class="acc-chap-pill">Conference Attendance Award</span></div>
-          <div class="award-row gold"><div class="award-place">🥇 Entrepreneurship Pitch</div><div class="award-names">Om Bathija · Shakil Syed Musthafa · Timothy Nguyen · Bryant Vo</div></div>
-          <div class="award-row silver"><div class="award-place">🥈 Public Speaking</div><div class="award-names">Derick Nguyen</div></div>
-          <div class="award-row bronze"><div class="award-place">🥉 Hospitality Management</div><div class="award-names">Jacob Chen · Vincent Shao · Joshua D Morris · Ella Yang</div></div>
-          <div class="award-row"><div class="award-place">4th — Finance</div><div class="award-names">Carine Chan · George Huang · Christina Tran · Anna Huynh</div></div>
-          <div class="award-row"><div class="award-place">4th — Public Speaking</div><div class="award-names">Olivia Ma</div></div>
-          <div class="award-row"><div class="award-place">5th — Entrepreneurship Pitch</div><div class="award-names">Jennifer Coosemans · Nikunj More · Nisa Pradhan · Arya Somu</div></div>
-          <div class="award-row"><div class="award-place">5th — Finance</div><div class="award-names">Anirudh Ahluwalia · Jacob Eliashberg · Joseph Leytes · Pak Hei Wong</div></div>
-          <div class="award-row"><div class="award-place">5th — Hospitality Management</div><div class="award-names">Haley Truong · Jayden Phan · Francisco Rodriguez · Michelle Nguyen</div></div>
-        </div>
-        <!-- 2024 -->
-        <div class="acc-block-gray" style="flex:0 0 auto">
-          <div class="sec-tag">Fall LC 2024 · Nov 16–17, 2024 · Emeryville</div>
-          <div class="award-row gold"><div class="award-place">🥇 1st — Finance Case Study</div><div class="award-names">Allison Trinh · Alan Dang · Van Loc Nguyen · Zain Darwish</div></div>
-          <div class="award-row silver"><div class="award-place">🥈 2nd — Impromptu Speaking</div><div class="award-names">Javin Ku</div></div>
-          <div class="award-row bronze"><div class="award-place">🥉 3rd — Marketing Case Study</div><div class="award-names">Addy Hu · Chris Wu · Neal Singh · Rushil Vaswani</div></div>
-        </div>
-      </div>
-    </div>
-
-  </div><!-- end tl-content -->
-</div><!-- end tl-wrap -->
+</div>
 </div>
 <footer style="display:flex;align-items:center;justify-content:space-between;padding:2rem 2.5rem;border-top:1px solid var(--border);flex-wrap:wrap;gap:1rem">
   <div style="display:flex;align-items:center;gap:1.2rem">
