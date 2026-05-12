@@ -96,14 +96,17 @@
   </div>
 </div>
 </div>
-<footer>
-  <span class="foot-logo">ΦΒΛ</span>
-  <span class="foot-copy">© 2025 Phi Beta Lambda · De Anza College</span>
+<footer style="display:flex;align-items:center;justify-content:space-between;padding:2rem 2.5rem;border-top:1px solid var(--border);flex-wrap:wrap;gap:1rem">
+  <div style="display:flex;align-items:center;gap:1.2rem">
+    <span class="foot-logo">ΦΒΛ</span>
+    <div style="width:1px;height:2rem;background:var(--border)"></div>
+    <span class="foot-copy">© 2025 Phi Beta Lambda · De Anza College</span>
+  </div>
   <ul class="foot-links">
     <li><a href="https://instagram.com/deanzapbl" target="_blank">Instagram</a></li><li><a href="https://discord.gg/w7zap3SfUm" target="_blank">Discord</a></li><li><a href="https://linktr.ee/deanzapbl" target="_blank">Linktree</a></li><li><a href="contact.html">Contact</a></li>
   </ul>
 </footer>
 <script src="main.js"></script>
-<script>(function(){var hero=document.querySelector('.page-hero');if(!hero)return;var l1=hero.querySelector('.plx-l1'),l2=hero.querySelector('.plx-l2'),l3=hero.querySelector('.plx-l3'),txt=hero.querySelector('.plx-text'),cur=hero.querySelector('.plx-cursor');hero.addEventListener('mousemove',function(e){var r=hero.getBoundingClientRect(),cx=e.clientX-r.left,cy=e.clientY-r.top,hw=r.width/2,hh=r.height/2,rx=(cx-hw)/hw,ry=(cy-hh)/hh;if(l1)l1.style.transform='translate('+(rx*14)+'px,'+(ry*14)+'px)';if(l2)l2.style.transform='translate('+(rx*26)+'px,'+(ry*26)+'px)';if(l3)l3.style.transform='translate('+(rx*42)+'px,'+(ry*42)+'px)';if(txt)txt.style.transform='translate('+(rx*-7)+'px,'+(ry*-7)+'px)';if(cur){cur.style.left=cx+'px';cur.style.top=cy+'px';}});hero.addEventListener('mouseleave',function(){if(l1)l1.style.transform='';if(l2)l2.style.transform='';if(l3)l3.style.transform='';if(txt)txt.style.transform='';});})();</script>
+<script>(function(){var hero=document.querySelector('.page-hero');if(!hero)return;var l1=hero.querySelector('.plx-l1'),l2=hero.querySelector('.plx-l2'),l3=hero.querySelector('.plx-l3'),txt=hero.querySelector('.plx-text'),plxCur=hero.querySelector('.plx-cursor');hero.addEventListener('mousemove',function(e){var r=hero.getBoundingClientRect(),cx=e.clientX-r.left,cy=e.clientY-r.top,hw=r.width/2,hh=r.height/2,rx=(cx-hw)/hw,ry=(cy-hh)/hh;if(l1)l1.style.transform='translate('+(rx*14)+'px,'+(ry*14)+'px)';if(l2)l2.style.transform='translate('+(rx*26)+'px,'+(ry*26)+'px)';if(l3)l3.style.transform='translate('+(rx*42)+'px,'+(ry*42)+'px)';if(txt)txt.style.transform='translate('+(rx*-7)+'px,'+(ry*-7)+'px)';if(plxCur){plxCur.style.left=cx+'px';plxCur.style.top=cy+'px';}});hero.addEventListener('mouseleave',function(){if(l1)l1.style.transform='';if(l2)l2.style.transform='';if(l3)l3.style.transform='';if(txt)txt.style.transform='';});})();</script>
 </body>
 </html>
