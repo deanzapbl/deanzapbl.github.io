@@ -6,132 +6,124 @@
 <title>Polaris Research Group — Phi Beta Lambda De Anza</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Open+Sauce+One:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500&family=Playfair+Display:ital,wght@1,400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Open+Sauce+One:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500&family=Playfair+Display:ital,wght@1,400&family=Unbounded:wght@700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
 <style>
-body { background: #011c43; }
-.prg-page {
-  --red: #0000ff;
-  --black: #011c43;
-  --gray: #01244d;
-  --gray2: #022e5c;
-  --border: rgba(186,169,194,.2);
-  --border-red: rgba(186,169,194,.25);
-  --gray-light: #baa9c2;
-  background: #011c43;
-}
-.prg-page .sec-tag { font-family: 'Open Sauce One', Avenir, system-ui, sans-serif; color: #baa9c2; letter-spacing: .22em; }
-.prg-page .sec-tag::before { background: #baa9c2; }
-.prg-page .sec-body { font-family: 'Open Sauce One', Avenir, system-ui, sans-serif; color: rgba(186,169,194,.75); }
-.prg-page .sec-h { font-family: Georgia, "Georgia Pro", serif; color: #ffffff; }
-.prg-page .pill { font-family: 'Open Sauce One', Avenir, system-ui, sans-serif; border-color: rgba(186,169,194,.35); color: #baa9c2; }
-.prg-page .pill:hover { background: #0000ff; color: #fff; border-color: #0000ff; }
+body{background:#011c43}
+.prg-page{--red:#0000ff;--black:#011c43;--gray:#01244d;--border:rgba(186,169,194,.2);--gray-light:#baa9c2;background:#011c43}
+.prg-page .sec-tag{font-family:'Open Sauce One',Avenir,system-ui,sans-serif;color:#baa9c2;letter-spacing:.22em}
+.prg-page .sec-tag::before{background:#baa9c2}
+.prg-page .sec-body{font-family:'Open Sauce One',Avenir,system-ui,sans-serif;color:rgba(186,169,194,.75)}
+.prg-page .pill{font-family:'Open Sauce One',Avenir,system-ui,sans-serif;border-color:rgba(186,169,194,.35);color:#baa9c2}
+.prg-page .pill:hover{background:#0000ff;color:#fff;border-color:#0000ff}
 
-/* ── Hero — Option C: compact centered ── */
-.prg-hero {
-  padding: 8rem 2.5rem 6rem;
-  background: linear-gradient(160deg, #011c43 0%, #021b42 55%, #010e28 100%);
-  position: relative;
-  overflow: hidden;
-  border-bottom: 1px solid rgba(186,169,194,.2);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  min-height: 60vh;
+/* ── HERO — Option C: centered star + big serif title ── */
+.prg-hero{
+  min-height:100vh;
+  padding:0 2.5rem;
+  background:#011c43;
+  position:relative;
+  overflow:hidden;
+  border-bottom:1px solid rgba(186,169,194,.15);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
 }
-.prg-hero::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: radial-gradient(ellipse 65% 75% at 50% 50%, rgba(0,0,255,.05) 0%, transparent 70%);
-  pointer-events: none;
-}
-.prg-wordmark-row {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 1rem;
-  margin-bottom: 2rem;
-  opacity: 0;
-  animation: fadeIn .8s .1s forwards;
-  position: relative;
-  z-index: 1;
-}
-.prg-mark { font-family: Georgia, "Georgia Pro", serif; font-size: 2rem; font-weight: 700; color: #ffffff; line-height: 1; letter-spacing: -.01em; display: block; }
-.prg-sub-label { font-family: 'Open Sauce One', Avenir, system-ui, sans-serif; font-size: .55rem; letter-spacing: .28em; text-transform: uppercase; color: #baa9c2; display: block; margin-top: .3rem; }
-.prg-title-main {
-  font-family: Georgia, "Georgia Pro", serif;
-  font-size: clamp(2rem, 4.5vw, 3.2rem);
-  font-weight: 700;
-  line-height: 1.15;
-  letter-spacing: -.01em;
-  color: #ffffff;
-  position: relative;
-  z-index: 1;
-  margin-bottom: 1.5rem;
-}
-.prg-title-main span { display: block; opacity: 0; transform: translateY(40px); animation: slideUp .9s cubic-bezier(.16,1,.3,1) forwards; }
-.prg-title-main span:nth-child(1) { animation-delay: .15s; }
-.prg-title-main span:nth-child(2) { animation-delay: .25s; color: #baa9c2; }
-.prg-tagline {
-  font-family: 'Open Sauce One', Avenir, system-ui, sans-serif;
-  font-size: clamp(.85rem, 1.4vw, 1rem);
-  color: rgba(186,169,194,.7);
-  max-width: 480px;
-  line-height: 1.8;
-  position: relative;
-  z-index: 1;
-  opacity: 0;
-  animation: fadeIn .8s .55s forwards;
-  margin: 0 auto;
+.prg-hero::before{
+  content:'';
+  position:absolute;
+  inset:0;
+  background:radial-gradient(ellipse 60% 70% at 50% 50%,rgba(0,0,255,.07) 0%,transparent 70%);
+  pointer-events:none;
 }
 
-.prg-rule { border: none; height: 1px; background: rgba(186,169,194,.2); margin: 5rem 0; }
-.prg-pillars { display: grid; grid-template-columns: repeat(4, 1fr); border: 1px solid rgba(186,169,194,.2); margin-bottom: 5rem; }
-.prg-pillar { padding: 2.5rem 2rem; border-right: 1px solid rgba(186,169,194,.2); }
-.prg-pillar:last-child { border-right: none; }
-.prg-pillar-num { font-family: 'Open Sauce One', Avenir, system-ui, sans-serif; font-size: .5rem; letter-spacing: .22em; text-transform: uppercase; color: rgba(186,169,194,.35); margin-bottom: 1.5rem; }
-.prg-pillar-h { font-family: Georgia, "Georgia Pro", serif; font-size: 1.05rem; font-weight: 700; color: #ffffff; margin-bottom: .85rem; line-height: 1.3; }
-.prg-pillar-p { font-family: 'Open Sauce One', Avenir, system-ui, sans-serif; font-size: .82rem; color: rgba(186,169,194,.68); line-height: 1.8; }
-.prg-struct-box { border: 1px solid rgba(186,169,194,.2); padding: 3rem; }
-.prg-struct-h { font-family: Georgia, "Georgia Pro", serif; font-size: 1.3rem; font-weight: 700; color: #ffffff; margin-bottom: 2rem; letter-spacing: .01em; }
-.prg-stat-row { display: flex; justify-content: space-between; align-items: baseline; padding: 1.25rem 0; border-bottom: 1px solid rgba(186,169,194,.12); }
-.prg-stat-row:last-of-type { border-bottom: none; padding-bottom: 0; }
-.prg-stat-lbl { font-family: 'Open Sauce One', Avenir, system-ui, sans-serif; font-size: .58rem; letter-spacing: .18em; text-transform: uppercase; color: rgba(186,169,194,.45); }
-.prg-stat-val { font-family: Georgia, "Georgia Pro", serif; font-size: 3rem; color: #ffffff; line-height: 1; font-weight: 700; }
-.prg-tracks-label { font-family: 'Open Sauce One', Avenir, system-ui, sans-serif; font-size: .55rem; letter-spacing: .18em; text-transform: uppercase; color: rgba(186,169,194,.35); margin-bottom: .75rem; }
-.prg-leader-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2.5rem; }
-.prg-leader-card { text-align: center; }
-.prg-leader-photo { width: 100px; height: 100px; border-radius: 50%; background: rgba(1,24,64,.9); margin: 0 auto 1rem; display: flex; align-items: center; justify-content: center; border: 1px solid rgba(186,169,194,.25); position: relative; overflow: hidden; }
-.prg-leader-initials { font-family: Georgia, "Georgia Pro", serif; font-size: 1.4rem; font-weight: 700; color: rgba(186,169,194,.35); user-select: none; }
-.prg-leader-photo img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: 2; }
-.prg-leader-name { font-family: Georgia, "Georgia Pro", serif; font-size: .95rem; font-weight: 700; color: #ffffff; line-height: 1.2; }
-.prg-leader-title { font-family: 'Open Sauce One', Avenir, system-ui, sans-serif; font-size: .48rem; letter-spacing: .14em; text-transform: uppercase; color: #baa9c2; margin-top: .3rem; }
-.prg-cta { border: 1px solid rgba(186,169,194,.2); background: #021840; padding: 4rem; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 2rem; }
-.prg-cta-h { font-family: Georgia, "Georgia Pro", serif; font-size: 2.4rem; font-weight: 700; color: #ffffff; line-height: 1.1; margin-bottom: .75rem; }
-.prg-cta-sub { font-family: 'Open Sauce One', Avenir, system-ui, sans-serif; font-size: .88rem; color: rgba(186,169,194,.7); max-width: 480px; }
-.prg-btn-primary { display: inline-block; font-family: 'Open Sauce One', Avenir, system-ui, sans-serif; font-size: .62rem; letter-spacing: .18em; text-transform: uppercase; padding: 1rem 2.5rem; text-decoration: none; background: #0000ff; color: #ffffff; border: 1px solid #0000ff; transition: all .2s; }
-.prg-btn-primary:hover { background: transparent; color: #0000ff; }
-.prg-btn-outline { display: inline-block; font-family: 'Open Sauce One', Avenir, system-ui, sans-serif; font-size: .62rem; letter-spacing: .18em; text-transform: uppercase; padding: 1rem 2.5rem; text-decoration: none; background: transparent; color: #baa9c2; border: 1px solid rgba(186,169,194,.35); transition: all .2s; }
-.prg-btn-outline:hover { border-color: #baa9c2; color: #ffffff; }
-footer { background: #011c43; border-top-color: rgba(186,169,194,.15); }
-@media(max-width:900px) {
-  .prg-pillars { grid-template-columns: 1fr 1fr; }
-  .prg-pillar { border-right: none; border-bottom: 1px solid rgba(186,169,194,.2); }
-  .prg-pillar:nth-child(odd) { border-right: 1px solid rgba(186,169,194,.2); }
-  .prg-pillar:nth-child(3), .prg-pillar:nth-child(4) { border-bottom: none; }
-  .prg-leader-grid { grid-template-columns: repeat(4, 1fr); gap: 1.5rem; }
+@keyframes starPulse{0%,100%{opacity:.7;transform:scale(1)}50%{opacity:1;transform:scale(1.18)}}
+
+.prg-wordmark-row{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:1.25rem;
+  position:relative;
+  z-index:1;
 }
-@media(max-width:700px) {
-  .prg-hero { padding: 7rem 1.5rem 4rem; min-height: 50vh; }
-  .prg-pillars { grid-template-columns: 1fr; }
-  .prg-pillar { border-right: none; border-bottom: 1px solid rgba(186,169,194,.2); }
-  .prg-pillar:last-child { border-bottom: none; }
-  .prg-leader-grid { grid-template-columns: repeat(2, 1fr); }
-  .prg-cta { padding: 2.5rem 1.5rem; }
+.prg-mark{
+  font-family:'Open Sauce One',Avenir,system-ui,sans-serif;
+  font-size:.58rem;
+  letter-spacing:.32em;
+  text-transform:uppercase;
+  color:rgba(186,169,194,.55);
+  opacity:0;
+  animation:fadeIn .5s .1s forwards;
 }
+
+.prg-title{
+  font-family:Georgia,"Georgia Pro",serif;
+  font-weight:700;
+  font-size:clamp(2.4rem,5.5vw,4.2rem);
+  line-height:1.05;
+  letter-spacing:-.01em;
+  position:relative;
+  z-index:1;
+  margin:1.5rem 0 0;
+}
+.prg-title span{
+  display:block;
+  opacity:0;
+  transform:translateY(36px);
+  animation:slideUp .9s cubic-bezier(.16,1,.3,1) forwards;
+}
+.prg-title span:nth-child(1){animation-delay:.2s;color:#ffffff}
+.prg-title span:nth-child(2){animation-delay:.35s;color:#baa9c2;font-style:italic}
+
+.prg-tagline{
+  font-family:'Open Sauce One',Avenir,system-ui,sans-serif;
+  font-size:clamp(.8rem,1.3vw,.95rem);
+  color:rgba(186,169,194,.45);
+  max-width:460px;
+  margin:1.75rem auto 0;
+  line-height:1.8;
+  position:relative;
+  z-index:1;
+  opacity:0;
+  animation:fadeIn .8s .9s forwards;
+}
+
+.prg-wm{display:none}
+
+.prg-rule{border:none;height:1px;background:rgba(186,169,194,.2);margin:5rem 0}
+.prg-pillars{display:grid;grid-template-columns:repeat(4,1fr);border:1px solid rgba(186,169,194,.2);margin-bottom:5rem}
+.prg-pillar{padding:2.5rem 2rem;border-right:1px solid rgba(186,169,194,.2)}
+.prg-pillar:last-child{border-right:none}
+.prg-pillar-num{font-family:'Open Sauce One',Avenir,system-ui,sans-serif;font-size:.5rem;letter-spacing:.22em;text-transform:uppercase;color:rgba(186,169,194,.35);margin-bottom:1.5rem}
+.prg-pillar-h{font-family:Georgia,"Georgia Pro",serif;font-size:1.05rem;font-weight:700;color:#ffffff;margin-bottom:.85rem;line-height:1.3}
+.prg-pillar-p{font-family:'Open Sauce One',Avenir,system-ui,sans-serif;font-size:.82rem;color:rgba(186,169,194,.68);line-height:1.8}
+.prg-struct-box{border:1px solid rgba(186,169,194,.2);padding:3rem}
+.prg-struct-h{font-family:Georgia,"Georgia Pro",serif;font-size:1.3rem;font-weight:700;color:#ffffff;margin-bottom:2rem;letter-spacing:.01em}
+.prg-stat-row{display:flex;justify-content:space-between;align-items:baseline;padding:1.25rem 0;border-bottom:1px solid rgba(186,169,194,.12)}
+.prg-stat-row:last-of-type{border-bottom:none;padding-bottom:0}
+.prg-stat-lbl{font-family:'Open Sauce One',Avenir,system-ui,sans-serif;font-size:.58rem;letter-spacing:.18em;text-transform:uppercase;color:rgba(186,169,194,.45)}
+.prg-stat-val{font-family:Georgia,"Georgia Pro",serif;font-size:3rem;color:#ffffff;line-height:1;font-weight:700}
+.prg-tracks-label{font-family:'Open Sauce One',Avenir,system-ui,sans-serif;font-size:.55rem;letter-spacing:.18em;text-transform:uppercase;color:rgba(186,169,194,.35);margin-bottom:.75rem}
+.prg-leader-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:2.5rem}
+.prg-leader-card{text-align:center}
+.prg-leader-photo{width:100px;height:100px;border-radius:50%;background:rgba(1,24,64,.9);margin:0 auto 1rem;display:flex;align-items:center;justify-content:center;border:1px solid rgba(186,169,194,.25);position:relative;overflow:hidden}
+.prg-leader-initials{font-family:Georgia,"Georgia Pro",serif;font-size:1.4rem;font-weight:700;color:rgba(186,169,194,.35);user-select:none}
+.prg-leader-photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:2}
+.prg-leader-name{font-family:Georgia,"Georgia Pro",serif;font-size:.95rem;font-weight:700;color:#ffffff;line-height:1.2}
+.prg-leader-title{font-family:'Open Sauce One',Avenir,system-ui,sans-serif;font-size:.48rem;letter-spacing:.14em;text-transform:uppercase;color:#baa9c2;margin-top:.3rem}
+.prg-cta{border:1px solid rgba(186,169,194,.2);background:#021840;padding:4rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:2rem}
+.prg-cta-h{font-family:Georgia,"Georgia Pro",serif;font-size:2.4rem;font-weight:700;color:#ffffff;line-height:1.1;margin-bottom:.75rem}
+.prg-cta-sub{font-family:'Open Sauce One',Avenir,system-ui,sans-serif;font-size:.88rem;color:rgba(186,169,194,.7);max-width:480px}
+.prg-btn-primary{display:inline-block;font-family:'Open Sauce One',Avenir,system-ui,sans-serif;font-size:.62rem;letter-spacing:.18em;text-transform:uppercase;padding:1rem 2.5rem;text-decoration:none;background:#0000ff;color:#ffffff;border:1px solid #0000ff;transition:all .2s}
+.prg-btn-primary:hover{background:transparent;color:#0000ff}
+.prg-btn-outline{display:inline-block;font-family:'Open Sauce One',Avenir,system-ui,sans-serif;font-size:.62rem;letter-spacing:.18em;text-transform:uppercase;padding:1rem 2.5rem;text-decoration:none;background:transparent;color:#baa9c2;border:1px solid rgba(186,169,194,.35);transition:all .2s}
+.prg-btn-outline:hover{border-color:#baa9c2;color:#ffffff}
+footer{background:#011c43;border-top-color:rgba(186,169,194,.15)}
+
+@media(max-width:900px){.prg-pillars{grid-template-columns:1fr 1fr}.prg-pillar{border-right:none;border-bottom:1px solid rgba(186,169,194,.2)}.prg-pillar:nth-child(odd){border-right:1px solid rgba(186,169,194,.2)}.prg-pillar:nth-child(3),.prg-pillar:nth-child(4){border-bottom:none}.prg-leader-grid{grid-template-columns:repeat(4,1fr);gap:1.5rem}}
+@media(max-width:700px){.prg-hero{padding:7rem 1.5rem 4rem}.prg-title{font-size:clamp(3rem,12vw,6rem)}.prg-pillars{grid-template-columns:1fr}.prg-pillar{border-right:none;border-bottom:1px solid rgba(186,169,194,.2)}.prg-pillar:last-child{border-bottom:none}.prg-leader-grid{grid-template-columns:repeat(2,1fr)}.prg-cta{padding:2.5rem 1.5rem}}
 </style>
 </head>
 <body>
@@ -178,21 +170,24 @@ footer { background: #011c43; border-top-color: rgba(186,169,194,.15); }
 <div class="page active prg-page">
 
 <section class="prg-hero">
-  <div class="prg-wordmark-row">
-    <svg width="40" height="40" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-      <path d="M50 2L61 39L98 50L61 61L50 98L39 61L2 50L39 39Z" fill="white"/>
-      <path d="M50 2L61 39L98 50L61 61L50 98L39 61L2 50L39 39Z" fill="white" transform="rotate(45 50 50)" opacity="0.5"/>
-    </svg>
-    <div>
-      <span class="prg-mark">PRG</span>
-      <span class="prg-sub-label">Polaris Research Group</span>
+  <div style="position:relative;z-index:1;display:flex;flex-direction:column;align-items:center;text-align:center">
+    <div class="prg-wordmark-row">
+      <div style="animation:starPulse 3s ease-in-out infinite">
+        <svg width="44" height="44" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <path d="M50 2L61 39L98 50L61 61L50 98L39 61L2 50L39 39Z" fill="white" opacity=".9"/>
+          <path d="M50 2L61 39L98 50L61 61L50 98L39 61L2 50L39 39Z" fill="white" transform="rotate(45 50 50)" opacity=".35"/>
+        </svg>
+      </div>
+      <span class="prg-mark">PRG · Polaris Research Group · 2025–26</span>
     </div>
+
+    <h1 class="prg-title">
+      <span>A launchpad for</span>
+      <span>tomorrow's leaders.</span>
+    </h1>
+
+    <p class="prg-tagline">Where leadership meets specialization — producing rigorous, institutional-quality research.</p>
   </div>
-  <h1 class="prg-title-main">
-    <span>A launchpad for</span>
-    <span>tomorrow's leaders.</span>
-  </h1>
-  <p class="prg-tagline">Where leadership meets specialization — producing rigorous, institutional-quality research.</p>
 </section>
 
 <div class="sw">
@@ -257,7 +252,6 @@ footer { background: #011c43; border-top-color: rgba(186,169,194,.15); }
       <a href="https://www.instagram.com/deanzapbl/" target="_blank" class="prg-btn-outline">@deanzapbl</a>
     </div>
   </div>
-
 </div>
 </div>
 
