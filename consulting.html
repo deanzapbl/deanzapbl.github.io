@@ -8,57 +8,65 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Unbounded:wght@400;700&family=DM+Sans:wght@300;400;500&family=IBM+Plex+Mono:wght@400;500&family=Playfair+Display:ital,wght@1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
+<style id="parallax-hero-css">
+.page-hero{min-height:100vh;display:flex;flex-direction:column;justify-content:center;padding:9rem 2.5rem 5rem;position:relative;overflow:hidden;border-bottom:1px solid var(--border);background:#050505;cursor:none}
+.plx-l3,.plx-l2,.plx-l1{position:absolute;pointer-events:none;will-change:transform}
+.plx-l3{inset:-30px;background-image:radial-gradient(circle,rgba(200,16,46,.05) 1px,transparent 1px);background-size:64px 64px;transition:transform .12s ease-out}
+.plx-l2{inset:-20px;background-image:radial-gradient(circle,rgba(200,16,46,.1) 1.5px,transparent 1.5px);background-size:32px 32px;transition:transform .08s ease-out}
+.plx-l1{inset:-12px;background-image:radial-gradient(circle,rgba(200,16,46,.2) 2px,transparent 2px);background-size:14px 14px;transition:transform .05s ease-out}
+.plx-vignette{position:absolute;inset:0;background:radial-gradient(ellipse 75% 75% at 50% 50%,transparent 30%,#050505 100%);pointer-events:none;z-index:1}
+.plx-crt{position:absolute;inset:0;background:repeating-linear-gradient(0deg,transparent,transparent 2px,rgba(0,0,0,.03) 2px,rgba(0,0,0,.03) 4px);pointer-events:none;z-index:2}
+.plx-scan{position:absolute;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent 0%,rgba(200,16,46,.45) 30%,rgba(200,16,46,.7) 50%,rgba(200,16,46,.45) 70%,transparent 100%);animation:heroScan 5s linear infinite;pointer-events:none;z-index:4}
+.plx-text{position:relative;z-index:3;will-change:transform;transition:transform .07s ease-out}
+.plx-cursor{position:absolute;width:28px;height:28px;border:1px solid rgba(200,16,46,.45);border-radius:50%;pointer-events:none;transform:translate(-50%,-50%);z-index:10;transition:opacity .18s;opacity:0}
+.page-hero:hover .plx-cursor{opacity:1}
+.page-hero .hero-tag,.page-hero .page-sub,.page-hero .page-hero-wm,.page-hero .page-hero-year{position:relative;z-index:3}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+@keyframes slideUp{from{opacity:0;transform:translateY(60px)}to{opacity:1;transform:translateY(0)}}
+@keyframes slideUpGlitch{0%{opacity:0;transform:translateY(50px)}60%{opacity:1;transform:translateY(0)}62%{transform:translateX(-3px)}64%{transform:translateX(3px)}66%{transform:translateX(-2px)}68%,100%{transform:translateX(0);opacity:1}}
+@keyframes heroBlink{0%,100%{opacity:1}50%{opacity:.2}}
+@keyframes heroScan{0%{top:-2px;opacity:0}5%{opacity:1}95%{opacity:1}100%{top:100%;opacity:0}}
+@media(max-width:768px){.page-hero{padding:7rem 1.5rem 4rem;min-height:90vh}}
+</style>
 
 </head>
 <body>
 <div class="cur" id="cur"></div>
 <div class="cur-ring" id="ring"></div>
-
-<!-- MOBILE OVERLAY -->
 <div class="mob-overlay" id="mob">
   <button class="mob-close" onclick="closeMob()">Close ×</button>
   <ul class="mob-links">
-    <li><a href="index.html">Home</a></li>
-    <li><a href="leadership.html">Leadership</a></li>
-    <li><a href="events.html">Events</a></li>
-    <li><a href="accolades.html">Accolades</a></li>
-    <li><a href="alumni.html">Alumni</a></li>
-    <li><a href="polaris.html">Polaris</a></li>
-    <li><a href="consulting.html">Consulting</a></li>
-    <li><a href="contact.html">Contact</a></li>
+    <li><a href="index.html">Home</a></li><li><a href="leadership.html">Leadership</a></li><li><a href="events.html">Events</a></li><li><a href="accolades.html">Accolades</a></li><li><a href="alumni.html">Alumni</a></li><li><a href="polaris.html">Polaris</a></li><li><a href="consulting.html">Consulting</a></li><li><a href="contact.html">Contact</a></li>
   </ul>
   <div class="mob-meta">De Anza College · Cupertino, CA</div>
 </div>
-
-<!-- NAV -->
 <nav id="nav">
   <div class="nav-left">
-    <a href="index.html" style="background:none;border:none;cursor:pointer;padding:0;display:flex;align-items:center;text-decoration:none">
-      <span style="font-family:'Playfair Display',serif;font-size:1.8rem;color:rgba(245,243,239,0.88);line-height:1;user-select:none">Φ</span>
-    </a>
+    <a href="index.html" style="background:none;border:none;cursor:pointer;padding:0;display:flex;align-items:center;text-decoration:none"><span style="font-family:'Playfair Display',serif;font-size:1.8rem;color:rgba(245,243,239,0.88);line-height:1;user-select:none">Φ</span></a>
     <div class="nav-wordmark" style="border-left:1px solid var(--border);padding-left:1rem">Phi Beta Lambda<br>De Anza Chapter</div>
   </div>
   <div class="nav-right" style="display:flex;align-items:center;gap:2.5rem">
     <ul class="nav-links">
-      <li><a id="nl-home" href="index.html">Home</a></li>
-      <li><a id="nl-leadership" href="leadership.html">Leadership</a></li>
-      <li><a id="nl-events" href="events.html">Events</a></li>
-      <li><a id="nl-accolades" href="accolades.html">Accolades</a></li>
-      <li><a id="nl-alumni" href="alumni.html">Alumni</a></li>
-      <li><a id="nl-polaris" href="polaris.html">Polaris</a></li>
-      <li><a id="nl-consulting" href="consulting.html">Consulting</a></li>
+      <li><a id="nl-home" href="index.html">Home</a></li><li><a id="nl-leadership" href="leadership.html">Leadership</a></li><li><a id="nl-events" href="events.html">Events</a></li><li><a id="nl-accolades" href="accolades.html">Accolades</a></li><li><a id="nl-alumni" href="alumni.html">Alumni</a></li><li><a id="nl-polaris" href="polaris.html">Polaris</a></li><li><a id="nl-consulting" href="consulting.html">Consulting</a></li>
     </ul>
     <a href="https://forms.gle/2zixWcFPcGG6sCBF7" target="_blank" class="nav-apply" style="flex-shrink:0">Apply</a>
     <button class="hamburger" onclick="openMob()"><span></span><span></span><span></span></button>
   </div>
 </nav>
-
 <div class="page active">
-
 <section class="page-hero">
-  <div class="hero-tag">Consulting</div>
-  <h1 class="page-title"><span>Real Work.</span><span>Real Clients.</span></h1>
-  <p class="page-sub">Student analysts. Real organizations. Portfolio-ready work from day one.</p>
+  <div class="plx-l3"></div>
+  <div class="plx-l2"></div>
+  <div class="plx-l1"></div>
+  <div class="plx-vignette"></div>
+  <div class="plx-crt"></div>
+  <div class="plx-scan"></div>
+  <div class="plx-cursor"></div>
+  <div class="plx-text">
+    <div class="hero-tag">Consulting</div>
+    <h1 class="page-title"><span>Real Work.</span><span>Real Clients.</span></h1>
+    <p class="page-sub">Student analysts. Real organizations. Portfolio-ready work from day one.</p>
+  </div>
 </section>
 <div class="sw">
   <div style="display:grid;grid-template-columns:1fr 1fr;gap:6rem;margin-bottom:5rem;align-items:start" class="g2">
@@ -76,10 +84,10 @@
   <div style="border-top:1px solid var(--border);padding-top:4rem;margin-bottom:3rem">
     <div class="sec-tag">Our Sponsors</div>
     <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--border)" class="g4">
-      <div style="background:var(--gray);padding:3rem 2rem;display:flex;flex-direction:column;align-items:center;gap:1.25rem;text-align:center;transition:background .2s" onmouseover="this.style.background='#222'" onmouseout="this.style.background='var(--gray)'"><img src="images/consulting-kpmg.jpg" alt="KPMG" style="height:40px;width:auto;filter:brightness(0) invert(.65);object-fit:contain" onerror="this.style.display='none'"> <!-- originally: https://lh3.googleusercontent.com/sitesv/AA5AbUBkvfTcB_WAn9DIyqeQLPRMWFD6_SLoamC47c23h_WuRv3EHo_eXsz12QQIm7KUns26LSDS... --><div style="font-size:1rem;font-weight:500">KPMG</div><div style="font-family:'IBM Plex Mono',monospace;font-size:.5rem;letter-spacing:.18em;text-transform:uppercase;color:var(--red)">Accounting &amp; Consulting</div></div>
-      <div style="background:var(--gray);padding:3rem 2rem;display:flex;flex-direction:column;align-items:center;gap:1.25rem;text-align:center;transition:background .2s" onmouseover="this.style.background='#222'" onmouseout="this.style.background='var(--gray)'"><img src="images/consulting-star-one.jpg" alt="Star One" style="height:40px;width:auto;filter:brightness(0) invert(.65);object-fit:contain" onerror="this.style.display='none'"> <!-- originally: https://lh3.googleusercontent.com/sitesv/AA5AbUAPRe5YQP9McmO_JNBbCRyPj93fUSxynoQQxdKP-Ii_jinUsx4rQeEElNboGE7vX_2ljcXZ... --><div style="font-size:1rem;font-weight:500">Star One Credit Union</div><div style="font-family:'IBM Plex Mono',monospace;font-size:.5rem;letter-spacing:.18em;text-transform:uppercase;color:var(--red)">Financial Services</div></div>
-      <div style="background:var(--gray);padding:3rem 2rem;display:flex;flex-direction:column;align-items:center;gap:1.25rem;text-align:center;transition:background .2s" onmouseover="this.style.background='#222'" onmouseout="this.style.background='var(--gray)'"><img src="images/consulting-fee.jpg" alt="FEE" style="height:40px;width:auto;filter:brightness(0) invert(.65);object-fit:contain" onerror="this.style.display='none'"> <!-- originally: https://lh3.googleusercontent.com/sitesv/AA5AbUCn32j9vLOT6wTUrEGceOMX75cwCnP4l6Z6K2FwItMxRjEfhYv7cVh5SWSzDELkpJ973C8N... --><div style="font-size:1rem;font-weight:500">Foundation for Economic Education</div><div style="font-family:'IBM Plex Mono',monospace;font-size:.5rem;letter-spacing:.18em;text-transform:uppercase;color:var(--red)">Economics Education</div></div>
-      <div style="background:var(--gray);padding:3rem 2rem;display:flex;flex-direction:column;align-items:center;gap:1.25rem;text-align:center;transition:background .2s" onmouseover="this.style.background='#222'" onmouseout="this.style.background='var(--gray)'"><img src="images/consulting-keypoint.jpg" alt="KeyPoint" style="height:40px;width:auto;filter:brightness(0) invert(.65);object-fit:contain" onerror="this.style.display='none'"> <!-- originally: https://lh3.googleusercontent.com/sitesv/AA5AbUAj8sl_u2g11ITJIK2T96XIqb9Wn6sm9z1RaTa1SVZFsrmjiIJWa7EXKhsTlmE1BkNJ0Urn... --><div style="font-size:1rem;font-weight:500">KeyPoint Credit Union</div><div style="font-family:'IBM Plex Mono',monospace;font-size:.5rem;letter-spacing:.18em;text-transform:uppercase;color:var(--red)">Financial Services</div></div>
+      <div style="background:var(--gray);padding:3rem 2rem;display:flex;flex-direction:column;align-items:center;gap:1.25rem;text-align:center;transition:background .2s" onmouseover="this.style.background='#222'" onmouseout="this.style.background='var(--gray)'"><img src="images/consulting-kpmg.jpg" alt="KPMG" style="height:40px;width:auto;filter:brightness(0) invert(.65);object-fit:contain" onerror="this.style.display='none'"><div style="font-size:1rem;font-weight:500">KPMG</div><div style="font-family:'IBM Plex Mono',monospace;font-size:.5rem;letter-spacing:.18em;text-transform:uppercase;color:var(--red)">Accounting &amp; Consulting</div></div>
+      <div style="background:var(--gray);padding:3rem 2rem;display:flex;flex-direction:column;align-items:center;gap:1.25rem;text-align:center;transition:background .2s" onmouseover="this.style.background='#222'" onmouseout="this.style.background='var(--gray)'"><img src="images/consulting-star-one.jpg" alt="Star One" style="height:40px;width:auto;filter:brightness(0) invert(.65);object-fit:contain" onerror="this.style.display='none'"><div style="font-size:1rem;font-weight:500">Star One Credit Union</div><div style="font-family:'IBM Plex Mono',monospace;font-size:.5rem;letter-spacing:.18em;text-transform:uppercase;color:var(--red)">Financial Services</div></div>
+      <div style="background:var(--gray);padding:3rem 2rem;display:flex;flex-direction:column;align-items:center;gap:1.25rem;text-align:center;transition:background .2s" onmouseover="this.style.background='#222'" onmouseout="this.style.background='var(--gray)'"><img src="images/consulting-fee.jpg" alt="FEE" style="height:40px;width:auto;filter:brightness(0) invert(.65);object-fit:contain" onerror="this.style.display='none'"><div style="font-size:1rem;font-weight:500">Foundation for Economic Education</div><div style="font-family:'IBM Plex Mono',monospace;font-size:.5rem;letter-spacing:.18em;text-transform:uppercase;color:var(--red)">Economics Education</div></div>
+      <div style="background:var(--gray);padding:3rem 2rem;display:flex;flex-direction:column;align-items:center;gap:1.25rem;text-align:center;transition:background .2s" onmouseover="this.style.background='#222'" onmouseout="this.style.background='var(--gray)'"><img src="images/consulting-keypoint.jpg" alt="KeyPoint" style="height:40px;width:auto;filter:brightness(0) invert(.65);object-fit:contain" onerror="this.style.display='none'"><div style="font-size:1rem;font-weight:500">KeyPoint Credit Union</div><div style="font-family:'IBM Plex Mono',monospace;font-size:.5rem;letter-spacing:.18em;text-transform:uppercase;color:var(--red)">Financial Services</div></div>
     </div>
   </div>
   <div style="background:var(--gray);padding:4rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:2rem">
@@ -87,20 +95,15 @@
     <a href="mailto:deanzacapbl@gmail.com" class="btn btn-red">Get in Touch →</a>
   </div>
 </div>
-
 </div>
-
-<!-- FOOTER -->
 <footer>
   <span class="foot-logo">ΦΒΛ</span>
   <span class="foot-copy">© 2025 Phi Beta Lambda · De Anza College</span>
   <ul class="foot-links">
-    <li><a href="https://instagram.com/deanzapbl" target="_blank">Instagram</a></li>
-    <li><a href="https://discord.gg/w7zap3SfUm" target="_blank">Discord</a></li>
-    <li><a href="https://linktr.ee/deanzapbl" target="_blank">Linktree</a></li>
-    <li><a href="contact.html">Contact</a></li>
+    <li><a href="https://instagram.com/deanzapbl" target="_blank">Instagram</a></li><li><a href="https://discord.gg/w7zap3SfUm" target="_blank">Discord</a></li><li><a href="https://linktr.ee/deanzapbl" target="_blank">Linktree</a></li><li><a href="contact.html">Contact</a></li>
   </ul>
 </footer>
 <script src="main.js"></script>
+<script>(function(){var hero=document.querySelector('.page-hero');if(!hero)return;var l1=hero.querySelector('.plx-l1'),l2=hero.querySelector('.plx-l2'),l3=hero.querySelector('.plx-l3'),txt=hero.querySelector('.plx-text'),cur=hero.querySelector('.plx-cursor');hero.addEventListener('mousemove',function(e){var r=hero.getBoundingClientRect(),cx=e.clientX-r.left,cy=e.clientY-r.top,hw=r.width/2,hh=r.height/2,rx=(cx-hw)/hw,ry=(cy-hh)/hh;if(l1)l1.style.transform='translate('+(rx*14)+'px,'+(ry*14)+'px)';if(l2)l2.style.transform='translate('+(rx*26)+'px,'+(ry*26)+'px)';if(l3)l3.style.transform='translate('+(rx*42)+'px,'+(ry*42)+'px)';if(txt)txt.style.transform='translate('+(rx*-7)+'px,'+(ry*-7)+'px)';if(cur){cur.style.left=cx+'px';cur.style.top=cy+'px';}});hero.addEventListener('mouseleave',function(){if(l1)l1.style.transform='';if(l2)l2.style.transform='';if(l3)l3.style.transform='';if(txt)txt.style.transform='';});})();</script>
 </body>
 </html>
