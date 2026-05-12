@@ -14,11 +14,11 @@
 .sep-tile{position:relative;overflow:hidden;background:#1a1010}
 .sep-tile img{width:100%;height:100%;object-fit:cover;animation:tilePulse 3.5s ease-in-out infinite}
 @keyframes tilePulse{0%,100%{opacity:.4}50%{opacity:.75}}
-.sep-grid .sep-tile:nth-child(1) img{animation-delay:0.17s}
-.sep-grid .sep-tile:nth-child(2) img{animation-delay:0.34s}
-.sep-grid .sep-tile:nth-child(3) img{animation-delay:0.51s}
-.sep-grid .sep-tile:nth-child(4) img{animation-delay:0.68s}
-.sep-grid .sep-tile:nth-child(5) img{animation-delay:0.85s}
+.sep-grid .sep-tile:nth-child(1) img{animation-delay:.17s}
+.sep-grid .sep-tile:nth-child(2) img{animation-delay:.34s}
+.sep-grid .sep-tile:nth-child(3) img{animation-delay:.51s}
+.sep-grid .sep-tile:nth-child(4) img{animation-delay:.68s}
+.sep-grid .sep-tile:nth-child(5) img{animation-delay:.85s}
 .sep-grid .sep-tile:nth-child(6) img{animation-delay:1.02s}
 .sep-grid .sep-tile:nth-child(7) img{animation-delay:1.19s}
 .sep-grid .sep-tile:nth-child(8) img{animation-delay:1.36s}
@@ -34,12 +34,11 @@
 .sep-grid .sep-tile:nth-child(18) img{animation-delay:3.06s}
 .sep-grid .sep-tile:nth-child(19) img{animation-delay:3.23s}
 .sep-grid .sep-tile:nth-child(20) img{animation-delay:3.4s}
-.sep-grid .sep-tile:nth-child(21) img{animation-delay:0.07s}
-.sep-grid .sep-tile:nth-child(22) img{animation-delay:0.24s}
-.sep-grid .sep-tile:nth-child(23) img{animation-delay:0.41s}
-.sep-grid .sep-tile:nth-child(24) img{animation-delay:0.58s}
-.sep-grid .sep-tile:nth-child(25) img{animation-delay:0.75s}
-
+.sep-grid .sep-tile:nth-child(21) img{animation-delay:.07s}
+.sep-grid .sep-tile:nth-child(22) img{animation-delay:.24s}
+.sep-grid .sep-tile:nth-child(23) img{animation-delay:.41s}
+.sep-grid .sep-tile:nth-child(24) img{animation-delay:.58s}
+.sep-grid .sep-tile:nth-child(25) img{animation-delay:.75s}
 .sep-tile img{width:100%;height:100%;object-fit:cover;opacity:.55;transition:opacity .4s}
 .sep-tile:hover img{opacity:1!important;animation-play-state:paused}
 .sep-tile::after{content:'';position:absolute;inset:0;background:rgba(10,8,8,.2)}
@@ -65,11 +64,206 @@
 .film-row.rl{animation:scrollL 200s linear infinite}
 .film-row.rr{animation:scrollR 240s linear infinite}
 .fc{flex-shrink:0;width:360px;height:230px;border-radius:8px;background:#1a1010;background-size:cover;background-position:center}
-.c1{background-image:url("images/home-film-strip-1.jpg") /* originally base64-encoded image */;background-size:cover;background-position:center}.c2{background-image:url("images/home-film-strip-2.jpg") /* originally base64-encoded image */;background-size:cover;background-position:center}.c3{background-image:url("images/home-film-strip-3.jpg") /* originally base64-encoded image */;background-size:cover;background-position:center}.c4{background-image:url("images/home-film-strip-4.jpg") /* originally base64-encoded image */;background-size:cover;background-position:center}.c5{background-image:url("images/home-film-strip-5.jpg") /* originally base64-encoded image */;background-size:cover;background-position:center}.c6{background-image:url("images/home-film-strip-6.jpg") /* originally base64-encoded image */;background-size:cover;background-position:center}.c7{background-image:url("images/home-film-strip-7.jpg") /* originally base64-encoded image */;background-size:cover;background-position:center}.c8{background-image:url("images/home-film-strip-8.jpg") /* originally base64-encoded image */;background-size:cover;background-position:center}.c9{background-image:url("images/home-film-strip-9.jpg") /* originally base64-encoded image */;background-size:cover;background-position:center}.c10{background-image:url("images/home-film-strip-10.jpg") /* originally base64-encoded image */;background-size:cover;background-position:center}.c11{background-image:url("images/home-film-strip-11.jpg") /* originally base64-encoded image */;background-size:cover;background-position:center}.c12{background-image:url("images/home-film-strip-12.jpg") /* originally base64-encoded image */;background-size:cover;background-position:center}.c13{background-image:url("images/home-film-strip-13.jpg") /* originally base64-encoded image */;background-size:cover;background-position:center}.c14{background-image:url("images/home-film-strip-14.jpg") /* originally base64-encoded image */;background-size:cover;background-position:center}.c15{background-image:url("images/home-film-strip-15.jpg") /* originally base64-encoded image */;background-size:cover;background-position:center}.c16{background-image:url("images/home-film-strip-16.jpg") /* originally base64-encoded image */;background-size:cover;background-position:center}.c17{background-image:url("images/home-film-strip-17.jpg") /* originally base64-encoded image */;background-size:cover;background-position:center}.c18{background-image:url("images/home-film-strip-18.jpg") /* originally base64-encoded image */;background-size:cover;background-position:center}
+.c1{background-image:url("images/home-film-strip-1.jpg");background-size:cover;background-position:center}.c2{background-image:url("images/home-film-strip-2.jpg");background-size:cover;background-position:center}.c3{background-image:url("images/home-film-strip-3.jpg");background-size:cover;background-position:center}.c4{background-image:url("images/home-film-strip-4.jpg");background-size:cover;background-position:center}.c5{background-image:url("images/home-film-strip-5.jpg");background-size:cover;background-position:center}.c6{background-image:url("images/home-film-strip-6.jpg");background-size:cover;background-position:center}.c7{background-image:url("images/home-film-strip-7.jpg");background-size:cover;background-position:center}.c8{background-image:url("images/home-film-strip-8.jpg");background-size:cover;background-position:center}.c9{background-image:url("images/home-film-strip-9.jpg");background-size:cover;background-position:center}.c10{background-image:url("images/home-film-strip-10.jpg");background-size:cover;background-position:center}.c11{background-image:url("images/home-film-strip-11.jpg");background-size:cover;background-position:center}.c12{background-image:url("images/home-film-strip-12.jpg");background-size:cover;background-position:center}.c13{background-image:url("images/home-film-strip-13.jpg");background-size:cover;background-position:center}.c14{background-image:url("images/home-film-strip-14.jpg");background-size:cover;background-position:center}.c15{background-image:url("images/home-film-strip-15.jpg");background-size:cover;background-position:center}.c16{background-image:url("images/home-film-strip-16.jpg");background-size:cover;background-position:center}.c17{background-image:url("images/home-film-strip-17.jpg");background-size:cover;background-position:center}.c18{background-image:url("images/home-film-strip-18.jpg");background-size:cover;background-position:center}
 @keyframes scrollL{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
 @keyframes scrollR{0%{transform:translateX(-50%)}100%{transform:translateX(0)}}
 </style>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=DM+Sans:wght@300;400;500&family=Montserrat:wght@300;400;700&family=Unbounded:wght@400;700&display=swap" rel="stylesheet">
+<style>
+/* ── Sponsor Strip ─────────────────────────────────────────────────────── */
+.sponsor-strip{
+  border-top:1px solid var(--border);
+  background:var(--black);
+  padding:2.25rem 0;
+  position:relative;
+  overflow:hidden;
+}
+.sponsor-strip::before{
+  content:'';
+  position:absolute;
+  inset:0;
+  background:radial-gradient(ellipse 60% 300% at 50% 50%, rgba(200,16,46,.035) 0%, transparent 70%);
+  pointer-events:none;
+}
+.sponsor-strip-label{
+  font-family:'IBM Plex Mono',monospace;
+  font-size:.47rem;
+  letter-spacing:.28em;
+  text-transform:uppercase;
+  color:rgba(245,243,239,.16);
+  text-align:center;
+  margin-bottom:1.4rem;
+  position:relative;
+  z-index:1;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:1.4rem;
+}
+.sponsor-strip-label::before,
+.sponsor-strip-label::after{
+  content:'';
+  width:48px;
+  height:1px;
+  background:linear-gradient(90deg, transparent, rgba(245,243,239,.12));
+}
+.sponsor-strip-label::after{
+  background:linear-gradient(270deg, transparent, rgba(245,243,239,.12));
+}
+.sponsor-track-outer{
+  overflow:hidden;
+  position:relative;
+  z-index:1;
+}
+.sponsor-track-outer::before,
+.sponsor-track-outer::after{
+  content:'';
+  position:absolute;
+  top:0;bottom:0;
+  width:140px;
+  z-index:10;
+  pointer-events:none;
+}
+.sponsor-track-outer::before{
+  left:0;
+  background:linear-gradient(90deg, var(--black) 30%, transparent);
+}
+.sponsor-track-outer::after{
+  right:0;
+  background:linear-gradient(270deg, var(--black) 30%, transparent);
+}
+.sponsor-track{
+  display:flex;
+  gap:14px;
+  width:max-content;
+  padding:6px 0;
+  animation:sponsorScroll 26s linear infinite;
+}
+.sponsor-track.paused{ animation-play-state:paused; }
+@keyframes sponsorScroll{
+  0%  { transform:translateX(0); }
+  100%{ transform:translateX(-50%); }
+}
+.sponsor-logo{
+  flex-shrink:0;
+  width:164px;
+  height:74px;
+  background:#111;
+  border:1px solid rgba(245,243,239,.06);
+  border-radius:6px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  cursor:pointer;
+  position:relative;
+  overflow:hidden;
+  transition:border-color .4s, transform .45s cubic-bezier(.16,1,.3,1), box-shadow .45s;
+  transform-origin:center;
+}
+/* top rim shimmer */
+.sponsor-logo::before{
+  content:'';
+  position:absolute;
+  top:0; left:12%; right:12%; height:1px;
+  background:linear-gradient(90deg, transparent, rgba(255,255,255,.07), transparent);
+  pointer-events:none;
+}
+/* radial bloom (active only) */
+.sponsor-logo::after{
+  content:'';
+  position:absolute;
+  inset:0;
+  background:radial-gradient(circle at 50% 0%, rgba(255,255,255,.08), transparent 65%);
+  opacity:0;
+  transition:opacity .4s;
+  pointer-events:none;
+}
+.sponsor-logo:hover{ border-color:rgba(245,243,239,.2); }
+.sponsor-logo.active{
+  border-color:rgba(255,255,255,.78);
+  transform:scale(1.13);
+  z-index:20;
+  background:#161616;
+  box-shadow:
+    0 0 0 1px rgba(255,255,255,.22),
+    0 0 12px 3px rgba(255,255,255,.13),
+    0 0 32px 8px rgba(255,255,255,.07),
+    0 0 64px 18px rgba(255,255,255,.025);
+}
+.sponsor-logo.active::after{ opacity:1; }
+/* logo image */
+.sponsor-logo img{
+  max-width:96px;
+  max-height:42px;
+  object-fit:contain;
+  filter:brightness(0) invert(.5);
+  transition:filter .35s, transform .35s;
+  position:relative;
+  z-index:1;
+  display:block;
+}
+.sponsor-logo:hover img{ filter:brightness(0) invert(.72); }
+.sponsor-logo.active img{ filter:brightness(0) invert(1); transform:scale(1.04); }
+/* fallback text */
+.sponsor-logo-name{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:1.05rem;
+  color:rgba(245,243,239,.38);
+  letter-spacing:.08em;
+  text-align:center;
+  padding:0 12px;
+  line-height:1.3;
+  transition:color .3s;
+  position:relative;
+  z-index:1;
+  user-select:none;
+}
+.sponsor-logo:hover .sponsor-logo-name{ color:rgba(245,243,239,.68); }
+.sponsor-logo.active .sponsor-logo-name{ color:#f5f3ef; }
+/* tooltip above active card */
+.sponsor-tooltip{
+  position:absolute;
+  bottom:calc(100% + 10px);
+  left:50%;
+  transform:translateX(-50%) translateY(6px);
+  background:#181818;
+  border:1px solid rgba(255,255,255,.14);
+  border-radius:4px;
+  padding:.55rem 1rem;
+  white-space:nowrap;
+  pointer-events:none;
+  z-index:30;
+  opacity:0;
+  transition:opacity .22s, transform .22s;
+  box-shadow:0 0 0 1px rgba(255,255,255,.05), 0 8px 28px rgba(0,0,0,.7);
+}
+.sponsor-logo.active .sponsor-tooltip{
+  opacity:1;
+  transform:translateX(-50%) translateY(0);
+}
+.sponsor-tooltip-name{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:1rem;
+  color:#f5f3ef;
+  letter-spacing:.05em;
+  line-height:1.2;
+  margin-bottom:.2rem;
+}
+.sponsor-tooltip-type{
+  font-family:'IBM Plex Mono',monospace;
+  font-size:.42rem;
+  letter-spacing:.18em;
+  text-transform:uppercase;
+  color:#c8102e;
+}
+.sponsor-tooltip::after{
+  content:'';
+  position:absolute;
+  top:100%; left:50%;
+  transform:translateX(-50%);
+  border:5px solid transparent;
+  border-top-color:#181818;
+}
+</style>
 </head>
 <body>
 <div class="cur" id="cur"></div>
@@ -116,24 +310,17 @@
 
 <div class="page active">
 
-
-
+<!-- ── HERO ─────────────────────────────────────────────────────────────── -->
 <div class="sep-home">
-  
-<div class="film-bg">
-  <div class="film-row rl"><div class="fc c1"></div><div class="fc c2"></div><div class="fc c3"></div><div class="fc c4"></div><div class="fc c5"></div><div class="fc c6"></div><div class="fc c7"></div><div class="fc c8"></div><div class="fc c9"></div><div class="fc c10"></div><div class="fc c11"></div><div class="fc c12"></div><div class="fc c13"></div><div class="fc c14"></div><div class="fc c15"></div><div class="fc c16"></div><div class="fc c17"></div><div class="fc c18"></div><div class="fc c1"></div><div class="fc c2"></div><div class="fc c3"></div><div class="fc c4"></div><div class="fc c5"></div><div class="fc c6"></div><div class="fc c7"></div><div class="fc c8"></div><div class="fc c9"></div><div class="fc c10"></div><div class="fc c11"></div><div class="fc c12"></div><div class="fc c13"></div><div class="fc c14"></div><div class="fc c15"></div><div class="fc c16"></div><div class="fc c17"></div><div class="fc c18"></div></div>
-  <div class="film-row rr"><div class="fc c7"></div><div class="fc c8"></div><div class="fc c9"></div><div class="fc c10"></div><div class="fc c11"></div><div class="fc c12"></div><div class="fc c13"></div><div class="fc c14"></div><div class="fc c15"></div><div class="fc c16"></div><div class="fc c17"></div><div class="fc c18"></div><div class="fc c1"></div><div class="fc c2"></div><div class="fc c3"></div><div class="fc c4"></div><div class="fc c5"></div><div class="fc c6"></div><div class="fc c7"></div><div class="fc c8"></div><div class="fc c9"></div><div class="fc c10"></div><div class="fc c11"></div><div class="fc c12"></div><div class="fc c13"></div><div class="fc c14"></div><div class="fc c15"></div><div class="fc c16"></div><div class="fc c17"></div><div class="fc c18"></div><div class="fc c1"></div><div class="fc c2"></div><div class="fc c3"></div><div class="fc c4"></div><div class="fc c5"></div><div class="fc c6"></div></div>
-  <div class="film-row rl"><div class="fc c13"></div><div class="fc c14"></div><div class="fc c15"></div><div class="fc c16"></div><div class="fc c17"></div><div class="fc c18"></div><div class="fc c1"></div><div class="fc c2"></div><div class="fc c3"></div><div class="fc c4"></div><div class="fc c5"></div><div class="fc c6"></div><div class="fc c7"></div><div class="fc c8"></div><div class="fc c9"></div><div class="fc c10"></div><div class="fc c11"></div><div class="fc c12"></div><div class="fc c13"></div><div class="fc c14"></div><div class="fc c15"></div><div class="fc c16"></div><div class="fc c17"></div><div class="fc c18"></div><div class="fc c1"></div><div class="fc c2"></div><div class="fc c3"></div><div class="fc c4"></div><div class="fc c5"></div><div class="fc c6"></div><div class="fc c7"></div><div class="fc c8"></div><div class="fc c9"></div><div class="fc c10"></div><div class="fc c11"></div><div class="fc c12"></div></div>
-  <div class="film-row rr"><div class="fc c4"></div><div class="fc c5"></div><div class="fc c6"></div><div class="fc c7"></div><div class="fc c8"></div><div class="fc c9"></div><div class="fc c10"></div><div class="fc c11"></div><div class="fc c12"></div><div class="fc c13"></div><div class="fc c14"></div><div class="fc c15"></div><div class="fc c16"></div><div class="fc c17"></div><div class="fc c18"></div><div class="fc c1"></div><div class="fc c2"></div><div class="fc c3"></div><div class="fc c4"></div><div class="fc c5"></div><div class="fc c6"></div><div class="fc c7"></div><div class="fc c8"></div><div class="fc c9"></div><div class="fc c10"></div><div class="fc c11"></div><div class="fc c12"></div><div class="fc c13"></div><div class="fc c14"></div><div class="fc c15"></div><div class="fc c16"></div><div class="fc c17"></div><div class="fc c18"></div><div class="fc c1"></div><div class="fc c2"></div><div class="fc c3"></div></div>
-  <div class="film-row rl"><div class="fc c10"></div><div class="fc c11"></div><div class="fc c12"></div><div class="fc c13"></div><div class="fc c14"></div><div class="fc c15"></div><div class="fc c16"></div><div class="fc c17"></div><div class="fc c18"></div><div class="fc c1"></div><div class="fc c2"></div><div class="fc c3"></div><div class="fc c4"></div><div class="fc c5"></div><div class="fc c6"></div><div class="fc c7"></div><div class="fc c8"></div><div class="fc c9"></div><div class="fc c10"></div><div class="fc c11"></div><div class="fc c12"></div><div class="fc c13"></div><div class="fc c14"></div><div class="fc c15"></div><div class="fc c16"></div><div class="fc c17"></div><div class="fc c18"></div><div class="fc c1"></div><div class="fc c2"></div><div class="fc c3"></div><div class="fc c4"></div><div class="fc c5"></div><div class="fc c6"></div><div class="fc c7"></div><div class="fc c8"></div><div class="fc c9"></div></div>
-</div>
+  <div class="film-bg">
+    <div class="film-row rl"><div class="fc c1"></div><div class="fc c2"></div><div class="fc c3"></div><div class="fc c4"></div><div class="fc c5"></div><div class="fc c6"></div><div class="fc c7"></div><div class="fc c8"></div><div class="fc c9"></div><div class="fc c10"></div><div class="fc c11"></div><div class="fc c12"></div><div class="fc c13"></div><div class="fc c14"></div><div class="fc c15"></div><div class="fc c16"></div><div class="fc c17"></div><div class="fc c18"></div><div class="fc c1"></div><div class="fc c2"></div><div class="fc c3"></div><div class="fc c4"></div><div class="fc c5"></div><div class="fc c6"></div><div class="fc c7"></div><div class="fc c8"></div><div class="fc c9"></div><div class="fc c10"></div><div class="fc c11"></div><div class="fc c12"></div><div class="fc c13"></div><div class="fc c14"></div><div class="fc c15"></div><div class="fc c16"></div><div class="fc c17"></div><div class="fc c18"></div></div>
+    <div class="film-row rr"><div class="fc c7"></div><div class="fc c8"></div><div class="fc c9"></div><div class="fc c10"></div><div class="fc c11"></div><div class="fc c12"></div><div class="fc c13"></div><div class="fc c14"></div><div class="fc c15"></div><div class="fc c16"></div><div class="fc c17"></div><div class="fc c18"></div><div class="fc c1"></div><div class="fc c2"></div><div class="fc c3"></div><div class="fc c4"></div><div class="fc c5"></div><div class="fc c6"></div><div class="fc c7"></div><div class="fc c8"></div><div class="fc c9"></div><div class="fc c10"></div><div class="fc c11"></div><div class="fc c12"></div><div class="fc c13"></div><div class="fc c14"></div><div class="fc c15"></div><div class="fc c16"></div><div class="fc c17"></div><div class="fc c18"></div><div class="fc c1"></div><div class="fc c2"></div><div class="fc c3"></div><div class="fc c4"></div><div class="fc c5"></div><div class="fc c6"></div></div>
+    <div class="film-row rl"><div class="fc c13"></div><div class="fc c14"></div><div class="fc c15"></div><div class="fc c16"></div><div class="fc c17"></div><div class="fc c18"></div><div class="fc c1"></div><div class="fc c2"></div><div class="fc c3"></div><div class="fc c4"></div><div class="fc c5"></div><div class="fc c6"></div><div class="fc c7"></div><div class="fc c8"></div><div class="fc c9"></div><div class="fc c10"></div><div class="fc c11"></div><div class="fc c12"></div><div class="fc c13"></div><div class="fc c14"></div><div class="fc c15"></div><div class="fc c16"></div><div class="fc c17"></div><div class="fc c18"></div><div class="fc c1"></div><div class="fc c2"></div><div class="fc c3"></div><div class="fc c4"></div><div class="fc c5"></div><div class="fc c6"></div><div class="fc c7"></div><div class="fc c8"></div><div class="fc c9"></div><div class="fc c10"></div><div class="fc c11"></div><div class="fc c12"></div></div>
+    <div class="film-row rr"><div class="fc c4"></div><div class="fc c5"></div><div class="fc c6"></div><div class="fc c7"></div><div class="fc c8"></div><div class="fc c9"></div><div class="fc c10"></div><div class="fc c11"></div><div class="fc c12"></div><div class="fc c13"></div><div class="fc c14"></div><div class="fc c15"></div><div class="fc c16"></div><div class="fc c17"></div><div class="fc c18"></div><div class="fc c1"></div><div class="fc c2"></div><div class="fc c3"></div><div class="fc c4"></div><div class="fc c5"></div><div class="fc c6"></div><div class="fc c7"></div><div class="fc c8"></div><div class="fc c9"></div><div class="fc c10"></div><div class="fc c11"></div><div class="fc c12"></div><div class="fc c13"></div><div class="fc c14"></div><div class="fc c15"></div><div class="fc c16"></div><div class="fc c17"></div><div class="fc c18"></div><div class="fc c1"></div><div class="fc c2"></div><div class="fc c3"></div></div>
+    <div class="film-row rl"><div class="fc c10"></div><div class="fc c11"></div><div class="fc c12"></div><div class="fc c13"></div><div class="fc c14"></div><div class="fc c15"></div><div class="fc c16"></div><div class="fc c17"></div><div class="fc c18"></div><div class="fc c1"></div><div class="fc c2"></div><div class="fc c3"></div><div class="fc c4"></div><div class="fc c5"></div><div class="fc c6"></div><div class="fc c7"></div><div class="fc c8"></div><div class="fc c9"></div><div class="fc c10"></div><div class="fc c11"></div><div class="fc c12"></div><div class="fc c13"></div><div class="fc c14"></div><div class="fc c15"></div><div class="fc c16"></div><div class="fc c17"></div><div class="fc c18"></div><div class="fc c1"></div><div class="fc c2"></div><div class="fc c3"></div><div class="fc c4"></div><div class="fc c5"></div><div class="fc c6"></div><div class="fc c7"></div><div class="fc c8"></div><div class="fc c9"></div></div>
+  </div>
   <div class="sep-overlay"></div>
-  <!-- RED FILTER -->
-  <div style="position:absolute;inset:0;pointer-events:none;z-index:2;
-    background:radial-gradient(ellipse 60% 60% at 50% 50%,
-      rgba(200,16,46,0.12) 0%,
-      rgba(60,0,5,0.45) 50%,
-      rgba(0,0,0,0.78) 100%)"></div>
+  <div style="position:absolute;inset:0;pointer-events:none;z-index:2;background:radial-gradient(ellipse 60% 60% at 50% 50%,rgba(200,16,46,0.12) 0%,rgba(60,0,5,0.45) 50%,rgba(0,0,0,0.78) 100%)"></div>
   <div class="sep-center">
     <div style="font-family:'Playfair Display',serif;font-size:7rem;color:rgba(245,243,239,0.92);line-height:1;user-select:none">Φ</div>
     <div style="font-family:'Playfair Display',serif;font-weight:400;font-size:clamp(1.4rem,2.8vw,2.6rem);letter-spacing:.18em;color:rgba(245,243,239,.92);text-align:center;line-height:1.1;margin-top:.25rem">PHI BETA LAMBDA</div>
@@ -152,18 +339,8 @@
     <div style="font-family:'IBM Plex Mono',monospace;font-size:.45rem;letter-spacing:.22em;text-transform:uppercase;color:rgba(245,243,239,.5);margin-top:4px">Scroll</div>
   </div>
 </div>
-<div style="border-top:1px solid var(--border)">
-<div class="nav-cards">
-  <a class="nav-card" href="leadership.html"><div class="nav-card-num">01</div><div><div class="nav-card-title">Leadership</div><div class="nav-card-sub">Exec Board · Directors</div></div><div class="nav-card-arrow">↗</div></a>
-  <a class="nav-card" href="events.html"><div class="nav-card-num">02</div><div><div class="nav-card-title">Events</div><div class="nav-card-sub">Shark Tank · Olympics · Workshops</div></div><div class="nav-card-arrow">↗</div></a>
-  <a class="nav-card" href="accolades.html"><div class="nav-card-num">03</div><div><div class="nav-card-title">Accolades</div><div class="nav-card-sub">Regional · State · National</div></div><div class="nav-card-arrow">↗</div></a>
-  <a class="nav-card" href="alumni.html"><div class="nav-card-num">04</div><div><div class="nav-card-title">Alumni</div><div class="nav-card-sub">Berkeley · USC · NYU &amp; more</div></div><div class="nav-card-arrow">↗</div></a>
-  <a class="nav-card" href="polaris.html"><div class="nav-card-num">05</div><div><div class="nav-card-title">Polaris</div><div class="nav-card-sub">Research Group</div></div><div class="nav-card-arrow">↗</div></a>
-  <a class="nav-card" href="consulting.html"><div class="nav-card-num">06</div><div><div class="nav-card-title">Consulting</div><div class="nav-card-sub">Real Work · Real Clients</div></div><div class="nav-card-arrow">↗</div></a>
-  <a class="nav-card" href="contact.html"><div class="nav-card-num">07</div><div><div class="nav-card-title">CSP</div><div class="nav-card-sub">Community Service Project</div></div><div class="nav-card-arrow">↗</div></a>
-  <a href="https://www.instagram.com/deanzapbl/" target="_blank" class="nav-card"><div class="nav-card-num">IG</div><div><div class="nav-card-title">Instagram</div><div class="nav-card-sub">@deanzapbl</div></div><div class="nav-card-arrow">↗</div></a>
-</div>
-</div>
+
+<!-- ── ABOUT ──────────────────────────────────────────────────────────────── -->
 <div class="about-band">
   <div class="about-left">
     <div class="sec-tag">About PBL</div>
@@ -186,7 +363,66 @@
   </div>
 </div>
 
+<!-- ── SPONSOR STRIP ──────────────────────────────────────────────────────── -->
+<div class="sponsor-strip">
+  <div class="sponsor-strip-label">Our Sponsors &amp; Partners</div>
+  <div class="sponsor-track-outer">
+    <div class="sponsor-track" id="sponsorTrack">
+
+      <div class="sponsor-logo" data-name="KPMG" data-type="Accounting &amp; Consulting">
+        <img src="images/consulting-kpmg.jpg" alt="KPMG">
+        <span class="sponsor-logo-name">KPMG</span>
+        <div class="sponsor-tooltip"><div class="sponsor-tooltip-name">KPMG</div><div class="sponsor-tooltip-type">Accounting &amp; Consulting</div></div>
+      </div>
+
+      <div class="sponsor-logo" data-name="Star One Credit Union" data-type="Financial Services">
+        <img src="images/consulting-star-one.jpg" alt="Star One Credit Union">
+        <span class="sponsor-logo-name">Star One</span>
+        <div class="sponsor-tooltip"><div class="sponsor-tooltip-name">Star One Credit Union</div><div class="sponsor-tooltip-type">Financial Services</div></div>
+      </div>
+
+      <div class="sponsor-logo" data-name="Foundation for Economic Education" data-type="Economics Education">
+        <img src="images/consulting-fee.jpg" alt="FEE">
+        <span class="sponsor-logo-name">FEE</span>
+        <div class="sponsor-tooltip"><div class="sponsor-tooltip-name">Foundation for Economic Education</div><div class="sponsor-tooltip-type">Economics Education</div></div>
+      </div>
+
+      <div class="sponsor-logo" data-name="KeyPoint Credit Union" data-type="Financial Services">
+        <img src="images/consulting-keypoint.jpg" alt="KeyPoint Credit Union">
+        <span class="sponsor-logo-name">KeyPoint CU</span>
+        <div class="sponsor-tooltip"><div class="sponsor-tooltip-name">KeyPoint Credit Union</div><div class="sponsor-tooltip-type">Financial Services</div></div>
+      </div>
+
+      <!-- duplicates for seamless loop -->
+      <div class="sponsor-logo" data-name="KPMG" data-type="Accounting &amp; Consulting">
+        <img src="images/consulting-kpmg.jpg" alt="KPMG">
+        <span class="sponsor-logo-name">KPMG</span>
+        <div class="sponsor-tooltip"><div class="sponsor-tooltip-name">KPMG</div><div class="sponsor-tooltip-type">Accounting &amp; Consulting</div></div>
+      </div>
+
+      <div class="sponsor-logo" data-name="Star One Credit Union" data-type="Financial Services">
+        <img src="images/consulting-star-one.jpg" alt="Star One Credit Union">
+        <span class="sponsor-logo-name">Star One</span>
+        <div class="sponsor-tooltip"><div class="sponsor-tooltip-name">Star One Credit Union</div><div class="sponsor-tooltip-type">Financial Services</div></div>
+      </div>
+
+      <div class="sponsor-logo" data-name="Foundation for Economic Education" data-type="Economics Education">
+        <img src="images/consulting-fee.jpg" alt="FEE">
+        <span class="sponsor-logo-name">FEE</span>
+        <div class="sponsor-tooltip"><div class="sponsor-tooltip-name">Foundation for Economic Education</div><div class="sponsor-tooltip-type">Economics Education</div></div>
+      </div>
+
+      <div class="sponsor-logo" data-name="KeyPoint Credit Union" data-type="Financial Services">
+        <img src="images/consulting-keypoint.jpg" alt="KeyPoint Credit Union">
+        <span class="sponsor-logo-name">KeyPoint CU</span>
+        <div class="sponsor-tooltip"><div class="sponsor-tooltip-name">KeyPoint Credit Union</div><div class="sponsor-tooltip-type">Financial Services</div></div>
+      </div>
+
+    </div>
+  </div>
 </div>
+
+</div><!-- end .page -->
 
 <!-- FOOTER -->
 <footer>
@@ -199,6 +435,7 @@
     <li><a href="contact.html">Contact</a></li>
   </ul>
 </footer>
+
 <script src="main.js"></script>
 </body>
 </html>
