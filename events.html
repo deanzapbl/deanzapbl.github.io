@@ -29,18 +29,30 @@
 @media(max-width:768px){.page-hero{padding:7rem 1.5rem 4rem;min-height:90vh}}
 </style>
 <style>
-.ev-feat{display:grid;grid-template-columns:1fr 1fr;min-height:500px;border-bottom:1px solid var(--border)}
+.ev-feat{display:grid;grid-template-columns:1fr 1fr;min-height:460px;border-bottom:1px solid var(--border);position:relative;overflow:hidden}
 .ev-feat-img{position:relative;overflow:hidden;background:#1a1010}
 .ev-feat-img img{width:100%;height:100%;object-fit:cover;opacity:.7;transition:opacity .4s}
 .ev-feat-img:hover img{opacity:.9}
 .ev-feat-img::after{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(200,16,46,.18) 0%,rgba(10,10,10,.5) 100%)}
-.ev-feat-body{padding:4rem;display:flex;flex-direction:column;justify-content:center;gap:1.25rem;background:var(--gray)}
-.ev-feat-badges{display:flex;align-items:center;gap:.5rem;flex-wrap:wrap}
+.ev-feat-body{padding:4rem;display:flex;flex-direction:column;justify-content:center;gap:1.25rem;background:var(--gray);position:relative;overflow:hidden}
+.ev-feat-wm{position:absolute;bottom:-1rem;right:-1rem;font-family:'Bebas Neue',sans-serif;font-size:9rem;color:rgba(200,16,46,.06);line-height:1;letter-spacing:.02em;user-select:none;pointer-events:none}
+.ev-feat-badges{display:flex;align-items:center;gap:.5rem;flex-wrap:wrap;position:relative;z-index:1}
 .ev-feat-type{font-family:'IBM Plex Mono',monospace;font-size:.52rem;letter-spacing:.18em;text-transform:uppercase;padding:.3rem .85rem;border:1px solid rgba(200,16,46,.5);color:rgba(220,55,65,.95)}
 .ev-feat-datestr{font-family:'IBM Plex Mono',monospace;font-size:.52rem;letter-spacing:.15em;text-transform:uppercase;padding:.3rem .85rem;border:1px solid rgba(245,243,239,.18);color:rgba(245,243,239,.6)}
-.ev-feat-title{font-family:'Unbounded',sans-serif;font-weight:700;font-size:clamp(1.4rem,2.5vw,2.4rem);line-height:1.1;color:var(--white)}
-.ev-feat-desc{font-size:.92rem;color:rgba(245,243,239,.6);line-height:1.85;max-width:480px}
+.ev-feat-title{font-family:'Unbounded',sans-serif;font-weight:700;font-size:clamp(1.4rem,2.5vw,2.4rem);line-height:1.1;color:var(--white);position:relative;z-index:1}
+.ev-feat-desc{font-size:.92rem;color:rgba(245,243,239,.6);line-height:1.85;max-width:480px;position:relative;z-index:1}
+.ev-year-header{display:flex;align-items:center;gap:1.5rem;padding:3rem 2.5rem 1.5rem}
+.ev-year-num{font-family:'Bebas Neue',sans-serif;font-size:3.5rem;letter-spacing:.04em;line-height:1}
+.ev-year-num.current{color:rgba(200,16,46,.55)}
+.ev-year-num.past{color:rgba(245,243,239,.1)}
+.ev-year-line{flex:1;height:1px}
+.ev-year-line.current{background:rgba(200,16,46,.25)}
+.ev-year-line.past{background:rgba(245,243,239,.06)}
+.ev-year-count{font-family:'IBM Plex Mono',monospace;font-size:.5rem;letter-spacing:.2em;text-transform:uppercase}
+.ev-year-count.current{color:rgba(200,16,46,.45)}
+.ev-year-count.past{color:rgba(245,243,239,.15)}
 .ev-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border)}
+.ev-grid.past-grid{opacity:.75}
 .ev-gi{background:var(--black);display:flex;flex-direction:column;cursor:default;transition:background .2s;overflow:hidden}
 .ev-gi:hover{background:var(--gray)}
 .ev-gi-img{aspect-ratio:16/9;position:relative;overflow:hidden;background:#1a1010;flex-shrink:0}
@@ -53,8 +65,8 @@
 .ev-gi-date{font-family:'IBM Plex Mono',monospace;font-size:.45rem;letter-spacing:.13em;text-transform:uppercase;padding:.22rem .65rem;border:1px solid rgba(245,243,239,.15);color:rgba(245,243,239,.5)}
 .ev-gi-title{font-family:'Unbounded',sans-serif;font-weight:700;font-size:.75rem;line-height:1.35;color:var(--white)}
 .ev-gi-desc{font-family:'DM Sans',sans-serif;font-size:.82rem;color:rgba(245,243,239,.5);line-height:1.75;margin-top:2px}
-@media(max-width:900px){.ev-feat{grid-template-columns:1fr}.ev-grid{grid-template-columns:1fr 1fr}}
-@media(max-width:600px){.ev-grid{grid-template-columns:1fr}.ev-feat-body{padding:2rem}}
+@media(max-width:900px){.ev-feat{grid-template-columns:1fr}.ev-grid{grid-template-columns:1fr 1fr}.ev-year-header{padding:2rem 1.5rem 1rem}}
+@media(max-width:600px){.ev-grid{grid-template-columns:1fr}.ev-feat-body{padding:2rem}.ev-year-num{font-size:2.5rem}}
 </style>
 </head>
 <body>
@@ -98,25 +110,45 @@
 <div class="ev-feat">
   <div class="ev-feat-img"><img src="images/events-slc-2026.jpg" alt="State Leadership Conference 2026"></div>
   <div class="ev-feat-body">
+    <div class="ev-feat-wm">2026</div>
     <div class="ev-feat-badges"><span class="ev-feat-type">Conference</span><span class="ev-feat-datestr">Spring 2026 · Emeryville, CA</span></div>
     <div class="ev-feat-title">State Leadership Conference 2026</div>
-    <div class="ev-feat-desc">Our members competed at the California State Leadership Conference in Emeryville, participating in multiple case competitions and objective tests — continuing De Anza PBL's tradition of top placements at the state level.</div>
+    <div class="ev-feat-desc">Sweepstakes Award. 6 Gold placements. Largest Chapter Award. Our biggest state conference performance yet — De Anza PBL brought home the top prizes across the board.</div>
   </div>
+</div>
+
+<div class="ev-year-header">
+  <div class="ev-year-num current">2026</div>
+  <div class="ev-year-line current"></div>
+  <div class="ev-year-count current">2 Events</div>
 </div>
 <div class="ev-grid">
   <div class="ev-gi"><div class="ev-gi-img"><img src="images/events-shark-tank.jpg" alt="PBL Shark Tank"></div><div class="ev-gi-body"><div class="ev-gi-badges"><span class="ev-gi-type">Flagship</span><span class="ev-gi-date">Spring 2026 · De Anza College</span></div><div class="ev-gi-title">PBL Shark Tank</div><div class="ev-gi-desc">50 participants across 10 teams built full pitches in just one hour before a panel of industry judges from Facebook, McAfee, Cisco, and Informatica — De Anza PBL's premier entrepreneurship showcase.</div></div></div>
   <div class="ev-gi"><div class="ev-gi-img"><img src="images/events-our-city-forest.jpg" alt="Our City Forest"></div><div class="ev-gi-body"><div class="ev-gi-badges"><span class="ev-gi-type">Service</span><span class="ev-gi-date">Winter 2026 · San Jose, CA</span></div><div class="ev-gi-title">PBL × Our City Forest</div><div class="ev-gi-desc">Over three days, PBL members volunteered with Our City Forest — planting 100 trees, engaging 203 volunteers, logging 609 volunteer hours, and raising $1,000. Projected long-term community benefit: $88,018.</div></div></div>
+  <div class="ev-gi" style="background:#111;display:flex;align-items:center;justify-content:center"><div style="text-align:center;padding:2rem"><div style="font-family:'Bebas Neue',sans-serif;font-size:2rem;color:rgba(200,16,46,.2);letter-spacing:.04em;line-height:1;margin-bottom:.5rem">More<br>Coming</div><div style="font-family:'IBM Plex Mono',monospace;font-size:.45rem;letter-spacing:.18em;text-transform:uppercase;color:rgba(245,243,239,.2)">Spring 2026</div></div></div>
+</div>
+
+<div class="ev-year-header">
+  <div class="ev-year-num past">2025</div>
+  <div class="ev-year-line past"></div>
+  <div class="ev-year-count past">3 Events</div>
+</div>
+<div class="ev-grid past-grid">
   <div class="ev-gi"><div class="ev-gi-img"><img src="images/events-state-fall-lc.jpg" alt="State Fall Leadership Conference 2025"></div><div class="ev-gi-body"><div class="ev-gi-badges"><span class="ev-gi-type">Conference</span><span class="ev-gi-date">Nov 8–9, 2025 · La Jolla, San Diego, CA</span></div><div class="ev-gi-title">State Fall Leadership Conference 2025</div><div class="ev-gi-desc">De Anza PBL brought home the most placements at the conference. Top finishes: 🥇 Om Bathija, Shakil Musthafa, Timothy Nguyen, Bryant Vo (Entrepreneurship Pitch) · 🥈 Derick Nguyen (Public Speaking) · 🥉 Jacob Chen, Vincent Shao, Joshua Morris, Ella Yang (Hospitality Management).</div></div></div>
   <div class="ev-gi"><div class="ev-gi-img"><img src="images/events-dais.jpg" alt="De Anza Innovation Summit"></div><div class="ev-gi-body"><div class="ev-gi-badges"><span class="ev-gi-type">Competition</span><span class="ev-gi-date">Oct 10, 2025 · De Anza College</span></div><div class="ev-gi-title">De Anza Innovation Summit (DAIS)</div><div class="ev-gi-desc">The first-ever De Anza Innovation Summit brought together 80+ participants across 21 teams to tackle a real-world business challenge in just five hours, with executive judges from industry and Professor Jeffrey West.</div></div></div>
   <div class="ev-gi"><div class="ev-gi-img"><img src="images/events-national-blc.jpg" alt="National Business Leadership Conference 2025"></div><div class="ev-gi-body"><div class="ev-gi-badges"><span class="ev-gi-type">National</span><span class="ev-gi-date">May 31–Jun 2, 2025 · Dallas, TX</span></div><div class="ev-gi-title">National Business Leadership Conference</div><div class="ev-gi-desc">13 teams and individuals represented De Anza College at FBLA's National Business Leadership Conference in Dallas, competing on the national stage across multiple business disciplines.</div></div></div>
+</div>
+
+<div class="ev-year-header">
+  <div class="ev-year-num past">2024</div>
+  <div class="ev-year-line past"></div>
+  <div class="ev-year-count past">1 Event</div>
+</div>
+<div class="ev-grid past-grid">
   <div class="ev-gi"><div class="ev-gi-img"><img src="images/events-fall-lc-2024.jpg" alt="Fall Leadership Conference 2024"></div><div class="ev-gi-body"><div class="ev-gi-badges"><span class="ev-gi-type">Conference</span><span class="ev-gi-date">Nov 16–17, 2024 · Emeryville, CA</span></div><div class="ev-gi-title">Fall Leadership Conference 2024</div><div class="ev-gi-desc">De Anza PBL competed at the 2024 Fall Business Leadership Conference in Emeryville, with the finance case study team winning 1st place against 15 other teams from across California.</div></div></div>
-</div><div class="ev-gi-body"><div class="ev-gi-badges"><span class="ev-gi-type">Service</span><span class="ev-gi-date">Winter 2026 · San Jose, CA</span></div><div class="ev-gi-title">PBL × Our City Forest</div><div class="ev-gi-desc">Over three days, PBL members volunteered with Our City Forest — planting 100 trees, engaging 203 volunteers, logging 609 volunteer hours, and raising $1,000. Projected long-term community benefit: $88,018.</div></div></div>
-  <div class="ev-gi"><div class="ev-gi-img"><img src="images/events-dais.jpg" alt="De Anza Innovation Summit"></div><div class="ev-gi-body"><div class="ev-gi-badges"><span class="ev-gi-type">Competition</span><span class="ev-gi-date">Oct 10, 2025 · De Anza College</span></div><div class="ev-gi-title">De Anza Innovation Summit (DAIS)</div><div class="ev-gi-desc">The first-ever De Anza Innovation Summit brought together 80+ participants across 21 teams to tackle a real-world business challenge in just five hours, with executive judges from industry and Professor Jeffrey West.</div></div></div>
-  <div class="ev-gi"><div class="ev-gi-img"><img src="images/events-state-fall-lc.jpg" alt="State Fall Leadership Conference 2025"></div><div class="ev-gi-body"><div class="ev-gi-badges"><span class="ev-gi-type">Conference</span><span class="ev-gi-date">Nov 8–9, 2025 · La Jolla, San Diego, CA</span></div><div class="ev-gi-title">State Fall Leadership Conference 2025</div><div class="ev-gi-desc">De Anza PBL brought home the most placements at the conference. Top finishes: 🥇 Om Bathija, Shakil Musthafa, Timothy Nguyen, Bryant Vo (Entrepreneurship Pitch) · 🥈 Derick Nguyen (Public Speaking) · 🥉 Jacob Chen, Vincent Shao, Joshua Morris, Ella Yang (Hospitality Management).</div></div></div>
-  <div class="ev-gi"><div class="ev-gi-img"><img src="images/events-national-blc.jpg" alt="National Business Leadership Conference 2025"></div><div class="ev-gi-body"><div class="ev-gi-badges"><span class="ev-gi-type">National</span><span class="ev-gi-date">May 31–Jun 2, 2025 · Dallas, TX</span></div><div class="ev-gi-title">National Business Leadership Conference</div><div class="ev-gi-desc">13 teams and individuals represented De Anza College at FBLA's National Business Leadership Conference in Dallas, competing on the national stage across multiple business disciplines.</div></div></div>
-  <div class="ev-gi"><div class="ev-gi-img"><img src="images/events-shark-tank.jpg" alt="PBL Shark Tank"></div><div class="ev-gi-body"><div class="ev-gi-badges"><span class="ev-gi-type">Flagship</span><span class="ev-gi-date">Spring 2026 · De Anza College</span></div><div class="ev-gi-title">PBL Shark Tank</div><div class="ev-gi-desc">50 participants across 10 teams built full pitches in just one hour before a panel of industry judges from Facebook, McAfee, Cisco, and Informatica — De Anza PBL's premier entrepreneurship showcase.</div></div></div>
-  <div class="ev-gi"><div class="ev-gi-img"><img src="images/events-fall-lc-2024.jpg" alt="Fall Leadership Conference 2024"></div><div class="ev-gi-body"><div class="ev-gi-badges"><span class="ev-gi-type">Conference</span><span class="ev-gi-date">Nov 16–17, 2024 · Emeryville, CA</span></div><div class="ev-gi-title">Fall Leadership Conference 2024</div><div class="ev-gi-desc">De Anza PBL competed at the 2024 Fall Business Leadership Conference in Emeryville, with the finance case study team winning 1st place against 15 other teams from across California.</div></div></div>
-</div></div>
+  <div class="ev-gi" style="background:#0a0a0a"></div>
+  <div class="ev-gi" style="background:#0a0a0a"></div>
+</div>
 <footer style="display:flex;align-items:center;justify-content:space-between;padding:2rem 2.5rem;border-top:1px solid var(--border);flex-wrap:wrap;gap:1rem">
   <div style="display:flex;align-items:center;gap:1.2rem">
     <span class="foot-logo">ΦΒΛ</span>
