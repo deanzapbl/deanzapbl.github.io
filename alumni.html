@@ -8,109 +8,43 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Unbounded:wght@400;700&family=DM+Sans:wght@300;400;500&family=IBM+Plex+Mono:wght@400;500&family=Playfair+Display:ital,wght@1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
+<style id="parallax-hero-css">
+.page-hero{min-height:100vh;display:flex;flex-direction:column;justify-content:center;padding:9rem 2.5rem 5rem;position:relative;overflow:hidden;border-bottom:1px solid var(--border);background:#050505;cursor:none}
+.plx-l3,.plx-l2,.plx-l1{position:absolute;pointer-events:none;will-change:transform}
+.plx-l3{inset:-30px;background-image:radial-gradient(circle,rgba(200,16,46,.05) 1px,transparent 1px);background-size:64px 64px;transition:transform .12s ease-out}
+.plx-l2{inset:-20px;background-image:radial-gradient(circle,rgba(200,16,46,.1) 1.5px,transparent 1.5px);background-size:32px 32px;transition:transform .08s ease-out}
+.plx-l1{inset:-12px;background-image:radial-gradient(circle,rgba(200,16,46,.2) 2px,transparent 2px);background-size:14px 14px;transition:transform .05s ease-out}
+.plx-vignette{position:absolute;inset:0;background:radial-gradient(ellipse 75% 75% at 50% 50%,transparent 30%,#050505 100%);pointer-events:none;z-index:1}
+.plx-crt{position:absolute;inset:0;background:repeating-linear-gradient(0deg,transparent,transparent 2px,rgba(0,0,0,.03) 2px,rgba(0,0,0,.03) 4px);pointer-events:none;z-index:2}
+.plx-scan{position:absolute;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent 0%,rgba(200,16,46,.45) 30%,rgba(200,16,46,.7) 50%,rgba(200,16,46,.45) 70%,transparent 100%);animation:heroScan 5s linear infinite;pointer-events:none;z-index:4}
+.plx-text{position:relative;z-index:3;will-change:transform;transition:transform .07s ease-out}
+.plx-cursor{position:absolute;width:28px;height:28px;border:1px solid rgba(200,16,46,.45);border-radius:50%;pointer-events:none;transform:translate(-50%,-50%);z-index:10;transition:opacity .18s;opacity:0}
+.page-hero:hover .plx-cursor{opacity:1}
+.page-hero .hero-tag,.page-hero .page-sub,.page-hero .page-hero-wm,.page-hero .page-hero-year{position:relative;z-index:3}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+@keyframes slideUp{from{opacity:0;transform:translateY(60px)}to{opacity:1;transform:translateY(0)}}
+@keyframes slideUpGlitch{0%{opacity:0;transform:translateY(50px)}60%{opacity:1;transform:translateY(0)}62%{transform:translateX(-3px)}64%{transform:translateX(3px)}66%{transform:translateX(-2px)}68%,100%{transform:translateX(0);opacity:1}}
+@keyframes heroBlink{0%,100%{opacity:1}50%{opacity:.2}}
+@keyframes heroScan{0%{top:-2px;opacity:0}5%{opacity:1}95%{opacity:1}100%{top:100%;opacity:0}}
+@media(max-width:768px){.page-hero{padding:7rem 1.5rem 4rem;min-height:90vh}}
+</style>
 <style>
-/* F-style alumni grid */
-.alumni-grid{
-  display:grid;
-  grid-template-columns:repeat(4,1fr);
-  gap:2px;
-  background:var(--border);
-}
-.al-card{
-  position:relative;
-  overflow:hidden;
-  cursor:default;
-  background:#111;
-}
-.al-card::after{
-  content:'';
-  position:absolute;
-  inset:0;
-  border:1px solid transparent;
-  transition:border-color .3s;
-  pointer-events:none;
-  z-index:3;
-}
+.alumni-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:2px;background:var(--border)}
+.al-card{position:relative;overflow:hidden;cursor:default;background:#111}
+.al-card::after{content:'';position:absolute;inset:0;border:1px solid transparent;transition:border-color .3s;pointer-events:none;z-index:3}
 .al-card:hover::after{border-color:rgba(200,16,46,.5)}
-
-/* scan line */
-.al-scan{
-  position:absolute;
-  top:-2px;left:0;right:0;
-  height:2px;
-  background:linear-gradient(90deg,transparent,#c8102e,transparent);
-  transform:translateY(-100%);
-  transition:transform .55s ease;
-  z-index:4;
-  pointer-events:none;
-}
+.al-scan{position:absolute;top:-2px;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,#c8102e,transparent);transform:translateY(-100%);transition:transform .55s ease;z-index:4;pointer-events:none}
 .al-card:hover .al-scan{transform:translateY(600%)}
-
-.al-photo{
-  aspect-ratio:1/1;
-  overflow:hidden;
-  background:#1a1010;
-}
-.al-photo img{
-  width:100%;height:100%;
-  object-fit:cover;
-  object-position:center top;
-  transition:transform .4s cubic-bezier(.16,1,.3,1),filter .4s;
-  filter:grayscale(25%);
-}
-.al-card:hover .al-photo img{
-  transform:scale(1.06);
-  filter:grayscale(0%);
-}
-
+.al-photo{aspect-ratio:1/1;overflow:hidden;background:#1a1010}
+.al-photo img{width:100%;height:100%;object-fit:cover;object-position:center top;transition:transform .4s cubic-bezier(.16,1,.3,1),filter .4s;filter:grayscale(25%)}
+.al-card:hover .al-photo img{transform:scale(1.06);filter:grayscale(0%)}
 .al-info{padding:1rem .9rem .9rem}
-.al-name{
-  font-family:'Bebas Neue',sans-serif;
-  font-size:1.1rem;
-  letter-spacing:.03em;
-  color:var(--white);
-  line-height:1.1;
-  margin-bottom:.3rem;
-}
-.al-school{
-  font-family:'IBM Plex Mono',monospace;
-  font-size:.45rem;
-  letter-spacing:.12em;
-  text-transform:uppercase;
-  color:var(--red);
-  line-height:1.5;
-}
-.al-major{
-  font-family:'IBM Plex Mono',monospace;
-  font-size:.4rem;
-  letter-spacing:.08em;
-  text-transform:uppercase;
-  color:rgba(245,243,239,.28);
-  margin-top:.15rem;
-}
-.al-li{
-  display:inline-block;
-  font-family:'IBM Plex Mono',monospace;
-  font-size:.4rem;
-  letter-spacing:.12em;
-  text-transform:uppercase;
-  color:rgba(245,243,239,.22);
-  text-decoration:none;
-  margin-top:.5rem;
-  transition:color .2s;
-}
+.al-name{font-family:'Bebas Neue',sans-serif;font-size:1.1rem;letter-spacing:.03em;color:var(--white);line-height:1.1;margin-bottom:.3rem}
+.al-school{font-family:'IBM Plex Mono',monospace;font-size:.45rem;letter-spacing:.12em;text-transform:uppercase;color:var(--red);line-height:1.5}
+.al-major{font-family:'IBM Plex Mono',monospace;font-size:.4rem;letter-spacing:.08em;text-transform:uppercase;color:rgba(245,243,239,.28);margin-top:.15rem}
+.al-li{display:inline-block;font-family:'IBM Plex Mono',monospace;font-size:.4rem;letter-spacing:.12em;text-transform:uppercase;color:rgba(245,243,239,.22);text-decoration:none;margin-top:.5rem;transition:color .2s}
 .al-li:hover{color:var(--white)}
-
-/* initials fallback */
-.al-initials{
-  width:100%;height:100%;
-  display:flex;align-items:center;justify-content:center;
-  font-family:'Bebas Neue',sans-serif;
-  font-size:3.5rem;
-  color:rgba(200,16,46,.2);
-  letter-spacing:.05em;
-}
-
+.al-initials{width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-family:'Bebas Neue',sans-serif;font-size:3.5rem;color:rgba(200,16,46,.2);letter-spacing:.05em}
 @media(max-width:900px){.alumni-grid{grid-template-columns:repeat(3,1fr)}}
 @media(max-width:600px){.alumni-grid{grid-template-columns:repeat(2,1fr)}}
 </style>
@@ -118,260 +52,57 @@
 <body>
 <div class="cur" id="cur"></div>
 <div class="cur-ring" id="ring"></div>
-
 <div class="mob-overlay" id="mob">
   <button class="mob-close" onclick="closeMob()">Close ×</button>
   <ul class="mob-links">
-    <li><a href="index.html">Home</a></li>
-    <li><a href="leadership.html">Leadership</a></li>
-    <li><a href="events.html">Events</a></li>
-    <li><a href="accolades.html">Accolades</a></li>
-    <li><a href="alumni.html">Alumni</a></li>
-    <li><a href="polaris.html">Polaris</a></li>
-    <li><a href="consulting.html">Consulting</a></li>
-    <li><a href="contact.html">Contact</a></li>
+    <li><a href="index.html">Home</a></li><li><a href="leadership.html">Leadership</a></li><li><a href="events.html">Events</a></li><li><a href="accolades.html">Accolades</a></li><li><a href="alumni.html">Alumni</a></li><li><a href="polaris.html">Polaris</a></li><li><a href="consulting.html">Consulting</a></li><li><a href="contact.html">Contact</a></li>
   </ul>
   <div class="mob-meta">De Anza College · Cupertino, CA</div>
 </div>
-
 <nav id="nav">
   <div class="nav-left">
-    <a href="index.html" style="background:none;border:none;cursor:pointer;padding:0;display:flex;align-items:center;text-decoration:none">
-      <span style="font-family:'Playfair Display',serif;font-size:1.8rem;color:rgba(245,243,239,0.88);line-height:1;user-select:none">Φ</span>
-    </a>
+    <a href="index.html" style="background:none;border:none;cursor:pointer;padding:0;display:flex;align-items:center;text-decoration:none"><span style="font-family:'Playfair Display',serif;font-size:1.8rem;color:rgba(245,243,239,0.88);line-height:1;user-select:none">Φ</span></a>
     <div class="nav-wordmark" style="border-left:1px solid var(--border);padding-left:1rem">Phi Beta Lambda<br>De Anza Chapter</div>
   </div>
   <div class="nav-right" style="display:flex;align-items:center;gap:2.5rem">
     <ul class="nav-links">
-      <li><a id="nl-home" href="index.html">Home</a></li>
-      <li><a id="nl-leadership" href="leadership.html">Leadership</a></li>
-      <li><a id="nl-events" href="events.html">Events</a></li>
-      <li><a id="nl-accolades" href="accolades.html">Accolades</a></li>
-      <li><a id="nl-alumni" href="alumni.html">Alumni</a></li>
-      <li><a id="nl-polaris" href="polaris.html">Polaris</a></li>
-      <li><a id="nl-consulting" href="consulting.html">Consulting</a></li>
+      <li><a id="nl-home" href="index.html">Home</a></li><li><a id="nl-leadership" href="leadership.html">Leadership</a></li><li><a id="nl-events" href="events.html">Events</a></li><li><a id="nl-accolades" href="accolades.html">Accolades</a></li><li><a id="nl-alumni" href="alumni.html">Alumni</a></li><li><a id="nl-polaris" href="polaris.html">Polaris</a></li><li><a id="nl-consulting" href="consulting.html">Consulting</a></li>
     </ul>
     <a href="https://forms.gle/2zixWcFPcGG6sCBF7" target="_blank" class="nav-apply" style="flex-shrink:0">Apply</a>
     <button class="hamburger" onclick="openMob()"><span></span><span></span><span></span></button>
   </div>
 </nav>
-
 <div class="page active">
-
 <section class="page-hero">
-  <div class="page-hero-year">2025–26</div>
-  <div class="hero-tag">Alumni</div>
-  <h1 class="page-title">
-    <span>Where They</span>
-    <span>Go Next.</span>
-  </h1>
-  <p class="page-sub">PBL alumni go on to the world's best universities and companies. This is just the beginning.</p>
-  <div class="page-hero-wm">ALUMNI</div>
-</section>
-
-<div class="sw" style="padding-top:4rem">
-  <div class="alumni-grid">
-
-    <!-- Javin Ku -->
-    <div class="al-card">
-      <div class="al-scan"></div>
-      <div class="al-photo"><img src="images/alumni-javin-ku.jpg" alt="Javin Ku" onerror="this.parentNode.innerHTML='<div class=al-initials>JK</div>'"></div>
-      <div class="al-info">
-        <div class="al-name">Javin Ku</div>
-        <div class="al-school">UC Berkeley Haas</div>
-        <div class="al-major">Business Administration</div>
-        <a class="al-li" href="https://linkedin.com/in/javinkuu" target="_blank">LinkedIn →</a>
-      </div>
-    </div>
-
-    <!-- Alan Dang -->
-    <div class="al-card">
-      <div class="al-scan"></div>
-      <div class="al-photo"><img src="images/alumni-alan-dang.jpg" alt="Alan Dang" onerror="this.parentNode.innerHTML='<div class=al-initials>AD</div>'"></div>
-      <div class="al-info">
-        <div class="al-name">Alan Dang</div>
-        <div class="al-school">UC Berkeley Haas</div>
-        <div class="al-major">Business Administration</div>
-        <a class="al-li" href="https://linkedin.com/in/alan-dang" target="_blank">LinkedIn →</a>
-      </div>
-    </div>
-
-    <!-- Zain Darwish -->
-    <div class="al-card">
-      <div class="al-scan"></div>
-      <div class="al-photo"><img src="images/alumni-zain-darwish.jpg" alt="Zain Darwish" onerror="this.parentNode.innerHTML='<div class=al-initials>ZD</div>'"></div>
-      <div class="al-info">
-        <div class="al-name">Zain Darwish</div>
-        <div class="al-school">UC Berkeley</div>
-        <div class="al-major">Economics</div>
-        <a class="al-li" href="https://linkedin.com/in/zaindarwish" target="_blank">LinkedIn →</a>
-      </div>
-    </div>
-
-    <!-- Van Loc Nguyen -->
-    <div class="al-card">
-      <div class="al-scan"></div>
-      <div class="al-photo"><img src="images/alumni-van-loc-nguyen.jpg" alt="Van Loc Nguyen" onerror="this.parentNode.innerHTML='<div class=al-initials>VN</div>'"></div>
-      <div class="al-info">
-        <div class="al-name">Van Loc Nguyen</div>
-        <div class="al-school">USC Marshall</div>
-        <div class="al-major">Business Economics</div>
-        <a class="al-li" href="https://linkedin.com/in/van-loc-nguyen" target="_blank">LinkedIn →</a>
-      </div>
-    </div>
-
-    <!-- Rachel Tran -->
-    <div class="al-card">
-      <div class="al-scan"></div>
-      <div class="al-photo"><img src="images/alumni-rachel-tran.jpg" alt="Rachel Tran" onerror="this.parentNode.innerHTML='<div class=al-initials>RT</div>'"></div>
-      <div class="al-info">
-        <div class="al-name">Rachel Tran</div>
-        <div class="al-school">UC San Diego</div>
-        <div class="al-major">Business Economics</div>
-        <a class="al-li" href="https://linkedin.com/in/rachel-tran" target="_blank">LinkedIn →</a>
-      </div>
-    </div>
-
-    <!-- Katelyn Nguyen -->
-    <div class="al-card">
-      <div class="al-scan"></div>
-      <div class="al-photo"><img src="images/alumni-katelyn-nguyen.jpg" alt="Katelyn Nguyen" onerror="this.parentNode.innerHTML='<div class=al-initials>KN</div>'"></div>
-      <div class="al-info">
-        <div class="al-name">Katelyn Nguyen</div>
-        <div class="al-school">Santa Clara University</div>
-        <div class="al-major">Accounting</div>
-        <a class="al-li" href="https://linkedin.com/in/katelyn-nguyen" target="_blank">LinkedIn →</a>
-      </div>
-    </div>
-
-    <!-- Arthur Poon -->
-    <div class="al-card">
-      <div class="al-scan"></div>
-      <div class="al-photo"><img src="images/alumni-arthur-poon.jpg" alt="Arthur Poon" onerror="this.parentNode.innerHTML='<div class=al-initials>AP</div>'"></div>
-      <div class="al-info">
-        <div class="al-name">Arthur Poon</div>
-        <div class="al-school">New York University</div>
-        <div class="al-major">Finance</div>
-        <a class="al-li" href="https://linkedin.com/in/arthur-poon" target="_blank">LinkedIn →</a>
-      </div>
-    </div>
-
-    <!-- Floria Pan -->
-    <div class="al-card">
-      <div class="al-scan"></div>
-      <div class="al-photo"><img src="images/alumni-floria-pan.jpg" alt="Floria Pan" onerror="this.parentNode.innerHTML='<div class=al-initials>FP</div>'"></div>
-      <div class="al-info">
-        <div class="al-name">Floria Pan</div>
-        <div class="al-school">UC Berkeley</div>
-        <div class="al-major">Political Economics</div>
-        <a class="al-li" href="https://linkedin.com/in/floria-pan" target="_blank">LinkedIn →</a>
-      </div>
-    </div>
-
-    <!-- Chris Wu -->
-    <div class="al-card">
-      <div class="al-scan"></div>
-      <div class="al-photo"><img src="images/alumni-chris-wu.jpg" alt="Chris Wu" onerror="this.parentNode.innerHTML='<div class=al-initials>CW</div>'"></div>
-      <div class="al-info">
-        <div class="al-name">Chris Wu</div>
-        <div class="al-school">USC Marshall</div>
-        <div class="al-major">Business Administration</div>
-        <a class="al-li" href="https://linkedin.com/in/chris-wu" target="_blank">LinkedIn →</a>
-      </div>
-    </div>
-
-    <!-- Rushil Vaswani -->
-    <div class="al-card">
-      <div class="al-scan"></div>
-      <div class="al-photo"><img src="images/alumni-rushil-vaswani.jpg" alt="Rushil Vaswani" onerror="this.parentNode.innerHTML='<div class=al-initials>RV</div>'"></div>
-      <div class="al-info">
-        <div class="al-name">Rushil Vaswani</div>
-        <div class="al-school">Cal Poly SLO</div>
-        <div class="al-major">Business Administration</div>
-        <a class="al-li" href="https://linkedin.com/in/rushil-vaswani" target="_blank">LinkedIn →</a>
-      </div>
-    </div>
-
-    <!-- Katia Bravo -->
-    <div class="al-card">
-      <div class="al-scan"></div>
-      <div class="al-photo"><img src="images/alumni-katia-bravo.jpg" alt="Katia Bravo" onerror="this.parentNode.innerHTML='<div class=al-initials>KB</div>'"></div>
-      <div class="al-info">
-        <div class="al-name">Katia Bravo</div>
-        <div class="al-school">UC Berkeley</div>
-        <div class="al-major">Data Science</div>
-        <a class="al-li" href="https://linkedin.com/in/katia-bravo" target="_blank">LinkedIn →</a>
-      </div>
-    </div>
-
-    <!-- Rami Abukhater -->
-    <div class="al-card">
-      <div class="al-scan"></div>
-      <div class="al-photo"><img src="images/alumni-rami-abukhater.jpg" alt="Rami Abukhater" onerror="this.parentNode.innerHTML='<div class=al-initials>RA</div>'"></div>
-      <div class="al-info">
-        <div class="al-name">Rami Abukhater</div>
-        <div class="al-school">UC San Diego</div>
-        <div class="al-major">Data Science</div>
-        <a class="al-li" href="https://linkedin.com/in/rami-abukhater" target="_blank">LinkedIn →</a>
-      </div>
-    </div>
-
-    <!-- Phoebe Wang -->
-    <div class="al-card">
-      <div class="al-scan"></div>
-      <div class="al-photo"><img src="images/alumni-phoebe-wang.jpg" alt="Phoebe Wang" onerror="this.parentNode.innerHTML='<div class=al-initials>PW</div>'"></div>
-      <div class="al-info">
-        <div class="al-name">Phoebe Wang</div>
-        <div class="al-school">UC Berkeley Haas</div>
-        <div class="al-major">Business Administration</div>
-        <a class="al-li" href="https://linkedin.com/in/phoebe-wang" target="_blank">LinkedIn →</a>
-      </div>
-    </div>
-
-    <!-- Reeya Randhawa -->
-    <div class="al-card">
-      <div class="al-scan"></div>
-      <div class="al-photo"><img src="images/alumni-reeya-randhawa.jpg" alt="Reeya Randhawa" onerror="this.parentNode.innerHTML='<div class=al-initials>RR</div>'"></div>
-      <div class="al-info">
-        <div class="al-name">Reeya Randhawa</div>
-        <div class="al-school">UC Berkeley Haas</div>
-        <div class="al-major">Business Administration</div>
-        <a class="al-li" href="https://linkedin.com/in/reeya-randhawa" target="_blank">LinkedIn →</a>
-      </div>
-    </div>
-
-    <!-- Jennifer La -->
-    <div class="al-card">
-      <div class="al-scan"></div>
-      <div class="al-photo"><img src="images/alumni-jennifer-la.jpg" alt="Jennifer La" onerror="this.parentNode.innerHTML='<div class=al-initials>JL</div>'"></div>
-      <div class="al-info">
-        <div class="al-name">Jennifer La</div>
-        <div class="al-school">UC Berkeley Haas</div>
-        <div class="al-major">Business Administration</div>
-        <a class="al-li" href="https://linkedin.com/in/jennifer-la" target="_blank">LinkedIn →</a>
-      </div>
-    </div>
-
+  <div class="plx-l3"></div>
+  <div class="plx-l2"></div>
+  <div class="plx-l1"></div>
+  <div class="plx-vignette"></div>
+  <div class="plx-crt"></div>
+  <div class="plx-scan"></div>
+  <div class="plx-cursor"></div>
+  <div class="plx-text">
+    <div class="page-hero-year">2025–26</div><div class="hero-tag">Alumni</div>
+    <h1 class="page-title"><span>Where They</span><span>Go Next.</span></h1>
+    <p class="page-sub">PBL alumni go on to the world's best universities and companies. This is just the beginning.</p><div class="page-hero-wm">ALUMNI</div>
   </div>
-
+</section>
+<div class="sw" style="padding-top:4rem">
+  <div class="alumni-grid"><div class="al-card"><div class="al-scan"></div><div class="al-photo"><img src="images/alumni-javin-ku.jpg" alt="Javin Ku" onerror="this.parentNode.innerHTML='<div class=al-initials>JK</div>'"></div><div class="al-info"><div class="al-name">Javin Ku</div><div class="al-school">UC Berkeley Haas</div><div class="al-major">Business Administration</div><a class="al-li" href="https://linkedin.com/in/javinkuu" target="_blank">LinkedIn →</a></div></div><div class="al-card"><div class="al-scan"></div><div class="al-photo"><img src="images/alumni-alan-dang.jpg" alt="Alan Dang" onerror="this.parentNode.innerHTML='<div class=al-initials>AD</div>'"></div><div class="al-info"><div class="al-name">Alan Dang</div><div class="al-school">UC Berkeley Haas</div><div class="al-major">Business Administration</div><a class="al-li" href="https://linkedin.com/in/alan-dang" target="_blank">LinkedIn →</a></div></div><div class="al-card"><div class="al-scan"></div><div class="al-photo"><img src="images/alumni-zain-darwish.jpg" alt="Zain Darwish" onerror="this.parentNode.innerHTML='<div class=al-initials>ZD</div>'"></div><div class="al-info"><div class="al-name">Zain Darwish</div><div class="al-school">UC Berkeley</div><div class="al-major">Economics</div><a class="al-li" href="https://linkedin.com/in/zaindarwish" target="_blank">LinkedIn →</a></div></div><div class="al-card"><div class="al-scan"></div><div class="al-photo"><img src="images/alumni-van-loc-nguyen.jpg" alt="Van Loc Nguyen" onerror="this.parentNode.innerHTML='<div class=al-initials>VN</div>'"></div><div class="al-info"><div class="al-name">Van Loc Nguyen</div><div class="al-school">USC Marshall</div><div class="al-major">Business Economics</div><a class="al-li" href="https://linkedin.com/in/van-loc-nguyen" target="_blank">LinkedIn →</a></div></div><div class="al-card"><div class="al-scan"></div><div class="al-photo"><img src="images/alumni-rachel-tran.jpg" alt="Rachel Tran" onerror="this.parentNode.innerHTML='<div class=al-initials>RT</div>'"></div><div class="al-info"><div class="al-name">Rachel Tran</div><div class="al-school">UC San Diego</div><div class="al-major">Business Economics</div><a class="al-li" href="https://linkedin.com/in/rachel-tran" target="_blank">LinkedIn →</a></div></div><div class="al-card"><div class="al-scan"></div><div class="al-photo"><img src="images/alumni-katelyn-nguyen.jpg" alt="Katelyn Nguyen" onerror="this.parentNode.innerHTML='<div class=al-initials>KN</div>'"></div><div class="al-info"><div class="al-name">Katelyn Nguyen</div><div class="al-school">Santa Clara University</div><div class="al-major">Accounting</div><a class="al-li" href="https://linkedin.com/in/katelyn-nguyen" target="_blank">LinkedIn →</a></div></div><div class="al-card"><div class="al-scan"></div><div class="al-photo"><img src="images/alumni-arthur-poon.jpg" alt="Arthur Poon" onerror="this.parentNode.innerHTML='<div class=al-initials>AP</div>'"></div><div class="al-info"><div class="al-name">Arthur Poon</div><div class="al-school">New York University</div><div class="al-major">Finance</div><a class="al-li" href="https://linkedin.com/in/arthur-poon" target="_blank">LinkedIn →</a></div></div><div class="al-card"><div class="al-scan"></div><div class="al-photo"><img src="images/alumni-floria-pan.jpg" alt="Floria Pan" onerror="this.parentNode.innerHTML='<div class=al-initials>FP</div>'"></div><div class="al-info"><div class="al-name">Floria Pan</div><div class="al-school">UC Berkeley</div><div class="al-major">Political Economics</div><a class="al-li" href="https://linkedin.com/in/floria-pan" target="_blank">LinkedIn →</a></div></div><div class="al-card"><div class="al-scan"></div><div class="al-photo"><img src="images/alumni-chris-wu.jpg" alt="Chris Wu" onerror="this.parentNode.innerHTML='<div class=al-initials>CW</div>'"></div><div class="al-info"><div class="al-name">Chris Wu</div><div class="al-school">USC Marshall</div><div class="al-major">Business Administration</div><a class="al-li" href="https://linkedin.com/in/chris-wu" target="_blank">LinkedIn →</a></div></div><div class="al-card"><div class="al-scan"></div><div class="al-photo"><img src="images/alumni-rushil-vaswani.jpg" alt="Rushil Vaswani" onerror="this.parentNode.innerHTML='<div class=al-initials>RV</div>'"></div><div class="al-info"><div class="al-name">Rushil Vaswani</div><div class="al-school">Cal Poly SLO</div><div class="al-major">Business Administration</div><a class="al-li" href="https://linkedin.com/in/rushil-vaswani" target="_blank">LinkedIn →</a></div></div><div class="al-card"><div class="al-scan"></div><div class="al-photo"><img src="images/alumni-katia-bravo.jpg" alt="Katia Bravo" onerror="this.parentNode.innerHTML='<div class=al-initials>KB</div>'"></div><div class="al-info"><div class="al-name">Katia Bravo</div><div class="al-school">UC Berkeley</div><div class="al-major">Data Science</div><a class="al-li" href="https://linkedin.com/in/katia-bravo" target="_blank">LinkedIn →</a></div></div><div class="al-card"><div class="al-scan"></div><div class="al-photo"><img src="images/alumni-rami-abukhater.jpg" alt="Rami Abukhater" onerror="this.parentNode.innerHTML='<div class=al-initials>RA</div>'"></div><div class="al-info"><div class="al-name">Rami Abukhater</div><div class="al-school">UC San Diego</div><div class="al-major">Data Science</div><a class="al-li" href="https://linkedin.com/in/rami-abukhater" target="_blank">LinkedIn →</a></div></div><div class="al-card"><div class="al-scan"></div><div class="al-photo"><img src="images/alumni-phoebe-wang.jpg" alt="Phoebe Wang" onerror="this.parentNode.innerHTML='<div class=al-initials>PW</div>'"></div><div class="al-info"><div class="al-name">Phoebe Wang</div><div class="al-school">UC Berkeley Haas</div><div class="al-major">Business Administration</div><a class="al-li" href="https://linkedin.com/in/phoebe-wang" target="_blank">LinkedIn →</a></div></div><div class="al-card"><div class="al-scan"></div><div class="al-photo"><img src="images/alumni-reeya-randhawa.jpg" alt="Reeya Randhawa" onerror="this.parentNode.innerHTML='<div class=al-initials>RR</div>'"></div><div class="al-info"><div class="al-name">Reeya Randhawa</div><div class="al-school">UC Berkeley Haas</div><div class="al-major">Business Administration</div><a class="al-li" href="https://linkedin.com/in/reeya-randhawa" target="_blank">LinkedIn →</a></div></div><div class="al-card"><div class="al-scan"></div><div class="al-photo"><img src="images/alumni-jennifer-la.jpg" alt="Jennifer La" onerror="this.parentNode.innerHTML='<div class=al-initials>JL</div>'"></div><div class="al-info"><div class="al-name">Jennifer La</div><div class="al-school">UC Berkeley Haas</div><div class="al-major">Business Administration</div><a class="al-li" href="https://linkedin.com/in/jennifer-la" target="_blank">LinkedIn →</a></div></div>  </div>
   <div style="margin-top:3rem;padding:2.5rem 3rem;border:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1.5rem">
     <div><div class="sec-tag">Are you a PBL alum?</div><div style="font-size:.9rem;color:rgba(245,243,239,.5)">Get featured on this page — reach out to us.</div></div>
     <a href="mailto:deanzacapbl@gmail.com" class="btn btn-outline">Contact Us →</a>
   </div>
 </div>
-
 </div>
-
 <footer>
   <span class="foot-logo">ΦΒΛ</span>
   <span class="foot-copy">© 2025 Phi Beta Lambda · De Anza College</span>
   <ul class="foot-links">
-    <li><a href="https://instagram.com/deanzapbl" target="_blank">Instagram</a></li>
-    <li><a href="https://discord.gg/w7zap3SfUm" target="_blank">Discord</a></li>
-    <li><a href="https://linktr.ee/deanzapbl" target="_blank">Linktree</a></li>
-    <li><a href="contact.html">Contact</a></li>
+    <li><a href="https://instagram.com/deanzapbl" target="_blank">Instagram</a></li><li><a href="https://discord.gg/w7zap3SfUm" target="_blank">Discord</a></li><li><a href="https://linktr.ee/deanzapbl" target="_blank">Linktree</a></li><li><a href="contact.html">Contact</a></li>
   </ul>
 </footer>
 <script src="main.js"></script>
+<script>(function(){var hero=document.querySelector('.page-hero');if(!hero)return;var l1=hero.querySelector('.plx-l1'),l2=hero.querySelector('.plx-l2'),l3=hero.querySelector('.plx-l3'),txt=hero.querySelector('.plx-text'),cur=hero.querySelector('.plx-cursor');hero.addEventListener('mousemove',function(e){var r=hero.getBoundingClientRect(),cx=e.clientX-r.left,cy=e.clientY-r.top,hw=r.width/2,hh=r.height/2,rx=(cx-hw)/hw,ry=(cy-hh)/hh;if(l1)l1.style.transform='translate('+(rx*14)+'px,'+(ry*14)+'px)';if(l2)l2.style.transform='translate('+(rx*26)+'px,'+(ry*26)+'px)';if(l3)l3.style.transform='translate('+(rx*42)+'px,'+(ry*42)+'px)';if(txt)txt.style.transform='translate('+(rx*-7)+'px,'+(ry*-7)+'px)';if(cur){cur.style.left=cx+'px';cur.style.top=cy+'px';}});hero.addEventListener('mouseleave',function(){if(l1)l1.style.transform='';if(l2)l2.style.transform='';if(l3)l3.style.transform='';if(txt)txt.style.transform='';});})();</script>
 </body>
 </html>
