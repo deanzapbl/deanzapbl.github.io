@@ -77,6 +77,22 @@
   background:radial-gradient(ellipse 95% 95% at 50% 50%,transparent 45%,rgba(10,10,10,.4) 100%);
   pointer-events:none;z-index:1;
 }
+
+/* 2-3-2 executive board layout */
+.exec-row{
+  display:flex;
+  justify-content:center;
+  gap:3rem;
+  margin-bottom:3.5rem;
+}
+.exec-row .person-card{
+  flex:0 0 calc((100% - 6rem) / 3);
+  max-width:calc((100% - 6rem) / 3);
+}
+.exec-row-2 .person-card{
+  flex:0 0 calc((100% - 3rem) / 2);
+  max-width:calc((100% - 3rem) / 2);
+}
 </style>
 </head>
 <body>
@@ -137,15 +153,26 @@
   </div>
 
   <div class="sec-tag">Executive Board</div>
-  <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:3.5rem 3rem;margin-bottom:5rem" class="g3">
+
+  <!-- Row 1: 2 people — Nisa, Carine -->
+  <div class="exec-row exec-row-2" style="margin-bottom:3.5rem">
     <div class="person-card"><div class="person-photo" style="background:#180b0b"><img src="images/leadership-nisa-pradhan.jpg" alt="Nisa Pradhan" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:2;object-position:center top"> <!-- originally base64-encoded image --><div class="person-photo-grad"></div></div><div class="person-name">Nisa Pradhan</div><div class="person-role">President</div><a class="person-li" href="https://linkedin.com/in/nisapradhan" target="_blank">LinkedIn →</a></div>
     <div class="person-card"><div class="person-photo" style="background:#141010"><img src="images/leadership-carine-chan.jpg" alt="Carine Chan" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:2;object-position:center top"> <!-- originally base64-encoded image --><div class="person-photo-grad"></div></div><div class="person-name">Carine Chan</div><div class="person-role">Vice President</div><a class="person-li" href="https://linkedin.com/in/carinewchan" target="_blank">LinkedIn →</a></div>
+  </div>
+
+  <!-- Row 2: 3 people — Arya, George, Addy -->
+  <div class="exec-row" style="margin-bottom:3.5rem">
     <div class="person-card"><div class="person-photo" style="background:#1c1111"><img src="images/leadership-arya-somu.jpg" alt="Arya Somu" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:2;object-position:center top"> <!-- originally base64-encoded image --><div class="person-photo-grad"></div></div><div class="person-name">Arya Somu</div><div class="person-role">VP of Strategy &amp; Development</div><a class="person-li" href="https://linkedin.com/in/aryasomu" target="_blank">LinkedIn →</a></div>
     <div class="person-card"><div class="person-photo" style="background:#180b0b"><img src="images/leadership-george-huang.jpg" alt="George Huang" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:2;object-position:center top"> <!-- originally base64-encoded image --><div class="person-photo-grad"></div></div><div class="person-name">George Huang</div><div class="person-role">VP of Finance</div><a class="person-li" href="https://linkedin.com/in/george-huang-403590214" target="_blank">LinkedIn →</a></div>
     <div class="person-card"><div class="person-photo" style="background:#141010"><img src="images/leadership-addy-hu.jpg" alt="Addy Hu" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:2;object-position:center top"> <!-- originally base64-encoded image --><div class="person-photo-grad"></div></div><div class="person-name">Addy Hu</div><div class="person-role">VP of Operations</div><a class="person-li" href="https://linkedin.com/in/addyhu" target="_blank">LinkedIn →</a></div>
+  </div>
+
+  <!-- Row 3: 2 people — Nhi, Christina -->
+  <div class="exec-row exec-row-2" style="margin-bottom:5rem">
     <div class="person-card"><div class="person-photo" style="background:#1c1111"><img src="images/leadership-nhi-tran.jpg" alt="Nhi Tran" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:2;object-position:center top"> <!-- originally base64-encoded image --><div class="person-photo-grad"></div></div><div class="person-name">Nhi Tran</div><div class="person-role">VP of Marketing</div><a class="person-li" href="https://linkedin.com/in/nhi-tran-b3516b311" target="_blank">LinkedIn →</a></div>
     <div class="person-card"><div class="person-photo" style="background:#180b0b"><img src="images/leadership-christina-tran.jpg" alt="Christina Tran" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:2;object-position:center top"> <!-- originally base64-encoded image --><div class="person-photo-grad"></div></div><div class="person-name">Christina Tran</div><div class="person-role">VP of Club Affairs</div><a class="person-li" href="https://linkedin.com/in/tranchristina103" target="_blank">LinkedIn →</a></div>
   </div>
+
   <div style="border-top:1px solid var(--border);padding-top:4rem">
     <div class="sec-tag">Board of Directors</div>
     <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:3rem" class="g4">
