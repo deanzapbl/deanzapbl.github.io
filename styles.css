@@ -29,9 +29,9 @@ nav.scrolled{background:rgba(10,10,10,.92);backdrop-filter:blur(20px);border-bot
 @keyframes pageIn{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
 footer{padding:3rem 2.5rem;border-top:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem}
 .foot-logo{font-family:'Playfair Display',serif;font-size:2.5rem;color:var(--red);line-height:1}
-.foot-copy{font-family:'IBM Plex Mono',monospace;font-size:.55rem;letter-spacing:.14em;text-transform:uppercase;color:rgba(245,243,239,.25)}
+.foot-copy{font-family:'IBM Plex Mono',monospace;font-size:.55rem;letter-spacing:.14em;text-transform:uppercase;color:rgba(245,243,239,.55)}
 .foot-links{display:flex;gap:2rem;list-style:none}
-.foot-links a{font-family:'IBM Plex Mono',monospace;font-size:.55rem;letter-spacing:.14em;text-transform:uppercase;color:rgba(245,243,239,.3);text-decoration:none;transition:color .2s}
+.foot-links a{font-family:'IBM Plex Mono',monospace;font-size:.55rem;letter-spacing:.14em;text-transform:uppercase;color:rgba(245,243,239,.5);text-decoration:none;transition:color .2s}
 .foot-links a:hover{color:var(--white)}
 .sec-tag{font-family:'IBM Plex Mono',monospace;font-size:.6rem;letter-spacing:.25em;text-transform:uppercase;color:var(--red);margin-bottom:2rem;display:flex;align-items:center;gap:.8rem}
 .sec-tag::before{content:'';width:20px;height:1px;background:var(--red)}
