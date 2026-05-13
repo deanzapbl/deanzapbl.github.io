@@ -87,9 +87,9 @@
 .sponsor-logo:hover{border-color:rgba(245,243,239,.2)}
 .sponsor-logo.active{border-color:rgba(255,255,255,.78);transform:scale(1.13);z-index:20;background:#161616;box-shadow:0 0 0 1px rgba(255,255,255,.22),0 0 12px 3px rgba(255,255,255,.13),0 0 32px 8px rgba(255,255,255,.07),0 0 64px 18px rgba(255,255,255,.025)}
 .sponsor-logo.active::after{opacity:1}
-.sponsor-logo img{max-width:96px;max-height:42px;object-fit:contain;filter:brightness(0) invert(.5);transition:filter .35s,transform .35s;position:relative;z-index:1;display:block}
-.sponsor-logo:hover img{filter:brightness(0) invert(.72)}
-.sponsor-logo.active img{filter:brightness(0) invert(1);transform:scale(1.04)}
+.sponsor-logo img{max-width:96px;max-height:42px;object-fit:contain;transition:transform .35s;position:relative;z-index:1;display:block}
+.sponsor-logo:hover img{}
+.sponsor-logo.active img{transform:scale(1.04)}
 .sponsor-logo-name{font-family:'Bebas Neue',sans-serif;font-size:1.05rem;color:rgba(245,243,239,.38);letter-spacing:.08em;text-align:center;padding:0 12px;line-height:1.3;transition:color .3s;position:relative;z-index:1;user-select:none}
 .sponsor-logo:hover .sponsor-logo-name{color:rgba(245,243,239,.68)}
 .sponsor-logo.active .sponsor-logo-name{color:#f5f3ef}
