@@ -6,7 +6,7 @@
 <title>Events — Phi Beta Lambda De Anza</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Unbounded:wght@400;700&family=DM+Sans:wght@300;400;500&family=IBM+Plex+Mono:wght@400;500&family=Playfair+Display:ital,wght@1,400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Unbounded:wght@400;700&family=DM+Sans:wght@300;400;500&family=IBM+Plex+Mono:wght@400;500&family=Playfair+Display:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
 <style id="parallax-hero-css">
 .page-hero{min-height:100vh;display:flex;flex-direction:column;justify-content:center;padding:9rem 2.5rem 5rem;position:relative;overflow:hidden;border-bottom:1px solid var(--border);background:#050505;cursor:none}
@@ -71,28 +71,34 @@
 /* ── Event Modal ── */
 .ev-gi{cursor:pointer}
 .ev-modal-overlay{
-  position:fixed;inset:0;background:rgba(5,5,5,.9);
-  z-index:1000;display:none;align-items:flex-start;justify-content:center;
-  padding:4rem 2rem;
-  overflow-y:auto;
-  backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);
+  position:fixed;inset:0;
+  background:rgba(5,5,5,.9);
+  z-index:1000;
+  display:none;
+  align-items:center;
+  justify-content:center;
+  padding:2rem;
+  backdrop-filter:blur(10px);
+  -webkit-backdrop-filter:blur(10px);
 }
 .ev-modal-overlay.open{display:flex}
 .ev-modal{
   background:#0e0e0e;
   border:1px solid rgba(255,255,255,0.1);
   width:min(860px,92vw);
+  max-height:85vh;
+  overflow-y:auto;
   position:relative;
-  animation:modalIn .32s cubic-bezier(.16,1,.3,1) both;
+  animation:modalIn .35s cubic-bezier(.16,1,.3,1) both;
   box-shadow:
     0 0 0 1px rgba(255,255,255,0.05),
-    0 0 40px rgba(255,255,255,0.07),
+    0 0 40px rgba(255,255,255,0.08),
     0 0 100px rgba(255,255,255,0.04),
     0 0 200px rgba(255,255,255,0.02),
     0 30px 80px rgba(0,0,0,0.9);
 }
 @keyframes modalIn{
-  from{opacity:0;transform:translateY(20px) scale(.97)}
+  from{opacity:0;transform:translateY(24px) scale(.97)}
   to{opacity:1;transform:translateY(0) scale(1)}
 }
 .ev-modal-hero{position:relative;height:260px;overflow:hidden;background:#1a1010;flex-shrink:0}
@@ -118,17 +124,13 @@
 .ev-modal-stat-l{font-family:'IBM Plex Mono',monospace;font-size:.42rem;letter-spacing:.14em;text-transform:uppercase;color:rgba(245,243,239,.3);margin-top:.2rem}
 .ev-modal-section-h{font-family:'IBM Plex Mono',monospace;font-size:.5rem;letter-spacing:.2em;text-transform:uppercase;color:rgba(245,243,239,.3);margin-bottom:.75rem;width:100%;text-align:center}
 .ev-modal-results{display:flex;flex-direction:column;gap:2px;margin-bottom:2rem;width:100%}
-.ev-modal-result-row{display:flex;justify-content:space-between;align-items:baseline;padding:.55rem .85rem;background:#161616}
-.ev-modal-result-place{font-size:.9rem;font-weight:500;color:#f5f3ef}
-.ev-modal-result-names{font-family:'IBM Plex Mono',monospace;font-size:.45rem;letter-spacing:.08em;color:rgba(245,243,239,.35)}
-.ev-modal-photos{display:grid;grid-template-columns:1fr 1fr;gap:3px;margin-bottom:2rem;width:100%}
-.ev-modal-photo{aspect-ratio:4/3;overflow:hidden;background:#1a1010}
-.ev-modal-photo img{width:100%;height:100%;object-fit:cover;opacity:.7;transition:opacity .3s}
-.ev-modal-photo:hover img{opacity:1}
+.ev-modal-result-row{display:flex;justify-content:space-between;align-items:baseline;padding:.65rem .85rem;background:#161616}
+.ev-modal-result-place{font-size:.92rem;font-weight:500;color:#f5f3ef}
+.ev-modal-result-names{font-family:'IBM Plex Mono',monospace;font-size:.55rem;letter-spacing:.06em;color:rgba(245,243,239,.55)}
 @media(max-width:600px){
   .ev-modal-stats{grid-template-columns:repeat(2,1fr)}
-  .ev-modal-photos{grid-template-columns:1fr}
   .ev-modal-body{padding:1.5rem}
+  .ev-modal-result-row{flex-direction:column;gap:.3rem}
 }
 </style>
 </head>
@@ -166,10 +168,11 @@
   <div class="plx-cursor"></div>
   <div class="plx-text">
     <div class="hero-tag">Events</div>
-    <h1 class="page-title"><span>Where Ideas</span><span>Become Action.</span></h1>
-    <p class="page-sub">Competitions, conferences, and community — this is how we show up.</p>
+    <h1 class="page-title"><span>From Campus</span><span>to Nationals.</span></h1>
+    <p class="page-sub">Every quarter, we compete harder, serve deeper, and show up stronger.</p>
   </div>
 </section>
+
 <div class="ev-feat" onclick="openModal('slc2026')" style="cursor:pointer">
   <div class="ev-feat-img"><img src="images/events-slc-2026.jpg" alt="State Leadership Conference 2026"></div>
   <div class="ev-feat-body">
@@ -192,7 +195,7 @@
     <div class="ev-gi-img" style="background:#0c0404;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:.35rem;position:relative;overflow:hidden">
       <div style="position:absolute;font-family:'Bebas Neue',sans-serif;font-size:5rem;color:rgba(200,16,46,.05);letter-spacing:.04em;user-select:none">TBD</div>
       <div style="font-family:'Unbounded',sans-serif;font-weight:700;font-size:1rem;color:rgba(200,16,46,.65);letter-spacing:.04em;z-index:1">Coming Soon</div>
-      <div style="font-family:'IBM Plex Mono',monospace;font-size:.38rem;letter-spacing:.22em;text-transform:uppercase;color:rgba(200,16,46,.28);z-index:1">Spring 2026</div>
+      <div style="font-family:'IBM Plex Mono',monospace;font-size:.38rem;letter-spacing:.22em;text-transform:uppercase;color:rgba(200,16,46,.28);z-index:1">Fall 2026</div>
     </div>
     <div class="ev-gi-body">
       <div class="ev-gi-badges"><span class="ev-gi-type">Upcoming</span><span class="ev-gi-date">2026 · De Anza</span></div>
@@ -213,9 +216,9 @@
   <div class="ev-gi" onclick="openModal('nationals2025')" style="cursor:pointer"><div class="ev-gi-img"><img src="images/events-national-blc.jpg" alt="National Business Leadership Conference 2025"></div><div class="ev-gi-body"><div class="ev-gi-badges"><span class="ev-gi-type">National</span><span class="ev-gi-date">May 31–Jun 2, 2025 · Dallas, TX</span></div><div class="ev-gi-title">National Business Leadership Conference 2025</div><div class="ev-gi-desc">3 national championships. 13 delegations. De Anza PBL on the national stage in Dallas, Texas.</div></div></div>
   <div class="ev-gi" onclick="openModal('sharktank2025')" style="cursor:pointer"><div class="ev-gi-img"><img src="images/events-shark-tank-2025.jpg" alt="PBL Shark Tank 2025"></div><div class="ev-gi-body"><div class="ev-gi-badges"><span class="ev-gi-type">Flagship</span><span class="ev-gi-date">Spring 2025 · De Anza College</span></div><div class="ev-gi-title">PBL Shark Tank 2025</div><div class="ev-gi-desc">The event that started it all. 50 participants, 10 teams, judges from Facebook, McAfee, Cisco, and Informatica.</div></div></div>
   <div class="ev-gi" onclick="openModal('hungerathome')" style="cursor:pointer"><div class="ev-gi-img"><img src="images/events-hunger-at-home.jpg" alt="PBL × Hunger at Home"></div><div class="ev-gi-body"><div class="ev-gi-badges"><span class="ev-gi-type">Service</span><span class="ev-gi-date">2025 · San Jose, CA</span></div><div class="ev-gi-title">PBL × Hunger at Home</div><div class="ev-gi-desc">PBL members spent a full day at Hunger at Home's San Jose kitchen, preparing and packaging meals for families across the South Bay.</div></div></div>
-  <div class="ev-gi" style="background:#111;cursor:default;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:2rem;border-left:2px solid rgba(200,16,46,.25)">
-    <div style="font-family:'Playfair Display',serif;font-style:italic;font-size:.82rem;color:rgba(245,243,239,.5);line-height:1.75;text-align:center;max-width:240px">"The best chapters aren't built in a semester — they're built in moments exactly like these."</div>
-    <div style="font-family:'IBM Plex Mono',monospace;font-size:.42rem;letter-spacing:.18em;text-transform:uppercase;color:rgba(200,16,46,.5);margin-top:1rem">@deanzapbl</div>
+  <div class="ev-gi" style="background:#0d0d0d;cursor:default;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.5rem">
+    <div style="font-family:'Playfair Display',serif;font-size:3rem;color:rgba(200,16,46,.15);line-height:1">ΦΒΛ</div>
+    <div style="font-family:'IBM Plex Mono',monospace;font-size:.42rem;letter-spacing:.22em;text-transform:uppercase;color:rgba(245,243,239,.12)">De Anza Chapter</div>
   </div>
 </div>
 
@@ -226,16 +229,17 @@
 </div>
 <div class="ev-grid past-grid">
   <div class="ev-gi" onclick="openModal('falllc2024')" style="cursor:pointer"><div class="ev-gi-img"><img src="images/events-fall-lc-2024.jpg" alt="Fall Leadership Conference 2024"></div><div class="ev-gi-body"><div class="ev-gi-badges"><span class="ev-gi-type">Conference</span><span class="ev-gi-date">Nov 16–17, 2024 · Emeryville, CA</span></div><div class="ev-gi-title">Fall Leadership Conference 2024</div><div class="ev-gi-desc">Where it began. 1st place Finance Case Study against 15 teams from across California — the spark that lit the chapter's competitive fire.</div></div></div>
-<div class="ev-gi" style="background:#111;cursor:default;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:2rem;border-left:2px solid rgba(200,16,46,.25)">
+  <div class="ev-gi" style="background:#111;cursor:default;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:2rem;border-left:2px solid rgba(200,16,46,.25)">
     <div style="font-family:'Playfair Display',serif;font-style:italic;font-size:.82rem;color:rgba(245,243,239,.5);line-height:1.75;text-align:center;max-width:240px">"All the late nights and hard work paid off — you represented De Anza with confidence, professionalism, and teamwork."</div>
     <div style="font-family:'IBM Plex Mono',monospace;font-size:.42rem;letter-spacing:.18em;text-transform:uppercase;color:rgba(200,16,46,.5);margin-top:1rem">@deanzapbl</div>
   </div>
-<div class="ev-gi" style="background:#0d0d0d;cursor:default;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.5rem">
+  <div class="ev-gi" style="background:#0d0d0d;cursor:default;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.5rem">
     <div style="font-family:'Playfair Display',serif;font-size:3rem;color:rgba(200,16,46,.15);line-height:1">ΦΒΛ</div>
     <div style="font-family:'IBM Plex Mono',monospace;font-size:.42rem;letter-spacing:.22em;text-transform:uppercase;color:rgba(245,243,239,.12)">De Anza Chapter</div>
   </div>
 </div>
 
+<!-- MODALS -->
 <div class="ev-modal-overlay" id="modal-slc2026" onclick="if(event.target===this)closeModal()">
   <div class="ev-modal">
     <button class="ev-modal-close" onclick="closeModal()">✕</button>
@@ -246,10 +250,20 @@
       <div class="ev-modal-about-h">About</div>
       <div class="ev-modal-about">De Anza PBL swept the 2026 California State Leadership Conference in Emeryville — our strongest state performance to date. We claimed the Sweepstakes Award (top overall chapter), the Largest State Chapter Award, the Largest Membership Award, and the State of Chapter Award, while our members placed in 16+ individual events across every division.</div>
       <div class="ev-modal-stats"><div class="ev-modal-stat"><div class="ev-modal-stat-n">6</div><div class="ev-modal-stat-l">Gold medals</div></div><div class="ev-modal-stat"><div class="ev-modal-stat-n">8</div><div class="ev-modal-stat-l">Silver medals</div></div><div class="ev-modal-stat"><div class="ev-modal-stat-n">🏆</div><div class="ev-modal-stat-l">Sweepstakes</div></div></div>
-      <div class="ev-modal-section-h">Results</div><div class="ev-modal-results"><div class="ev-modal-result-row"><div class="ev-modal-result-place">🥇 Entrepreneurship Pitch</div><div class="ev-modal-result-names">William Devanney · Shakil Musthafa · Timothy Nguyen · Bryant Vo</div></div><div class="ev-modal-result-row"><div class="ev-modal-result-place">🥇 Hospitality Management</div><div class="ev-modal-result-names">Anna Huynh · Jayden Phan · Francisco Rodriguez · Haley Truong</div></div><div class="ev-modal-result-row"><div class="ev-modal-result-place">🥇 Impromptu Speaking</div><div class="ev-modal-result-names">Nikunj More</div></div><div class="ev-modal-result-row"><div class="ev-modal-result-place">🥇 Public Speaking</div><div class="ev-modal-result-names">Derick Nguyen</div></div><div class="ev-modal-result-row"><div class="ev-modal-result-place">🥈 Accounting Case</div><div class="ev-modal-result-names">Nikunj More · Shakil Musthafa</div></div><div class="ev-modal-result-row"><div class="ev-modal-result-place">🥈 Business Ethics</div><div class="ev-modal-result-names">Iker Amox Jimenez · George Huang · Jordan Nguyen</div></div><div class="ev-modal-result-row"><div class="ev-modal-result-place">🥈 Finance</div><div class="ev-modal-result-names">Elena Burgos · Evan Hoeffner · Jocelyn Ramirez</div></div></div>
+      <div class="ev-modal-section-h">Results</div>
+      <div class="ev-modal-results">
+        <div class="ev-modal-result-row"><div class="ev-modal-result-place">🥇 Entrepreneurship Pitch</div><div class="ev-modal-result-names">William Devanney · Shakil Musthafa · Timothy Nguyen · Bryant Vo</div></div>
+        <div class="ev-modal-result-row"><div class="ev-modal-result-place">🥇 Hospitality Management</div><div class="ev-modal-result-names">Anna Huynh · Jayden Phan · Francisco Rodriguez · Haley Truong</div></div>
+        <div class="ev-modal-result-row"><div class="ev-modal-result-place">🥇 Impromptu Speaking</div><div class="ev-modal-result-names">Nikunj More</div></div>
+        <div class="ev-modal-result-row"><div class="ev-modal-result-place">🥇 Public Speaking</div><div class="ev-modal-result-names">Derick Nguyen</div></div>
+        <div class="ev-modal-result-row"><div class="ev-modal-result-place">🥈 Accounting Case</div><div class="ev-modal-result-names">Nikunj More · Shakil Musthafa</div></div>
+        <div class="ev-modal-result-row"><div class="ev-modal-result-place">🥈 Business Ethics</div><div class="ev-modal-result-names">Iker Amox Jimenez · George Huang · Jordan Nguyen</div></div>
+        <div class="ev-modal-result-row"><div class="ev-modal-result-place">🥈 Finance</div><div class="ev-modal-result-names">Elena Burgos · Evan Hoeffner · Jocelyn Ramirez</div></div>
+      </div>
     </div>
   </div>
 </div>
+
 <div class="ev-modal-overlay" id="modal-sharktank2026" onclick="if(event.target===this)closeModal()">
   <div class="ev-modal">
     <button class="ev-modal-close" onclick="closeModal()">✕</button>
@@ -258,18 +272,26 @@
       <div class="ev-modal-badges"><span class="ev-modal-type">Flagship</span><span class="ev-modal-datestr">Spring 2026 · De Anza College</span></div>
       <div class="ev-modal-title">PBL Shark Tank 2026</div>
       <div class="ev-modal-about-h">About</div>
-      <div class="ev-modal-about">De Anza PBL's annual Shark Tank competition puts entrepreneurial ideas to the test. Teams had just one hour to build a full business pitch before a live panel of industry judges from Meta, Cisco, McAfee, and Informatica. With 50+ participants across 11 teams, it's the club's most high-energy event of the year — and a proving ground for future founders.</div>
+      <div class="ev-modal-about">De Anza PBL's annual Shark Tank competition puts entrepreneurial ideas to the test. Teams had just one hour to build a full business pitch before a live panel of industry judges from Meta, Cisco, McAfee, and Informatica. With 50+ participants across 11 teams, it's the club's most high-energy event of the year.</div>
       <div class="ev-modal-stats"><div class="ev-modal-stat"><div class="ev-modal-stat-n">50+</div><div class="ev-modal-stat-l">Participants</div></div><div class="ev-modal-stat"><div class="ev-modal-stat-n">11</div><div class="ev-modal-stat-l">Teams</div></div><div class="ev-modal-stat"><div class="ev-modal-stat-n">1hr</div><div class="ev-modal-stat-l">Pitch window</div></div></div>
-      <div class="ev-modal-section-h">Results</div><div class="ev-modal-results"><div class="ev-modal-result-row"><div class="ev-modal-result-place">🥇 1st Place — Team #1</div><div class="ev-modal-result-names">Harika Talluri · Ella Yang · Tran Dang · Moles Kali · Elena Burgos</div></div><div class="ev-modal-result-row"><div class="ev-modal-result-place">🥈 2nd Place — Team #7</div><div class="ev-modal-result-names">Arnav Junday · Teevra Singh · Ridhi Thapar · Ashwika Agarwal · Ruhi Teji</div></div><div class="ev-modal-result-row"><div class="ev-modal-result-place">🥉 3rd Place — Team #3</div><div class="ev-modal-result-names">Francisco Rodriguez · Jayden Phan · Parker Elsey · Evan Hoeffner · Mihir Thakar</div></div><div class="ev-modal-result-row"><div class="ev-modal-result-place">Most Innovative</div><div class="ev-modal-result-names">Rodriguez · Phan · Elsey · Hoeffner · Thakar</div></div><div class="ev-modal-result-row"><div class="ev-modal-result-place">Most Environmental</div><div class="ev-modal-result-names">Morris · Chen · Shao · Manney · Chang</div></div></div>
+      <div class="ev-modal-section-h">Results</div>
+      <div class="ev-modal-results">
+        <div class="ev-modal-result-row"><div class="ev-modal-result-place">🥇 1st Place — Team #1</div><div class="ev-modal-result-names">Harika Talluri · Ella Yang · Tran Dang · Moles Kali · Elena Burgos</div></div>
+        <div class="ev-modal-result-row"><div class="ev-modal-result-place">🥈 2nd Place — Team #7</div><div class="ev-modal-result-names">Arnav Junday · Teevra Singh · Ridhi Thapar · Ashwika Agarwal · Ruhi Teji</div></div>
+        <div class="ev-modal-result-row"><div class="ev-modal-result-place">🥉 3rd Place — Team #3</div><div class="ev-modal-result-names">Francisco Rodriguez · Jayden Phan · Parker Elsey · Evan Hoeffner · Mihir Thakar</div></div>
+        <div class="ev-modal-result-row"><div class="ev-modal-result-place">Most Innovative</div><div class="ev-modal-result-names">Rodriguez · Phan · Elsey · Hoeffner · Thakar</div></div>
+        <div class="ev-modal-result-row"><div class="ev-modal-result-place">Most Environmental</div><div class="ev-modal-result-names">Morris · Chen · Shao · Manney · Chang</div></div>
+      </div>
     </div>
   </div>
 </div>
+
 <div class="ev-modal-overlay" id="modal-ocf2026" onclick="if(event.target===this)closeModal()">
   <div class="ev-modal">
     <button class="ev-modal-close" onclick="closeModal()">✕</button>
     <div class="ev-modal-hero"><img src="images/events-our-city-forest.jpg" alt="PBL × Our City Forest"></div>
     <div class="ev-modal-body">
-      <div class="ev-modal-badges"><span class="ev-modal-type">Service</span><span class="ev-modal-datestr">2025 · San Jose, CA</span></div>
+      <div class="ev-modal-badges"><span class="ev-modal-type">Service</span><span class="ev-modal-datestr">Winter 2026 · San Jose, CA</span></div>
       <div class="ev-modal-title">PBL × Our City Forest</div>
       <div class="ev-modal-about-h">About</div>
       <div class="ev-modal-about">Over three consecutive service days in Winter 2026, PBL members partnered with Our City Forest to green the Bay Area. The team planted 100 trees, engaged 203 volunteers, and logged 609 volunteer hours — raising $1,000 for urban canopy expansion. The project is projected to deliver $88,018 in long-term community environmental benefit.</div>
@@ -277,6 +299,7 @@
     </div>
   </div>
 </div>
+
 <div class="ev-modal-overlay" id="modal-hungerathome" onclick="if(event.target===this)closeModal()">
   <div class="ev-modal">
     <button class="ev-modal-close" onclick="closeModal()">✕</button>
@@ -285,11 +308,12 @@
       <div class="ev-modal-badges"><span class="ev-modal-type">Service</span><span class="ev-modal-datestr">2025 · San Jose, CA</span></div>
       <div class="ev-modal-title">PBL × Hunger at Home</div>
       <div class="ev-modal-about-h">About</div>
-      <div class="ev-modal-about">PBL members volunteered at Hunger at Home's San Jose kitchen facility, preparing and packaging meals for families in need across the South Bay. Hunger at Home operates one of the region's largest food rescue programs, redistributing surplus food from hotels, stadiums, and convention centers. Our members spent a full day on the line — cutting, cooking, packaging, and serving alongside the nonprofit's staff.</div>
+      <div class="ev-modal-about">PBL members volunteered at Hunger at Home's San Jose kitchen facility, preparing and packaging meals for families in need across the South Bay. Hunger at Home operates one of the region's largest food rescue programs, redistributing surplus food from hotels, stadiums, and convention centers.</div>
       <div class="ev-modal-stats"><div class="ev-modal-stat"><div class="ev-modal-stat-n">200+</div><div class="ev-modal-stat-l">Meals packed</div></div><div class="ev-modal-stat"><div class="ev-modal-stat-n">25+</div><div class="ev-modal-stat-l">Members</div></div><div class="ev-modal-stat"><div class="ev-modal-stat-n">1 day</div><div class="ev-modal-stat-l">Of service</div></div></div>
     </div>
   </div>
 </div>
+
 <div class="ev-modal-overlay" id="modal-statefall2025" onclick="if(event.target===this)closeModal()">
   <div class="ev-modal">
     <button class="ev-modal-close" onclick="closeModal()">✕</button>
@@ -298,12 +322,19 @@
       <div class="ev-modal-badges"><span class="ev-modal-type">Conference</span><span class="ev-modal-datestr">Nov 8–9, 2025 · La Jolla, San Diego, CA</span></div>
       <div class="ev-modal-title">State Fall Leadership Conference 2025</div>
       <div class="ev-modal-about-h">About</div>
-      <div class="ev-modal-about">De Anza PBL sent one of its largest delegations ever to the 2025 State Fall Leadership Conference in La Jolla, earning the Greatest Membership Award and Conference Attendance Award in addition to individual placements. The team brought home medals across three events — a preview of what was coming at Spring State.</div>
+      <div class="ev-modal-about">De Anza PBL sent one of its largest delegations ever to the 2025 State Fall Leadership Conference in La Jolla, earning the Greatest Membership Award and Conference Attendance Award. The team brought home medals across three events — a preview of what was coming at Spring State.</div>
       <div class="ev-modal-stats"><div class="ev-modal-stat"><div class="ev-modal-stat-n">🏅</div><div class="ev-modal-stat-l">Greatest Membership</div></div><div class="ev-modal-stat"><div class="ev-modal-stat-n">3</div><div class="ev-modal-stat-l">Medal events</div></div><div class="ev-modal-stat"><div class="ev-modal-stat-n">8+</div><div class="ev-modal-stat-l">Placements</div></div></div>
-      <div class="ev-modal-section-h">Results</div><div class="ev-modal-results"><div class="ev-modal-result-row"><div class="ev-modal-result-place">🥇 Entrepreneurship Pitch</div><div class="ev-modal-result-names">Om Bathija · Shakil Musthafa · Timothy Nguyen · Bryant Vo</div></div><div class="ev-modal-result-row"><div class="ev-modal-result-place">🥈 Public Speaking</div><div class="ev-modal-result-names">Derick Nguyen</div></div><div class="ev-modal-result-row"><div class="ev-modal-result-place">🥉 Hospitality Management</div><div class="ev-modal-result-names">Jacob Chen · Vincent Shao · Joshua Morris · Ella Yang</div></div><div class="ev-modal-result-row"><div class="ev-modal-result-place">4th — Finance</div><div class="ev-modal-result-names">Carine Chan · George Huang · Christina Tran · Anna Huynh</div></div></div>
+      <div class="ev-modal-section-h">Results</div>
+      <div class="ev-modal-results">
+        <div class="ev-modal-result-row"><div class="ev-modal-result-place">🥇 Entrepreneurship Pitch</div><div class="ev-modal-result-names">Om Bathija · Shakil Musthafa · Timothy Nguyen · Bryant Vo</div></div>
+        <div class="ev-modal-result-row"><div class="ev-modal-result-place">🥈 Public Speaking</div><div class="ev-modal-result-names">Derick Nguyen</div></div>
+        <div class="ev-modal-result-row"><div class="ev-modal-result-place">🥉 Hospitality Management</div><div class="ev-modal-result-names">Jacob Chen · Vincent Shao · Joshua Morris · Ella Yang</div></div>
+        <div class="ev-modal-result-row"><div class="ev-modal-result-place">4th — Finance</div><div class="ev-modal-result-names">Carine Chan · George Huang · Christina Tran · Anna Huynh</div></div>
+      </div>
     </div>
   </div>
 </div>
+
 <div class="ev-modal-overlay" id="modal-sharktank2025" onclick="if(event.target===this)closeModal()">
   <div class="ev-modal">
     <button class="ev-modal-close" onclick="closeModal()">✕</button>
@@ -312,11 +343,12 @@
       <div class="ev-modal-badges"><span class="ev-modal-type">Flagship</span><span class="ev-modal-datestr">Spring 2025 · De Anza College</span></div>
       <div class="ev-modal-title">PBL Shark Tank 2025</div>
       <div class="ev-modal-about-h">About</div>
-      <div class="ev-modal-about">The 2025 edition of PBL's Shark Tank drew 50 participants across 10 teams, each given just one hour to build and present a full business pitch. Industry judges from Facebook, McAfee, Cisco, and Informatica evaluated teams on market viability, financial modeling, and presentation confidence. This event has become the flagship entrepreneurship showcase of the De Anza business community.</div>
+      <div class="ev-modal-about">The 2025 edition of PBL's Shark Tank drew 50 participants across 10 teams, each given just one hour to build and present a full business pitch. Industry judges from Facebook, McAfee, Cisco, and Informatica evaluated teams on market viability, financial modeling, and presentation confidence.</div>
       <div class="ev-modal-stats"><div class="ev-modal-stat"><div class="ev-modal-stat-n">50</div><div class="ev-modal-stat-l">Participants</div></div><div class="ev-modal-stat"><div class="ev-modal-stat-n">10</div><div class="ev-modal-stat-l">Teams</div></div><div class="ev-modal-stat"><div class="ev-modal-stat-n">4</div><div class="ev-modal-stat-l">Industry judges</div></div></div>
     </div>
   </div>
 </div>
+
 <div class="ev-modal-overlay" id="modal-dais2025" onclick="if(event.target===this)closeModal()">
   <div class="ev-modal">
     <button class="ev-modal-close" onclick="closeModal()">✕</button>
@@ -325,12 +357,18 @@
       <div class="ev-modal-badges"><span class="ev-modal-type">Competition</span><span class="ev-modal-datestr">Oct 10, 2025 · De Anza College</span></div>
       <div class="ev-modal-title">De Anza Innovation Summit (DAIS)</div>
       <div class="ev-modal-about-h">About</div>
-      <div class="ev-modal-about">The inaugural De Anza Innovation Summit was a landmark event — the first student-run business case competition hosted at De Anza College. 80+ participants across 21 teams were given five hours to analyze a real-world business challenge and present solutions to a panel of industry executives and Professor Jeffrey West. DAIS has since become an annual cornerstone of the PBL calendar.</div>
+      <div class="ev-modal-about">The inaugural De Anza Innovation Summit was a landmark event — the first student-run business case competition hosted at De Anza College. 80+ participants across 21 teams were given five hours to analyze a real-world business challenge and present solutions to a panel of industry executives and Professor Jeffrey West.</div>
       <div class="ev-modal-stats"><div class="ev-modal-stat"><div class="ev-modal-stat-n">80+</div><div class="ev-modal-stat-l">Participants</div></div><div class="ev-modal-stat"><div class="ev-modal-stat-n">21</div><div class="ev-modal-stat-l">Teams</div></div><div class="ev-modal-stat"><div class="ev-modal-stat-n">5hr</div><div class="ev-modal-stat-l">Challenge window</div></div></div>
-      <div class="ev-modal-section-h">Results</div><div class="ev-modal-results"><div class="ev-modal-result-row"><div class="ev-modal-result-place">🥇 1st Place</div><div class="ev-modal-result-names">Allyson Huynh · Gloria Gao · Rameesha Farrukh · Nabiha Shahid</div></div><div class="ev-modal-result-row"><div class="ev-modal-result-place">🥈 2nd Place</div><div class="ev-modal-result-names">Anusha Shringi · Ruirui Wu · Aarush Muralinathan · Timothy Le</div></div><div class="ev-modal-result-row"><div class="ev-modal-result-place">🥉 3rd Place</div><div class="ev-modal-result-names">Cyrus Nakar · Kyle Krawez · Su Waisy · VJ Lukka</div></div></div>
+      <div class="ev-modal-section-h">Results</div>
+      <div class="ev-modal-results">
+        <div class="ev-modal-result-row"><div class="ev-modal-result-place">🥇 1st Place</div><div class="ev-modal-result-names">Allyson Huynh · Gloria Gao · Rameesha Farrukh · Nabiha Shahid</div></div>
+        <div class="ev-modal-result-row"><div class="ev-modal-result-place">🥈 2nd Place</div><div class="ev-modal-result-names">Anusha Shringi · Ruirui Wu · Aarush Muralinathan · Timothy Le</div></div>
+        <div class="ev-modal-result-row"><div class="ev-modal-result-place">🥉 3rd Place</div><div class="ev-modal-result-names">Cyrus Nakar · Kyle Krawez · Su Waisy · VJ Lukka</div></div>
+      </div>
     </div>
   </div>
 </div>
+
 <div class="ev-modal-overlay" id="modal-nationals2025" onclick="if(event.target===this)closeModal()">
   <div class="ev-modal">
     <button class="ev-modal-close" onclick="closeModal()">✕</button>
@@ -339,12 +377,20 @@
       <div class="ev-modal-badges"><span class="ev-modal-type">National</span><span class="ev-modal-datestr">May 31–Jun 2, 2025 · Dallas, TX</span></div>
       <div class="ev-modal-title">National Business Leadership Conference</div>
       <div class="ev-modal-about-h">About</div>
-      <div class="ev-modal-about">De Anza PBL made its mark on the national stage at the 2025 FBLA National Business Leadership Conference in Dallas, Texas. 13 teams and individuals competed across multiple business disciplines against chapters from across the country. The chapter brought home 3 national championship titles — in Accounting, Business Ethics, and Hospitality Management.</div>
+      <div class="ev-modal-about">De Anza PBL made its mark on the national stage at the 2025 FBLA National Business Leadership Conference in Dallas, Texas. 13 teams and individuals competed across multiple business disciplines against chapters from across the country. The chapter brought home 3 national championship titles.</div>
       <div class="ev-modal-stats"><div class="ev-modal-stat"><div class="ev-modal-stat-n">13</div><div class="ev-modal-stat-l">Teams sent</div></div><div class="ev-modal-stat"><div class="ev-modal-stat-n">3</div><div class="ev-modal-stat-l">National 1st places</div></div><div class="ev-modal-stat"><div class="ev-modal-stat-n">🇺🇸</div><div class="ev-modal-stat-l">Dallas, TX</div></div></div>
-      <div class="ev-modal-section-h">Results</div><div class="ev-modal-results"><div class="ev-modal-result-row"><div class="ev-modal-result-place">🥇 1st — Accounting</div><div class="ev-modal-result-names">Alan Dang · Katelyn Nguyen · Yihan Pan · Rachel Tran</div></div><div class="ev-modal-result-row"><div class="ev-modal-result-place">🥇 1st — Business Ethics</div><div class="ev-modal-result-names">Javin Ku</div></div><div class="ev-modal-result-row"><div class="ev-modal-result-place">🥇 1st — Hospitality Management</div><div class="ev-modal-result-names">Allissa Iida · Taranjit Kaur · Jasmine Perlas · Christina Tran</div></div><div class="ev-modal-result-row"><div class="ev-modal-result-place">🥈 2nd — Community Service</div><div class="ev-modal-result-names">Carine Chan · George Huang · Suyash Jevaria</div></div><div class="ev-modal-result-row"><div class="ev-modal-result-place">🥉 3rd — Marketing</div><div class="ev-modal-result-names">Thu Tran · Nhi Tran · Tram Lieng</div></div></div>
+      <div class="ev-modal-section-h">Results</div>
+      <div class="ev-modal-results">
+        <div class="ev-modal-result-row"><div class="ev-modal-result-place">🥇 1st — Accounting</div><div class="ev-modal-result-names">Alan Dang · Katelyn Nguyen · Yihan Pan · Rachel Tran</div></div>
+        <div class="ev-modal-result-row"><div class="ev-modal-result-place">🥇 1st — Business Ethics</div><div class="ev-modal-result-names">Javin Ku</div></div>
+        <div class="ev-modal-result-row"><div class="ev-modal-result-place">🥇 1st — Hospitality Management</div><div class="ev-modal-result-names">Allissa Iida · Taranjit Kaur · Jasmine Perlas · Christina Tran</div></div>
+        <div class="ev-modal-result-row"><div class="ev-modal-result-place">🥈 2nd — Community Service</div><div class="ev-modal-result-names">Carine Chan · George Huang · Suyash Jevaria</div></div>
+        <div class="ev-modal-result-row"><div class="ev-modal-result-place">🥉 3rd — Marketing</div><div class="ev-modal-result-names">Thu Tran · Nhi Tran · Tram Lieng</div></div>
+      </div>
     </div>
   </div>
 </div>
+
 <div class="ev-modal-overlay" id="modal-falllc2024" onclick="if(event.target===this)closeModal()">
   <div class="ev-modal">
     <button class="ev-modal-close" onclick="closeModal()">✕</button>
@@ -355,7 +401,12 @@
       <div class="ev-modal-about-h">About</div>
       <div class="ev-modal-about">The 2024 Fall Business Leadership Conference in Emeryville marked an early breakthrough for the chapter. De Anza PBL's finance case study team took 1st place against 15 competing teams from across California — signaling the competitive trajectory the club would carry into 2025 and beyond.</div>
       <div class="ev-modal-stats"><div class="ev-modal-stat"><div class="ev-modal-stat-n">🥇</div><div class="ev-modal-stat-l">1st — Finance Case</div></div><div class="ev-modal-stat"><div class="ev-modal-stat-n">15+</div><div class="ev-modal-stat-l">Competing teams</div></div><div class="ev-modal-stat"><div class="ev-modal-stat-n">CA</div><div class="ev-modal-stat-l">Statewide</div></div></div>
-      <div class="ev-modal-section-h">Results</div><div class="ev-modal-results"><div class="ev-modal-result-row"><div class="ev-modal-result-place">🥇 Finance Case Study</div><div class="ev-modal-result-names">Allison Trinh · Alan Dang · Van Loc Nguyen · Zain Darwish</div></div><div class="ev-modal-result-row"><div class="ev-modal-result-place">🥈 Impromptu Speaking</div><div class="ev-modal-result-names">Javin Ku</div></div><div class="ev-modal-result-row"><div class="ev-modal-result-place">🥉 Marketing Case Study</div><div class="ev-modal-result-names">Addy Hu · Chris Wu · Neal Singh · Rushil Vaswani</div></div></div>
+      <div class="ev-modal-section-h">Results</div>
+      <div class="ev-modal-results">
+        <div class="ev-modal-result-row"><div class="ev-modal-result-place">🥇 Finance Case Study</div><div class="ev-modal-result-names">Allison Trinh · Alan Dang · Van Loc Nguyen · Zain Darwish</div></div>
+        <div class="ev-modal-result-row"><div class="ev-modal-result-place">🥈 Impromptu Speaking</div><div class="ev-modal-result-names">Javin Ku</div></div>
+        <div class="ev-modal-result-row"><div class="ev-modal-result-place">🥉 Marketing Case Study</div><div class="ev-modal-result-names">Addy Hu · Chris Wu · Neal Singh · Rushil Vaswani</div></div>
+      </div>
     </div>
   </div>
 </div>
@@ -377,6 +428,7 @@ document.addEventListener('keydown', function(e) {
   if (e.key === 'Escape') closeModal();
 });
 </script>
+
 <footer style="display:flex;align-items:center;justify-content:space-between;padding:2rem 2.5rem;border-top:1px solid var(--border);flex-wrap:wrap;gap:1rem">
   <div style="display:flex;align-items:center;gap:1.2rem">
     <span class="foot-logo">ΦΒΛ</span>
