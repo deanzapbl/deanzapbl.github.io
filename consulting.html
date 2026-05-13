@@ -10,7 +10,7 @@
 <link rel="stylesheet" href="styles.css">
 <style>
 /* ── Parallax Hero ── */
-.page-hero{min-height:100vh;display:flex;flex-direction:column;justify-content:center;padding:9rem 2.5rem 5rem;position:relative;overflow:hidden;border-bottom:1px solid var(--border);background:#050505;cursor:none}
+.page-hero{min-height:100vh;display:flex;flex-direction:column;justify-content:center;padding:9rem 2.5rem 5rem;position:relative;overflow:hidden;border-bottom:1px solid rgba(245,243,239,0.06);background:#050505;cursor:none}
 .plx-canvas{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:0}
 .plx-vignette{position:absolute;inset:0;background:radial-gradient(ellipse 75% 75% at 50% 50%,transparent 30%,#050505 100%);pointer-events:none;z-index:1}
 .plx-crt{position:absolute;inset:0;background:repeating-linear-gradient(0deg,transparent,transparent 2px,rgba(0,0,0,.03) 2px,rgba(0,0,0,.03) 4px);pointer-events:none;z-index:2}
@@ -80,15 +80,15 @@
 .sponsor-track{display:flex;gap:14px;width:max-content;padding:6px 0;animation:sponsorScroll 40s linear infinite}
 .sponsor-track.paused{animation-play-state:paused}
 @keyframes sponsorScroll{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
-.sponsor-logo{flex-shrink:0;width:164px;height:74px;background:#111;border:1px solid rgba(245,243,239,.06);border-radius:6px;display:flex;align-items:center;justify-content:center;cursor:pointer;position:relative;overflow:hidden;transition:border-color .4s,transform .45s cubic-bezier(.16,1,.3,1),box-shadow .45s;transform-origin:center}
+.sponsor-logo{flex-shrink:0;width:164px;height:74px;background:#0c0c0c;border:1px solid rgba(245,243,239,.06);border-radius:6px;display:flex;align-items:center;justify-content:center;cursor:pointer;position:relative;overflow:hidden;transition:border-color .4s,transform .45s cubic-bezier(.16,1,.3,1),box-shadow .45s;transform-origin:center}
 .sponsor-logo::before{content:'';position:absolute;top:0;left:12%;right:12%;height:1px;background:linear-gradient(90deg,transparent,rgba(255,255,255,.07),transparent);pointer-events:none}
 .sponsor-logo::after{content:'';position:absolute;inset:0;background:radial-gradient(circle at 50% 0%,rgba(255,255,255,.08),transparent 65%);opacity:0;transition:opacity .4s;pointer-events:none}
 .sponsor-logo:hover{border-color:rgba(245,243,239,.2)}
 .sponsor-logo.active{border-color:rgba(255,255,255,.78);transform:scale(1.13);z-index:20;background:#161616;box-shadow:0 0 0 1px rgba(255,255,255,.22),0 0 12px 3px rgba(255,255,255,.13),0 0 32px 8px rgba(255,255,255,.07),0 0 64px 18px rgba(255,255,255,.025)}
 .sponsor-logo.active::after{opacity:1}
-.sponsor-logo img{max-width:120px;max-height:52px;object-fit:contain;filter:invert(1) grayscale(100%);mix-blend-mode:screen;opacity:0.65;transition:filter .35s,transform .35s,opacity .35s;position:relative;z-index:1;display:block}
-.sponsor-logo:hover img{opacity:1;filter:invert(1) grayscale(0%)}
-.sponsor-logo.active img{filter:invert(1) grayscale(0%);transform:scale(1.04)}
+.sponsor-logo img{max-width:120px;max-height:52px;object-fit:contain;filter:invert(1) grayscale(1) brightness(0.75);opacity:0.7;transition:filter .35s,transform .35s,opacity .35s;position:relative;z-index:1;display:block}
+.sponsor-logo:hover img{opacity:1;filter:invert(1) grayscale(0) brightness(1)}
+.sponsor-logo.active img{filter:invert(1) grayscale(0) brightness(1);transform:scale(1.04)}
 .sponsor-tooltip{position:absolute;bottom:calc(100% + 10px);left:50%;transform:translateX(-50%) translateY(6px);background:#181818;border:1px solid rgba(255,255,255,.14);border-radius:4px;padding:.55rem 1rem;white-space:nowrap;pointer-events:none;z-index:30;opacity:0;transition:opacity .22s,transform .22s;box-shadow:0 0 0 1px rgba(255,255,255,.05),0 8px 28px rgba(0,0,0,.7)}
 .sponsor-logo.active .sponsor-tooltip{opacity:1;transform:translateX(-50%) translateY(0)}
 .sponsor-tooltip-name{font-family:'Bebas Neue',sans-serif;font-size:1rem;color:#f5f3ef;letter-spacing:.05em;line-height:1.2;margin-bottom:.2rem}
