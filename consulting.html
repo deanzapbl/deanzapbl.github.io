@@ -28,8 +28,8 @@
 /* ── Section utility ── */
 .con-section{padding:5rem 2.5rem}
 .con-section-sm{padding:3.5rem 2.5rem}
-.sec-tag-line{font-family:'IBM Plex Mono',monospace;font-size:.5rem;letter-spacing:.26em;text-transform:uppercase;color:rgba(245,243,239,.22);display:flex;align-items:center;gap:.75rem;margin-bottom:1.5rem}
-.sec-tag-line::before{content:'';width:18px;height:1px;background:rgba(245,243,239,.12)}
+.sec-tag-line{font-family:'IBM Plex Mono',monospace;font-size:.5rem;letter-spacing:.26em;text-transform:uppercase;color:rgba(245,243,239,.55);display:flex;align-items:center;gap:.75rem;margin-bottom:1.5rem}
+.sec-tag-line::before{content:'';width:18px;height:1px;background:rgba(245,243,239,.35)}
 
 /* ── W6: What We Do ── */
 .wwd-grid{display:grid;grid-template-columns:1fr 1fr;gap:3px}
@@ -84,10 +84,10 @@
 .spon-item:hover img{filter:grayscale(0%) brightness(1);opacity:1}
 .spon-item.logo-fee img{max-height:44px;max-width:80px}
 .spon-item.logo-kpmg img{max-height:56px;max-width:150px}
-.spon-item.logo-starone img{max-height:52px;max-width:150px}
-.spon-item.logo-keypoint img{max-height:48px;max-width:150px}
+.spon-item.logo-starone img{height:56px;width:auto;max-height:none;max-width:none}
+.spon-item.logo-keypoint img{height:56px;width:auto;max-height:none;max-width:none}
 .spon-lbl-wrap{padding:.75rem 2.5rem;display:flex;align-items:center;gap:.75rem;justify-content:center}
-.spon-lbl{font-family:'IBM Plex Mono',monospace;font-size:.46rem;letter-spacing:.24em;text-transform:uppercase;color:rgba(245,243,239,.2)}
+.spon-lbl{font-family:'IBM Plex Mono',monospace;font-size:.46rem;letter-spacing:.24em;text-transform:uppercase;color:rgba(245,243,239,.5)}
 
 /* ── CTA ── */
 .cta-section{padding:5rem 2.5rem}
@@ -113,7 +113,7 @@
 <div class="mob-overlay" id="mob">
   <button class="mob-close" onclick="closeMob()">Close ×</button>
   <ul class="mob-links">
-    <li><a href="index.html">Home</a></li><li><a href="leadership.html">Leadership</a></li><li><a href="events.html">Events</a></li><li><a href="accolades.html">Accolades</a></li><li><a href="alumni.html">Alumni</a></li><li><a href="polaris.html">Polaris</a></li><li><a href="consulting.html">Consulting</a></li><li><a href="contact.html">Contact</a></li>
+    <li><a href="index.html">Home</a></li><li><a href="leadership.html">Leadership</a></li><li><a href="events.html">Events</a></li><li><a href="accolades.html">Accolades</a></li><li><a href="alumni.html">Alumni</a></li><li><a href="consulting.html">Consulting</a></li><li><a href="polaris.html">Polaris</a></li><li><a href="contact.html">Contact</a></li>
   </ul>
   <div class="mob-meta">De Anza College · Cupertino, CA</div>
 </div>
@@ -124,7 +124,7 @@
   </div>
   <div class="nav-right" style="display:flex;align-items:center;gap:2.5rem">
     <ul class="nav-links">
-      <li><a id="nl-home" href="index.html">Home</a></li><li><a id="nl-leadership" href="leadership.html">Leadership</a></li><li><a id="nl-events" href="events.html">Events</a></li><li><a id="nl-accolades" href="accolades.html">Accolades</a></li><li><a id="nl-alumni" href="alumni.html">Alumni</a></li><li><a id="nl-polaris" href="polaris.html">Polaris</a></li><li><a id="nl-consulting" href="consulting.html">Consulting</a></li>
+      <li><a id="nl-home" href="index.html">Home</a></li><li><a id="nl-leadership" href="leadership.html">Leadership</a></li><li><a id="nl-events" href="events.html">Events</a></li><li><a id="nl-accolades" href="accolades.html">Accolades</a></li><li><a id="nl-alumni" href="alumni.html">Alumni</a></li><li><a id="nl-consulting" href="consulting.html">Consulting</a></li><li><a id="nl-polaris" href="polaris.html">Polaris</a></li>
     </ul>
     <a href="https://forms.gle/2zixWcFPcGG6sCBF7" target="_blank" class="nav-apply" style="flex-shrink:0">Apply</a>
     <button class="hamburger" onclick="openMob()"><span></span><span></span><span></span></button>
@@ -350,6 +350,16 @@
     var diff = this._tx - e.changedTouches[0].clientX;
     if(Math.abs(diff) > 50) clientsGoTo(diff > 0 ? cur + 1 : cur - 1);
   }, {passive:true});
+
+  var dragX = null;
+  track.addEventListener('mousedown', function(e){ dragX = e.clientX; track.style.cursor='grabbing'; });
+  window.addEventListener('mouseup', function(e){
+    if(dragX === null) return;
+    var diff = dragX - e.clientX;
+    if(Math.abs(diff) > 50) clientsGoTo(diff > 0 ? cur + 1 : cur - 1);
+    dragX = null; track.style.cursor='grab';
+  });
+  track.style.cursor = 'grab';
 })();
 </script>
 <script>(function(){var hero=document.querySelector('.page-hero');if(!hero)return;var l1=hero.querySelector('.plx-l1'),l2=hero.querySelector('.plx-l2'),l3=hero.querySelector('.plx-l3'),txt=hero.querySelector('.plx-text'),plxCur=hero.querySelector('.plx-cursor');hero.addEventListener('mousemove',function(e){var r=hero.getBoundingClientRect(),cx=e.clientX-r.left,cy=e.clientY-r.top,hw=r.width/2,hh=r.height/2,rx=(cx-hw)/hw,ry=(cy-hh)/hh;if(l1)l1.style.transform='translate('+(rx*14)+'px,'+(ry*14)+'px)';if(l2)l2.style.transform='translate('+(rx*26)+'px,'+(ry*26)+'px)';if(l3)l3.style.transform='translate('+(rx*42)+'px,'+(ry*42)+'px)';if(txt)txt.style.transform='translate('+(rx*-7)+'px,'+(ry*-7)+'px)';if(plxCur){plxCur.style.left=cx+'px';plxCur.style.top=cy+'px';}});hero.addEventListener('mouseleave',function(){if(l1)l1.style.transform='';if(l2)l2.style.transform='';if(l3)l3.style.transform='';if(txt)txt.style.transform='';});})();</script>
