@@ -19,7 +19,13 @@
 .page-hero .hero-tag{border:none!important;}
 @media(max-width:768px){.page-hero{padding:7rem 1.5rem 4rem;min-height:90vh}}
 
-.contact-wrap{max-width:680px;padding:5rem 2.5rem}
+.ctile{background:#0e0e0e;padding:1.75rem 1.5rem;cursor:pointer;transition:background .2s,color .2s;text-decoration:none;display:block;position:relative}
+.ctile:hover{background:#c0392b}
+.ctile:hover .ctile-desc{color:rgba(255,255,255,0.7)}
+.ctile:hover .ctile-arr{color:#fff;opacity:1}
+.ctile-name{font-family:'Unbounded',sans-serif;font-weight:400;font-size:.78rem;color:#f5f3ef;letter-spacing:.02em;margin-bottom:.4rem}
+.ctile-desc{font-family:'IBM Plex Mono',monospace;font-size:.48rem;letter-spacing:.12em;text-transform:uppercase;color:rgba(245,243,239,.35);transition:color .2s}
+.ctile-arr{position:absolute;top:1.75rem;right:1.5rem;color:rgba(245,243,239,.2);font-size:.9rem;opacity:0;transition:opacity .2s,color .2s}
 .contact-tag{font-family:'IBM Plex Mono',monospace;font-size:.55rem;letter-spacing:.22em;text-transform:uppercase;color:rgba(192,57,43,0.8);margin-bottom:1.2rem;display:flex;align-items:center;gap:.75rem}
 .contact-tag::before{content:'';display:block;width:2rem;height:1px;background:rgba(192,57,43,0.5)}
 .contact-sub{font-size:.92rem;color:rgba(245,243,239,.45);line-height:1.75;margin-bottom:3rem;max-width:420px}
@@ -69,47 +75,42 @@
   </div>
 </section>
 
-<div class="contact-wrap">
-  <div class="contact-tag">De Anza PBL</div>
-  <p class="contact-sub">Reach out to join as a member, explore a consulting partnership, or connect with our chapter.</p>
-
-  <div class="contact-group">
-    <div class="contact-section-label">Membership</div>
-    <a href="https://forms.gle/2zixWcFPcGG6sCBF7" target="_blank" class="contact-row">
-      <div class="contact-row-left"><div class="contact-row-name">Apply to PBL</div><div class="contact-row-desc">New member application form</div></div>
-      <div class="contact-row-arr">→</div>
-    </a>
-    <a href="https://discord.gg/w7zap3SfUm" target="_blank" class="contact-row">
-      <div class="contact-row-left"><div class="contact-row-name">Discord Server</div><div class="contact-row-desc">Join the community</div></div>
-      <div class="contact-row-arr">→</div>
-    </a>
+<div class="sw" style="padding:5rem 2.5rem">
+  <div style="margin-bottom:2.5rem">
+    <div class="contact-tag">De Anza PBL</div>
+    <h2 style="font-family:'Unbounded',sans-serif;font-weight:700;font-size:2rem;color:#f5f3ef;margin-bottom:.75rem">Get in Touch.</h2>
+    <p style="font-size:.9rem;color:rgba(245,243,239,.4);max-width:400px;line-height:1.75">Membership, partnerships, or just say hi.</p>
   </div>
-
-  <div class="contact-group">
-    <div class="contact-section-label">Partnerships &amp; Inquiries</div>
-    <a href="mailto:deanzacapbl@gmail.com" class="contact-row">
-      <div class="contact-row-left"><div class="contact-row-name">deanzacapbl@gmail.com</div><div class="contact-row-desc">General · Consulting · Press</div></div>
-      <div class="contact-row-arr">→</div>
+  <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:3px;max-width:900px">
+    <a href="https://forms.gle/2zixWcFPcGG6sCBF7" target="_blank" class="ctile">
+      <div class="ctile-name">Apply to PBL</div>
+      <div class="ctile-desc">New member form</div>
+      <div class="ctile-arr">→</div>
     </a>
-    <a href="consulting.html" class="contact-row">
-      <div class="contact-row-left"><div class="contact-row-name">Consulting Division</div><div class="contact-row-desc">Learn about our client work</div></div>
-      <div class="contact-row-arr">→</div>
+    <a href="https://discord.gg/w7zap3SfUm" target="_blank" class="ctile">
+      <div class="ctile-name">Discord</div>
+      <div class="ctile-desc">Community server</div>
+      <div class="ctile-arr">→</div>
     </a>
-  </div>
-
-  <div class="contact-group">
-    <div class="contact-section-label">Social</div>
-    <a href="https://www.instagram.com/deanzapbl/" target="_blank" class="contact-row">
-      <div class="contact-row-left"><div class="contact-row-name">@deanzapbl</div><div class="contact-row-desc">Instagram · Main chapter</div></div>
-      <div class="contact-row-arr">→</div>
+    <a href="mailto:deanzacapbl@gmail.com" class="ctile">
+      <div class="ctile-name">Email Us</div>
+      <div class="ctile-desc">deanzacapbl@gmail.com</div>
+      <div class="ctile-arr">→</div>
     </a>
-    <a href="https://www.instagram.com/pblcsp/" target="_blank" class="contact-row">
-      <div class="contact-row-left"><div class="contact-row-name">@pblcsp</div><div class="contact-row-desc">Instagram · Community service</div></div>
-      <div class="contact-row-arr">→</div>
+    <a href="consulting.html" class="ctile">
+      <div class="ctile-name">Consulting</div>
+      <div class="ctile-desc">Partnership inquiry</div>
+      <div class="ctile-arr">→</div>
     </a>
-    <a href="https://linktr.ee/deanzapbl" target="_blank" class="contact-row">
-      <div class="contact-row-left"><div class="contact-row-name">Linktree</div><div class="contact-row-desc">All links in one place</div></div>
-      <div class="contact-row-arr">→</div>
+    <a href="https://www.instagram.com/deanzapbl/" target="_blank" class="ctile">
+      <div class="ctile-name">@deanzapbl</div>
+      <div class="ctile-desc">Instagram · Main chapter</div>
+      <div class="ctile-arr">→</div>
+    </a>
+    <a href="https://linktr.ee/deanzapbl" target="_blank" class="ctile">
+      <div class="ctile-name">Linktree</div>
+      <div class="ctile-desc">All links in one place</div>
+      <div class="ctile-arr">→</div>
     </a>
   </div>
 </div>
