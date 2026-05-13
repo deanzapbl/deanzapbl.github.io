@@ -90,9 +90,9 @@
 .sponsor-logo:hover{border-color:rgba(245,243,239,.2)}
 .sponsor-logo.active{border-color:rgba(255,255,255,.78);transform:scale(1.13);z-index:20;background:#161616;box-shadow:0 0 0 1px rgba(255,255,255,.22),0 0 12px 3px rgba(255,255,255,.13),0 0 32px 8px rgba(255,255,255,.07),0 0 64px 18px rgba(255,255,255,.025)}
 .sponsor-logo.active::after{opacity:1}
-.sponsor-logo img{max-width:120px;max-height:52px;object-fit:contain;filter:brightness(0) invert(.5);transition:filter .35s,transform .35s;position:relative;z-index:1;display:block}
-.sponsor-logo:hover img{filter:brightness(0) invert(.72)}
-.sponsor-logo.active img{filter:brightness(0) invert(1);transform:scale(1.04)}
+.sponsor-logo img{max-width:120px;max-height:52px;object-fit:contain;filter:invert(1) grayscale(100%);mix-blend-mode:screen;opacity:0.65;transition:filter .35s,transform .35s,opacity .35s;position:relative;z-index:1;display:block}
+.sponsor-logo:hover img{opacity:1;filter:invert(1) grayscale(0%)}
+.sponsor-logo.active img{filter:invert(1) grayscale(0%);transform:scale(1.04)}
 .sponsor-tooltip{position:absolute;bottom:calc(100% + 10px);left:50%;transform:translateX(-50%) translateY(6px);background:#181818;border:1px solid rgba(255,255,255,.14);border-radius:4px;padding:.55rem 1rem;white-space:nowrap;pointer-events:none;z-index:30;opacity:0;transition:opacity .22s,transform .22s;box-shadow:0 0 0 1px rgba(255,255,255,.05),0 8px 28px rgba(0,0,0,.7)}
 .sponsor-logo.active .sponsor-tooltip{opacity:1;transform:translateX(-50%) translateY(0)}
 .sponsor-tooltip-name{font-family:'Bebas Neue',sans-serif;font-size:1rem;color:#f5f3ef;letter-spacing:.05em;line-height:1.2;margin-bottom:.2rem}
