@@ -415,12 +415,23 @@
 function openModal(id) {
   var el = document.getElementById('modal-' + id);
   if (!el) return;
+  var st = window.pageYOffset || document.documentElement.scrollTop;
+  el.style.position = 'absolute';
+  el.style.top = st + 'px';
+  el.style.left = '0';
+  el.style.width = '100%';
+  el.style.height = window.innerHeight + 'px';
   el.classList.add('open');
   document.body.style.overflow = 'hidden';
 }
 function closeModal() {
   document.querySelectorAll('.ev-modal-overlay.open').forEach(function(el) {
     el.classList.remove('open');
+    el.style.position = '';
+    el.style.top = '';
+    el.style.left = '';
+    el.style.width = '';
+    el.style.height = '';
   });
   document.body.style.overflow = '';
 }
