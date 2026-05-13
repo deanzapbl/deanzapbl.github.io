@@ -13,14 +13,14 @@
 .plx-canvas{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:0}
 .plx-vignette{position:absolute;inset:0;background:radial-gradient(ellipse 75% 75% at 50% 50%,transparent 30%,#050505 100%);pointer-events:none;z-index:1}
 .plx-crt{position:absolute;inset:0;background:repeating-linear-gradient(0deg,transparent,transparent 2px,rgba(0,0,0,.03) 2px,rgba(0,0,0,.03) 4px);pointer-events:none;z-index:2}
-.plx-scan{position:absolute;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent 0%,rgba(200,16,46,.45) 30%,rgba(200,16,46,.7) 50%,rgba(200,16,46,.45) 70%,transparent 100%);animation:heroScan 5s linear infinite;pointer-events:none;z-index:4}
+
 .plx-text{position:relative;z-index:3;will-change:transform;transition:transform .07s ease-out}
 .page-hero .hero-tag,.page-hero .page-sub,.page-hero .page-hero-wm,.page-hero .page-hero-year{position:relative;z-index:3}
 @keyframes fadeIn{from{opacity:0}to{opacity:1}}
 @keyframes slideUp{from{opacity:0;transform:translateY(60px)}to{opacity:1;transform:translateY(0)}}
 @keyframes slideUpGlitch{0%{opacity:0;transform:translateY(50px)}60%{opacity:1;transform:translateY(0)}62%{transform:translateX(-3px)}64%{transform:translateX(3px)}66%{transform:translateX(-2px)}68%,100%{transform:translateX(0);opacity:1}}
 @keyframes heroBlink{0%,100%{opacity:1}50%{opacity:.2}}
-@keyframes heroScan{0%{top:-2px;opacity:0}5%{opacity:1}95%{opacity:1}100%{top:100%;opacity:0}}
+
 @media(max-width:768px){.page-hero{padding:7rem 1.5rem 4rem;min-height:90vh}}
 </style>
 <style>
@@ -157,7 +157,7 @@
   <canvas class="plx-canvas" id="plxCanvas"></canvas>
   <div class="plx-vignette"></div>
   <div class="plx-crt"></div>
-  <div class="plx-scan"></div>
+  
   <div class="plx-text">
     <div class="hero-tag">Events</div>
     <h1 class="page-title"><span>From Campus</span><span>to Nationals.</span></h1>
@@ -496,7 +496,7 @@ document.addEventListener('keydown', function(e) {
   </ul>
 </footer>
 <script src="main.js"></script>
-<script>(function(){var hero=document.querySelector(".page-hero");if(!hero)return;var canvas=document.getElementById("plxCanvas");var txt=hero.querySelector(".plx-text");var ctx=canvas.getContext("2d");var mx,my,smx,smy;function resize(){canvas.width=hero.offsetWidth;canvas.height=hero.offsetHeight;if(smx==null){smx=canvas.width/2;smy=canvas.height/2;mx=smx;my=smy;}}resize();window.addEventListener("resize",resize);hero.addEventListener("mousemove",function(e){var r=hero.getBoundingClientRect();mx=e.clientX-r.left;my=e.clientY-r.top;if(txt){var hw=r.width/2,hh=r.height/2,rx=(mx-hw)/hw,ry=(my-hh)/hh;txt.style.transform="translate("+(rx*-7)+"px,"+(ry*-7)+"px)";}});hero.addEventListener("mouseleave",function(){if(txt)txt.style.transform="";});function draw(){var W=canvas.width,H=canvas.height;if(!W||!H){requestAnimationFrame(draw);return;}smx=smx+(mx-smx)*0.07;smy=smy+(my-smy)*0.07;ctx.clearRect(0,0,W,H);var sp=20,i,j,dx,dy,d,inf,r,a;for(i=0;i<W;i+=sp){for(j=0;j<H;j+=sp){dx=i-smx;dy=j-smy;d=Math.sqrt(dx*dx+dy*dy);inf=Math.max(0,1-d/200);r=0.9+inf*3.5;a=0.1+inf*0.75;ctx.beginPath();ctx.arc(i,j,r,0,6.28);ctx.fillStyle="rgba(192,57,43,"+a.toFixed(2)+")";ctx.fill();}}[[22,0.45],[45,0.28],[72,0.12]].forEach(function(ring){ctx.beginPath();ctx.arc(smx,smy,ring[0],0,6.28);ctx.strokeStyle="rgba(192,57,43,"+ring[1]+")";ctx.lineWidth=0.8;ctx.stroke();});ctx.beginPath();ctx.arc(smx,smy,4,0,6.28);ctx.fillStyle="rgba(192,57,43,0.95)";ctx.fill();requestAnimationFrame(draw);}requestAnimationFrame(draw);})();
+<script>(function(){var hero=document.querySelector(".page-hero");if(!hero)return;var canvas=document.getElementById("plxCanvas");var txt=hero.querySelector(".plx-text");var ctx=canvas.getContext("2d");var mx,my,smx,smy;var stars=[];var t=0;function buildStars(){stars=[];var W=canvas.width,H=canvas.height;for(var k=0;k<280;k++){stars.push({x:Math.random()*W,y:Math.random()*H,r:Math.random()*1.2+0.2,ph:Math.random()*6.28,spd:Math.random()*1.5+0.5,a:Math.random()*0.3+0.05});}}function resize(){canvas.width=hero.offsetWidth;canvas.height=hero.offsetHeight;if(smx==null){smx=canvas.width/2;smy=canvas.height/2;mx=smx;my=smy;}buildStars();}resize();window.addEventListener("resize",resize);var inside=false;hero.addEventListener("mousemove",function(e){var r=hero.getBoundingClientRect();mx=e.clientX-r.left;my=e.clientY-r.top;inside=true;if(txt){var hw=r.width/2,hh=r.height/2,rx=(mx-hw)/hw,ry=(my-hh)/hh;txt.style.transform="translate("+(rx*-7)+"px,"+(ry*-7)+"px)";}});hero.addEventListener("mouseleave",function(){inside=false;if(txt)txt.style.transform="";});var curA=0;function draw(){t+=0.014;var W=canvas.width,H=canvas.height;if(!W||!H){requestAnimationFrame(draw);return;}smx=smx+(mx-smx)*0.1;smy=smy+(my-smy)*0.1;curA+=((inside?1:0)-curA)*0.065;ctx.clearRect(0,0,W,H);var dx,dy,d,inf,a,r,tw;stars.forEach(function(p){tw=Math.sin(t*p.spd+p.ph)*0.4+0.6;dx=p.x-smx;dy=p.y-smy;d=Math.sqrt(dx*dx+dy*dy);inf=Math.max(0,1-d/170)*0.6;a=p.a*tw+inf;r=p.r*tw+inf*1.5;ctx.beginPath();ctx.arc(p.x,p.y,r,0,6.28);ctx.fillStyle="rgba(220,210,200,"+Math.min(a,0.75).toFixed(2)+")";ctx.fill();if(inf>0.1){ctx.beginPath();ctx.arc(p.x,p.y,r*2.5,0,6.28);ctx.fillStyle="rgba(192,57,43,"+(inf*0.2).toFixed(2)+")";ctx.fill();}});if(curA>0.01){ctx.beginPath();ctx.arc(smx,smy,14,0,6.28);ctx.strokeStyle="rgba(192,57,43,"+(curA*0.4).toFixed(2)+")";ctx.lineWidth=0.7;ctx.stroke();ctx.beginPath();ctx.arc(smx,smy,28,0,6.28);ctx.strokeStyle="rgba(192,57,43,"+(curA*0.18).toFixed(2)+")";ctx.lineWidth=0.7;ctx.stroke();ctx.beginPath();ctx.arc(smx,smy,2,0,6.28);ctx.fillStyle="rgba(192,57,43,"+(curA*0.85).toFixed(2)+")";ctx.fill();}requestAnimationFrame(draw);}requestAnimationFrame(draw);})();
 </script>
 </body>
 </html>
