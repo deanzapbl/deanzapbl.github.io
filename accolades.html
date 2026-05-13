@@ -29,70 +29,85 @@
 @media(max-width:768px){.page-hero{padding:7rem 1.5rem 4rem;min-height:90vh}}
 </style>
 <style>
-/* ── Accolades Layout ── */
+/* ── Page Layout ── */
 .acc-wrap{padding:5rem 2.5rem 6rem;max-width:1400px;margin:0 auto}
 
-.acc-section{margin-bottom:4rem}
-.acc-section-header{display:flex;align-items:center;gap:1.5rem;margin-bottom:1.25rem}
-.acc-section-name{font-family:'Bebas Neue',sans-serif;font-size:3rem;letter-spacing:.04em;line-height:1;color:rgba(245,243,239,.15)}
-.acc-section-name.active{color:rgba(200,16,46,.5)}
+.acc-section{margin-bottom:4.5rem}
+.acc-section-header{display:flex;align-items:center;gap:1.5rem;margin-bottom:1.5rem}
+.acc-section-name{font-family:'Bebas Neue',sans-serif;font-size:3.2rem;letter-spacing:.04em;line-height:1;color:rgba(245,243,239,.12)}
+.acc-section-name.active{color:rgba(200,16,46,.55)}
 .acc-section-line{flex:1;height:1px;background:rgba(245,243,239,.06)}
 .acc-section-line.active{background:rgba(200,16,46,.2)}
-.acc-section-count{font-family:'IBM Plex Mono',monospace;font-size:.48rem;letter-spacing:.2em;text-transform:uppercase;color:rgba(245,243,239,.18)}
-.acc-section-count.active{color:rgba(200,16,46,.4)}
+.acc-section-count{font-family:'IBM Plex Mono',monospace;font-size:.5rem;letter-spacing:.2em;text-transform:uppercase;color:rgba(245,243,239,.18)}
+.acc-section-count.active{color:rgba(200,16,46,.45)}
 
-.acc-sub-label{font-family:'IBM Plex Mono',monospace;font-size:.44rem;letter-spacing:.22em;text-transform:uppercase;color:rgba(245,243,239,.18);padding:.5rem 0 .4rem;display:flex;align-items:center;gap:.6rem}
-.acc-sub-label::before{content:'';width:12px;height:1px;background:rgba(245,243,239,.1)}
+.acc-sub-label{font-family:'IBM Plex Mono',monospace;font-size:.5rem;letter-spacing:.22em;text-transform:uppercase;color:rgba(245,243,239,.3);padding:.6rem 0 .45rem;display:flex;align-items:center;gap:.65rem}
+.acc-sub-label::before{content:'';width:14px;height:1px;background:rgba(245,243,239,.15)}
 
-/* ── Strip ── */
-.strip-shell{background:#0b0b0b;border:1px solid rgba(245,243,239,.07);overflow:hidden;position:relative;cursor:pointer;transition:border-color .3s;margin-bottom:3px}
-.strip-shell:hover{border-color:rgba(200,16,46,.2)}
+/* ── Strip Shell ── */
+.strip-shell{background:#0c0c0c;border:1px solid rgba(245,243,239,.08);overflow:hidden;position:relative;cursor:pointer;transition:border-color .3s,background .3s;margin-bottom:4px}
+.strip-shell:hover{border-color:rgba(200,16,46,.3);background:#0e0e0e}
 .strip-track{display:flex;will-change:transform;transition:transform .7s cubic-bezier(.4,0,.2,1)}
-.strip-page{flex-shrink:0;display:grid;grid-template-columns:130px 1fr 56px;min-height:90px}
+.strip-page{flex-shrink:0;display:grid;grid-template-columns:220px 1fr 64px;min-height:150px}
 
-.sp-left{background:#0d0505;display:flex;flex-direction:column;justify-content:flex-end;padding:1.25rem 1rem;position:relative;overflow:hidden}
-.sp-wm{position:absolute;bottom:-6px;right:-4px;font-family:'Bebas Neue',sans-serif;font-size:3.5rem;color:rgba(200,16,46,.07);line-height:1;user-select:none;letter-spacing:.02em}
-.sp-yr{font-family:'Bebas Neue',sans-serif;font-size:2rem;color:rgba(245,243,239,.8);line-height:1;position:relative;z-index:1}
+/* Left zone */
+.sp-left{background:linear-gradient(135deg,#180808 0%,#0e0303 100%);display:flex;flex-direction:column;justify-content:space-between;padding:1.75rem 1.5rem;position:relative;overflow:hidden}
+.sp-left::after{content:'';position:absolute;top:0;left:0;bottom:0;width:3px;background:rgba(200,16,46,.35);transition:background .3s}
+.strip-shell:hover .sp-left::after{background:#c8102e}
+.sp-wm{position:absolute;bottom:-10px;right:-6px;font-family:'Bebas Neue',sans-serif;font-size:6rem;color:rgba(200,16,46,.07);line-height:1;user-select:none;letter-spacing:.02em}
+.sp-tag{font-family:'IBM Plex Mono',monospace;font-size:.46rem;letter-spacing:.22em;text-transform:uppercase;color:rgba(200,16,46,.6);position:relative;z-index:1}
+.sp-yr{font-family:'Bebas Neue',sans-serif;font-size:3.8rem;color:#f5f3ef;line-height:1;position:relative;z-index:1}
 
-.sp-mid{padding:1.25rem 1.5rem;display:flex;flex-direction:column;justify-content:center;gap:.35rem}
-.sp-conf{font-family:'IBM Plex Mono',monospace;font-size:.46rem;letter-spacing:.16em;text-transform:uppercase;color:rgba(200,16,46,.6)}
-.sp-loc{font-family:'IBM Plex Mono',monospace;font-size:.39rem;letter-spacing:.1em;text-transform:uppercase;color:rgba(245,243,239,.22);margin-top:.1rem}
-.sp-medals{display:flex;gap:.3rem;margin-top:.45rem;flex-wrap:wrap}
-.sp-m{font-family:'IBM Plex Mono',monospace;font-size:.38rem;letter-spacing:.07em;padding:.15rem .5rem;border:1px solid rgba(245,243,239,.08);color:rgba(245,243,239,.32)}
-.sp-m.g{border-color:rgba(200,170,50,.3);color:rgba(200,170,50,.75)}
-.sp-m.s{border-color:rgba(170,170,180,.2);color:rgba(170,170,180,.55)}
-.sp-m.sw{border-color:rgba(200,16,46,.35);color:rgba(200,16,46,.8)}
-.sp-m.aw{border-color:rgba(100,150,200,.25);color:rgba(100,150,200,.65)}
+/* Middle zone */
+.sp-mid{padding:1.75rem 2rem;display:flex;flex-direction:column;justify-content:center;gap:.65rem}
+.sp-conf{font-family:'Unbounded',sans-serif;font-weight:700;font-size:.82rem;color:#f5f3ef;line-height:1.25}
+.sp-loc{font-family:'IBM Plex Mono',monospace;font-size:.5rem;letter-spacing:.1em;text-transform:uppercase;color:rgba(245,243,239,.48);margin-top:.1rem}
+.sp-medals{display:flex;gap:.4rem;margin-top:.5rem;flex-wrap:wrap}
+.sp-m{font-family:'IBM Plex Mono',monospace;font-size:.5rem;letter-spacing:.08em;padding:.24rem .7rem;border:1px solid rgba(245,243,239,.1);color:rgba(245,243,239,.55);transition:all .2s}
+.sp-m.g{border-color:rgba(200,170,50,.4);color:rgba(220,190,70,.9)}
+.sp-m.s{border-color:rgba(170,170,185,.3);color:rgba(190,190,205,.75)}
+.sp-m.sw{border-color:rgba(200,16,46,.55);color:#c8102e;background:rgba(200,16,46,.08)}
+.sp-m.aw{border-color:rgba(100,160,220,.3);color:rgba(120,175,230,.75)}
 
-.sp-nav{display:flex;align-items:center;justify-content:center;border-left:1px solid rgba(245,243,239,.04)}
-.sp-btn{width:34px;height:34px;border-radius:50%;border:1px solid rgba(245,243,239,.1);background:none;color:rgba(245,243,239,.3);font-size:.85rem;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .3s}
-.sp-btn:hover{border-color:#c8102e;color:#c8102e;background:rgba(200,16,46,.08)}
-.sp-btn:disabled{opacity:.2;cursor:default;pointer-events:none}
+/* Nav zone */
+.sp-nav{display:flex;align-items:center;justify-content:center;border-left:1px solid rgba(245,243,239,.05)}
+.sp-btn{width:42px;height:42px;border-radius:50%;border:1px solid rgba(245,243,239,.14);background:none;color:rgba(245,243,239,.4);font-size:.95rem;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .3s;margin:0 11px}
+.sp-btn:hover{border-color:#c8102e;color:#c8102e;background:rgba(200,16,46,.1)}
+.sp-btn:disabled{opacity:.18;cursor:default;pointer-events:none}
 
 /* ── Modal ── */
 .acc-modal-overlay{position:fixed;inset:0;background:rgba(5,5,5,.92);z-index:1000;display:none;align-items:center;justify-content:center;padding:2rem;backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)}
 .acc-modal-overlay.open{display:flex}
-.acc-modal{background:#0e0e0e;border:1px solid rgba(255,255,255,.1);width:min(760px,94vw);max-height:85vh;overflow-y:auto;position:relative;animation:modalIn .35s cubic-bezier(.16,1,.3,1) both;box-shadow:0 0 0 1px rgba(255,255,255,.05),0 0 40px rgba(255,255,255,.07),0 0 100px rgba(255,255,255,.035),0 30px 80px rgba(0,0,0,.9)}
+.acc-modal{background:#0e0e0e;border:1px solid rgba(255,255,255,.1);width:min(780px,94vw);max-height:85vh;overflow-y:auto;position:relative;animation:modalIn .35s cubic-bezier(.16,1,.3,1) both;box-shadow:0 0 0 1px rgba(255,255,255,.05),0 0 40px rgba(255,255,255,.07),0 0 100px rgba(255,255,255,.035),0 30px 80px rgba(0,0,0,.9)}
 @keyframes modalIn{from{opacity:0;transform:translateY(22px) scale(.97)}to{opacity:1;transform:translateY(0) scale(1)}}
 .acc-modal-close{position:absolute;top:1rem;right:1rem;z-index:10;width:34px;height:34px;background:rgba(10,10,10,.8);border:1px solid rgba(245,243,239,.14);border-radius:50%;color:rgba(245,243,239,.7);font-size:1rem;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .2s}
 .acc-modal-close:hover{background:#c8102e;border-color:#c8102e;color:#fff}
 .acc-modal-body{padding:2.5rem}
-.acc-modal-tag{font-family:'IBM Plex Mono',monospace;font-size:.48rem;letter-spacing:.18em;text-transform:uppercase;padding:.28rem .85rem;border:1px solid rgba(200,16,46,.45);color:rgba(200,16,46,.85);display:inline-block;margin-bottom:1rem}
+.acc-modal-tag{font-family:'IBM Plex Mono',monospace;font-size:.5rem;letter-spacing:.18em;text-transform:uppercase;padding:.28rem .85rem;border:1px solid rgba(200,16,46,.45);color:rgba(200,16,46,.85);display:inline-block;margin-bottom:1rem}
 .acc-modal-title{font-family:'Unbounded',sans-serif;font-weight:700;font-size:clamp(1.1rem,2.5vw,1.65rem);color:#f5f3ef;line-height:1.1;margin-bottom:.4rem}
-.acc-modal-loc{font-family:'IBM Plex Mono',monospace;font-size:.46rem;letter-spacing:.12em;color:rgba(245,243,239,.32);margin-bottom:1.75rem}
+.acc-modal-loc{font-family:'IBM Plex Mono',monospace;font-size:.48rem;letter-spacing:.1em;color:rgba(245,243,239,.35);margin-bottom:1.75rem}
 .acc-modal-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:3px;margin-bottom:1.75rem}
-.acc-modal-stat{background:#161616;padding:.8rem 1rem;text-align:center}
-.acc-modal-stat-n{font-family:'Bebas Neue',sans-serif;font-size:1.5rem;color:#f5f3ef;line-height:1}
-.acc-modal-stat-l{font-family:'IBM Plex Mono',monospace;font-size:.38rem;letter-spacing:.12em;text-transform:uppercase;color:rgba(245,243,239,.28);margin-top:.15rem}
+.acc-modal-stat{background:#161616;padding:.85rem 1rem;text-align:center}
+.acc-modal-stat-n{font-family:'Bebas Neue',sans-serif;font-size:1.6rem;color:#f5f3ef;line-height:1}
+.acc-modal-stat-l{font-family:'IBM Plex Mono',monospace;font-size:.4rem;letter-spacing:.12em;text-transform:uppercase;color:rgba(245,243,239,.3);margin-top:.15rem}
 .acc-modal-pills{display:flex;gap:.35rem;flex-wrap:wrap;margin-bottom:1.75rem}
-.acc-modal-pill{font-family:'IBM Plex Mono',monospace;font-size:.42rem;letter-spacing:.12em;text-transform:uppercase;padding:.25rem .7rem;border:1px solid rgba(100,150,200,.25);color:rgba(100,150,200,.65)}
-.acc-modal-sub{font-family:'IBM Plex Mono',monospace;font-size:.46rem;letter-spacing:.2em;text-transform:uppercase;color:rgba(245,243,239,.25);margin-bottom:.65rem;display:flex;align-items:center;gap:.5rem}
+.acc-modal-pill{font-family:'IBM Plex Mono',monospace;font-size:.44rem;letter-spacing:.1em;text-transform:uppercase;padding:.25rem .7rem;border:1px solid rgba(100,160,220,.3);color:rgba(120,175,230,.75)}
+.acc-modal-sub{font-family:'IBM Plex Mono',monospace;font-size:.48rem;letter-spacing:.2em;text-transform:uppercase;color:rgba(245,243,239,.25);margin-bottom:.65rem;display:flex;align-items:center;gap:.5rem}
 .acc-modal-sub::before{content:'';width:12px;height:1px;background:rgba(245,243,239,.15)}
 .acc-modal-results{display:flex;flex-direction:column;gap:2px;margin-bottom:1.5rem}
-.acc-modal-row{display:flex;justify-content:space-between;align-items:baseline;padding:.55rem .85rem;background:#141414}
-.acc-modal-place{font-size:.88rem;font-weight:500;color:#f5f3ef}
-.acc-modal-names{font-family:'IBM Plex Mono',monospace;font-size:.48rem;letter-spacing:.06em;color:rgba(245,243,239,.52)}
-@media(max-width:600px){.acc-modal-stats{grid-template-columns:repeat(2,1fr)}.acc-modal-body{padding:1.5rem}.acc-modal-row{flex-direction:column;gap:.25rem}.strip-page{grid-template-columns:90px 1fr 46px}}
+.acc-modal-row{display:flex;justify-content:space-between;align-items:baseline;padding:.6rem .9rem;background:#141414}
+.acc-modal-place{font-size:.92rem;font-weight:500;color:#f5f3ef}
+.acc-modal-names{font-family:'IBM Plex Mono',monospace;font-size:.5rem;letter-spacing:.06em;color:rgba(245,243,239,.55)}
+
+@media(max-width:768px){
+  .acc-wrap{padding:4rem 1.5rem 5rem}
+  .strip-page{grid-template-columns:150px 1fr 52px}
+  .sp-yr{font-size:2.8rem}
+  .sp-conf{font-size:.7rem}
+  .acc-modal-stats{grid-template-columns:repeat(2,1fr)}
+  .acc-modal-body{padding:1.5rem}
+  .acc-modal-row{flex-direction:column;gap:.25rem}
+}
 </style>
 </head>
 <body>
@@ -144,15 +159,25 @@
     <!-- NLC -->
     <div class="acc-sub-label">National Leadership Conference</div>
     <div class="strip-shell" onclick="openModal('nlc',0)">
-      <div class="strip-track" id="track-nlc" style="width:200%">
-        <div class="strip-page" style="width:50%">
-          <div class="sp-left"><div class="sp-wm">NLC</div><div class="sp-yr">2025</div></div>
+      <div class="strip-track" id="track-nlc" style="width:100%">
+        <div class="strip-page" style="width:100%">
+          <div class="sp-left">
+            <div class="sp-tag">NLC</div>
+            <div class="sp-yr">2025</div>
+            <div class="sp-wm">NLC</div>
+          </div>
           <div class="sp-mid">
             <div class="sp-conf">National Leadership Conference</div>
             <div class="sp-loc">Dallas, TX · May 31–Jun 2, 2025</div>
-            <div class="sp-medals"><span class="sp-m g">🥇 ×3</span><span class="sp-m s">🥈 ×1</span><span class="sp-m">🥉 ×1</span><span class="sp-m">4th ×1</span><span class="sp-m">5th ×1</span></div>
+            <div class="sp-medals">
+              <span class="sp-m g">🥇 ×3 Gold</span>
+              <span class="sp-m s">🥈 ×1 Silver</span>
+              <span class="sp-m">🥉 ×1 Bronze</span>
+              <span class="sp-m">4th ×1</span>
+              <span class="sp-m">5th ×1</span>
+            </div>
           </div>
-          <div class="sp-nav"><button class="sp-btn" disabled title="No earlier years">→</button></div>
+          <div class="sp-nav"><button class="sp-btn" disabled>→</button></div>
         </div>
       </div>
     </div>
@@ -162,20 +187,39 @@
     <div class="strip-shell" onclick="openModal('sblc',sblcIdx)">
       <div class="strip-track" id="track-sblc" style="width:200%">
         <div class="strip-page" style="width:50%">
-          <div class="sp-left"><div class="sp-wm">SBLC</div><div class="sp-yr">2026</div></div>
+          <div class="sp-left">
+            <div class="sp-tag">SBLC</div>
+            <div class="sp-yr">2026</div>
+            <div class="sp-wm">SBLC</div>
+          </div>
           <div class="sp-mid">
             <div class="sp-conf">State Business Leadership Conference</div>
             <div class="sp-loc">Emeryville, CA · Spring 2026</div>
-            <div class="sp-medals"><span class="sp-m sw">🏆 Sweep</span><span class="sp-m g">🥇 ×6</span><span class="sp-m s">🥈 ×8</span><span class="sp-m">🥉 ×2</span><span class="sp-m aw">4 Chapter Awards</span></div>
+            <div class="sp-medals">
+              <span class="sp-m sw">🏆 Sweepstakes</span>
+              <span class="sp-m g">🥇 ×6 Gold</span>
+              <span class="sp-m s">🥈 ×8 Silver</span>
+              <span class="sp-m">🥉 ×2 Bronze</span>
+              <span class="sp-m aw">4 Chapter Awards</span>
+            </div>
           </div>
           <div class="sp-nav"><button class="sp-btn" onclick="event.stopPropagation();slide('sblc',1)">→</button></div>
         </div>
         <div class="strip-page" style="width:50%">
-          <div class="sp-left"><div class="sp-wm">SBLC</div><div class="sp-yr">2025</div></div>
+          <div class="sp-left">
+            <div class="sp-tag">SBLC</div>
+            <div class="sp-yr">2025</div>
+            <div class="sp-wm">SBLC</div>
+          </div>
           <div class="sp-mid">
             <div class="sp-conf">State Business Leadership Conference</div>
             <div class="sp-loc">San Diego, CA · Mar 7–9, 2025</div>
-            <div class="sp-medals"><span class="sp-m g">🥇 ×4</span><span class="sp-m s">🥈 ×3</span><span class="sp-m">🥉 ×1</span><span class="sp-m g">🥇 ×5 Obj.</span></div>
+            <div class="sp-medals">
+              <span class="sp-m g">🥇 ×4 Gold</span>
+              <span class="sp-m s">🥈 ×3 Silver</span>
+              <span class="sp-m">🥉 ×1 Bronze</span>
+              <span class="sp-m g">🥇 ×5 Obj.</span>
+            </div>
           </div>
           <div class="sp-nav"><button class="sp-btn" onclick="event.stopPropagation();slide('sblc',0)">→</button></div>
         </div>
@@ -187,20 +231,37 @@
     <div class="strip-shell" onclick="openModal('flc',flcIdx)">
       <div class="strip-track" id="track-flc" style="width:200%">
         <div class="strip-page" style="width:50%">
-          <div class="sp-left"><div class="sp-wm">FLC</div><div class="sp-yr">2025</div></div>
+          <div class="sp-left">
+            <div class="sp-tag">FLC</div>
+            <div class="sp-yr">2025</div>
+            <div class="sp-wm">FLC</div>
+          </div>
           <div class="sp-mid">
             <div class="sp-conf">Fall Leadership Conference</div>
             <div class="sp-loc">La Jolla, CA · Nov 8–9, 2025</div>
-            <div class="sp-medals"><span class="sp-m g">🥇 ×1</span><span class="sp-m s">🥈 ×1</span><span class="sp-m">🥉 ×1</span><span class="sp-m aw">Greatest Membership</span></div>
+            <div class="sp-medals">
+              <span class="sp-m g">🥇 ×1 Gold</span>
+              <span class="sp-m s">🥈 ×1 Silver</span>
+              <span class="sp-m">🥉 ×1 Bronze</span>
+              <span class="sp-m aw">Greatest Membership</span>
+            </div>
           </div>
           <div class="sp-nav"><button class="sp-btn" onclick="event.stopPropagation();slide('flc',1)">→</button></div>
         </div>
         <div class="strip-page" style="width:50%">
-          <div class="sp-left"><div class="sp-wm">FLC</div><div class="sp-yr">2024</div></div>
+          <div class="sp-left">
+            <div class="sp-tag">FLC</div>
+            <div class="sp-yr">2024</div>
+            <div class="sp-wm">FLC</div>
+          </div>
           <div class="sp-mid">
             <div class="sp-conf">Fall Leadership Conference</div>
             <div class="sp-loc">Emeryville, CA · Nov 16–17, 2024</div>
-            <div class="sp-medals"><span class="sp-m g">🥇 ×1</span><span class="sp-m s">🥈 ×1</span><span class="sp-m">🥉 ×1</span></div>
+            <div class="sp-medals">
+              <span class="sp-m g">🥇 ×1 Gold</span>
+              <span class="sp-m s">🥈 ×1 Silver</span>
+              <span class="sp-m">🥉 ×1 Bronze</span>
+            </div>
           </div>
           <div class="sp-nav"><button class="sp-btn" onclick="event.stopPropagation();slide('flc',0)">→</button></div>
         </div>
@@ -219,20 +280,36 @@
     <div class="strip-shell" onclick="openModal('con',conIdx)">
       <div class="strip-track" id="track-con" style="width:200%">
         <div class="strip-page" style="width:50%">
-          <div class="sp-left"><div class="sp-wm">CON</div><div class="sp-yr">2026</div></div>
+          <div class="sp-left">
+            <div class="sp-tag">Spring 2026</div>
+            <div class="sp-yr">2026</div>
+            <div class="sp-wm">CON</div>
+          </div>
           <div class="sp-mid">
-            <div class="sp-conf">Consulting Division — Spring 2026</div>
-            <div class="sp-loc">De Anza College · Clients: UC Berkeley IEEE, Star One CU, Azalea Jewelry</div>
-            <div class="sp-medals"><span class="sp-m g">🥇 ×2</span><span class="sp-m s">🥈 ×2</span><span class="sp-m">🥉 ×2</span></div>
+            <div class="sp-conf">Consulting Division</div>
+            <div class="sp-loc">Clients: UC Berkeley IEEE · Star One CU · Azalea Jewelry</div>
+            <div class="sp-medals">
+              <span class="sp-m g">🥇 ×2 Gold</span>
+              <span class="sp-m s">🥈 ×2 Silver</span>
+              <span class="sp-m">🥉 ×2 Bronze</span>
+            </div>
           </div>
           <div class="sp-nav"><button class="sp-btn" onclick="event.stopPropagation();slide('con',1)">→</button></div>
         </div>
         <div class="strip-page" style="width:50%">
-          <div class="sp-left"><div class="sp-wm">CON</div><div class="sp-yr">2025</div></div>
+          <div class="sp-left">
+            <div class="sp-tag">Fall 2025</div>
+            <div class="sp-yr">2025</div>
+            <div class="sp-wm">CON</div>
+          </div>
           <div class="sp-mid">
-            <div class="sp-conf">Consulting Division — Fall 2025</div>
-            <div class="sp-loc">De Anza College · Clients: Hunger at Home, VIDA, Palm &amp; Stone</div>
-            <div class="sp-medals"><span class="sp-m g">🥇 ×1</span><span class="sp-m s">🥈 ×1</span><span class="sp-m">🥉 ×1</span></div>
+            <div class="sp-conf">Consulting Division</div>
+            <div class="sp-loc">Clients: Hunger at Home · VIDA · Palm &amp; Stone</div>
+            <div class="sp-medals">
+              <span class="sp-m g">🥇 ×1 Gold</span>
+              <span class="sp-m s">🥈 ×1 Silver</span>
+              <span class="sp-m">🥉 ×1 Bronze</span>
+            </div>
           </div>
           <div class="sp-nav"><button class="sp-btn" onclick="event.stopPropagation();slide('con',0)">→</button></div>
         </div>
@@ -253,20 +330,37 @@
     <div class="strip-shell" onclick="openModal('st',stIdx)">
       <div class="strip-track" id="track-st" style="width:200%">
         <div class="strip-page" style="width:50%">
-          <div class="sp-left"><div class="sp-wm">ST</div><div class="sp-yr">2026</div></div>
+          <div class="sp-left">
+            <div class="sp-tag">Shark Tank</div>
+            <div class="sp-yr">2026</div>
+            <div class="sp-wm">ST</div>
+          </div>
           <div class="sp-mid">
             <div class="sp-conf">PBL Shark Tank</div>
             <div class="sp-loc">De Anza College · Spring 2026 · 50+ participants, 11 teams</div>
-            <div class="sp-medals"><span class="sp-m g">🥇 1st</span><span class="sp-m s">🥈 2nd</span><span class="sp-m">🥉 3rd</span><span class="sp-m">3 Special Awards</span></div>
+            <div class="sp-medals">
+              <span class="sp-m g">🥇 1st Place</span>
+              <span class="sp-m s">🥈 2nd Place</span>
+              <span class="sp-m">🥉 3rd Place</span>
+              <span class="sp-m aw">3 Special Awards</span>
+            </div>
           </div>
           <div class="sp-nav"><button class="sp-btn" onclick="event.stopPropagation();slide('st',1)">→</button></div>
         </div>
         <div class="strip-page" style="width:50%">
-          <div class="sp-left"><div class="sp-wm">ST</div><div class="sp-yr">2025</div></div>
+          <div class="sp-left">
+            <div class="sp-tag">Shark Tank</div>
+            <div class="sp-yr">2025</div>
+            <div class="sp-wm">ST</div>
+          </div>
           <div class="sp-mid">
             <div class="sp-conf">PBL Shark Tank</div>
             <div class="sp-loc">De Anza College · Spring 2025 · 50 participants, 10 teams</div>
-            <div class="sp-medals"><span class="sp-m g">🥇 1st</span><span class="sp-m s">🥈 2nd</span><span class="sp-m">🥉 3rd</span></div>
+            <div class="sp-medals">
+              <span class="sp-m g">🥇 1st Place</span>
+              <span class="sp-m s">🥈 2nd Place</span>
+              <span class="sp-m">🥉 3rd Place</span>
+            </div>
           </div>
           <div class="sp-nav"><button class="sp-btn" onclick="event.stopPropagation();slide('st',0)">→</button></div>
         </div>
@@ -278,11 +372,19 @@
     <div class="strip-shell" onclick="openModal('dais',0)">
       <div class="strip-track" id="track-dais" style="width:100%">
         <div class="strip-page" style="width:100%">
-          <div class="sp-left"><div class="sp-wm">DA</div><div class="sp-yr">2025</div></div>
+          <div class="sp-left">
+            <div class="sp-tag">DAIS</div>
+            <div class="sp-yr">2025</div>
+            <div class="sp-wm">DA</div>
+          </div>
           <div class="sp-mid">
-            <div class="sp-conf">De Anza Innovation Summit (DAIS)</div>
+            <div class="sp-conf">De Anza Innovation Summit</div>
             <div class="sp-loc">De Anza College · Oct 10, 2025 · 80+ participants, 21 teams</div>
-            <div class="sp-medals"><span class="sp-m g">🥇 1st</span><span class="sp-m s">🥈 2nd</span><span class="sp-m">🥉 3rd</span></div>
+            <div class="sp-medals">
+              <span class="sp-m g">🥇 1st Place</span>
+              <span class="sp-m s">🥈 2nd Place</span>
+              <span class="sp-m">🥉 3rd Place</span>
+            </div>
           </div>
           <div class="sp-nav"><button class="sp-btn" disabled>→</button></div>
         </div>
@@ -322,15 +424,13 @@
 
 <script src="main.js"></script>
 <script>
-/* ── Slide state ── */
 var sblcIdx=0,flcIdx=0,conIdx=0,stIdx=0;
 
 function slide(key,toIdx){
   var track=document.getElementById('track-'+key);
   if(!track)return;
   var pages=track.querySelectorAll('.strip-page');
-  var total=pages.length;
-  var pct=toIdx*(100/total);
+  var pct=toIdx*(100/pages.length);
   track.style.transform='translateX(-'+pct+'%)';
   if(key==='sblc')sblcIdx=toIdx;
   else if(key==='flc')flcIdx=toIdx;
@@ -338,7 +438,6 @@ function slide(key,toIdx){
   else if(key==='st')stIdx=toIdx;
 }
 
-/* ── Modal data ── */
 var MODAL={
   nlc:{0:{tag:'NLC · 2025',title:'National Leadership Conference',loc:'Dallas, TX · May 31–Jun 2, 2025',stats:[['3','Gold'],['1','Silver'],['1','Bronze'],['13','Teams Sent']],pills:[],sub:true,results:[['🥇 1st — Accounting','Alan Dang · Katelyn Nguyen · Yihan Pan · Rachel Tran'],['🥇 1st — Business Ethics','Javin Ku'],['🥇 1st — Hospitality Management','Allissa Iida · Taranjit Kaur · Jasmine Perlas · Christina Tran'],['🥈 2nd — Community Service','Carine Chan · George Huang · Suyash Jevaria'],['🥉 3rd — Marketing','Thu Tran · Nhi Tran · Tram Lieng'],['4th — Emerging Business Issues','Zain Darwish · Javin Ku'],['5th — Business Presentation','Dianne Johnson · Vinh Nguyen · Jocelyn Ramirez']]}},
   sblc:{
@@ -347,17 +446,17 @@ var MODAL={
   },
   flc:{
     0:{tag:'FLC · 2025',title:'Fall Leadership Conference',loc:'La Jolla, CA · Nov 8–9, 2025',stats:[['🏅','Greatest Membership'],['3','Medal Events'],['8+','Placements'],['—','Conf. Attendance']],pills:['Greatest Membership Award','Conference Attendance Award'],sub:true,results:[['🥇 Entrepreneurship Pitch','Om Bathija · Shakil Musthafa · Timothy Nguyen · Bryant Vo'],['🥈 Public Speaking','Derick Nguyen'],['🥉 Hospitality Management','Jacob Chen · Vincent Shao · Joshua Morris · Ella Yang'],['4th — Finance','Carine Chan · George Huang · Christina Tran · Anna Huynh'],['5th — Entrepreneurship Pitch','Coosemans · More · Pradhan · Somu']]},
-    1:{tag:'FLC · 2024',title:'Fall Leadership Conference',loc:'Emeryville, CA · Nov 16–17, 2024',stats:[['1','Gold'],['1','Silver'],['1','Bronze'],['15+','Teams']], pills:[],sub:true,results:[['🥇 Finance Case Study','Allison Trinh · Alan Dang · Van Loc Nguyen · Zain Darwish'],['🥈 Impromptu Speaking','Javin Ku'],['🥉 Marketing Case Study','Addy Hu · Chris Wu · Neal Singh · Rushil Vaswani']]}
+    1:{tag:'FLC · 2024',title:'Fall Leadership Conference',loc:'Emeryville, CA · Nov 16–17, 2024',stats:[['1','Gold'],['1','Silver'],['1','Bronze'],['15+','Teams']],pills:[],sub:true,results:[['🥇 Finance Case Study','Allison Trinh · Alan Dang · Van Loc Nguyen · Zain Darwish'],['🥈 Impromptu Speaking','Javin Ku'],['🥉 Marketing Case Study','Addy Hu · Chris Wu · Neal Singh · Rushil Vaswani']]}
   },
   con:{
     0:{tag:'Consulting · Spring 2026',title:'Consulting Division',loc:'De Anza College · Spring 2026 · Clients: UC Berkeley IEEE, Star One CU, Azalea Jewelry',stats:[['2','Gold'],['2','Silver'],['2','Bronze'],['3','Clients']],pills:[],sub:true,results:[['🥇 1st — Azalea Jewelry','Jedrick Lachica · Jasmine Perlas · Amy Tran · Jayden Mai · Lucas Avila'],['🥈 2nd — Azalea Jewelry','Anya Faria · Janet Wong · Amaan Hussain · Gabriel Heiss'],['🥉 3rd — Star One Credit Union','Walter Paco · Noah Zabala-Taa · Adonis Escobar · Juliana Estrada']]},
     1:{tag:'Consulting · Fall 2025',title:'Consulting Division',loc:'De Anza College · Fall 2025 · Clients: Hunger at Home, VIDA, Palm & Stone',stats:[['1','Gold'],['1','Silver'],['1','Bronze'],['3','Clients']],pills:[],sub:true,results:[['🥇 1st — Hunger at Home','Evan Hoeffner · Ilay Botzer · Zhen Huey Lee · Leo Chao'],['🥈 2nd — Palm & Stone','Timothy Le · Amaan Hussain · Justin Aung · Kirin Husain'],['🥉 3rd — VIDA','Jasmine Perlas · Jedrick Lachica · Emmanuel Aceves · Elara Lwin']]}
   },
   st:{
-    0:{tag:'Shark Tank · 2026',title:'PBL Shark Tank 2026',loc:'De Anza College · Spring 2026 · 50+ participants, 11 teams, 1 hour to pitch',stats:[['50+','Participants'],['11','Teams'],['4','Judges'],['1hr','Pitch']],pills:[],sub:true,results:[['🥇 1st Place — Team #1','Harika Talluri · Ella Yang · Tran Dang · Moles Kali · Elena Burgos'],['🥈 2nd Place — Team #7','Arnav Junday · Teevra Singh · Ridhi Thapar · Ashwika Agarwal · Ruhi Teji'],['🥉 3rd Place — Team #3','Francisco Rodriguez · Jayden Phan · Parker Elsey · Evan Hoeffner · Mihir Thakar'],['Most Innovative','Rodriguez · Phan · Elsey · Hoeffner · Thakar'],['Most Environmental','Morris · Chen · Shao · Manney · Chang'],['Most Entertaining','Lakshya Saini · Zhen Huey Lee']]},
-    1:{tag:'Shark Tank · 2025',title:'PBL Shark Tank 2025',loc:'De Anza College · Spring 2025 · 50 participants, 10 teams, judges from Facebook, McAfee, Cisco, Informatica',stats:[['50','Participants'],['10','Teams'],['4','Judges'],['1hr','Pitch']],pills:[],sub:false,results:[]}
+    0:{tag:'Shark Tank · 2026',title:'PBL Shark Tank 2026',loc:'De Anza College · Spring 2026 · 50+ participants, 11 teams, 1-hour pitch',stats:[['50+','Participants'],['11','Teams'],['4','Judges'],['1hr','Pitch']],pills:[],sub:true,results:[['🥇 1st Place — Team #1','Harika Talluri · Ella Yang · Tran Dang · Moles Kali · Elena Burgos'],['🥈 2nd Place — Team #7','Arnav Junday · Teevra Singh · Ridhi Thapar · Ashwika Agarwal · Ruhi Teji'],['🥉 3rd Place — Team #3','Francisco Rodriguez · Jayden Phan · Parker Elsey · Evan Hoeffner · Mihir Thakar'],['Most Innovative','Rodriguez · Phan · Elsey · Hoeffner · Thakar'],['Most Environmental','Morris · Chen · Shao · Manney · Chang'],['Most Entertaining','Lakshya Saini · Zhen Huey Lee']]},
+    1:{tag:'Shark Tank · 2025',title:'PBL Shark Tank 2025',loc:'De Anza College · Spring 2025 · 50 participants, 10 teams',stats:[['50','Participants'],['10','Teams'],['4','Judges'],['1hr','Pitch']],pills:[],sub:false,results:[]}
   },
-  dais:{0:{tag:'DAIS · 2025',title:'De Anza Innovation Summit',loc:'De Anza College · Oct 10, 2025 · 80+ participants, 21 teams, 5-hour challenge',stats:[['80+','Participants'],['21','Teams'],['5hr','Challenge'],['1st','Year']],pills:[],sub:true,results:[['🥇 1st Place','Allyson Huynh · Gloria Gao · Rameesha Farrukh · Nabiha Shahid'],['🥈 2nd Place','Anusha Shringi · Ruirui Wu · Aarush Muralinathan · Timothy Le'],['🥉 3rd Place','Cyrus Nakar · Kyle Krawez · Su Waisy · VJ Lukka']]}}
+  dais:{0:{tag:'DAIS · 2025',title:'De Anza Innovation Summit',loc:'De Anza College · Oct 10, 2025 · 80+ participants, 21 teams, 5-hour challenge',stats:[['80+','Participants'],['21','Teams'],['5hr','Challenge'],['1st','Inaugural']],pills:[],sub:true,results:[['🥇 1st Place','Allyson Huynh · Gloria Gao · Rameesha Farrukh · Nabiha Shahid'],['🥈 2nd Place','Anusha Shringi · Ruirui Wu · Aarush Muralinathan · Timothy Le'],['🥉 3rd Place','Cyrus Nakar · Kyle Krawez · Su Waisy · VJ Lukka']]}}
 };
 
 function openModal(key,idx){
@@ -368,19 +467,14 @@ function openModal(key,idx){
   document.getElementById('m-loc').textContent=entry.loc;
   document.getElementById('m-stats').innerHTML=entry.stats.map(function(s){return'<div class="acc-modal-stat"><div class="acc-modal-stat-n">'+s[0]+'</div><div class="acc-modal-stat-l">'+s[1]+'</div></div>'}).join('');
   var pillsEl=document.getElementById('m-pills');
-  if(entry.pills&&entry.pills.length){pillsEl.style.display='flex';pillsEl.innerHTML=entry.pills.map(function(p){return'<span class="acc-modal-pill">'+p+'</span>'}).join('');}else{pillsEl.style.display='none';pillsEl.innerHTML='';}
+  if(entry.pills&&entry.pills.length){pillsEl.style.display='flex';pillsEl.innerHTML=entry.pills.map(function(p){return'<span class="acc-modal-pill">'+p+'</span>'}).join('');}else{pillsEl.style.display='none';}
   var subEl=document.getElementById('m-sub');
   subEl.style.display=entry.sub?'flex':'none';
   document.getElementById('m-results').innerHTML=entry.results.map(function(r){return'<div class="acc-modal-row"><div class="acc-modal-place">'+r[0]+'</div><div class="acc-modal-names">'+r[1]+'</div></div>'}).join('');
   document.getElementById('accModal').classList.add('open');
   document.body.style.overflow='hidden';
 }
-
-function closeModal(){
-  document.getElementById('accModal').classList.remove('open');
-  document.body.style.overflow='';
-}
-
+function closeModal(){document.getElementById('accModal').classList.remove('open');document.body.style.overflow='';}
 document.addEventListener('keydown',function(e){if(e.key==='Escape')closeModal();});
 </script>
 <script>(function(){var hero=document.querySelector('.page-hero');if(!hero)return;var l1=hero.querySelector('.plx-l1'),l2=hero.querySelector('.plx-l2'),l3=hero.querySelector('.plx-l3'),txt=hero.querySelector('.plx-text'),plxCur=hero.querySelector('.plx-cursor');hero.addEventListener('mousemove',function(e){var r=hero.getBoundingClientRect(),cx=e.clientX-r.left,cy=e.clientY-r.top,hw=r.width/2,hh=r.height/2,rx=(cx-hw)/hw,ry=(cy-hh)/hh;if(l1)l1.style.transform='translate('+(rx*14)+'px,'+(ry*14)+'px)';if(l2)l2.style.transform='translate('+(rx*26)+'px,'+(ry*26)+'px)';if(l3)l3.style.transform='translate('+(rx*42)+'px,'+(ry*42)+'px)';if(txt)txt.style.transform='translate('+(rx*-7)+'px,'+(ry*-7)+'px)';if(plxCur){plxCur.style.left=cx+'px';plxCur.style.top=cy+'px';}});hero.addEventListener('mouseleave',function(){if(l1)l1.style.transform='';if(l2)l2.style.transform='';if(l3)l3.style.transform='';if(txt)txt.style.transform='';});})();</script>
