@@ -79,9 +79,13 @@
 .spon-track{display:flex;animation:sponAnim 35s linear infinite;width:max-content}
 .spon-track:hover{animation-play-state:paused}
 @keyframes sponAnim{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
-.spon-item{display:flex;align-items:center;justify-content:center;padding:0 3.5rem;border-right:1px solid rgba(245,243,239,.05);flex-shrink:0;height:60px}
-.spon-item img{height:36px;width:auto;object-fit:contain;filter:grayscale(100%) brightness(1.8);opacity:.55;transition:all .3s}
+.spon-item{display:flex;align-items:center;justify-content:center;padding:0 3.5rem;border-right:1px solid rgba(245,243,239,.05);flex-shrink:0;height:80px;min-width:200px}
+.spon-item img{max-height:52px;max-width:160px;width:auto;height:auto;object-fit:contain;filter:grayscale(100%) brightness(1.8);opacity:.6;transition:all .3s}
 .spon-item:hover img{filter:grayscale(0%) brightness(1);opacity:1}
+.spon-item.logo-fee img{max-height:44px;max-width:80px}
+.spon-item.logo-kpmg img{max-height:56px;max-width:150px}
+.spon-item.logo-starone img{max-height:52px;max-width:150px}
+.spon-item.logo-keypoint img{max-height:48px;max-width:150px}
 .spon-lbl-wrap{padding:.75rem 2.5rem;display:flex;align-items:center;gap:.75rem;justify-content:center}
 .spon-lbl{font-family:'IBM Plex Mono',monospace;font-size:.46rem;letter-spacing:.24em;text-transform:uppercase;color:rgba(245,243,239,.2)}
 
@@ -284,14 +288,14 @@
 <div class="spon-lbl-wrap"><span class="spon-lbl">Industry Partners & Sponsors</span></div>
 <div class="spon-section">
   <div class="spon-track">
-    <div class="spon-item"><img src="images/consulting-kpmg.png" alt="KPMG"></div>
-    <div class="spon-item"><img src="images/consulting-star-one.png" alt="Star One Credit Union"></div>
-    <div class="spon-item"><img src="images/consulting-keypoint.png" alt="KeyPoint Federal Credit Union"></div>
-    <div class="spon-item"><img src="images/consulting-fee.png" alt="Foundation for Economic Education"></div>
-    <div class="spon-item"><img src="images/consulting-kpmg.png" alt="KPMG"></div>
-    <div class="spon-item"><img src="images/consulting-star-one.png" alt="Star One Credit Union"></div>
-    <div class="spon-item"><img src="images/consulting-keypoint.png" alt="KeyPoint Federal Credit Union"></div>
-    <div class="spon-item"><img src="images/consulting-fee.png" alt="Foundation for Economic Education"></div>
+    <div class="spon-item logo-kpmg"><img src="images/consulting-kpmg.png" alt="KPMG"></div>
+    <div class="spon-item logo-starone"><img src="images/consulting-star-one.png" alt="Star One Credit Union"></div>
+    <div class="spon-item logo-keypoint"><img src="images/consulting-keypoint.png" alt="KeyPoint Federal Credit Union"></div>
+    <div class="spon-item logo-fee"><img src="images/consulting-fee.png" alt="Foundation for Economic Education"></div>
+    <div class="spon-item logo-kpmg"><img src="images/consulting-kpmg.png" alt="KPMG"></div>
+    <div class="spon-item logo-starone"><img src="images/consulting-star-one.png" alt="Star One Credit Union"></div>
+    <div class="spon-item logo-keypoint"><img src="images/consulting-keypoint.png" alt="KeyPoint Federal Credit Union"></div>
+    <div class="spon-item logo-fee"><img src="images/consulting-fee.png" alt="Foundation for Economic Education"></div>
   </div>
 </div>
 
