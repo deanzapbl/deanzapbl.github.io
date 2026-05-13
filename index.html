@@ -6,7 +6,7 @@
 <title>Phi Beta Lambda — De Anza College</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Unbounded:wght@400;700&family=DM+Sans:wght@300;400;500&family=IBM+Plex+Mono:wght@400;500&family=Playfair+Display:ital,wght@1,400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Unbounded:wght@400;700&family=DM+Sans:wght@300;400;500&family=IBM+Plex+Mono:wght@400;500&family=Playfair+Display:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
 <style>
 .sep-home{position:relative;width:100vw;height:100vh;overflow:hidden;background:#0a0a0a}
@@ -69,209 +69,40 @@
 @keyframes scrollR{0%{transform:translateX(-50%)}100%{transform:translateX(0)}}
 </style>
 <style>
-/* ── Sponsor Strip ─────────────────────────────────────────────────────── */
-.sponsor-strip{
-  border-top:1px solid var(--border);
-  background:var(--black);
-  padding:2.25rem 0;
-  position:relative;
-  overflow:hidden;
-}
-.sponsor-strip::before{
-  content:'';
-  position:absolute;
-  inset:0;
-  background:radial-gradient(ellipse 60% 300% at 50% 50%, rgba(200,16,46,.035) 0%, transparent 70%);
-  pointer-events:none;
-}
-.sponsor-strip-label{
-  font-family:'IBM Plex Mono',monospace;
-  font-size:.47rem;
-  letter-spacing:.28em;
-  text-transform:uppercase;
-  color:rgba(245,243,239,.55);
-  text-align:center;
-  margin-bottom:1.4rem;
-  position:relative;
-  z-index:1;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  gap:1.4rem;
-}
-.sponsor-strip-label::before,
-.sponsor-strip-label::after{
-  content:'';
-  width:48px;
-  height:1px;
-  background:linear-gradient(90deg, transparent, rgba(245,243,239,.12));
-}
-.sponsor-strip-label::after{
-  background:linear-gradient(270deg, transparent, rgba(245,243,239,.12));
-}
-.sponsor-track-outer{
-  overflow:visible;
-  position:relative;
-  z-index:1;
-  /* clip only horizontally so tooltips above are visible */
-  clip-path:inset(0 0 -200px 0);
-}
-.sponsor-track-outer::before,
-.sponsor-track-outer::after{
-  content:'';
-  position:absolute;
-  top:0;bottom:0;
-  width:140px;
-  z-index:10;
-  pointer-events:none;
-}
-.sponsor-track-outer::before{
-  left:0;
-  background:linear-gradient(90deg, var(--black) 30%, transparent);
-}
-.sponsor-track-outer::after{
-  right:0;
-  background:linear-gradient(270deg, var(--black) 30%, transparent);
-}
-.sponsor-track{
-  display:flex;
-  gap:14px;
-  width:max-content;
-  padding:6px 0;
-  animation:sponsorScroll 40s linear infinite;
-}
-.sponsor-track.paused{ animation-play-state:paused; }
-@keyframes sponsorScroll{
-  0%  { transform:translateX(0); }
-  100%{ transform:translateX(-50%); }
-}
-.sponsor-logo{
-  flex-shrink:0;
-  width:164px;
-  height:74px;
-  background:#111;
-  border:1px solid rgba(245,243,239,.06);
-  border-radius:6px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  cursor:pointer;
-  position:relative;
-  overflow:hidden;
-  transition:border-color .4s, transform .45s cubic-bezier(.16,1,.3,1), box-shadow .45s;
-  transform-origin:center;
-}
-/* top rim shimmer */
-.sponsor-logo::before{
-  content:'';
-  position:absolute;
-  top:0; left:12%; right:12%; height:1px;
-  background:linear-gradient(90deg, transparent, rgba(255,255,255,.07), transparent);
-  pointer-events:none;
-}
-/* radial bloom (active only) */
-.sponsor-logo::after{
-  content:'';
-  position:absolute;
-  inset:0;
-  background:radial-gradient(circle at 50% 0%, rgba(255,255,255,.08), transparent 65%);
-  opacity:0;
-  transition:opacity .4s;
-  pointer-events:none;
-}
-.sponsor-logo:hover{ border-color:rgba(245,243,239,.2); }
-.sponsor-logo.active{
-  border-color:rgba(255,255,255,.78);
-  transform:scale(1.13);
-  z-index:20;
-  background:#161616;
-  box-shadow:
-    0 0 0 1px rgba(255,255,255,.22),
-    0 0 12px 3px rgba(255,255,255,.13),
-    0 0 32px 8px rgba(255,255,255,.07),
-    0 0 64px 18px rgba(255,255,255,.025);
-}
-.sponsor-logo.active::after{ opacity:1; }
-/* logo image */
-.sponsor-logo img{
-  max-width:96px;
-  max-height:42px;
-  object-fit:contain;
-  filter:brightness(0) invert(.5);
-  transition:filter .35s, transform .35s;
-  position:relative;
-  z-index:1;
-  display:block;
-}
-.sponsor-logo:hover img{ filter:brightness(0) invert(.72); }
-.sponsor-logo.active img{ filter:brightness(0) invert(1); transform:scale(1.04); }
-/* fallback text */
-.sponsor-logo-name{
-  font-family:'Bebas Neue',sans-serif;
-  font-size:1.05rem;
-  color:rgba(245,243,239,.38);
-  letter-spacing:.08em;
-  text-align:center;
-  padding:0 12px;
-  line-height:1.3;
-  transition:color .3s;
-  position:relative;
-  z-index:1;
-  user-select:none;
-}
-.sponsor-logo:hover .sponsor-logo-name{ color:rgba(245,243,239,.68); }
-.sponsor-logo.active .sponsor-logo-name{ color:#f5f3ef; }
-/* tooltip above active card */
-.sponsor-tooltip{
-  position:absolute;
-  bottom:calc(100% + 10px);
-  left:50%;
-  transform:translateX(-50%) translateY(6px);
-  background:#181818;
-  border:1px solid rgba(255,255,255,.14);
-  border-radius:4px;
-  padding:.55rem 1rem;
-  white-space:nowrap;
-  pointer-events:none;
-  z-index:30;
-  opacity:0;
-  transition:opacity .22s, transform .22s;
-  box-shadow:0 0 0 1px rgba(255,255,255,.05), 0 8px 28px rgba(0,0,0,.7);
-}
-.sponsor-logo.active .sponsor-tooltip{
-  opacity:1;
-  transform:translateX(-50%) translateY(0);
-}
-.sponsor-tooltip-name{
-  font-family:'Bebas Neue',sans-serif;
-  font-size:1rem;
-  color:#f5f3ef;
-  letter-spacing:.05em;
-  line-height:1.2;
-  margin-bottom:.2rem;
-}
-.sponsor-tooltip-type{
-  font-family:'IBM Plex Mono',monospace;
-  font-size:.42rem;
-  letter-spacing:.18em;
-  text-transform:uppercase;
-  color:#c8102e;
-}
-.sponsor-tooltip::after{
-  content:'';
-  position:absolute;
-  top:100%; left:50%;
-  transform:translateX(-50%);
-  border:5px solid transparent;
-  border-top-color:#181818;
-}
+.sponsor-strip{border-top:1px solid var(--border);background:var(--black);padding:2.25rem 0;position:relative;overflow:hidden}
+.sponsor-strip::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 60% 300% at 50% 50%,rgba(200,16,46,.035) 0%,transparent 70%);pointer-events:none}
+.sponsor-strip-label{font-family:'IBM Plex Mono',monospace;font-size:.47rem;letter-spacing:.28em;text-transform:uppercase;color:rgba(245,243,239,.55);text-align:center;margin-bottom:1.4rem;position:relative;z-index:1;display:flex;align-items:center;justify-content:center;gap:1.4rem}
+.sponsor-strip-label::before,.sponsor-strip-label::after{content:'';width:48px;height:1px;background:linear-gradient(90deg,transparent,rgba(245,243,239,.12))}
+.sponsor-strip-label::after{background:linear-gradient(270deg,transparent,rgba(245,243,239,.12))}
+.sponsor-track-outer{overflow:visible;position:relative;z-index:1;clip-path:inset(0 0 -200px 0)}
+.sponsor-track-outer::before,.sponsor-track-outer::after{content:'';position:absolute;top:0;bottom:0;width:140px;z-index:10;pointer-events:none}
+.sponsor-track-outer::before{left:0;background:linear-gradient(90deg,var(--black) 30%,transparent)}
+.sponsor-track-outer::after{right:0;background:linear-gradient(270deg,var(--black) 30%,transparent)}
+.sponsor-track{display:flex;gap:14px;width:max-content;padding:6px 0;animation:sponsorScroll 40s linear infinite}
+.sponsor-track.paused{animation-play-state:paused}
+@keyframes sponsorScroll{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+.sponsor-logo{flex-shrink:0;width:164px;height:74px;background:#111;border:1px solid rgba(245,243,239,.06);border-radius:6px;display:flex;align-items:center;justify-content:center;cursor:pointer;position:relative;overflow:hidden;transition:border-color .4s,transform .45s cubic-bezier(.16,1,.3,1),box-shadow .45s;transform-origin:center}
+.sponsor-logo::before{content:'';position:absolute;top:0;left:12%;right:12%;height:1px;background:linear-gradient(90deg,transparent,rgba(255,255,255,.07),transparent);pointer-events:none}
+.sponsor-logo::after{content:'';position:absolute;inset:0;background:radial-gradient(circle at 50% 0%,rgba(255,255,255,.08),transparent 65%);opacity:0;transition:opacity .4s;pointer-events:none}
+.sponsor-logo:hover{border-color:rgba(245,243,239,.2)}
+.sponsor-logo.active{border-color:rgba(255,255,255,.78);transform:scale(1.13);z-index:20;background:#161616;box-shadow:0 0 0 1px rgba(255,255,255,.22),0 0 12px 3px rgba(255,255,255,.13),0 0 32px 8px rgba(255,255,255,.07),0 0 64px 18px rgba(255,255,255,.025)}
+.sponsor-logo.active::after{opacity:1}
+.sponsor-logo img{max-width:96px;max-height:42px;object-fit:contain;filter:brightness(0) invert(.5);transition:filter .35s,transform .35s;position:relative;z-index:1;display:block}
+.sponsor-logo:hover img{filter:brightness(0) invert(.72)}
+.sponsor-logo.active img{filter:brightness(0) invert(1);transform:scale(1.04)}
+.sponsor-logo-name{font-family:'Bebas Neue',sans-serif;font-size:1.05rem;color:rgba(245,243,239,.38);letter-spacing:.08em;text-align:center;padding:0 12px;line-height:1.3;transition:color .3s;position:relative;z-index:1;user-select:none}
+.sponsor-logo:hover .sponsor-logo-name{color:rgba(245,243,239,.68)}
+.sponsor-logo.active .sponsor-logo-name{color:#f5f3ef}
+.sponsor-tooltip{position:absolute;bottom:calc(100% + 10px);left:50%;transform:translateX(-50%) translateY(6px);background:#181818;border:1px solid rgba(255,255,255,.14);border-radius:4px;padding:.55rem 1rem;white-space:nowrap;pointer-events:none;z-index:30;opacity:0;transition:opacity .22s,transform .22s;box-shadow:0 0 0 1px rgba(255,255,255,.05),0 8px 28px rgba(0,0,0,.7)}
+.sponsor-logo.active .sponsor-tooltip{opacity:1;transform:translateX(-50%) translateY(0)}
+.sponsor-tooltip-name{font-family:'Bebas Neue',sans-serif;font-size:1rem;color:#f5f3ef;letter-spacing:.05em;line-height:1.2;margin-bottom:.2rem}
+.sponsor-tooltip-type{font-family:'IBM Plex Mono',monospace;font-size:.42rem;letter-spacing:.18em;text-transform:uppercase;color:#c8102e}
+.sponsor-tooltip::after{content:'';position:absolute;top:100%;left:50%;transform:translateX(-50%);border:5px solid transparent;border-top-color:#181818}
 </style>
 </head>
 <body style="cursor:none">
 <div class="cur" id="cur"></div>
 <div class="cur-ring" id="ring"></div>
-
-<!-- MOBILE OVERLAY -->
 <div class="mob-overlay" id="mob">
   <button class="mob-close" onclick="closeMob()">Close ×</button>
   <ul class="mob-links">
@@ -286,8 +117,6 @@
   </ul>
   <div class="mob-meta">De Anza College · Cupertino, CA</div>
 </div>
-
-<!-- NAV -->
 <nav id="nav">
   <div class="nav-left">
     <a href="index.html" style="background:none;border:none;cursor:pointer;padding:0;display:flex;align-items:center;text-decoration:none">
@@ -309,10 +138,7 @@
     <button class="hamburger" onclick="openMob()"><span></span><span></span><span></span></button>
   </div>
 </nav>
-
 <div class="page active">
-
-<!-- ── HERO ─────────────────────────────────────────────────────────────── -->
 <div class="sep-home">
   <div class="film-bg">
     <div class="film-row rl"><div class="fc c1"></div><div class="fc c2"></div><div class="fc c3"></div><div class="fc c4"></div><div class="fc c5"></div><div class="fc c6"></div><div class="fc c7"></div><div class="fc c8"></div><div class="fc c9"></div><div class="fc c10"></div><div class="fc c11"></div><div class="fc c12"></div><div class="fc c13"></div><div class="fc c14"></div><div class="fc c15"></div><div class="fc c16"></div><div class="fc c17"></div><div class="fc c18"></div><div class="fc c1"></div><div class="fc c2"></div><div class="fc c3"></div><div class="fc c4"></div><div class="fc c5"></div><div class="fc c6"></div><div class="fc c7"></div><div class="fc c8"></div><div class="fc c9"></div><div class="fc c10"></div><div class="fc c11"></div><div class="fc c12"></div><div class="fc c13"></div><div class="fc c14"></div><div class="fc c15"></div><div class="fc c16"></div><div class="fc c17"></div><div class="fc c18"></div></div>
@@ -342,18 +168,17 @@
   </div>
 </div>
 
-<!-- ── ABOUT ──────────────────────────────────────────────────────────────── -->
 <div class="about-band">
   <div class="about-left">
     <div class="sec-tag">About PBL</div>
     <h2 class="sec-h">The Group<br>For Growth.</h2>
     <div class="sec-body">
-      <p>De Anza's <strong>most decorated</strong> business organization. Since our founding, we've claimed <strong>100+ competitive awards</strong> at regional, state, and national levels — and we're just getting started.</p>
-      <p style="margin-top:1.25rem">We train the next generation of business leaders through real consulting work, rigorous case competitions, and a network that extends from De Anza to Berkeley, USC, and beyond. Open to all majors.</p>
+      <p>De Anza's premier business organization, built on one principle: do work that matters. Since 2024, we've earned <strong>100+ competitive awards</strong> at regional, state, and national levels. In 2026, we swept the California State Leadership Conference — taking home the Sweepstakes Award, 6 Gold medals, and the Largest Chapter Award.</p>
+      <p style="margin-top:1.25rem">PBL members don't just study business — they practice it. Through our Consulting Division, Polaris Research Group, and FBLA competition team, members build real portfolios, publish research, and compete on the national stage. Open to all majors at De Anza College.</p>
     </div>
   </div>
   <div class="about-right">
-    <blockquote class="about-quote">"A place where cohorts convene, careers begin, and professional identity is forged."</blockquote>
+    <blockquote class="about-quote">"The résumé starts here."</blockquote>
     <div style="margin-top:2rem;border-top:1px solid var(--border);padding-top:2rem">
       <div class="sec-tag">Our Divisions</div>
       <div style="display:flex;flex-direction:column;gap:2px;margin-top:1rem">
@@ -383,298 +208,44 @@
   </div>
 </div>
 
-<!-- ── SPONSOR STRIP ──────────────────────────────────────────────────────── -->
 <div class="sponsor-strip">
   <div class="sponsor-strip-label">Our Collaborators &amp; Partners</div>
   <div class="sponsor-track-outer">
     <div class="sponsor-track" id="sponsorTrack">
-      <div class="sponsor-logo" data-name="Google" data-type="Technology">
-        <img src="https://logo.clearbit.com/google.com" alt="Google" onerror="this.style.display='none';this.nextElementSibling.style.display=''">
-        <span class="sponsor-logo-name" style="display:none">Google</span>
-        <div class="sponsor-tooltip"><div class="sponsor-tooltip-name">Google</div><div class="sponsor-tooltip-type">Technology</div></div>
-      </div>
-      <div class="sponsor-logo" data-name="NVIDIA" data-type="AI & Hardware">
-        <img src="https://logo.clearbit.com/nvidia.com" alt="NVIDIA" onerror="this.style.display='none';this.nextElementSibling.style.display=''">
-        <span class="sponsor-logo-name" style="display:none">NVIDIA</span>
-        <div class="sponsor-tooltip"><div class="sponsor-tooltip-name">NVIDIA</div><div class="sponsor-tooltip-type">AI & Hardware</div></div>
-      </div>
-      <div class="sponsor-logo" data-name="Informatica" data-type="Data Management">
-        <img src="https://logo.clearbit.com/informatica.com" alt="Informatica" onerror="this.style.display='none';this.nextElementSibling.style.display=''">
-        <span class="sponsor-logo-name" style="display:none">Informatica</span>
-        <div class="sponsor-tooltip"><div class="sponsor-tooltip-name">Informatica</div><div class="sponsor-tooltip-type">Data Management</div></div>
-      </div>
-      <div class="sponsor-logo" data-name="Salesforce" data-type="CRM & Cloud">
-        <img src="https://logo.clearbit.com/salesforce.com" alt="Salesforce" onerror="this.style.display='none';this.nextElementSibling.style.display=''">
-        <span class="sponsor-logo-name" style="display:none">Salesforce</span>
-        <div class="sponsor-tooltip"><div class="sponsor-tooltip-name">Salesforce</div><div class="sponsor-tooltip-type">CRM & Cloud</div></div>
-      </div>
-      <div class="sponsor-logo" data-name="Cisco" data-type="Networking">
-        <img src="https://logo.clearbit.com/cisco.com" alt="Cisco" onerror="this.style.display='none';this.nextElementSibling.style.display=''">
-        <span class="sponsor-logo-name" style="display:none">Cisco</span>
-        <div class="sponsor-tooltip"><div class="sponsor-tooltip-name">Cisco</div><div class="sponsor-tooltip-type">Networking</div></div>
-      </div>
-      <div class="sponsor-logo" data-name="Meta" data-type="Social Technology">
-        <img src="https://logo.clearbit.com/meta.com" alt="Meta" onerror="this.style.display='none';this.nextElementSibling.style.display=''">
-        <span class="sponsor-logo-name" style="display:none">Meta</span>
-        <div class="sponsor-tooltip"><div class="sponsor-tooltip-name">Meta</div><div class="sponsor-tooltip-type">Social Technology</div></div>
-      </div>
-      <div class="sponsor-logo" data-name="Perplexity" data-type="AI Search">
-        <img src="https://logo.clearbit.com/perplexity.ai" alt="Perplexity" onerror="this.style.display='none';this.nextElementSibling.style.display=''">
-        <span class="sponsor-logo-name" style="display:none">Perplexity</span>
-        <div class="sponsor-tooltip"><div class="sponsor-tooltip-name">Perplexity</div><div class="sponsor-tooltip-type">AI Search</div></div>
-      </div>
-      <div class="sponsor-logo" data-name="McAfee" data-type="Cybersecurity">
-        <img src="https://logo.clearbit.com/mcafee.com" alt="McAfee" onerror="this.style.display='none';this.nextElementSibling.style.display=''">
-        <span class="sponsor-logo-name" style="display:none">McAfee</span>
-        <div class="sponsor-tooltip"><div class="sponsor-tooltip-name">McAfee</div><div class="sponsor-tooltip-type">Cybersecurity</div></div>
-      </div>
-      <div class="sponsor-logo" data-name="GoDaddy" data-type="Web Services">
-        <img src="https://logo.clearbit.com/godaddy.com" alt="GoDaddy" onerror="this.style.display='none';this.nextElementSibling.style.display=''">
-        <span class="sponsor-logo-name" style="display:none">GoDaddy</span>
-        <div class="sponsor-tooltip"><div class="sponsor-tooltip-name">GoDaddy</div><div class="sponsor-tooltip-type">Web Services</div></div>
-      </div>
-      <div class="sponsor-logo" data-name="Goldman Sachs" data-type="Investment Banking">
-        <img src="https://logo.clearbit.com/goldmansachs.com" alt="Goldman Sachs" onerror="this.style.display='none';this.nextElementSibling.style.display=''">
-        <span class="sponsor-logo-name" style="display:none">Goldman Sachs</span>
-        <div class="sponsor-tooltip"><div class="sponsor-tooltip-name">Goldman Sachs</div><div class="sponsor-tooltip-type">Investment Banking</div></div>
-      </div>
-      <div class="sponsor-logo" data-name="Culvert" data-type="AI Analytics">
-        <img src="https://logo.clearbit.com/culvert-ai.com" alt="Culvert" onerror="this.style.display='none';this.nextElementSibling.style.display=''">
-        <span class="sponsor-logo-name" style="display:none">Culvert</span>
-        <div class="sponsor-tooltip"><div class="sponsor-tooltip-name">Culvert</div><div class="sponsor-tooltip-type">AI Analytics</div></div>
-      </div>
-      <div class="sponsor-logo" data-name="Vectice" data-type="MLOps">
-        <img src="https://logo.clearbit.com/vectice.com" alt="Vectice" onerror="this.style.display='none';this.nextElementSibling.style.display=''">
-        <span class="sponsor-logo-name" style="display:none">Vectice</span>
-        <div class="sponsor-tooltip"><div class="sponsor-tooltip-name">Vectice</div><div class="sponsor-tooltip-type">MLOps</div></div>
-      </div>
-      <div class="sponsor-logo" data-name="Amazon" data-type="Cloud & E-Commerce">
-        <img src="https://logo.clearbit.com/amazon.com" alt="Amazon" onerror="this.style.display='none';this.nextElementSibling.style.display=''">
-        <span class="sponsor-logo-name" style="display:none">Amazon</span>
-        <div class="sponsor-tooltip"><div class="sponsor-tooltip-name">Amazon</div><div class="sponsor-tooltip-type">Cloud & E-Commerce</div></div>
-      </div>
-      <div class="sponsor-logo" data-name="ClearlyRated" data-type="B2B Research">
-        <img src="https://logo.clearbit.com/clearlyrated.com" alt="ClearlyRated" onerror="this.style.display='none';this.nextElementSibling.style.display=''">
-        <span class="sponsor-logo-name" style="display:none">ClearlyRated</span>
-        <div class="sponsor-tooltip"><div class="sponsor-tooltip-name">ClearlyRated</div><div class="sponsor-tooltip-type">B2B Research</div></div>
-      </div>
-      <div class="sponsor-logo" data-name="Google" data-type="Technology">
-        <img src="https://logo.clearbit.com/google.com" alt="Google" onerror="this.style.display='none';this.nextElementSibling.style.display=''">
-        <span class="sponsor-logo-name" style="display:none">Google</span>
-        <div class="sponsor-tooltip"><div class="sponsor-tooltip-name">Google</div><div class="sponsor-tooltip-type">Technology</div></div>
-      </div>
-      <div class="sponsor-logo" data-name="NVIDIA" data-type="AI & Hardware">
-        <img src="https://logo.clearbit.com/nvidia.com" alt="NVIDIA" onerror="this.style.display='none';this.nextElementSibling.style.display=''">
-        <span class="sponsor-logo-name" style="display:none">NVIDIA</span>
-        <div class="sponsor-tooltip"><div class="sponsor-tooltip-name">NVIDIA</div><div class="sponsor-tooltip-type">AI & Hardware</div></div>
-      </div>
-      <div class="sponsor-logo" data-name="Informatica" data-type="Data Management">
-        <img src="https://logo.clearbit.com/informatica.com" alt="Informatica" onerror="this.style.display='none';this.nextElementSibling.style.display=''">
-        <span class="sponsor-logo-name" style="display:none">Informatica</span>
-        <div class="sponsor-tooltip"><div class="sponsor-tooltip-name">Informatica</div><div class="sponsor-tooltip-type">Data Management</div></div>
-      </div>
-      <div class="sponsor-logo" data-name="Salesforce" data-type="CRM & Cloud">
-        <img src="https://logo.clearbit.com/salesforce.com" alt="Salesforce" onerror="this.style.display='none';this.nextElementSibling.style.display=''">
-        <span class="sponsor-logo-name" style="display:none">Salesforce</span>
-        <div class="sponsor-tooltip"><div class="sponsor-tooltip-name">Salesforce</div><div class="sponsor-tooltip-type">CRM & Cloud</div></div>
-      </div>
-      <div class="sponsor-logo" data-name="Cisco" data-type="Networking">
-        <img src="https://logo.clearbit.com/cisco.com" alt="Cisco" onerror="this.style.display='none';this.nextElementSibling.style.display=''">
-        <span class="sponsor-logo-name" style="display:none">Cisco</span>
-        <div class="sponsor-tooltip"><div class="sponsor-tooltip-name">Cisco</div><div class="sponsor-tooltip-type">Networking</div></div>
-      </div>
-      <div class="sponsor-logo" data-name="Meta" data-type="Social Technology">
-        <img src="https://logo.clearbit.com/meta.com" alt="Meta" onerror="this.style.display='none';this.nextElementSibling.style.display=''">
-        <span class="sponsor-logo-name" style="display:none">Meta</span>
-        <div class="sponsor-tooltip"><div class="sponsor-tooltip-name">Meta</div><div class="sponsor-tooltip-type">Social Technology</div></div>
-      </div>
-      <div class="sponsor-logo" data-name="Perplexity" data-type="AI Search">
-        <img src="https://logo.clearbit.com/perplexity.ai" alt="Perplexity" onerror="this.style.display='none';this.nextElementSibling.style.display=''">
-        <span class="sponsor-logo-name" style="display:none">Perplexity</span>
-        <div class="sponsor-tooltip"><div class="sponsor-tooltip-name">Perplexity</div><div class="sponsor-tooltip-type">AI Search</div></div>
-      </div>
-      <div class="sponsor-logo" data-name="McAfee" data-type="Cybersecurity">
-        <img src="https://logo.clearbit.com/mcafee.com" alt="McAfee" onerror="this.style.display='none';this.nextElementSibling.style.display=''">
-        <span class="sponsor-logo-name" style="display:none">McAfee</span>
-        <div class="sponsor-tooltip"><div class="sponsor-tooltip-name">McAfee</div><div class="sponsor-tooltip-type">Cybersecurity</div></div>
-      </div>
-      <div class="sponsor-logo" data-name="GoDaddy" data-type="Web Services">
-        <img src="https://logo.clearbit.com/godaddy.com" alt="GoDaddy" onerror="this.style.display='none';this.nextElementSibling.style.display=''">
-        <span class="sponsor-logo-name" style="display:none">GoDaddy</span>
-        <div class="sponsor-tooltip"><div class="sponsor-tooltip-name">GoDaddy</div><div class="sponsor-tooltip-type">Web Services</div></div>
-      </div>
-      <div class="sponsor-logo" data-name="Goldman Sachs" data-type="Investment Banking">
-        <img src="https://logo.clearbit.com/goldmansachs.com" alt="Goldman Sachs" onerror="this.style.display='none';this.nextElementSibling.style.display=''">
-        <span class="sponsor-logo-name" style="display:none">Goldman Sachs</span>
-        <div class="sponsor-tooltip"><div class="sponsor-tooltip-name">Goldman Sachs</div><div class="sponsor-tooltip-type">Investment Banking</div></div>
-      </div>
-      <div class="sponsor-logo" data-name="Culvert" data-type="AI Analytics">
-        <img src="https://logo.clearbit.com/culvert-ai.com" alt="Culvert" onerror="this.style.display='none';this.nextElementSibling.style.display=''">
-        <span class="sponsor-logo-name" style="display:none">Culvert</span>
-        <div class="sponsor-tooltip"><div class="sponsor-tooltip-name">Culvert</div><div class="sponsor-tooltip-type">AI Analytics</div></div>
-      </div>
-      <div class="sponsor-logo" data-name="Vectice" data-type="MLOps">
-        <img src="https://logo.clearbit.com/vectice.com" alt="Vectice" onerror="this.style.display='none';this.nextElementSibling.style.display=''">
-        <span class="sponsor-logo-name" style="display:none">Vectice</span>
-        <div class="sponsor-tooltip"><div class="sponsor-tooltip-name">Vectice</div><div class="sponsor-tooltip-type">MLOps</div></div>
-      </div>
-      <div class="sponsor-logo" data-name="Amazon" data-type="Cloud & E-Commerce">
-        <img src="https://logo.clearbit.com/amazon.com" alt="Amazon" onerror="this.style.display='none';this.nextElementSibling.style.display=''">
-        <span class="sponsor-logo-name" style="display:none">Amazon</span>
-        <div class="sponsor-tooltip"><div class="sponsor-tooltip-name">Amazon</div><div class="sponsor-tooltip-type">Cloud & E-Commerce</div></div>
-      </div>
-      <div class="sponsor-logo" data-name="ClearlyRated" data-type="B2B Research">
-        <img src="https://logo.clearbit.com/clearlyrated.com" alt="ClearlyRated" onerror="this.style.display='none';this.nextElementSibling.style.display=''">
-        <span class="sponsor-logo-name" style="display:none">ClearlyRated</span>
-        <div class="sponsor-tooltip"><div class="sponsor-tooltip-name">ClearlyRated</div><div class="sponsor-tooltip-type">B2B Research</div></div>
-      </div>
-      <div class="sponsor-logo" data-name="Google" data-type="Technology">
-        <img src="https://logo.clearbit.com/google.com" alt="Google" onerror="this.style.display='none';this.nextElementSibling.style.display=''">
-        <span class="sponsor-logo-name" style="display:none">Google</span>
-        <div class="sponsor-tooltip"><div class="sponsor-tooltip-name">Google</div><div class="sponsor-tooltip-type">Technology</div></div>
-      </div>
-      <div class="sponsor-logo" data-name="NVIDIA" data-type="AI & Hardware">
-        <img src="https://logo.clearbit.com/nvidia.com" alt="NVIDIA" onerror="this.style.display='none';this.nextElementSibling.style.display=''">
-        <span class="sponsor-logo-name" style="display:none">NVIDIA</span>
-        <div class="sponsor-tooltip"><div class="sponsor-tooltip-name">NVIDIA</div><div class="sponsor-tooltip-type">AI & Hardware</div></div>
-      </div>
-      <div class="sponsor-logo" data-name="Informatica" data-type="Data Management">
-        <img src="https://logo.clearbit.com/informatica.com" alt="Informatica" onerror="this.style.display='none';this.nextElementSibling.style.display=''">
-        <span class="sponsor-logo-name" style="display:none">Informatica</span>
-        <div class="sponsor-tooltip"><div class="sponsor-tooltip-name">Informatica</div><div class="sponsor-tooltip-type">Data Management</div></div>
-      </div>
-      <div class="sponsor-logo" data-name="Salesforce" data-type="CRM & Cloud">
-        <img src="https://logo.clearbit.com/salesforce.com" alt="Salesforce" onerror="this.style.display='none';this.nextElementSibling.style.display=''">
-        <span class="sponsor-logo-name" style="display:none">Salesforce</span>
-        <div class="sponsor-tooltip"><div class="sponsor-tooltip-name">Salesforce</div><div class="sponsor-tooltip-type">CRM & Cloud</div></div>
-      </div>
-      <div class="sponsor-logo" data-name="Cisco" data-type="Networking">
-        <img src="https://logo.clearbit.com/cisco.com" alt="Cisco" onerror="this.style.display='none';this.nextElementSibling.style.display=''">
-        <span class="sponsor-logo-name" style="display:none">Cisco</span>
-        <div class="sponsor-tooltip"><div class="sponsor-tooltip-name">Cisco</div><div class="sponsor-tooltip-type">Networking</div></div>
-      </div>
-      <div class="sponsor-logo" data-name="Meta" data-type="Social Technology">
-        <img src="https://logo.clearbit.com/meta.com" alt="Meta" onerror="this.style.display='none';this.nextElementSibling.style.display=''">
-        <span class="sponsor-logo-name" style="display:none">Meta</span>
-        <div class="sponsor-tooltip"><div class="sponsor-tooltip-name">Meta</div><div class="sponsor-tooltip-type">Social Technology</div></div>
-      </div>
-      <div class="sponsor-logo" data-name="Perplexity" data-type="AI Search">
-        <img src="https://logo.clearbit.com/perplexity.ai" alt="Perplexity" onerror="this.style.display='none';this.nextElementSibling.style.display=''">
-        <span class="sponsor-logo-name" style="display:none">Perplexity</span>
-        <div class="sponsor-tooltip"><div class="sponsor-tooltip-name">Perplexity</div><div class="sponsor-tooltip-type">AI Search</div></div>
-      </div>
-      <div class="sponsor-logo" data-name="McAfee" data-type="Cybersecurity">
-        <img src="https://logo.clearbit.com/mcafee.com" alt="McAfee" onerror="this.style.display='none';this.nextElementSibling.style.display=''">
-        <span class="sponsor-logo-name" style="display:none">McAfee</span>
-        <div class="sponsor-tooltip"><div class="sponsor-tooltip-name">McAfee</div><div class="sponsor-tooltip-type">Cybersecurity</div></div>
-      </div>
-      <div class="sponsor-logo" data-name="GoDaddy" data-type="Web Services">
-        <img src="https://logo.clearbit.com/godaddy.com" alt="GoDaddy" onerror="this.style.display='none';this.nextElementSibling.style.display=''">
-        <span class="sponsor-logo-name" style="display:none">GoDaddy</span>
-        <div class="sponsor-tooltip"><div class="sponsor-tooltip-name">GoDaddy</div><div class="sponsor-tooltip-type">Web Services</div></div>
-      </div>
-      <div class="sponsor-logo" data-name="Goldman Sachs" data-type="Investment Banking">
-        <img src="https://logo.clearbit.com/goldmansachs.com" alt="Goldman Sachs" onerror="this.style.display='none';this.nextElementSibling.style.display=''">
-        <span class="sponsor-logo-name" style="display:none">Goldman Sachs</span>
-        <div class="sponsor-tooltip"><div class="sponsor-tooltip-name">Goldman Sachs</div><div class="sponsor-tooltip-type">Investment Banking</div></div>
-      </div>
-      <div class="sponsor-logo" data-name="Culvert" data-type="AI Analytics">
-        <img src="https://logo.clearbit.com/culvert-ai.com" alt="Culvert" onerror="this.style.display='none';this.nextElementSibling.style.display=''">
-        <span class="sponsor-logo-name" style="display:none">Culvert</span>
-        <div class="sponsor-tooltip"><div class="sponsor-tooltip-name">Culvert</div><div class="sponsor-tooltip-type">AI Analytics</div></div>
-      </div>
-      <div class="sponsor-logo" data-name="Vectice" data-type="MLOps">
-        <img src="https://logo.clearbit.com/vectice.com" alt="Vectice" onerror="this.style.display='none';this.nextElementSibling.style.display=''">
-        <span class="sponsor-logo-name" style="display:none">Vectice</span>
-        <div class="sponsor-tooltip"><div class="sponsor-tooltip-name">Vectice</div><div class="sponsor-tooltip-type">MLOps</div></div>
-      </div>
-      <div class="sponsor-logo" data-name="Amazon" data-type="Cloud & E-Commerce">
-        <img src="https://logo.clearbit.com/amazon.com" alt="Amazon" onerror="this.style.display='none';this.nextElementSibling.style.display=''">
-        <span class="sponsor-logo-name" style="display:none">Amazon</span>
-        <div class="sponsor-tooltip"><div class="sponsor-tooltip-name">Amazon</div><div class="sponsor-tooltip-type">Cloud & E-Commerce</div></div>
-      </div>
-      <div class="sponsor-logo" data-name="ClearlyRated" data-type="B2B Research">
-        <img src="https://logo.clearbit.com/clearlyrated.com" alt="ClearlyRated" onerror="this.style.display='none';this.nextElementSibling.style.display=''">
-        <span class="sponsor-logo-name" style="display:none">ClearlyRated</span>
-        <div class="sponsor-tooltip"><div class="sponsor-tooltip-name">ClearlyRated</div><div class="sponsor-tooltip-type">B2B Research</div></div>
-      </div>
-      <div class="sponsor-logo" data-name="Google" data-type="Technology">
-        <img src="https://logo.clearbit.com/google.com" alt="Google" onerror="this.style.display='none';this.nextElementSibling.style.display=''">
-        <span class="sponsor-logo-name" style="display:none">Google</span>
-        <div class="sponsor-tooltip"><div class="sponsor-tooltip-name">Google</div><div class="sponsor-tooltip-type">Technology</div></div>
-      </div>
-      <div class="sponsor-logo" data-name="NVIDIA" data-type="AI & Hardware">
-        <img src="https://logo.clearbit.com/nvidia.com" alt="NVIDIA" onerror="this.style.display='none';this.nextElementSibling.style.display=''">
-        <span class="sponsor-logo-name" style="display:none">NVIDIA</span>
-        <div class="sponsor-tooltip"><div class="sponsor-tooltip-name">NVIDIA</div><div class="sponsor-tooltip-type">AI & Hardware</div></div>
-      </div>
-      <div class="sponsor-logo" data-name="Informatica" data-type="Data Management">
-        <img src="https://logo.clearbit.com/informatica.com" alt="Informatica" onerror="this.style.display='none';this.nextElementSibling.style.display=''">
-        <span class="sponsor-logo-name" style="display:none">Informatica</span>
-        <div class="sponsor-tooltip"><div class="sponsor-tooltip-name">Informatica</div><div class="sponsor-tooltip-type">Data Management</div></div>
-      </div>
-      <div class="sponsor-logo" data-name="Salesforce" data-type="CRM & Cloud">
-        <img src="https://logo.clearbit.com/salesforce.com" alt="Salesforce" onerror="this.style.display='none';this.nextElementSibling.style.display=''">
-        <span class="sponsor-logo-name" style="display:none">Salesforce</span>
-        <div class="sponsor-tooltip"><div class="sponsor-tooltip-name">Salesforce</div><div class="sponsor-tooltip-type">CRM & Cloud</div></div>
-      </div>
-      <div class="sponsor-logo" data-name="Cisco" data-type="Networking">
-        <img src="https://logo.clearbit.com/cisco.com" alt="Cisco" onerror="this.style.display='none';this.nextElementSibling.style.display=''">
-        <span class="sponsor-logo-name" style="display:none">Cisco</span>
-        <div class="sponsor-tooltip"><div class="sponsor-tooltip-name">Cisco</div><div class="sponsor-tooltip-type">Networking</div></div>
-      </div>
-      <div class="sponsor-logo" data-name="Meta" data-type="Social Technology">
-        <img src="https://logo.clearbit.com/meta.com" alt="Meta" onerror="this.style.display='none';this.nextElementSibling.style.display=''">
-        <span class="sponsor-logo-name" style="display:none">Meta</span>
-        <div class="sponsor-tooltip"><div class="sponsor-tooltip-name">Meta</div><div class="sponsor-tooltip-type">Social Technology</div></div>
-      </div>
-      <div class="sponsor-logo" data-name="Perplexity" data-type="AI Search">
-        <img src="https://logo.clearbit.com/perplexity.ai" alt="Perplexity" onerror="this.style.display='none';this.nextElementSibling.style.display=''">
-        <span class="sponsor-logo-name" style="display:none">Perplexity</span>
-        <div class="sponsor-tooltip"><div class="sponsor-tooltip-name">Perplexity</div><div class="sponsor-tooltip-type">AI Search</div></div>
-      </div>
-      <div class="sponsor-logo" data-name="McAfee" data-type="Cybersecurity">
-        <img src="https://logo.clearbit.com/mcafee.com" alt="McAfee" onerror="this.style.display='none';this.nextElementSibling.style.display=''">
-        <span class="sponsor-logo-name" style="display:none">McAfee</span>
-        <div class="sponsor-tooltip"><div class="sponsor-tooltip-name">McAfee</div><div class="sponsor-tooltip-type">Cybersecurity</div></div>
-      </div>
-      <div class="sponsor-logo" data-name="GoDaddy" data-type="Web Services">
-        <img src="https://logo.clearbit.com/godaddy.com" alt="GoDaddy" onerror="this.style.display='none';this.nextElementSibling.style.display=''">
-        <span class="sponsor-logo-name" style="display:none">GoDaddy</span>
-        <div class="sponsor-tooltip"><div class="sponsor-tooltip-name">GoDaddy</div><div class="sponsor-tooltip-type">Web Services</div></div>
-      </div>
-      <div class="sponsor-logo" data-name="Goldman Sachs" data-type="Investment Banking">
-        <img src="https://logo.clearbit.com/goldmansachs.com" alt="Goldman Sachs" onerror="this.style.display='none';this.nextElementSibling.style.display=''">
-        <span class="sponsor-logo-name" style="display:none">Goldman Sachs</span>
-        <div class="sponsor-tooltip"><div class="sponsor-tooltip-name">Goldman Sachs</div><div class="sponsor-tooltip-type">Investment Banking</div></div>
-      </div>
-      <div class="sponsor-logo" data-name="Culvert" data-type="AI Analytics">
-        <img src="https://logo.clearbit.com/culvert-ai.com" alt="Culvert" onerror="this.style.display='none';this.nextElementSibling.style.display=''">
-        <span class="sponsor-logo-name" style="display:none">Culvert</span>
-        <div class="sponsor-tooltip"><div class="sponsor-tooltip-name">Culvert</div><div class="sponsor-tooltip-type">AI Analytics</div></div>
-      </div>
-      <div class="sponsor-logo" data-name="Vectice" data-type="MLOps">
-        <img src="https://logo.clearbit.com/vectice.com" alt="Vectice" onerror="this.style.display='none';this.nextElementSibling.style.display=''">
-        <span class="sponsor-logo-name" style="display:none">Vectice</span>
-        <div class="sponsor-tooltip"><div class="sponsor-tooltip-name">Vectice</div><div class="sponsor-tooltip-type">MLOps</div></div>
-      </div>
-      <div class="sponsor-logo" data-name="Amazon" data-type="Cloud & E-Commerce">
-        <img src="https://logo.clearbit.com/amazon.com" alt="Amazon" onerror="this.style.display='none';this.nextElementSibling.style.display=''">
-        <span class="sponsor-logo-name" style="display:none">Amazon</span>
-        <div class="sponsor-tooltip"><div class="sponsor-tooltip-name">Amazon</div><div class="sponsor-tooltip-type">Cloud & E-Commerce</div></div>
-      </div>
-      <div class="sponsor-logo" data-name="ClearlyRated" data-type="B2B Research">
-        <img src="https://logo.clearbit.com/clearlyrated.com" alt="ClearlyRated" onerror="this.style.display='none';this.nextElementSibling.style.display=''">
-        <span class="sponsor-logo-name" style="display:none">ClearlyRated</span>
-        <div class="sponsor-tooltip"><div class="sponsor-tooltip-name">ClearlyRated</div><div class="sponsor-tooltip-type">B2B Research</div></div>
-      </div>
+      <div class="sponsor-logo" data-name="Google" data-type="Technology"><img src="https://logo.clearbit.com/google.com" alt="Google" onerror="this.style.display='none';this.nextElementSibling.style.display=''"><span class="sponsor-logo-name" style="display:none">Google</span><div class="sponsor-tooltip"><div class="sponsor-tooltip-name">Google</div><div class="sponsor-tooltip-type">Technology</div></div></div>
+      <div class="sponsor-logo" data-name="NVIDIA" data-type="AI & Hardware"><img src="https://logo.clearbit.com/nvidia.com" alt="NVIDIA" onerror="this.style.display='none';this.nextElementSibling.style.display=''"><span class="sponsor-logo-name" style="display:none">NVIDIA</span><div class="sponsor-tooltip"><div class="sponsor-tooltip-name">NVIDIA</div><div class="sponsor-tooltip-type">AI & Hardware</div></div></div>
+      <div class="sponsor-logo" data-name="Informatica" data-type="Data Management"><img src="https://logo.clearbit.com/informatica.com" alt="Informatica" onerror="this.style.display='none';this.nextElementSibling.style.display=''"><span class="sponsor-logo-name" style="display:none">Informatica</span><div class="sponsor-tooltip"><div class="sponsor-tooltip-name">Informatica</div><div class="sponsor-tooltip-type">Data Management</div></div></div>
+      <div class="sponsor-logo" data-name="Salesforce" data-type="CRM & Cloud"><img src="https://logo.clearbit.com/salesforce.com" alt="Salesforce" onerror="this.style.display='none';this.nextElementSibling.style.display=''"><span class="sponsor-logo-name" style="display:none">Salesforce</span><div class="sponsor-tooltip"><div class="sponsor-tooltip-name">Salesforce</div><div class="sponsor-tooltip-type">CRM & Cloud</div></div></div>
+      <div class="sponsor-logo" data-name="Cisco" data-type="Networking"><img src="https://logo.clearbit.com/cisco.com" alt="Cisco" onerror="this.style.display='none';this.nextElementSibling.style.display=''"><span class="sponsor-logo-name" style="display:none">Cisco</span><div class="sponsor-tooltip"><div class="sponsor-tooltip-name">Cisco</div><div class="sponsor-tooltip-type">Networking</div></div></div>
+      <div class="sponsor-logo" data-name="Meta" data-type="Social Technology"><img src="https://logo.clearbit.com/meta.com" alt="Meta" onerror="this.style.display='none';this.nextElementSibling.style.display=''"><span class="sponsor-logo-name" style="display:none">Meta</span><div class="sponsor-tooltip"><div class="sponsor-tooltip-name">Meta</div><div class="sponsor-tooltip-type">Social Technology</div></div></div>
+      <div class="sponsor-logo" data-name="Perplexity" data-type="AI Search"><img src="https://logo.clearbit.com/perplexity.ai" alt="Perplexity" onerror="this.style.display='none';this.nextElementSibling.style.display=''"><span class="sponsor-logo-name" style="display:none">Perplexity</span><div class="sponsor-tooltip"><div class="sponsor-tooltip-name">Perplexity</div><div class="sponsor-tooltip-type">AI Search</div></div></div>
+      <div class="sponsor-logo" data-name="McAfee" data-type="Cybersecurity"><img src="https://logo.clearbit.com/mcafee.com" alt="McAfee" onerror="this.style.display='none';this.nextElementSibling.style.display=''"><span class="sponsor-logo-name" style="display:none">McAfee</span><div class="sponsor-tooltip"><div class="sponsor-tooltip-name">McAfee</div><div class="sponsor-tooltip-type">Cybersecurity</div></div></div>
+      <div class="sponsor-logo" data-name="GoDaddy" data-type="Web Services"><img src="https://logo.clearbit.com/godaddy.com" alt="GoDaddy" onerror="this.style.display='none';this.nextElementSibling.style.display=''"><span class="sponsor-logo-name" style="display:none">GoDaddy</span><div class="sponsor-tooltip"><div class="sponsor-tooltip-name">GoDaddy</div><div class="sponsor-tooltip-type">Web Services</div></div></div>
+      <div class="sponsor-logo" data-name="Goldman Sachs" data-type="Investment Banking"><img src="https://logo.clearbit.com/goldmansachs.com" alt="Goldman Sachs" onerror="this.style.display='none';this.nextElementSibling.style.display=''"><span class="sponsor-logo-name" style="display:none">Goldman Sachs</span><div class="sponsor-tooltip"><div class="sponsor-tooltip-name">Goldman Sachs</div><div class="sponsor-tooltip-type">Investment Banking</div></div></div>
+      <div class="sponsor-logo" data-name="Culvert" data-type="AI Analytics"><img src="https://logo.clearbit.com/culvert-ai.com" alt="Culvert" onerror="this.style.display='none';this.nextElementSibling.style.display=''"><span class="sponsor-logo-name" style="display:none">Culvert</span><div class="sponsor-tooltip"><div class="sponsor-tooltip-name">Culvert</div><div class="sponsor-tooltip-type">AI Analytics</div></div></div>
+      <div class="sponsor-logo" data-name="Vectice" data-type="MLOps"><img src="https://logo.clearbit.com/vectice.com" alt="Vectice" onerror="this.style.display='none';this.nextElementSibling.style.display=''"><span class="sponsor-logo-name" style="display:none">Vectice</span><div class="sponsor-tooltip"><div class="sponsor-tooltip-name">Vectice</div><div class="sponsor-tooltip-type">MLOps</div></div></div>
+      <div class="sponsor-logo" data-name="Amazon" data-type="Cloud & E-Commerce"><img src="https://logo.clearbit.com/amazon.com" alt="Amazon" onerror="this.style.display='none';this.nextElementSibling.style.display=''"><span class="sponsor-logo-name" style="display:none">Amazon</span><div class="sponsor-tooltip"><div class="sponsor-tooltip-name">Amazon</div><div class="sponsor-tooltip-type">Cloud & E-Commerce</div></div></div>
+      <div class="sponsor-logo" data-name="ClearlyRated" data-type="B2B Research"><img src="https://logo.clearbit.com/clearlyrated.com" alt="ClearlyRated" onerror="this.style.display='none';this.nextElementSibling.style.display=''"><span class="sponsor-logo-name" style="display:none">ClearlyRated</span><div class="sponsor-tooltip"><div class="sponsor-tooltip-name">ClearlyRated</div><div class="sponsor-tooltip-type">B2B Research</div></div></div>
+      <div class="sponsor-logo" data-name="Google" data-type="Technology"><img src="https://logo.clearbit.com/google.com" alt="Google" onerror="this.style.display='none';this.nextElementSibling.style.display=''"><span class="sponsor-logo-name" style="display:none">Google</span><div class="sponsor-tooltip"><div class="sponsor-tooltip-name">Google</div><div class="sponsor-tooltip-type">Technology</div></div></div>
+      <div class="sponsor-logo" data-name="NVIDIA" data-type="AI & Hardware"><img src="https://logo.clearbit.com/nvidia.com" alt="NVIDIA" onerror="this.style.display='none';this.nextElementSibling.style.display=''"><span class="sponsor-logo-name" style="display:none">NVIDIA</span><div class="sponsor-tooltip"><div class="sponsor-tooltip-name">NVIDIA</div><div class="sponsor-tooltip-type">AI & Hardware</div></div></div>
+      <div class="sponsor-logo" data-name="Informatica" data-type="Data Management"><img src="https://logo.clearbit.com/informatica.com" alt="Informatica" onerror="this.style.display='none';this.nextElementSibling.style.display=''"><span class="sponsor-logo-name" style="display:none">Informatica</span><div class="sponsor-tooltip"><div class="sponsor-tooltip-name">Informatica</div><div class="sponsor-tooltip-type">Data Management</div></div></div>
+      <div class="sponsor-logo" data-name="Salesforce" data-type="CRM & Cloud"><img src="https://logo.clearbit.com/salesforce.com" alt="Salesforce" onerror="this.style.display='none';this.nextElementSibling.style.display=''"><span class="sponsor-logo-name" style="display:none">Salesforce</span><div class="sponsor-tooltip"><div class="sponsor-tooltip-name">Salesforce</div><div class="sponsor-tooltip-type">CRM & Cloud</div></div></div>
+      <div class="sponsor-logo" data-name="Cisco" data-type="Networking"><img src="https://logo.clearbit.com/cisco.com" alt="Cisco" onerror="this.style.display='none';this.nextElementSibling.style.display=''"><span class="sponsor-logo-name" style="display:none">Cisco</span><div class="sponsor-tooltip"><div class="sponsor-tooltip-name">Cisco</div><div class="sponsor-tooltip-type">Networking</div></div></div>
+      <div class="sponsor-logo" data-name="Meta" data-type="Social Technology"><img src="https://logo.clearbit.com/meta.com" alt="Meta" onerror="this.style.display='none';this.nextElementSibling.style.display=''"><span class="sponsor-logo-name" style="display:none">Meta</span><div class="sponsor-tooltip"><div class="sponsor-tooltip-name">Meta</div><div class="sponsor-tooltip-type">Social Technology</div></div></div>
+      <div class="sponsor-logo" data-name="Perplexity" data-type="AI Search"><img src="https://logo.clearbit.com/perplexity.ai" alt="Perplexity" onerror="this.style.display='none';this.nextElementSibling.style.display=''"><span class="sponsor-logo-name" style="display:none">Perplexity</span><div class="sponsor-tooltip"><div class="sponsor-tooltip-name">Perplexity</div><div class="sponsor-tooltip-type">AI Search</div></div></div>
+      <div class="sponsor-logo" data-name="McAfee" data-type="Cybersecurity"><img src="https://logo.clearbit.com/mcafee.com" alt="McAfee" onerror="this.style.display='none';this.nextElementSibling.style.display=''"><span class="sponsor-logo-name" style="display:none">McAfee</span><div class="sponsor-tooltip"><div class="sponsor-tooltip-name">McAfee</div><div class="sponsor-tooltip-type">Cybersecurity</div></div></div>
+      <div class="sponsor-logo" data-name="GoDaddy" data-type="Web Services"><img src="https://logo.clearbit.com/godaddy.com" alt="GoDaddy" onerror="this.style.display='none';this.nextElementSibling.style.display=''"><span class="sponsor-logo-name" style="display:none">GoDaddy</span><div class="sponsor-tooltip"><div class="sponsor-tooltip-name">GoDaddy</div><div class="sponsor-tooltip-type">Web Services</div></div></div>
+      <div class="sponsor-logo" data-name="Goldman Sachs" data-type="Investment Banking"><img src="https://logo.clearbit.com/goldmansachs.com" alt="Goldman Sachs" onerror="this.style.display='none';this.nextElementSibling.style.display=''"><span class="sponsor-logo-name" style="display:none">Goldman Sachs</span><div class="sponsor-tooltip"><div class="sponsor-tooltip-name">Goldman Sachs</div><div class="sponsor-tooltip-type">Investment Banking</div></div></div>
+      <div class="sponsor-logo" data-name="Culvert" data-type="AI Analytics"><img src="https://logo.clearbit.com/culvert-ai.com" alt="Culvert" onerror="this.style.display='none';this.nextElementSibling.style.display=''"><span class="sponsor-logo-name" style="display:none">Culvert</span><div class="sponsor-tooltip"><div class="sponsor-tooltip-name">Culvert</div><div class="sponsor-tooltip-type">AI Analytics</div></div></div>
+      <div class="sponsor-logo" data-name="Vectice" data-type="MLOps"><img src="https://logo.clearbit.com/vectice.com" alt="Vectice" onerror="this.style.display='none';this.nextElementSibling.style.display=''"><span class="sponsor-logo-name" style="display:none">Vectice</span><div class="sponsor-tooltip"><div class="sponsor-tooltip-name">Vectice</div><div class="sponsor-tooltip-type">MLOps</div></div></div>
+      <div class="sponsor-logo" data-name="Amazon" data-type="Cloud & E-Commerce"><img src="https://logo.clearbit.com/amazon.com" alt="Amazon" onerror="this.style.display='none';this.nextElementSibling.style.display=''"><span class="sponsor-logo-name" style="display:none">Amazon</span><div class="sponsor-tooltip"><div class="sponsor-tooltip-name">Amazon</div><div class="sponsor-tooltip-type">Cloud & E-Commerce</div></div></div>
+      <div class="sponsor-logo" data-name="ClearlyRated" data-type="B2B Research"><img src="https://logo.clearbit.com/clearlyrated.com" alt="ClearlyRated" onerror="this.style.display='none';this.nextElementSibling.style.display=''"><span class="sponsor-logo-name" style="display:none">ClearlyRated</span><div class="sponsor-tooltip"><div class="sponsor-tooltip-name">ClearlyRated</div><div class="sponsor-tooltip-type">B2B Research</div></div></div>
     </div>
   </div>
 </div>
 
-</div><!-- end .page -->
+</div>
 
-<!-- FOOTER -->
 <footer style="display:flex;align-items:center;justify-content:space-between;padding:2rem 2.5rem;border-top:1px solid var(--border);flex-wrap:wrap;gap:1rem">
   <div style="display:flex;align-items:center;gap:1.2rem">
     <span class="foot-logo">ΦΒΛ</span>
