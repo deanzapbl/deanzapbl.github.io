@@ -6,7 +6,7 @@
 <title>Accolades — Phi Beta Lambda De Anza</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Unbounded:wght@400;700&family=DM+Sans:wght@300;400;500&family=IBM+Plex+Mono:wght@400;500&family=Playfair+Display:ital,wght@1,400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Unbounded:wght@400;700&family=DM+Sans:wght@300;400;500&family=IBM+Plex+Mono:wght@400;500&family=Playfair+Display:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
 <style id="parallax-hero-css">
 .page-hero{min-height:100vh;display:flex;flex-direction:column;justify-content:center;padding:9rem 2.5rem 5rem;position:relative;overflow:hidden;border-bottom:1px solid var(--border);background:#050505;cursor:none}
@@ -29,82 +29,70 @@
 @media(max-width:768px){.page-hero{padding:7rem 1.5rem 4rem;min-height:90vh}}
 </style>
 <style>
-/* ── Accolades page layout ── */
-.acc-wrap{max-width:1300px;margin:0 auto;padding:4rem 2.5rem 6rem}
+/* ── Accolades Layout ── */
+.acc-wrap{padding:5rem 2.5rem 6rem;max-width:1400px;margin:0 auto}
 
-/* Year section header */
-.acc-yr{display:flex;align-items:center;gap:1.5rem;margin-bottom:2.5rem;margin-top:4rem}
-.acc-yr:first-child{margin-top:0}
-.acc-yr-n{font-family:'Bebas Neue',sans-serif;font-size:3rem;letter-spacing:.04em;line-height:1}
-.acc-yr-n.cur{color:#c8102e}
-.acc-yr-n.past{color:rgba(245,243,239,.15)}
-.acc-yr-line{flex:1;height:1px}
-.acc-yr-line.cur{background:rgba(200,16,46,.3)}
-.acc-yr-line.past{background:rgba(245,243,239,.07)}
-.acc-yr-meta{font-family:'IBM Plex Mono',monospace;font-size:.52rem;letter-spacing:.18em;text-transform:uppercase}
-.acc-yr-meta.cur{color:rgba(200,16,46,.55)}
-.acc-yr-meta.past{color:rgba(245,243,239,.2)}
+.acc-section{margin-bottom:4rem}
+.acc-section-header{display:flex;align-items:center;gap:1.5rem;margin-bottom:1.25rem}
+.acc-section-name{font-family:'Bebas Neue',sans-serif;font-size:3rem;letter-spacing:.04em;line-height:1;color:rgba(245,243,239,.15)}
+.acc-section-name.active{color:rgba(200,16,46,.5)}
+.acc-section-line{flex:1;height:1px;background:rgba(245,243,239,.06)}
+.acc-section-line.active{background:rgba(200,16,46,.2)}
+.acc-section-count{font-family:'IBM Plex Mono',monospace;font-size:.48rem;letter-spacing:.2em;text-transform:uppercase;color:rgba(245,243,239,.18)}
+.acc-section-count.active{color:rgba(200,16,46,.4)}
 
-/* Conference label */
-.acc-conf{font-family:'IBM Plex Mono',monospace;font-size:.55rem;letter-spacing:.18em;text-transform:uppercase;color:rgba(245,243,239,.35);margin-bottom:1.5rem;display:flex;align-items:center;gap:.75rem}
-.acc-conf::before{content:'';width:20px;height:1px;background:rgba(200,16,46,.5)}
+.acc-sub-label{font-family:'IBM Plex Mono',monospace;font-size:.44rem;letter-spacing:.22em;text-transform:uppercase;color:rgba(245,243,239,.18);padding:.5rem 0 .4rem;display:flex;align-items:center;gap:.6rem}
+.acc-sub-label::before{content:'';width:12px;height:1px;background:rgba(245,243,239,.1)}
 
-/* Stats row */
-.acc-stats{display:grid;grid-template-columns:repeat(5,1fr);gap:3px;margin-bottom:2.5rem}
-.acc-stat{background:#111;padding:1rem 1.25rem}
-.acc-stat-n{font-family:'Bebas Neue',sans-serif;font-size:2rem;line-height:1}
-.acc-stat-n.gold{color:#f5f3ef}
-.acc-stat-n.silver{color:rgba(245,243,239,.65)}
-.acc-stat-n.bronze{color:rgba(245,243,239,.45)}
-.acc-stat-n.red{color:#c8102e}
-.acc-stat-l{font-family:'IBM Plex Mono',monospace;font-size:.42rem;letter-spacing:.14em;text-transform:uppercase;color:rgba(245,243,239,.28);margin-top:.2rem}
+/* ── Strip ── */
+.strip-shell{background:#0b0b0b;border:1px solid rgba(245,243,239,.07);overflow:hidden;position:relative;cursor:pointer;transition:border-color .3s;margin-bottom:3px}
+.strip-shell:hover{border-color:rgba(200,16,46,.2)}
+.strip-track{display:flex;will-change:transform;transition:transform .7s cubic-bezier(.4,0,.2,1)}
+.strip-page{flex-shrink:0;display:grid;grid-template-columns:130px 1fr 56px;min-height:90px}
 
-/* Chapter pills */
-.acc-pills{display:flex;flex-wrap:wrap;gap:.35rem;margin-bottom:2rem}
-.acc-pill{font-family:'IBM Plex Mono',monospace;font-size:.45rem;letter-spacing:.13em;text-transform:uppercase;padding:.28rem .75rem;border:1px solid rgba(200,16,46,.4);color:rgba(220,55,65,.9)}
+.sp-left{background:#0d0505;display:flex;flex-direction:column;justify-content:flex-end;padding:1.25rem 1rem;position:relative;overflow:hidden}
+.sp-wm{position:absolute;bottom:-6px;right:-4px;font-family:'Bebas Neue',sans-serif;font-size:3.5rem;color:rgba(200,16,46,.07);line-height:1;user-select:none;letter-spacing:.02em}
+.sp-yr{font-family:'Bebas Neue',sans-serif;font-size:2rem;color:rgba(245,243,239,.8);line-height:1;position:relative;z-index:1}
 
-/* Medal color blocks */
-.medal-block{border-left:3px solid;padding:1.5rem 2rem;margin-bottom:3px}
-.medal-block.gold{border-color:#c8a94a;background:#0d0d0d}
-.medal-block.silver{border-color:rgba(180,180,190,.45);background:#0b0b0b}
-.medal-block.bronze{border-color:rgba(160,100,55,.5);background:#0a0a0a}
-.medal-block.fourth{border-color:rgba(245,243,239,.1);background:#0a0a0a}
-.medal-label{font-family:'IBM Plex Mono',monospace;font-size:.5rem;letter-spacing:.2em;text-transform:uppercase;margin-bottom:1rem}
-.medal-label.gold{color:#c8a94a}
-.medal-label.silver{color:rgba(180,180,190,.65)}
-.medal-label.bronze{color:rgba(160,100,55,.7)}
-.medal-label.fourth{color:rgba(245,243,239,.2)}
-.medal-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem}
-.medal-grid.two{grid-template-columns:repeat(2,1fr)}
-.medal-grid.four{grid-template-columns:repeat(4,1fr)}
-.medal-item-name{font-size:.95rem;font-weight:500;line-height:1.3;color:var(--white)}
-.medal-item-name.silver{color:rgba(245,243,239,.75)}
-.medal-item-name.bronze{color:rgba(245,243,239,.55)}
-.medal-item-name.fourth{color:rgba(245,243,239,.35)}
-.medal-item-names{font-family:'IBM Plex Mono',monospace;font-size:.48rem;letter-spacing:.08em;color:rgba(245,243,239,.3);margin-top:.25rem;line-height:1.6}
+.sp-mid{padding:1.25rem 1.5rem;display:flex;flex-direction:column;justify-content:center;gap:.35rem}
+.sp-conf{font-family:'IBM Plex Mono',monospace;font-size:.46rem;letter-spacing:.16em;text-transform:uppercase;color:rgba(200,16,46,.6)}
+.sp-loc{font-family:'IBM Plex Mono',monospace;font-size:.39rem;letter-spacing:.1em;text-transform:uppercase;color:rgba(245,243,239,.22);margin-top:.1rem}
+.sp-medals{display:flex;gap:.3rem;margin-top:.45rem;flex-wrap:wrap}
+.sp-m{font-family:'IBM Plex Mono',monospace;font-size:.38rem;letter-spacing:.07em;padding:.15rem .5rem;border:1px solid rgba(245,243,239,.08);color:rgba(245,243,239,.32)}
+.sp-m.g{border-color:rgba(200,170,50,.3);color:rgba(200,170,50,.75)}
+.sp-m.s{border-color:rgba(170,170,180,.2);color:rgba(170,170,180,.55)}
+.sp-m.sw{border-color:rgba(200,16,46,.35);color:rgba(200,16,46,.8)}
+.sp-m.aw{border-color:rgba(100,150,200,.25);color:rgba(100,150,200,.65)}
 
-/* Past year blocks */
-.acc-past-grid{display:grid;grid-template-columns:1fr 1fr;gap:3px;margin-bottom:3px}
-.acc-past-block{background:#0d0d0d;padding:2rem 2.5rem;opacity:.8}
-.acc-past-conf{font-family:'IBM Plex Mono',monospace;font-size:.5rem;letter-spacing:.16em;text-transform:uppercase;color:rgba(245,243,239,.3);margin-bottom:1.25rem;display:flex;align-items:center;gap:.6rem}
-.acc-past-conf::before{content:'';width:14px;height:1px;background:rgba(245,243,239,.2)}
-.awr{display:flex;flex-direction:column;padding:.5rem 0;border-bottom:1px solid rgba(245,243,239,.05)}
-.awr:last-child{border-bottom:none}
-.awr-p{font-size:.9rem;font-weight:500;line-height:1.3}
-.awr-p.g{color:var(--white)}
-.awr-p.s{color:rgba(245,243,239,.7)}
-.awr-p.b{color:rgba(245,243,239,.5)}
-.awr-p.f{color:rgba(245,243,239,.3)}
-.awr-n{font-family:'IBM Plex Mono',monospace;font-size:.46rem;letter-spacing:.09em;color:rgba(245,243,239,.28);margin-top:.15rem}
-.acc-sub-h{font-family:'IBM Plex Mono',monospace;font-size:.48rem;letter-spacing:.18em;text-transform:uppercase;color:rgba(245,243,239,.25);margin:.9rem 0 .5rem}
+.sp-nav{display:flex;align-items:center;justify-content:center;border-left:1px solid rgba(245,243,239,.04)}
+.sp-btn{width:34px;height:34px;border-radius:50%;border:1px solid rgba(245,243,239,.1);background:none;color:rgba(245,243,239,.3);font-size:.85rem;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .3s}
+.sp-btn:hover{border-color:#c8102e;color:#c8102e;background:rgba(200,16,46,.08)}
+.sp-btn:disabled{opacity:.2;cursor:default;pointer-events:none}
 
-@media(max-width:900px){
-  .medal-grid{grid-template-columns:1fr 1fr}
-  .medal-grid.four{grid-template-columns:1fr 1fr}
-  .acc-stats{grid-template-columns:repeat(3,1fr)}
-  .acc-past-grid{grid-template-columns:1fr}
-  .acc-wrap{padding:3rem 1.5rem 5rem}
-}
+/* ── Modal ── */
+.acc-modal-overlay{position:fixed;inset:0;background:rgba(5,5,5,.92);z-index:1000;display:none;align-items:center;justify-content:center;padding:2rem;backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)}
+.acc-modal-overlay.open{display:flex}
+.acc-modal{background:#0e0e0e;border:1px solid rgba(255,255,255,.1);width:min(760px,94vw);max-height:85vh;overflow-y:auto;position:relative;animation:modalIn .35s cubic-bezier(.16,1,.3,1) both;box-shadow:0 0 0 1px rgba(255,255,255,.05),0 0 40px rgba(255,255,255,.07),0 0 100px rgba(255,255,255,.035),0 30px 80px rgba(0,0,0,.9)}
+@keyframes modalIn{from{opacity:0;transform:translateY(22px) scale(.97)}to{opacity:1;transform:translateY(0) scale(1)}}
+.acc-modal-close{position:absolute;top:1rem;right:1rem;z-index:10;width:34px;height:34px;background:rgba(10,10,10,.8);border:1px solid rgba(245,243,239,.14);border-radius:50%;color:rgba(245,243,239,.7);font-size:1rem;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .2s}
+.acc-modal-close:hover{background:#c8102e;border-color:#c8102e;color:#fff}
+.acc-modal-body{padding:2.5rem}
+.acc-modal-tag{font-family:'IBM Plex Mono',monospace;font-size:.48rem;letter-spacing:.18em;text-transform:uppercase;padding:.28rem .85rem;border:1px solid rgba(200,16,46,.45);color:rgba(200,16,46,.85);display:inline-block;margin-bottom:1rem}
+.acc-modal-title{font-family:'Unbounded',sans-serif;font-weight:700;font-size:clamp(1.1rem,2.5vw,1.65rem);color:#f5f3ef;line-height:1.1;margin-bottom:.4rem}
+.acc-modal-loc{font-family:'IBM Plex Mono',monospace;font-size:.46rem;letter-spacing:.12em;color:rgba(245,243,239,.32);margin-bottom:1.75rem}
+.acc-modal-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:3px;margin-bottom:1.75rem}
+.acc-modal-stat{background:#161616;padding:.8rem 1rem;text-align:center}
+.acc-modal-stat-n{font-family:'Bebas Neue',sans-serif;font-size:1.5rem;color:#f5f3ef;line-height:1}
+.acc-modal-stat-l{font-family:'IBM Plex Mono',monospace;font-size:.38rem;letter-spacing:.12em;text-transform:uppercase;color:rgba(245,243,239,.28);margin-top:.15rem}
+.acc-modal-pills{display:flex;gap:.35rem;flex-wrap:wrap;margin-bottom:1.75rem}
+.acc-modal-pill{font-family:'IBM Plex Mono',monospace;font-size:.42rem;letter-spacing:.12em;text-transform:uppercase;padding:.25rem .7rem;border:1px solid rgba(100,150,200,.25);color:rgba(100,150,200,.65)}
+.acc-modal-sub{font-family:'IBM Plex Mono',monospace;font-size:.46rem;letter-spacing:.2em;text-transform:uppercase;color:rgba(245,243,239,.25);margin-bottom:.65rem;display:flex;align-items:center;gap:.5rem}
+.acc-modal-sub::before{content:'';width:12px;height:1px;background:rgba(245,243,239,.15)}
+.acc-modal-results{display:flex;flex-direction:column;gap:2px;margin-bottom:1.5rem}
+.acc-modal-row{display:flex;justify-content:space-between;align-items:baseline;padding:.55rem .85rem;background:#141414}
+.acc-modal-place{font-size:.88rem;font-weight:500;color:#f5f3ef}
+.acc-modal-names{font-family:'IBM Plex Mono',monospace;font-size:.48rem;letter-spacing:.06em;color:rgba(245,243,239,.52)}
+@media(max-width:600px){.acc-modal-stats{grid-template-columns:repeat(2,1fr)}.acc-modal-body{padding:1.5rem}.acc-modal-row{flex-direction:column;gap:.25rem}.strip-page{grid-template-columns:90px 1fr 46px}}
 </style>
 </head>
 <body>
@@ -130,14 +118,11 @@
     <button class="hamburger" onclick="openMob()"><span></span><span></span><span></span></button>
   </div>
 </nav>
+
 <div class="page active">
 <section class="page-hero">
-  <div class="plx-l3"></div>
-  <div class="plx-l2"></div>
-  <div class="plx-l1"></div>
-  <div class="plx-vignette"></div>
-  <div class="plx-crt"></div>
-  <div class="plx-scan"></div>
+  <div class="plx-l3"></div><div class="plx-l2"></div><div class="plx-l1"></div>
+  <div class="plx-vignette"></div><div class="plx-crt"></div><div class="plx-scan"></div>
   <div class="plx-cursor"></div>
   <div class="plx-text">
     <div class="hero-tag">Accolades</div>
@@ -145,194 +130,185 @@
     <p class="page-sub">From regional to national — our members compete and win at every level.</p>
   </div>
 </section>
+
 <div class="acc-wrap">
 
-  <!-- ════ 2026 ════════════════════════════════════════════════════════════ -->
-  <div class="acc-yr">
-    <div class="acc-yr-n cur">2026</div>
-    <div class="acc-yr-line cur"></div>
-    <div class="acc-yr-meta cur">State Leadership Conference · Sweepstakes Award</div>
-  </div>
-
-  <div class="acc-conf">2026 State Leadership Conference &middot; Emeryville, CA &middot; Spring 2026</div>
-
-  <!-- Stats -->
-  <div class="acc-stats">
-    <div class="acc-stat"><div class="acc-stat-n gold">6</div><div class="acc-stat-l">Gold Medals</div></div>
-    <div class="acc-stat"><div class="acc-stat-n silver">8</div><div class="acc-stat-l">Silver Medals</div></div>
-    <div class="acc-stat"><div class="acc-stat-n bronze">2</div><div class="acc-stat-l">Bronze Medals</div></div>
-    <div class="acc-stat"><div class="acc-stat-n red">4</div><div class="acc-stat-l">Chapter Awards</div></div>
-    <div class="acc-stat" style="background:#c8102e"><div class="acc-stat-n" style="color:#fff;font-size:1.5rem">🏆</div><div class="acc-stat-l" style="color:rgba(255,255,255,.7)">Sweepstakes</div></div>
-  </div>
-
-  <!-- Chapter pills -->
-  <div class="acc-pills">
-    <span class="acc-pill">State of Chapter Award</span>
-    <span class="acc-pill">Largest State Chapter Award</span>
-    <span class="acc-pill">Largest Membership Award</span>
-    <span class="acc-pill">Sweepstakes Award</span>
-  </div>
-
-  <!-- GOLD -->
-  <div class="medal-block gold">
-    <div class="medal-label gold">🥇 Gold &mdash; 6 Placements</div>
-    <div class="medal-grid">
-      <div><div class="medal-item-name">Entrepreneurship Pitch</div><div class="medal-item-names">William Devanney &middot; Shakil Musthafa &middot; Timothy Nguyen &middot; Bryant Vo</div></div>
-      <div><div class="medal-item-name">Hospitality Management</div><div class="medal-item-names">Anna Huynh &middot; Jayden Phan &middot; Francisco Rodriguez &middot; Haley Truong</div></div>
-      <div><div class="medal-item-name">Impromptu Speaking</div><div class="medal-item-names">Nikunj More</div></div>
-      <div><div class="medal-item-name">Public Speaking</div><div class="medal-item-names">Derick Nguyen</div></div>
-      <div><div class="medal-item-name">State of Chapter</div><div class="medal-item-names">Carine Chan &middot; Nisa Pradhan &middot; Arya Somu</div></div>
-      <div><div class="medal-item-name">Community Service Project</div><div class="medal-item-names">Arin Kumar &middot; Lisa Qian &middot; Derick Nguyen &middot; Angelo Maniraho &middot; Bryant Vo &middot; Harika Talluri &middot; Ruirui Wu &middot; Sophia Guidicotti &middot; Anusha Shringi &middot; Rameesha Farrukh &middot; Elena Burgos</div></div>
+  <!-- ══ FBLA ══ -->
+  <div class="acc-section">
+    <div class="acc-section-header">
+      <div class="acc-section-name active">FBLA</div>
+      <div class="acc-section-line active"></div>
+      <div class="acc-section-count active">3 Competitions</div>
     </div>
-  </div>
 
-  <!-- SILVER -->
-  <div class="medal-block silver">
-    <div class="medal-label silver">🥈 Silver &mdash; 8 Placements</div>
-    <div class="medal-grid four">
-      <div><div class="medal-item-name silver">Accounting Case</div><div class="medal-item-names">Nikunj More &middot; Shakil Musthafa</div></div>
-      <div><div class="medal-item-name silver">Business Ethics</div><div class="medal-item-names">Iker Amox Jimenez &middot; George Huang &middot; Jordan Nguyen</div></div>
-      <div><div class="medal-item-name silver">Business Presentation</div><div class="medal-item-names">Tran Dang &middot; Jing Xuan Jason Zhou</div></div>
-      <div><div class="medal-item-name silver">Digital Design &amp; Comm.</div><div class="medal-item-names">Nhi Tran</div></div>
-      <div><div class="medal-item-name silver">Emerging Business Issues</div><div class="medal-item-names">Jacob Eliashberg &middot; Rameesha Farrukh &middot; Joseph Leytes</div></div>
-      <div><div class="medal-item-name silver">Entrepreneurship Pitch</div><div class="medal-item-names">Om Bathija &middot; Rivers Calareso</div></div>
-      <div><div class="medal-item-name silver">Finance</div><div class="medal-item-names">Elena Burgos &middot; Evan Hoeffner &middot; Jocelyn Ramirez</div></div>
-      <div><div class="medal-item-name silver">Impromptu Speaking</div><div class="medal-item-names">Anusha Shringi</div></div>
-    </div>
-  </div>
-
-  <!-- BRONZE -->
-  <div class="medal-block bronze">
-    <div class="medal-label bronze">🥉 Bronze &mdash; 2 Placements</div>
-    <div class="medal-grid two">
-      <div><div class="medal-item-name bronze">Emerging Business Issues</div><div class="medal-item-names">Anirudh Ahluwalia &middot; Parker Elsey &middot; Angelo Maniraho</div></div>
-      <div><div class="medal-item-name bronze">Impromptu Speaking</div><div class="medal-item-names">Timothy Nguyen</div></div>
-    </div>
-  </div>
-
-  <!-- OBJECTIVE TESTS -->
-  <div class="medal-block fourth" style="margin-top:3px">
-    <div class="medal-label fourth">Objective Tests</div>
-    <div class="medal-grid">
-      <div><div class="medal-item-name fourth">2nd &mdash; Foundations of Computer Science</div><div class="medal-item-names">Arya Somu</div></div>
-      <div><div class="medal-item-name fourth">2nd &mdash; Sports Management &amp; Marketing</div><div class="medal-item-names">Shang-rong Ma</div></div>
-      <div><div class="medal-item-name fourth">3rd &mdash; Foundations of Technology</div><div class="medal-item-names">Dawit Mekuria</div></div>
-      <div><div class="medal-item-name fourth">3rd &mdash; International Business</div><div class="medal-item-names">Ruirui Wu</div></div>
-      <div><div class="medal-item-name fourth">4th &mdash; Business Law</div><div class="medal-item-names">Haley Truong</div></div>
-      <div><div class="medal-item-name fourth">4th &mdash; Foundations of Entrepreneurship</div><div class="medal-item-names">Angelo Maniraho</div></div>
-    </div>
-  </div>
-
-  <!-- TEAM EVENTS (4th/5th) -->
-  <div class="medal-block fourth">
-    <div class="medal-label fourth">Team Events</div>
-    <div class="medal-grid four">
-      <div><div class="medal-item-name fourth">3rd &mdash; Emerging Business Issues</div><div class="medal-item-names">Anirudh Ahluwalia &middot; Parker Elsey &middot; Angelo Maniraho</div></div>
-      <div><div class="medal-item-name fourth">4th &mdash; Accounting Case</div><div class="medal-item-names">Phillip Chang &middot; Thin Thida Soe &middot; Pak Hei Wong &middot; Rebecca Yim</div></div>
-      <div><div class="medal-item-name fourth">4th &mdash; Finance Case</div><div class="medal-item-names">Ilay Botzer &middot; Dianne Johnson &middot; Kyle Krawez &middot; Arin Kumar</div></div>
-      <div><div class="medal-item-name fourth">4th &mdash; Hospitality Management</div><div class="medal-item-names">Jacob Chen &middot; Joshua Morris &middot; Vincent Shao &middot; Ella Yang</div></div>
-      <div><div class="medal-item-name fourth">4th &mdash; Management Case</div><div class="medal-item-names">Cyrus Nakar &middot; Derick Nguyen &middot; Wenyu Qian &middot; Bryant Vo</div></div>
-      <div><div class="medal-item-name fourth">4th &mdash; Marketing &amp; Sales</div><div class="medal-item-names">Addy Hu &middot; Olivia Ma &middot; Anusha Shringi &middot; Edward Wong</div></div>
-      <div><div class="medal-item-name fourth">4th &mdash; Technology &amp; Computer Science</div><div class="medal-item-names">Shang-rong Ma &middot; Dawit Mekuria &middot; Jeremy Mendoza</div></div>
-      <div><div class="medal-item-name fourth">5th &mdash; Digital Design &amp; Communications</div><div class="medal-item-names">Emmanuel Aceves &middot; Sophia Guidicotti &middot; Ruirui Wu</div></div>
-    </div>
-  </div>
-
-  <!-- 2026 Internal events -->
-  <div class="acc-past-grid" style="margin-top:3px">
-    <div class="acc-past-block">
-      <div class="acc-past-conf">Shark Tank 2026 &middot; De Anza College</div>
-      <div class="awr"><div class="awr-p g">🥇 1st &mdash; Team #1</div><div class="awr-n">Harika Talluri &middot; Ella Yang &middot; Tran Dang &middot; Moles Kali &middot; Elena Burgos</div></div>
-      <div class="awr"><div class="awr-p s">🥈 2nd &mdash; Team #7</div><div class="awr-n">Arnav Junday &middot; Teevra Singh &middot; Ridhi Thapar &middot; Ashwika Agarwal &middot; Ruhi Teji</div></div>
-      <div class="awr"><div class="awr-p b">🥉 3rd &mdash; Team #3</div><div class="awr-n">Francisco Rodriguez &middot; Jayden Phan &middot; Parker Elsey &middot; Evan Hoeffner &middot; Mihir Thakar</div></div>
-      <div class="acc-sub-h">Special recognition</div>
-      <div class="awr"><div class="awr-p f">Most Innovative</div><div class="awr-n">Rodriguez &middot; Phan &middot; Elsey &middot; Hoeffner &middot; Thakar</div></div>
-      <div class="awr"><div class="awr-p f">Most Environmental</div><div class="awr-n">Morris &middot; Chen &middot; Shao &middot; Manney &middot; Chang</div></div>
-      <div class="awr"><div class="awr-p f">Most Entertaining</div><div class="awr-n">Lakshya Saini &middot; Zhen Huey Lee</div></div>
-    </div>
-    <div class="acc-past-block">
-      <div class="acc-past-conf">Consulting 2026 &middot; De Anza College</div>
-      <div class="acc-sub-h">Spring &mdash; Clients: UC Berkeley IEEE, Star One CU, Azalea Jewelry</div>
-      <div class="awr"><div class="awr-p g">🥇 1st &mdash; Azalea Jewelry</div><div class="awr-n">Jedrick Lachica &middot; Jasmine Perlas &middot; Amy Tran &middot; Jayden Mai &middot; Lucas Avila</div></div>
-      <div class="awr"><div class="awr-p s">🥈 2nd &mdash; Azalea Jewelry</div><div class="awr-n">Anya Faria &middot; Janet Wong &middot; Amaan Hussain &middot; Gabriel Heiss</div></div>
-      <div class="awr"><div class="awr-p b">🥉 3rd &mdash; Star One Credit Union</div><div class="awr-n">Walter Paco &middot; Noah Zabala-Taa &middot; Adonis Escobar &middot; Juliana Estrada</div></div>
-      <div class="acc-sub-h">Fall &mdash; Clients: Hunger at Home, VIDA, Palm &amp; Stone</div>
-      <div class="awr"><div class="awr-p g">🥇 1st &mdash; Hunger at Home</div><div class="awr-n">Evan Hoeffner &middot; Ilay Botzer &middot; Zhen Huey Lee &middot; Leo Chao</div></div>
-      <div class="awr"><div class="awr-p s">🥈 2nd &mdash; Palm &amp; Stone</div><div class="awr-n">Timothy Le &middot; Amaan Hussain &middot; Justin Aung &middot; Kirin Husain</div></div>
-      <div class="awr"><div class="awr-p b">🥉 3rd &mdash; VIDA</div><div class="awr-n">Jasmine Perlas &middot; Jedrick Lachica &middot; Emmanuel Aceves &middot; Elara Lwin</div></div>
-    </div>
-  </div>
-
-  <!-- ════ 2025 ════════════════════════════════════════════════════════════ -->
-  <div class="acc-yr" style="margin-top:5rem">
-    <div class="acc-yr-n past">2025</div>
-    <div class="acc-yr-line past"></div>
-    <div class="acc-yr-meta past">Nationals &middot; State &middot; State Fall LC &middot; DAIS &middot; Regional</div>
-  </div>
-
-  <div class="acc-past-grid">
-    <!-- Nationals -->
-    <div class="acc-past-block">
-      <div class="acc-past-conf">2025 Nationals &middot; May 31&ndash;Jun 2 &middot; Dallas, TX</div>
-      <div class="awr"><div class="awr-p g">🥇 1st &mdash; Accounting</div><div class="awr-n">Alan Dang &middot; Katelyn Nguyen &middot; Yihan Pan &middot; Rachel Tran</div></div>
-      <div class="awr"><div class="awr-p g">🥇 1st &mdash; Business Ethics</div><div class="awr-n">Javin Ku</div></div>
-      <div class="awr"><div class="awr-p g">🥇 1st &mdash; Hospitality Management</div><div class="awr-n">Allissa Iida &middot; Taranjit Kaur &middot; Jasmine Perlas &middot; Christina Tran</div></div>
-      <div class="awr"><div class="awr-p s">🥈 2nd &mdash; Community Service</div><div class="awr-n">Carine Chan &middot; George Huang &middot; Suyash Jevaria</div></div>
-      <div class="awr"><div class="awr-p b">🥉 3rd &mdash; Marketing</div><div class="awr-n">Thu Tran &middot; Nhi Tran &middot; Tram Lieng</div></div>
-      <div class="awr"><div class="awr-p f">4th &mdash; Emerging Business Issues</div><div class="awr-n">Zain Darwish &middot; Javin Ku</div></div>
-      <div class="awr"><div class="awr-p f">5th &mdash; Business Presentation</div><div class="awr-n">Dianne Johnson &middot; Vinh Nguyen &middot; Jocelyn Ramirez</div></div>
-    </div>
-    <!-- 2025 State -->
-    <div class="acc-past-block">
-      <div class="acc-past-conf">2025 State &middot; Mar 7&ndash;9 &middot; San Diego, CA</div>
-      <div class="awr"><div class="awr-p g">🥇 1st &mdash; Accounting</div><div class="awr-n">Alan Dang &middot; Katelyn Nguyen &middot; Floria Pan &middot; Rachel Tran</div></div>
-      <div class="awr"><div class="awr-p g">🥇 1st &mdash; Management</div><div class="awr-n">Cyrus Nakar &middot; Anqi Lin &middot; Allyson Huynh</div></div>
-      <div class="awr"><div class="awr-p g">🥇 1st &mdash; Ethics</div><div class="awr-n">Javin Ku</div></div>
-      <div class="awr"><div class="awr-p g">🥇 1st &mdash; Hospitality Management</div><div class="awr-n">Carine Chan &middot; Sylvie Nghiem &middot; George Huang &middot; Leo Huang</div></div>
-      <div class="awr"><div class="awr-p s">🥈 2nd &mdash; Ethics</div><div class="awr-n">Fun Lee &middot; Jordan Nguyen &middot; Iker Jimenez</div></div>
-      <div class="awr"><div class="awr-p s">🥈 2nd &mdash; Business Presentation</div><div class="awr-n">Zineerah Ahmed &middot; Dianne Johnson &middot; Jocelyn Ramirez</div></div>
-      <div class="awr"><div class="awr-p s">🥈 2nd &mdash; Pitch</div><div class="awr-n">Arya Somu &middot; Nisa Pradhan &middot; Arthur Poon</div></div>
-      <div class="awr"><div class="awr-p b">🥉 3rd &mdash; Accounting</div><div class="awr-n">Chris Wu &middot; Neal Singh &middot; Alan Tran</div></div>
-      <div class="acc-sub-h">Objective Tests</div>
-      <div class="awr"><div class="awr-p g">🥇 1st &mdash; Accounting</div><div class="awr-n">Alan Dang</div></div>
-      <div class="awr"><div class="awr-p g">🥇 1st &mdash; Leadership</div><div class="awr-n">Minh Le</div></div>
-      <div class="awr"><div class="awr-p g">🥇 1st &mdash; Impromptu Speaking</div><div class="awr-n">VJ Lukka</div></div>
-      <div class="awr"><div class="awr-p g">🥇 1st &mdash; Sticker Design</div><div class="awr-n">Nhi Tran</div></div>
-      <div class="awr"><div class="awr-p g">🥇 1st &mdash; Stock Market</div><div class="awr-n">Vincent Shao</div></div>
-    </div>
-  </div>
-
-  <div class="acc-past-grid">
-    <!-- State Fall LC 2025 -->
-    <div class="acc-past-block">
-      <div class="acc-past-conf">State Fall LC 2025 &middot; Nov 8&ndash;9 &middot; La Jolla, San Diego</div>
-      <div class="acc-pills" style="margin-bottom:1rem"><span class="acc-pill">Greatest Membership Award</span><span class="acc-pill">Conference Attendance Award</span></div>
-      <div class="awr"><div class="awr-p g">🥇 Entrepreneurship Pitch</div><div class="awr-n">Om Bathija &middot; Shakil Musthafa &middot; Timothy Nguyen &middot; Bryant Vo</div></div>
-      <div class="awr"><div class="awr-p s">🥈 Public Speaking</div><div class="awr-n">Derick Nguyen</div></div>
-      <div class="awr"><div class="awr-p b">🥉 Hospitality Management</div><div class="awr-n">Jacob Chen &middot; Vincent Shao &middot; Joshua Morris &middot; Ella Yang</div></div>
-      <div class="awr"><div class="awr-p f">4th &mdash; Finance</div><div class="awr-n">Carine Chan &middot; George Huang &middot; Christina Tran &middot; Anna Huynh</div></div>
-      <div class="awr"><div class="awr-p f">5th &mdash; Entrepreneurship Pitch</div><div class="awr-n">Coosemans &middot; More &middot; Pradhan &middot; Somu</div></div>
-    </div>
-    <!-- DAIS + Fall LC 2024 -->
-    <div style="display:flex;flex-direction:column;gap:3px">
-      <div class="acc-past-block">
-        <div class="acc-past-conf">De Anza Innovation Summit &middot; Oct 10, 2025</div>
-        <div class="awr"><div class="awr-p g">🥇 1st Place</div><div class="awr-n">Allyson Huynh &middot; Gloria Gao &middot; Rameesha Farrukh &middot; Nabiha Shahid</div></div>
-        <div class="awr"><div class="awr-p s">🥈 2nd Place</div><div class="awr-n">Anusha Shringi &middot; Ruirui Wu &middot; Aarush Muralinathan &middot; Timothy Le</div></div>
-        <div class="awr"><div class="awr-p b">🥉 3rd Place</div><div class="awr-n">Cyrus Nakar &middot; Kyle Krawez &middot; Su Waisy &middot; VJ Lukka</div></div>
+    <!-- NLC -->
+    <div class="acc-sub-label">National Leadership Conference</div>
+    <div class="strip-shell" onclick="openModal('nlc',0)">
+      <div class="strip-track" id="track-nlc" style="width:200%">
+        <div class="strip-page" style="width:50%">
+          <div class="sp-left"><div class="sp-wm">NLC</div><div class="sp-yr">2025</div></div>
+          <div class="sp-mid">
+            <div class="sp-conf">National Leadership Conference</div>
+            <div class="sp-loc">Dallas, TX · May 31–Jun 2, 2025</div>
+            <div class="sp-medals"><span class="sp-m g">🥇 ×3</span><span class="sp-m s">🥈 ×1</span><span class="sp-m">🥉 ×1</span><span class="sp-m">4th ×1</span><span class="sp-m">5th ×1</span></div>
+          </div>
+          <div class="sp-nav"><button class="sp-btn" disabled title="No earlier years">→</button></div>
+        </div>
       </div>
-      <!-- ════ 2024 ══ -->
-      <div class="acc-past-block">
-        <div class="acc-past-conf">Fall LC 2024 &middot; Nov 16&ndash;17 &middot; Emeryville, CA</div>
-        <div class="awr"><div class="awr-p g">🥇 1st &mdash; Finance Case Study</div><div class="awr-n">Allison Trinh &middot; Alan Dang &middot; Van Loc Nguyen &middot; Zain Darwish</div></div>
-        <div class="awr"><div class="awr-p s">🥈 2nd &mdash; Impromptu Speaking</div><div class="awr-n">Javin Ku</div></div>
-        <div class="awr"><div class="awr-p b">🥉 3rd &mdash; Marketing Case Study</div><div class="awr-n">Addy Hu &middot; Chris Wu &middot; Neal Singh &middot; Rushil Vaswani</div></div>
+    </div>
+
+    <!-- SBLC -->
+    <div class="acc-sub-label">State Business Leadership Conference</div>
+    <div class="strip-shell" onclick="openModal('sblc',sblcIdx)">
+      <div class="strip-track" id="track-sblc" style="width:200%">
+        <div class="strip-page" style="width:50%">
+          <div class="sp-left"><div class="sp-wm">SBLC</div><div class="sp-yr">2026</div></div>
+          <div class="sp-mid">
+            <div class="sp-conf">State Business Leadership Conference</div>
+            <div class="sp-loc">Emeryville, CA · Spring 2026</div>
+            <div class="sp-medals"><span class="sp-m sw">🏆 Sweep</span><span class="sp-m g">🥇 ×6</span><span class="sp-m s">🥈 ×8</span><span class="sp-m">🥉 ×2</span><span class="sp-m aw">4 Chapter Awards</span></div>
+          </div>
+          <div class="sp-nav"><button class="sp-btn" onclick="event.stopPropagation();slide('sblc',1)">→</button></div>
+        </div>
+        <div class="strip-page" style="width:50%">
+          <div class="sp-left"><div class="sp-wm">SBLC</div><div class="sp-yr">2025</div></div>
+          <div class="sp-mid">
+            <div class="sp-conf">State Business Leadership Conference</div>
+            <div class="sp-loc">San Diego, CA · Mar 7–9, 2025</div>
+            <div class="sp-medals"><span class="sp-m g">🥇 ×4</span><span class="sp-m s">🥈 ×3</span><span class="sp-m">🥉 ×1</span><span class="sp-m g">🥇 ×5 Obj.</span></div>
+          </div>
+          <div class="sp-nav"><button class="sp-btn" onclick="event.stopPropagation();slide('sblc',0)">→</button></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- FLC -->
+    <div class="acc-sub-label">Fall Leadership Conference</div>
+    <div class="strip-shell" onclick="openModal('flc',flcIdx)">
+      <div class="strip-track" id="track-flc" style="width:200%">
+        <div class="strip-page" style="width:50%">
+          <div class="sp-left"><div class="sp-wm">FLC</div><div class="sp-yr">2025</div></div>
+          <div class="sp-mid">
+            <div class="sp-conf">Fall Leadership Conference</div>
+            <div class="sp-loc">La Jolla, CA · Nov 8–9, 2025</div>
+            <div class="sp-medals"><span class="sp-m g">🥇 ×1</span><span class="sp-m s">🥈 ×1</span><span class="sp-m">🥉 ×1</span><span class="sp-m aw">Greatest Membership</span></div>
+          </div>
+          <div class="sp-nav"><button class="sp-btn" onclick="event.stopPropagation();slide('flc',1)">→</button></div>
+        </div>
+        <div class="strip-page" style="width:50%">
+          <div class="sp-left"><div class="sp-wm">FLC</div><div class="sp-yr">2024</div></div>
+          <div class="sp-mid">
+            <div class="sp-conf">Fall Leadership Conference</div>
+            <div class="sp-loc">Emeryville, CA · Nov 16–17, 2024</div>
+            <div class="sp-medals"><span class="sp-m g">🥇 ×1</span><span class="sp-m s">🥈 ×1</span><span class="sp-m">🥉 ×1</span></div>
+          </div>
+          <div class="sp-nav"><button class="sp-btn" onclick="event.stopPropagation();slide('flc',0)">→</button></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ CONSULTING ══ -->
+  <div class="acc-section">
+    <div class="acc-section-header">
+      <div class="acc-section-name">Consulting</div>
+      <div class="acc-section-line"></div>
+      <div class="acc-section-count">2 Cycles</div>
+    </div>
+
+    <div class="strip-shell" onclick="openModal('con',conIdx)">
+      <div class="strip-track" id="track-con" style="width:200%">
+        <div class="strip-page" style="width:50%">
+          <div class="sp-left"><div class="sp-wm">CON</div><div class="sp-yr">2026</div></div>
+          <div class="sp-mid">
+            <div class="sp-conf">Consulting Division — Spring 2026</div>
+            <div class="sp-loc">De Anza College · Clients: UC Berkeley IEEE, Star One CU, Azalea Jewelry</div>
+            <div class="sp-medals"><span class="sp-m g">🥇 ×2</span><span class="sp-m s">🥈 ×2</span><span class="sp-m">🥉 ×2</span></div>
+          </div>
+          <div class="sp-nav"><button class="sp-btn" onclick="event.stopPropagation();slide('con',1)">→</button></div>
+        </div>
+        <div class="strip-page" style="width:50%">
+          <div class="sp-left"><div class="sp-wm">CON</div><div class="sp-yr">2025</div></div>
+          <div class="sp-mid">
+            <div class="sp-conf">Consulting Division — Fall 2025</div>
+            <div class="sp-loc">De Anza College · Clients: Hunger at Home, VIDA, Palm &amp; Stone</div>
+            <div class="sp-medals"><span class="sp-m g">🥇 ×1</span><span class="sp-m s">🥈 ×1</span><span class="sp-m">🥉 ×1</span></div>
+          </div>
+          <div class="sp-nav"><button class="sp-btn" onclick="event.stopPropagation();slide('con',0)">→</button></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ INTERNAL EVENTS ══ -->
+  <div class="acc-section">
+    <div class="acc-section-header">
+      <div class="acc-section-name">Internal Events</div>
+      <div class="acc-section-line"></div>
+      <div class="acc-section-count">3 Events</div>
+    </div>
+
+    <!-- Shark Tank -->
+    <div class="acc-sub-label">PBL Shark Tank</div>
+    <div class="strip-shell" onclick="openModal('st',stIdx)">
+      <div class="strip-track" id="track-st" style="width:200%">
+        <div class="strip-page" style="width:50%">
+          <div class="sp-left"><div class="sp-wm">ST</div><div class="sp-yr">2026</div></div>
+          <div class="sp-mid">
+            <div class="sp-conf">PBL Shark Tank</div>
+            <div class="sp-loc">De Anza College · Spring 2026 · 50+ participants, 11 teams</div>
+            <div class="sp-medals"><span class="sp-m g">🥇 1st</span><span class="sp-m s">🥈 2nd</span><span class="sp-m">🥉 3rd</span><span class="sp-m">3 Special Awards</span></div>
+          </div>
+          <div class="sp-nav"><button class="sp-btn" onclick="event.stopPropagation();slide('st',1)">→</button></div>
+        </div>
+        <div class="strip-page" style="width:50%">
+          <div class="sp-left"><div class="sp-wm">ST</div><div class="sp-yr">2025</div></div>
+          <div class="sp-mid">
+            <div class="sp-conf">PBL Shark Tank</div>
+            <div class="sp-loc">De Anza College · Spring 2025 · 50 participants, 10 teams</div>
+            <div class="sp-medals"><span class="sp-m g">🥇 1st</span><span class="sp-m s">🥈 2nd</span><span class="sp-m">🥉 3rd</span></div>
+          </div>
+          <div class="sp-nav"><button class="sp-btn" onclick="event.stopPropagation();slide('st',0)">→</button></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- DAIS -->
+    <div class="acc-sub-label">De Anza Innovation Summit</div>
+    <div class="strip-shell" onclick="openModal('dais',0)">
+      <div class="strip-track" id="track-dais" style="width:100%">
+        <div class="strip-page" style="width:100%">
+          <div class="sp-left"><div class="sp-wm">DA</div><div class="sp-yr">2025</div></div>
+          <div class="sp-mid">
+            <div class="sp-conf">De Anza Innovation Summit (DAIS)</div>
+            <div class="sp-loc">De Anza College · Oct 10, 2025 · 80+ participants, 21 teams</div>
+            <div class="sp-medals"><span class="sp-m g">🥇 1st</span><span class="sp-m s">🥈 2nd</span><span class="sp-m">🥉 3rd</span></div>
+          </div>
+          <div class="sp-nav"><button class="sp-btn" disabled>→</button></div>
+        </div>
       </div>
     </div>
   </div>
 
 </div>
 </div>
+
+<!-- MODAL -->
+<div class="acc-modal-overlay" id="accModal" onclick="if(event.target===this)closeModal()">
+  <div class="acc-modal">
+    <button class="acc-modal-close" onclick="closeModal()">✕</button>
+    <div class="acc-modal-body">
+      <div class="acc-modal-tag" id="m-tag"></div>
+      <div class="acc-modal-title" id="m-title"></div>
+      <div class="acc-modal-loc" id="m-loc"></div>
+      <div class="acc-modal-stats" id="m-stats"></div>
+      <div class="acc-modal-pills" id="m-pills"></div>
+      <div class="acc-modal-sub" id="m-sub" style="display:none">Results</div>
+      <div class="acc-modal-results" id="m-results"></div>
+    </div>
+  </div>
+</div>
+
 <footer style="display:flex;align-items:center;justify-content:space-between;padding:2rem 2.5rem;border-top:1px solid var(--border);flex-wrap:wrap;gap:1rem">
   <div style="display:flex;align-items:center;gap:1.2rem">
     <span class="foot-logo">ΦΒΛ</span>
@@ -343,7 +319,70 @@
     <li><a href="https://instagram.com/deanzapbl" target="_blank">Instagram</a></li><li><a href="https://discord.gg/w7zap3SfUm" target="_blank">Discord</a></li><li><a href="https://linktr.ee/deanzapbl" target="_blank">Linktree</a></li><li><a href="contact.html">Contact</a></li>
   </ul>
 </footer>
+
 <script src="main.js"></script>
+<script>
+/* ── Slide state ── */
+var sblcIdx=0,flcIdx=0,conIdx=0,stIdx=0;
+
+function slide(key,toIdx){
+  var track=document.getElementById('track-'+key);
+  if(!track)return;
+  var pages=track.querySelectorAll('.strip-page');
+  var total=pages.length;
+  var pct=toIdx*(100/total);
+  track.style.transform='translateX(-'+pct+'%)';
+  if(key==='sblc')sblcIdx=toIdx;
+  else if(key==='flc')flcIdx=toIdx;
+  else if(key==='con')conIdx=toIdx;
+  else if(key==='st')stIdx=toIdx;
+}
+
+/* ── Modal data ── */
+var MODAL={
+  nlc:{0:{tag:'NLC · 2025',title:'National Leadership Conference',loc:'Dallas, TX · May 31–Jun 2, 2025',stats:[['3','Gold'],['1','Silver'],['1','Bronze'],['13','Teams Sent']],pills:[],sub:true,results:[['🥇 1st — Accounting','Alan Dang · Katelyn Nguyen · Yihan Pan · Rachel Tran'],['🥇 1st — Business Ethics','Javin Ku'],['🥇 1st — Hospitality Management','Allissa Iida · Taranjit Kaur · Jasmine Perlas · Christina Tran'],['🥈 2nd — Community Service','Carine Chan · George Huang · Suyash Jevaria'],['🥉 3rd — Marketing','Thu Tran · Nhi Tran · Tram Lieng'],['4th — Emerging Business Issues','Zain Darwish · Javin Ku'],['5th — Business Presentation','Dianne Johnson · Vinh Nguyen · Jocelyn Ramirez']]}},
+  sblc:{
+    0:{tag:'SBLC · 2026',title:'State Business Leadership Conference',loc:'Emeryville, CA · Spring 2026',stats:[['🏆','Sweepstakes'],['6','Gold'],['8','Silver'],['2','Bronze']],pills:['State of Chapter Award','Largest State Chapter Award','Largest Membership Award','Sweepstakes Award'],sub:true,results:[['🥇 Entrepreneurship Pitch','William Devanney · Shakil Musthafa · Timothy Nguyen · Bryant Vo'],['🥇 Hospitality Management','Anna Huynh · Jayden Phan · Francisco Rodriguez · Haley Truong'],['🥇 Impromptu Speaking','Nikunj More'],['🥇 Public Speaking','Derick Nguyen'],['🥇 State of Chapter','Carine Chan · Nisa Pradhan · Arya Somu'],['🥇 Community Service Project','Arin Kumar · Lisa Qian · Derick Nguyen + team'],['🥈 Accounting Case','Nikunj More · Shakil Musthafa'],['🥈 Business Ethics','Iker Amox Jimenez · George Huang · Jordan Nguyen'],['🥈 Business Presentation','Tran Dang · Jing Xuan Jason Zhou'],['🥈 Digital Design','Nhi Tran'],['🥈 Emerging Business Issues','Jacob Eliashberg · Rameesha Farrukh · Joseph Leytes'],['🥈 Entrepreneurship Pitch','Om Bathija · Rivers Calareso'],['🥈 Finance','Elena Burgos · Evan Hoeffner · Jocelyn Ramirez'],['🥈 Impromptu Speaking','Anusha Shringi'],['🥉 Emerging Business Issues','Anirudh Ahluwalia · Parker Elsey · Angelo Maniraho'],['🥉 Impromptu Speaking','Timothy Nguyen']]},
+    1:{tag:'SBLC · 2025',title:'State Business Leadership Conference',loc:'San Diego, CA · Mar 7–9, 2025',stats:[['4','Gold'],['3','Silver'],['1','Bronze'],['5','Obj. Gold']],pills:[],sub:true,results:[['🥇 1st — Accounting','Alan Dang · Katelyn Nguyen · Floria Pan · Rachel Tran'],['🥇 1st — Management','Cyrus Nakar · Anqi Lin · Allyson Huynh'],['🥇 1st — Business Ethics','Javin Ku'],['🥇 1st — Hospitality Management','Carine Chan · Sylvie Nghiem · George Huang · Leo Huang'],['🥈 2nd — Business Ethics','Fun Lee · Jordan Nguyen · Iker Jimenez'],['🥈 2nd — Business Presentation','Zineerah Ahmed · Dianne Johnson · Jocelyn Ramirez'],['🥈 2nd — Pitch','Arya Somu · Nisa Pradhan · Arthur Poon'],['🥉 3rd — Accounting','Chris Wu · Neal Singh · Alan Tran'],['🥇 Obj. Accounting','Alan Dang'],['🥇 Obj. Leadership','Minh Le'],['🥇 Obj. Impromptu Speaking','VJ Lukka'],['🥇 Obj. Sticker Design','Nhi Tran'],['🥇 Obj. Stock Market','Vincent Shao']]}
+  },
+  flc:{
+    0:{tag:'FLC · 2025',title:'Fall Leadership Conference',loc:'La Jolla, CA · Nov 8–9, 2025',stats:[['🏅','Greatest Membership'],['3','Medal Events'],['8+','Placements'],['—','Conf. Attendance']],pills:['Greatest Membership Award','Conference Attendance Award'],sub:true,results:[['🥇 Entrepreneurship Pitch','Om Bathija · Shakil Musthafa · Timothy Nguyen · Bryant Vo'],['🥈 Public Speaking','Derick Nguyen'],['🥉 Hospitality Management','Jacob Chen · Vincent Shao · Joshua Morris · Ella Yang'],['4th — Finance','Carine Chan · George Huang · Christina Tran · Anna Huynh'],['5th — Entrepreneurship Pitch','Coosemans · More · Pradhan · Somu']]},
+    1:{tag:'FLC · 2024',title:'Fall Leadership Conference',loc:'Emeryville, CA · Nov 16–17, 2024',stats:[['1','Gold'],['1','Silver'],['1','Bronze'],['15+','Teams']], pills:[],sub:true,results:[['🥇 Finance Case Study','Allison Trinh · Alan Dang · Van Loc Nguyen · Zain Darwish'],['🥈 Impromptu Speaking','Javin Ku'],['🥉 Marketing Case Study','Addy Hu · Chris Wu · Neal Singh · Rushil Vaswani']]}
+  },
+  con:{
+    0:{tag:'Consulting · Spring 2026',title:'Consulting Division',loc:'De Anza College · Spring 2026 · Clients: UC Berkeley IEEE, Star One CU, Azalea Jewelry',stats:[['2','Gold'],['2','Silver'],['2','Bronze'],['3','Clients']],pills:[],sub:true,results:[['🥇 1st — Azalea Jewelry','Jedrick Lachica · Jasmine Perlas · Amy Tran · Jayden Mai · Lucas Avila'],['🥈 2nd — Azalea Jewelry','Anya Faria · Janet Wong · Amaan Hussain · Gabriel Heiss'],['🥉 3rd — Star One Credit Union','Walter Paco · Noah Zabala-Taa · Adonis Escobar · Juliana Estrada']]},
+    1:{tag:'Consulting · Fall 2025',title:'Consulting Division',loc:'De Anza College · Fall 2025 · Clients: Hunger at Home, VIDA, Palm & Stone',stats:[['1','Gold'],['1','Silver'],['1','Bronze'],['3','Clients']],pills:[],sub:true,results:[['🥇 1st — Hunger at Home','Evan Hoeffner · Ilay Botzer · Zhen Huey Lee · Leo Chao'],['🥈 2nd — Palm & Stone','Timothy Le · Amaan Hussain · Justin Aung · Kirin Husain'],['🥉 3rd — VIDA','Jasmine Perlas · Jedrick Lachica · Emmanuel Aceves · Elara Lwin']]}
+  },
+  st:{
+    0:{tag:'Shark Tank · 2026',title:'PBL Shark Tank 2026',loc:'De Anza College · Spring 2026 · 50+ participants, 11 teams, 1 hour to pitch',stats:[['50+','Participants'],['11','Teams'],['4','Judges'],['1hr','Pitch']],pills:[],sub:true,results:[['🥇 1st Place — Team #1','Harika Talluri · Ella Yang · Tran Dang · Moles Kali · Elena Burgos'],['🥈 2nd Place — Team #7','Arnav Junday · Teevra Singh · Ridhi Thapar · Ashwika Agarwal · Ruhi Teji'],['🥉 3rd Place — Team #3','Francisco Rodriguez · Jayden Phan · Parker Elsey · Evan Hoeffner · Mihir Thakar'],['Most Innovative','Rodriguez · Phan · Elsey · Hoeffner · Thakar'],['Most Environmental','Morris · Chen · Shao · Manney · Chang'],['Most Entertaining','Lakshya Saini · Zhen Huey Lee']]},
+    1:{tag:'Shark Tank · 2025',title:'PBL Shark Tank 2025',loc:'De Anza College · Spring 2025 · 50 participants, 10 teams, judges from Facebook, McAfee, Cisco, Informatica',stats:[['50','Participants'],['10','Teams'],['4','Judges'],['1hr','Pitch']],pills:[],sub:false,results:[]}
+  },
+  dais:{0:{tag:'DAIS · 2025',title:'De Anza Innovation Summit',loc:'De Anza College · Oct 10, 2025 · 80+ participants, 21 teams, 5-hour challenge',stats:[['80+','Participants'],['21','Teams'],['5hr','Challenge'],['1st','Year']],pills:[],sub:true,results:[['🥇 1st Place','Allyson Huynh · Gloria Gao · Rameesha Farrukh · Nabiha Shahid'],['🥈 2nd Place','Anusha Shringi · Ruirui Wu · Aarush Muralinathan · Timothy Le'],['🥉 3rd Place','Cyrus Nakar · Kyle Krawez · Su Waisy · VJ Lukka']]}}
+};
+
+function openModal(key,idx){
+  var d=MODAL[key];if(!d)return;
+  var entry=d[idx]||d[0];if(!entry)return;
+  document.getElementById('m-tag').textContent=entry.tag;
+  document.getElementById('m-title').textContent=entry.title;
+  document.getElementById('m-loc').textContent=entry.loc;
+  document.getElementById('m-stats').innerHTML=entry.stats.map(function(s){return'<div class="acc-modal-stat"><div class="acc-modal-stat-n">'+s[0]+'</div><div class="acc-modal-stat-l">'+s[1]+'</div></div>'}).join('');
+  var pillsEl=document.getElementById('m-pills');
+  if(entry.pills&&entry.pills.length){pillsEl.style.display='flex';pillsEl.innerHTML=entry.pills.map(function(p){return'<span class="acc-modal-pill">'+p+'</span>'}).join('');}else{pillsEl.style.display='none';pillsEl.innerHTML='';}
+  var subEl=document.getElementById('m-sub');
+  subEl.style.display=entry.sub?'flex':'none';
+  document.getElementById('m-results').innerHTML=entry.results.map(function(r){return'<div class="acc-modal-row"><div class="acc-modal-place">'+r[0]+'</div><div class="acc-modal-names">'+r[1]+'</div></div>'}).join('');
+  document.getElementById('accModal').classList.add('open');
+  document.body.style.overflow='hidden';
+}
+
+function closeModal(){
+  document.getElementById('accModal').classList.remove('open');
+  document.body.style.overflow='';
+}
+
+document.addEventListener('keydown',function(e){if(e.key==='Escape')closeModal();});
+</script>
 <script>(function(){var hero=document.querySelector('.page-hero');if(!hero)return;var l1=hero.querySelector('.plx-l1'),l2=hero.querySelector('.plx-l2'),l3=hero.querySelector('.plx-l3'),txt=hero.querySelector('.plx-text'),plxCur=hero.querySelector('.plx-cursor');hero.addEventListener('mousemove',function(e){var r=hero.getBoundingClientRect(),cx=e.clientX-r.left,cy=e.clientY-r.top,hw=r.width/2,hh=r.height/2,rx=(cx-hw)/hw,ry=(cy-hh)/hh;if(l1)l1.style.transform='translate('+(rx*14)+'px,'+(ry*14)+'px)';if(l2)l2.style.transform='translate('+(rx*26)+'px,'+(ry*26)+'px)';if(l3)l3.style.transform='translate('+(rx*42)+'px,'+(ry*42)+'px)';if(txt)txt.style.transform='translate('+(rx*-7)+'px,'+(ry*-7)+'px)';if(plxCur){plxCur.style.left=cx+'px';plxCur.style.top=cy+'px';}});hero.addEventListener('mouseleave',function(){if(l1)l1.style.transform='';if(l2)l2.style.transform='';if(l3)l3.style.transform='';if(txt)txt.style.transform='';});})();</script>
 </body>
 </html>
