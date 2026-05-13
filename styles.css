@@ -175,7 +175,7 @@ footer{padding:3rem 2.5rem;border-top:1px solid var(--border);display:flex;align
 @keyframes sponsorScroll{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
 .sponsor-logo{flex-shrink:0;width:160px;height:80px;background:#0d0d0d;border:1px solid rgba(245,243,239,.06);display:flex;align-items:center;justify-content:center;padding:1rem 1.5rem;cursor:pointer;transition:background .2s,border-color .2s}
 .sponsor-logo:hover,.sponsor-logo.active{background:var(--gray);border-color:rgba(200,16,46,.25)}
-.sponsor-logo img{max-width:100%;max-height:38px;object-fit:contain;filter:grayscale(1) brightness(1.8);transition:filter .3s;display:block}
-.sponsor-logo:hover img,.sponsor-logo.active img{filter:grayscale(0) brightness(1)}
+.sponsor-logo img{max-width:100%;max-height:38px;object-fit:contain;transition:filter .3s;display:block}
+.sponsor-logo:hover img,.sponsor-logo.active img{}
 .sponsor-logo-name{font-family:'IBM Plex Mono',monospace;font-size:.5rem;letter-spacing:.2em;text-transform:uppercase;color:rgba(245,243,239,.3);transition:color .2s}
 .sponsor-logo:hover .sponsor-logo-name,.sponsor-logo.active .sponsor-logo-name{color:rgba(245,243,239,.7)}
