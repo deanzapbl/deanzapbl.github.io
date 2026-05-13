@@ -86,9 +86,11 @@
 .sponsor-logo:hover{border-color:rgba(245,243,239,.2)}
 .sponsor-logo.active{border-color:rgba(255,255,255,.78);transform:scale(1.13);z-index:20;background:#161616;box-shadow:0 0 0 1px rgba(255,255,255,.22),0 0 12px 3px rgba(255,255,255,.13),0 0 32px 8px rgba(255,255,255,.07),0 0 64px 18px rgba(255,255,255,.025)}
 .sponsor-logo.active::after{opacity:1}
-.sponsor-logo img{max-width:120px;max-height:52px;object-fit:contain;filter:invert(1) grayscale(1) brightness(0.75);opacity:0.7;transition:filter .35s,transform .35s,opacity .35s;position:relative;z-index:1;display:block}
-.sponsor-logo:hover img{opacity:1;filter:invert(1) grayscale(0) brightness(1)}
-.sponsor-logo.active img{filter:invert(1) grayscale(0) brightness(1);transform:scale(1.04)}
+.sponsor-logo img{max-width:120px;max-height:52px;object-fit:contain;filter:grayscale(1) brightness(0.7);opacity:0.65;transition:filter .35s,transform .35s,opacity .35s;position:relative;z-index:1;display:block}
+.sponsor-logo:hover img{opacity:1;filter:none}
+.sponsor-logo.active img{filter:none;transform:scale(1.04)}
+.sponsor-logo.logo-whitebg img{filter:invert(1) grayscale(1) brightness(0.75)}
+.sponsor-logo.logo-whitebg:hover img{filter:invert(1) grayscale(0) brightness(1)}
 .sponsor-tooltip{position:absolute;bottom:calc(100% + 10px);left:50%;transform:translateX(-50%) translateY(6px);background:#181818;border:1px solid rgba(255,255,255,.14);border-radius:4px;padding:.55rem 1rem;white-space:nowrap;pointer-events:none;z-index:30;opacity:0;transition:opacity .22s,transform .22s;box-shadow:0 0 0 1px rgba(255,255,255,.05),0 8px 28px rgba(0,0,0,.7)}
 .sponsor-logo.active .sponsor-tooltip{opacity:1;transform:translateX(-50%) translateY(0)}
 .sponsor-tooltip-name{font-family:'Bebas Neue',sans-serif;font-size:1rem;color:#f5f3ef;letter-spacing:.05em;line-height:1.2;margin-bottom:.2rem}
@@ -296,12 +298,12 @@
   <div class="sponsor-track-outer">
     <div class="sponsor-track" id="consultingTrack">
       <div class="sponsor-logo" data-name="KPMG" data-type="Professional Services"><img src="images/consulting-kpmg.png" alt="KPMG"><div class="sponsor-tooltip"><div class="sponsor-tooltip-name">KPMG</div><div class="sponsor-tooltip-type">Professional Services</div></div></div>
-      <div class="sponsor-logo" data-name="Star One Credit Union" data-type="Financial Services"><img src="images/consulting-star-one.png" alt="Star One Credit Union"><div class="sponsor-tooltip"><div class="sponsor-tooltip-name">Star One Credit Union</div><div class="sponsor-tooltip-type">Financial Services</div></div></div>
-      <div class="sponsor-logo" data-name="KeyPoint Credit Union" data-type="Financial Services"><img src="images/consulting-keypoint.png" alt="KeyPoint Credit Union"><div class="sponsor-tooltip"><div class="sponsor-tooltip-name">KeyPoint Credit Union</div><div class="sponsor-tooltip-type">Financial Services</div></div></div>
+      <div class="sponsor-logo logo-whitebg" data-name="Star One Credit Union" data-type="Financial Services"><img src="images/consulting-star-one.png" alt="Star One Credit Union"><div class="sponsor-tooltip"><div class="sponsor-tooltip-name">Star One Credit Union</div><div class="sponsor-tooltip-type">Financial Services</div></div></div>
+      <div class="sponsor-logo logo-whitebg" data-name="KeyPoint Credit Union" data-type="Financial Services"><img src="images/consulting-keypoint.png" alt="KeyPoint Credit Union"><div class="sponsor-tooltip"><div class="sponsor-tooltip-name">KeyPoint Credit Union</div><div class="sponsor-tooltip-type">Financial Services</div></div></div>
       <div class="sponsor-logo" data-name="Foundation for Economic Education" data-type="Education"><img src="images/consulting-fee.png" alt="Foundation for Economic Education"><div class="sponsor-tooltip"><div class="sponsor-tooltip-name">Foundation for Economic Education</div><div class="sponsor-tooltip-type">Education</div></div></div>
       <div class="sponsor-logo" data-name="KPMG" data-type="Professional Services"><img src="images/consulting-kpmg.png" alt="KPMG"><div class="sponsor-tooltip"><div class="sponsor-tooltip-name">KPMG</div><div class="sponsor-tooltip-type">Professional Services</div></div></div>
-      <div class="sponsor-logo" data-name="Star One Credit Union" data-type="Financial Services"><img src="images/consulting-star-one.png" alt="Star One Credit Union"><div class="sponsor-tooltip"><div class="sponsor-tooltip-name">Star One Credit Union</div><div class="sponsor-tooltip-type">Financial Services</div></div></div>
-      <div class="sponsor-logo" data-name="KeyPoint Credit Union" data-type="Financial Services"><img src="images/consulting-keypoint.png" alt="KeyPoint Credit Union"><div class="sponsor-tooltip"><div class="sponsor-tooltip-name">KeyPoint Credit Union</div><div class="sponsor-tooltip-type">Financial Services</div></div></div>
+      <div class="sponsor-logo logo-whitebg" data-name="Star One Credit Union" data-type="Financial Services"><img src="images/consulting-star-one.png" alt="Star One Credit Union"><div class="sponsor-tooltip"><div class="sponsor-tooltip-name">Star One Credit Union</div><div class="sponsor-tooltip-type">Financial Services</div></div></div>
+      <div class="sponsor-logo logo-whitebg" data-name="KeyPoint Credit Union" data-type="Financial Services"><img src="images/consulting-keypoint.png" alt="KeyPoint Credit Union"><div class="sponsor-tooltip"><div class="sponsor-tooltip-name">KeyPoint Credit Union</div><div class="sponsor-tooltip-type">Financial Services</div></div></div>
       <div class="sponsor-logo" data-name="Foundation for Economic Education" data-type="Education"><img src="images/consulting-fee.png" alt="Foundation for Economic Education"><div class="sponsor-tooltip"><div class="sponsor-tooltip-name">Foundation for Economic Education</div><div class="sponsor-tooltip-type">Education</div></div></div>
     </div>
   </div>
