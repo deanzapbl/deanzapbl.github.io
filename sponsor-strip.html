@@ -1,0 +1,61 @@
+<!-- ── PASTE THIS CSS INTO YOUR <style> OR styles.css ── -->
+<style>
+.sponsor-section{padding:3rem 0;border-top:1px solid var(--border);border-bottom:1px solid var(--border);background:var(--black);overflow:hidden}
+.sponsor-section-label{font-family:'IBM Plex Mono',monospace;font-size:.48rem;letter-spacing:.25em;text-transform:uppercase;color:rgba(245,243,239,.25);text-align:center;margin-bottom:2rem;display:flex;align-items:center;justify-content:center;gap:1.5rem}
+.sponsor-section-label::before,.sponsor-section-label::after{content:'';width:80px;height:1px;background:rgba(245,243,239,.1)}
+.sponsor-wrap{overflow:hidden;position:relative}
+.sponsor-wrap::before,.sponsor-wrap::after{content:'';position:absolute;top:0;bottom:0;width:120px;z-index:2;pointer-events:none}
+.sponsor-wrap::before{left:0;background:linear-gradient(90deg,#050505,transparent)}
+.sponsor-wrap::after{right:0;background:linear-gradient(270deg,#050505,transparent)}
+.sponsor-track{display:flex;align-items:center;gap:1px;width:max-content;animation:sponsorScroll 32s linear infinite}
+.sponsor-track.paused{animation-play-state:paused}
+@keyframes sponsorScroll{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+.sponsor-logo{flex-shrink:0;width:160px;height:80px;background:#0a0a0a;border:1px solid rgba(245,243,239,.06);display:flex;align-items:center;justify-content:center;padding:1rem 1.5rem;cursor:pointer;transition:background .2s,border-color .2s;position:relative;overflow:hidden}
+.sponsor-logo:hover,.sponsor-logo.active{background:#111;border-color:rgba(200,16,46,.25)}
+.sponsor-logo img{max-width:100%;max-height:40px;object-fit:contain;filter:grayscale(1) brightness(1.8);transition:filter .3s;display:block}
+.sponsor-logo:hover img,.sponsor-logo.active img{filter:grayscale(0) brightness(1)}
+.sponsor-logo-name{font-family:'IBM Plex Mono',monospace;font-size:.52rem;letter-spacing:.2em;text-transform:uppercase;color:rgba(245,243,239,.35);transition:color .2s}
+.sponsor-logo:hover .sponsor-logo-name,.sponsor-logo.active .sponsor-logo-name{color:rgba(245,243,239,.7)}
+</style>
+
+<!-- ── PASTE THIS HTML WHERE YOU WANT THE STRIP ── -->
+<section class="sponsor-section">
+  <div class="sponsor-section-label">Our Collaborators &amp; Partners</div>
+  <div class="sponsor-wrap">
+    <div class="sponsor-track" id="sponsorTrack">
+
+      <!-- SET 1 -->
+      <div class="sponsor-logo"><img src="https://img.logo.dev/google.com?token=pk_free&size=80&format=png" alt="Google"><span class="sponsor-logo-name">Google</span></div>
+      <div class="sponsor-logo"><img src="https://img.logo.dev/nvidia.com?token=pk_free&size=80&format=png" alt="NVIDIA"><span class="sponsor-logo-name">NVIDIA</span></div>
+      <div class="sponsor-logo"><img src="https://img.logo.dev/informatica.com?token=pk_free&size=80&format=png" alt="Informatica"><span class="sponsor-logo-name">Informatica</span></div>
+      <div class="sponsor-logo"><img src="https://img.logo.dev/salesforce.com?token=pk_free&size=80&format=png" alt="Salesforce"><span class="sponsor-logo-name">Salesforce</span></div>
+      <div class="sponsor-logo"><img src="https://img.logo.dev/cisco.com?token=pk_free&size=80&format=png" alt="Cisco"><span class="sponsor-logo-name">Cisco</span></div>
+      <div class="sponsor-logo"><img src="https://img.logo.dev/meta.com?token=pk_free&size=80&format=png" alt="Meta"><span class="sponsor-logo-name">Meta</span></div>
+      <div class="sponsor-logo"><img src="https://img.logo.dev/perplexity.ai?token=pk_free&size=80&format=png" alt="Perplexity"><span class="sponsor-logo-name">Perplexity</span></div>
+      <div class="sponsor-logo"><img src="https://img.logo.dev/mcafee.com?token=pk_free&size=80&format=png" alt="McAfee"><span class="sponsor-logo-name">McAfee</span></div>
+      <div class="sponsor-logo"><img src="https://img.logo.dev/godaddy.com?token=pk_free&size=80&format=png" alt="GoDaddy"><span class="sponsor-logo-name">GoDaddy</span></div>
+      <div class="sponsor-logo"><img src="https://img.logo.dev/goldmansachs.com?token=pk_free&size=80&format=png" alt="Goldman Sachs"><span class="sponsor-logo-name">Goldman Sachs</span></div>
+      <div class="sponsor-logo"><img src="https://img.logo.dev/amazon.com?token=pk_free&size=80&format=png" alt="Amazon"><span class="sponsor-logo-name">Amazon</span></div>
+      <div class="sponsor-logo"><img src="https://img.logo.dev/clearlyrated.com?token=pk_free&size=80&format=png" alt="ClearlyRated"><span class="sponsor-logo-name">ClearlyRated</span></div>
+      <div class="sponsor-logo"><span class="sponsor-logo-name">Culvert</span></div>
+      <div class="sponsor-logo"><img src="https://img.logo.dev/vectice.com?token=pk_free&size=80&format=png" alt="Vectice"><span class="sponsor-logo-name">Vectice</span></div>
+
+      <!-- SET 2 (duplicate for seamless loop) -->
+      <div class="sponsor-logo"><img src="https://img.logo.dev/google.com?token=pk_free&size=80&format=png" alt="Google"><span class="sponsor-logo-name">Google</span></div>
+      <div class="sponsor-logo"><img src="https://img.logo.dev/nvidia.com?token=pk_free&size=80&format=png" alt="NVIDIA"><span class="sponsor-logo-name">NVIDIA</span></div>
+      <div class="sponsor-logo"><img src="https://img.logo.dev/informatica.com?token=pk_free&size=80&format=png" alt="Informatica"><span class="sponsor-logo-name">Informatica</span></div>
+      <div class="sponsor-logo"><img src="https://img.logo.dev/salesforce.com?token=pk_free&size=80&format=png" alt="Salesforce"><span class="sponsor-logo-name">Salesforce</span></div>
+      <div class="sponsor-logo"><img src="https://img.logo.dev/cisco.com?token=pk_free&size=80&format=png" alt="Cisco"><span class="sponsor-logo-name">Cisco</span></div>
+      <div class="sponsor-logo"><img src="https://img.logo.dev/meta.com?token=pk_free&size=80&format=png" alt="Meta"><span class="sponsor-logo-name">Meta</span></div>
+      <div class="sponsor-logo"><img src="https://img.logo.dev/perplexity.ai?token=pk_free&size=80&format=png" alt="Perplexity"><span class="sponsor-logo-name">Perplexity</span></div>
+      <div class="sponsor-logo"><img src="https://img.logo.dev/mcafee.com?token=pk_free&size=80&format=png" alt="McAfee"><span class="sponsor-logo-name">McAfee</span></div>
+      <div class="sponsor-logo"><img src="https://img.logo.dev/godaddy.com?token=pk_free&size=80&format=png" alt="GoDaddy"><span class="sponsor-logo-name">GoDaddy</span></div>
+      <div class="sponsor-logo"><img src="https://img.logo.dev/goldmansachs.com?token=pk_free&size=80&format=png" alt="Goldman Sachs"><span class="sponsor-logo-name">Goldman Sachs</span></div>
+      <div class="sponsor-logo"><img src="https://img.logo.dev/amazon.com?token=pk_free&size=80&format=png" alt="Amazon"><span class="sponsor-logo-name">Amazon</span></div>
+      <div class="sponsor-logo"><img src="https://img.logo.dev/clearlyrated.com?token=pk_free&size=80&format=png" alt="ClearlyRated"><span class="sponsor-logo-name">ClearlyRated</span></div>
+      <div class="sponsor-logo"><span class="sponsor-logo-name">Culvert</span></div>
+      <div class="sponsor-logo"><img src="https://img.logo.dev/vectice.com?token=pk_free&size=80&format=png" alt="Vectice"><span class="sponsor-logo-name">Vectice</span></div>
+
+    </div>
+  </div>
+</section>
