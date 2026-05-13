@@ -10,23 +10,19 @@
 <link rel="stylesheet" href="styles.css">
 <style id="parallax-hero-css">
 .page-hero{min-height:100vh;display:flex;flex-direction:column;justify-content:center;padding:9rem 2.5rem 5rem;position:relative;overflow:hidden;border-bottom:1px solid var(--border);background:#050505;cursor:none}
-.plx-l3,.plx-l2,.plx-l1{position:absolute;pointer-events:none;will-change:transform}
-.plx-l3{inset:-30px;background-image:radial-gradient(circle,rgba(200,16,46,.05) 1px,transparent 1px);background-size:64px 64px;transition:transform .12s ease-out}
-.plx-l2{inset:-20px;background-image:radial-gradient(circle,rgba(200,16,46,.1) 1.5px,transparent 1.5px);background-size:32px 32px;transition:transform .08s ease-out}
-.plx-l1{inset:-12px;background-image:radial-gradient(circle,rgba(200,16,46,.2) 2px,transparent 2px);background-size:14px 14px;transition:transform .05s ease-out}
+.plx-canvas{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:0}
 .plx-vignette{position:absolute;inset:0;background:radial-gradient(ellipse 75% 75% at 50% 50%,transparent 30%,#050505 100%);pointer-events:none;z-index:1}
 .plx-crt{position:absolute;inset:0;background:repeating-linear-gradient(0deg,transparent,transparent 2px,rgba(0,0,0,.03) 2px,rgba(0,0,0,.03) 4px);pointer-events:none;z-index:2}
-.plx-scan{position:absolute;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent 0%,rgba(200,16,46,.45) 30%,rgba(200,16,46,.7) 50%,rgba(200,16,46,.45) 70%,transparent 100%);animation:heroScan 5s linear infinite;pointer-events:none;z-index:4}
 .plx-text{position:relative;z-index:3;will-change:transform;transition:transform .07s ease-out}
-.plx-cursor{position:absolute;width:28px;height:28px;border:1px solid rgba(200,16,46,.45);border-radius:50%;pointer-events:none;transform:translate(-50%,-50%);z-index:10;transition:opacity .18s;opacity:0}
-.page-hero:hover .plx-cursor{opacity:1}
 .page-hero .hero-tag,.page-hero .page-sub,.page-hero .page-hero-wm,.page-hero .page-hero-year{position:relative;z-index:3}
 @keyframes fadeIn{from{opacity:0}to{opacity:1}}
 @keyframes slideUp{from{opacity:0;transform:translateY(60px)}to{opacity:1;transform:translateY(0)}}
 @keyframes slideUpGlitch{0%{opacity:0;transform:translateY(50px)}60%{opacity:1;transform:translateY(0)}62%{transform:translateX(-3px)}64%{transform:translateX(3px)}66%{transform:translateX(-2px)}68%,100%{transform:translateX(0);opacity:1}}
 @keyframes heroBlink{0%,100%{opacity:1}50%{opacity:.2}}
-@keyframes heroScan{0%{top:-2px;opacity:0}5%{opacity:1}95%{opacity:1}100%{top:100%;opacity:0}}
+5%{opacity:1}95%{opacity:1}100%{top:100%;opacity:0}}
 @media(max-width:768px){.page-hero{padding:7rem 1.5rem 4rem;min-height:90vh}}
+.page-hero .hero-tag::after,.page-hero .hero-tag::before{display:none!important;content:none!important;background:none!important;}
+.page-hero .hero-tag{border:none!important;}
 </style>
 <style>
 /* ── Page Layout ── */
@@ -136,9 +132,9 @@
 
 <div class="page active">
 <section class="page-hero">
-  <div class="plx-l3"></div><div class="plx-l2"></div><div class="plx-l1"></div>
-  <div class="plx-vignette"></div><div class="plx-crt"></div><div class="plx-scan"></div>
-  <div class="plx-cursor"></div>
+    <canvas class="plx-canvas" id="plxCanvas"></canvas>
+  <div class="plx-vignette"></div>
+  <div class="plx-crt"></div>
   <div class="plx-text">
     <div class="hero-tag">Accolades</div>
     <h1 class="page-title"><span>Award</span><span>Winning.</span></h1>
@@ -477,6 +473,6 @@ function openModal(key,idx){
 function closeModal(){document.getElementById('accModal').classList.remove('open');document.body.style.overflow='';}
 document.addEventListener('keydown',function(e){if(e.key==='Escape')closeModal();});
 </script>
-<script>(function(){var hero=document.querySelector('.page-hero');if(!hero)return;var l1=hero.querySelector('.plx-l1'),l2=hero.querySelector('.plx-l2'),l3=hero.querySelector('.plx-l3'),txt=hero.querySelector('.plx-text'),plxCur=hero.querySelector('.plx-cursor');hero.addEventListener('mousemove',function(e){var r=hero.getBoundingClientRect(),cx=e.clientX-r.left,cy=e.clientY-r.top,hw=r.width/2,hh=r.height/2,rx=(cx-hw)/hw,ry=(cy-hh)/hh;if(l1)l1.style.transform='translate('+(rx*14)+'px,'+(ry*14)+'px)';if(l2)l2.style.transform='translate('+(rx*26)+'px,'+(ry*26)+'px)';if(l3)l3.style.transform='translate('+(rx*42)+'px,'+(ry*42)+'px)';if(txt)txt.style.transform='translate('+(rx*-7)+'px,'+(ry*-7)+'px)';if(plxCur){plxCur.style.left=cx+'px';plxCur.style.top=cy+'px';}});hero.addEventListener('mouseleave',function(){if(l1)l1.style.transform='';if(l2)l2.style.transform='';if(l3)l3.style.transform='';if(txt)txt.style.transform='';});})();</script>
+<script>(function(){var hero=document.querySelector(".page-hero");if(!hero)return;var canvas=document.getElementById("plxCanvas");var txt=hero.querySelector(".plx-text");var ctx=canvas.getContext("2d");var mx,my,smx,smy;var stars=[];var t=0;function buildStars(){stars=[];var W=canvas.width,H=canvas.height;for(var k=0;k<280;k++){stars.push({x:Math.random()*W,y:Math.random()*H,r:Math.random()*1.2+0.2,ph:Math.random()*6.28,spd:Math.random()*1.5+0.5,a:Math.random()*0.3+0.05});}}function resize(){canvas.width=hero.offsetWidth;canvas.height=hero.offsetHeight;if(smx==null){smx=canvas.width/2;smy=canvas.height/2;mx=smx;my=smy;}buildStars();}resize();window.addEventListener("resize",resize);var inside=false;hero.addEventListener("mousemove",function(e){var r=hero.getBoundingClientRect();mx=e.clientX-r.left;my=e.clientY-r.top;inside=true;if(txt){var hw=r.width/2,hh=r.height/2,rx=(mx-hw)/hw,ry=(my-hh)/hh;txt.style.transform="translate("+(rx*-7)+"px,"+(ry*-7)+"px)";}});hero.addEventListener("mouseleave",function(){inside=false;if(txt)txt.style.transform="";});var curA=0;function draw(){t+=0.014;var W=canvas.width,H=canvas.height;if(!W||!H){requestAnimationFrame(draw);return;}smx=smx+(mx-smx)*0.1;smy=smy+(my-smy)*0.1;curA+=((inside?1:0)-curA)*0.065;ctx.clearRect(0,0,W,H);var dx,dy,d,inf,a,r,tw;stars.forEach(function(p){tw=Math.sin(t*p.spd+p.ph)*0.4+0.6;dx=p.x-smx;dy=p.y-smy;d=Math.sqrt(dx*dx+dy*dy);inf=Math.max(0,1-d/170)*0.6;a=p.a*tw+inf;r=p.r*tw+inf*1.5;ctx.beginPath();ctx.arc(p.x,p.y,r,0,6.28);ctx.fillStyle="rgba(220,210,200,"+Math.min(a,0.75).toFixed(2)+")";ctx.fill();if(inf>0.1){ctx.beginPath();ctx.arc(p.x,p.y,r*2.5,0,6.28);ctx.fillStyle="rgba(192,57,43,"+(inf*0.2).toFixed(2)+")";ctx.fill();}});if(curA>0.01){ctx.beginPath();ctx.arc(smx,smy,14,0,6.28);ctx.strokeStyle="rgba(192,57,43,"+(curA*0.4).toFixed(2)+")";ctx.lineWidth=0.7;ctx.stroke();ctx.beginPath();ctx.arc(smx,smy,28,0,6.28);ctx.strokeStyle="rgba(192,57,43,"+(curA*0.18).toFixed(2)+")";ctx.lineWidth=0.7;ctx.stroke();ctx.beginPath();ctx.arc(smx,smy,2,0,6.28);ctx.fillStyle="rgba(192,57,43,"+(curA*0.85).toFixed(2)+")";ctx.fill();}requestAnimationFrame(draw);}requestAnimationFrame(draw);})();</script>
 </body>
 </html>
