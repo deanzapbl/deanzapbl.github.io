@@ -89,7 +89,7 @@
   font-size:.47rem;
   letter-spacing:.28em;
   text-transform:uppercase;
-  color:rgba(245,243,239,.16);
+  color:rgba(245,243,239,.55);
   text-align:center;
   margin-bottom:1.4rem;
   position:relative;
@@ -138,7 +138,7 @@
   gap:14px;
   width:max-content;
   padding:6px 0;
-  animation:sponsorScroll 26s linear infinite;
+  animation:sponsorScroll 40s linear infinite;
 }
 .sponsor-track.paused{ animation-play-state:paused; }
 @keyframes sponsorScroll{
@@ -385,168 +385,288 @@
 
 <!-- ── SPONSOR STRIP ──────────────────────────────────────────────────────── -->
 <div class="sponsor-strip">
-  <div class="sponsor-strip-label">Our Sponsors &amp; Partners</div>
+  <div class="sponsor-strip-label">Our Collaborators &amp; Partners</div>
   <div class="sponsor-track-outer">
     <div class="sponsor-track" id="sponsorTrack">
-      <div class="sponsor-logo" data-name="KPMG" data-type="Accounting &amp; Consulting">
-        <img src="images/consulting-kpmg.jpg" alt="KPMG">
-        <span class="sponsor-logo-name">KPMG</span>
-        <div class="sponsor-tooltip"><div class="sponsor-tooltip-name">KPMG</div><div class="sponsor-tooltip-type">Accounting &amp; Consulting</div></div>
+      <div class="sponsor-logo" data-name="Google" data-type="Technology">
+        <img src="https://logo.clearbit.com/google.com" alt="Google" onerror="this.style.display='none';this.nextElementSibling.style.display=''">
+        <span class="sponsor-logo-name" style="display:none">Google</span>
+        <div class="sponsor-tooltip"><div class="sponsor-tooltip-name">Google</div><div class="sponsor-tooltip-type">Technology</div></div>
       </div>
-      <div class="sponsor-logo" data-name="Star One Credit Union" data-type="Financial Services">
-        <img src="images/consulting-star-one.jpg" alt="Star One Credit Union">
-        <span class="sponsor-logo-name">Star One</span>
-        <div class="sponsor-tooltip"><div class="sponsor-tooltip-name">Star One Credit Union</div><div class="sponsor-tooltip-type">Financial Services</div></div>
+      <div class="sponsor-logo" data-name="NVIDIA" data-type="AI & Hardware">
+        <img src="https://logo.clearbit.com/nvidia.com" alt="NVIDIA" onerror="this.style.display='none';this.nextElementSibling.style.display=''">
+        <span class="sponsor-logo-name" style="display:none">NVIDIA</span>
+        <div class="sponsor-tooltip"><div class="sponsor-tooltip-name">NVIDIA</div><div class="sponsor-tooltip-type">AI & Hardware</div></div>
       </div>
-      <div class="sponsor-logo" data-name="Foundation for Economic Education" data-type="Economics Education">
-        <img src="images/consulting-fee.jpg" alt="Foundation for Economic Education">
-        <span class="sponsor-logo-name">FEE</span>
-        <div class="sponsor-tooltip"><div class="sponsor-tooltip-name">Foundation for Economic Education</div><div class="sponsor-tooltip-type">Economics Education</div></div>
+      <div class="sponsor-logo" data-name="Informatica" data-type="Data Management">
+        <img src="https://logo.clearbit.com/informatica.com" alt="Informatica" onerror="this.style.display='none';this.nextElementSibling.style.display=''">
+        <span class="sponsor-logo-name" style="display:none">Informatica</span>
+        <div class="sponsor-tooltip"><div class="sponsor-tooltip-name">Informatica</div><div class="sponsor-tooltip-type">Data Management</div></div>
       </div>
-      <div class="sponsor-logo" data-name="KeyPoint Credit Union" data-type="Financial Services">
-        <img src="images/consulting-keypoint.jpg" alt="KeyPoint Credit Union">
-        <span class="sponsor-logo-name">KeyPoint CU</span>
-        <div class="sponsor-tooltip"><div class="sponsor-tooltip-name">KeyPoint Credit Union</div><div class="sponsor-tooltip-type">Financial Services</div></div>
+      <div class="sponsor-logo" data-name="Salesforce" data-type="CRM & Cloud">
+        <img src="https://logo.clearbit.com/salesforce.com" alt="Salesforce" onerror="this.style.display='none';this.nextElementSibling.style.display=''">
+        <span class="sponsor-logo-name" style="display:none">Salesforce</span>
+        <div class="sponsor-tooltip"><div class="sponsor-tooltip-name">Salesforce</div><div class="sponsor-tooltip-type">CRM & Cloud</div></div>
       </div>
-      <div class="sponsor-logo" data-name="KPMG" data-type="Accounting &amp; Consulting">
-        <img src="images/consulting-kpmg.jpg" alt="KPMG">
-        <span class="sponsor-logo-name">KPMG</span>
-        <div class="sponsor-tooltip"><div class="sponsor-tooltip-name">KPMG</div><div class="sponsor-tooltip-type">Accounting &amp; Consulting</div></div>
+      <div class="sponsor-logo" data-name="Cisco" data-type="Networking">
+        <img src="https://logo.clearbit.com/cisco.com" alt="Cisco" onerror="this.style.display='none';this.nextElementSibling.style.display=''">
+        <span class="sponsor-logo-name" style="display:none">Cisco</span>
+        <div class="sponsor-tooltip"><div class="sponsor-tooltip-name">Cisco</div><div class="sponsor-tooltip-type">Networking</div></div>
       </div>
-      <div class="sponsor-logo" data-name="Star One Credit Union" data-type="Financial Services">
-        <img src="images/consulting-star-one.jpg" alt="Star One Credit Union">
-        <span class="sponsor-logo-name">Star One</span>
-        <div class="sponsor-tooltip"><div class="sponsor-tooltip-name">Star One Credit Union</div><div class="sponsor-tooltip-type">Financial Services</div></div>
+      <div class="sponsor-logo" data-name="Meta" data-type="Social Technology">
+        <img src="https://logo.clearbit.com/meta.com" alt="Meta" onerror="this.style.display='none';this.nextElementSibling.style.display=''">
+        <span class="sponsor-logo-name" style="display:none">Meta</span>
+        <div class="sponsor-tooltip"><div class="sponsor-tooltip-name">Meta</div><div class="sponsor-tooltip-type">Social Technology</div></div>
       </div>
-      <div class="sponsor-logo" data-name="Foundation for Economic Education" data-type="Economics Education">
-        <img src="images/consulting-fee.jpg" alt="Foundation for Economic Education">
-        <span class="sponsor-logo-name">FEE</span>
-        <div class="sponsor-tooltip"><div class="sponsor-tooltip-name">Foundation for Economic Education</div><div class="sponsor-tooltip-type">Economics Education</div></div>
+      <div class="sponsor-logo" data-name="Perplexity" data-type="AI Search">
+        <img src="https://logo.clearbit.com/perplexity.ai" alt="Perplexity" onerror="this.style.display='none';this.nextElementSibling.style.display=''">
+        <span class="sponsor-logo-name" style="display:none">Perplexity</span>
+        <div class="sponsor-tooltip"><div class="sponsor-tooltip-name">Perplexity</div><div class="sponsor-tooltip-type">AI Search</div></div>
       </div>
-      <div class="sponsor-logo" data-name="KeyPoint Credit Union" data-type="Financial Services">
-        <img src="images/consulting-keypoint.jpg" alt="KeyPoint Credit Union">
-        <span class="sponsor-logo-name">KeyPoint CU</span>
-        <div class="sponsor-tooltip"><div class="sponsor-tooltip-name">KeyPoint Credit Union</div><div class="sponsor-tooltip-type">Financial Services</div></div>
+      <div class="sponsor-logo" data-name="McAfee" data-type="Cybersecurity">
+        <img src="https://logo.clearbit.com/mcafee.com" alt="McAfee" onerror="this.style.display='none';this.nextElementSibling.style.display=''">
+        <span class="sponsor-logo-name" style="display:none">McAfee</span>
+        <div class="sponsor-tooltip"><div class="sponsor-tooltip-name">McAfee</div><div class="sponsor-tooltip-type">Cybersecurity</div></div>
       </div>
-      <div class="sponsor-logo" data-name="KPMG" data-type="Accounting &amp; Consulting">
-        <img src="images/consulting-kpmg.jpg" alt="KPMG">
-        <span class="sponsor-logo-name">KPMG</span>
-        <div class="sponsor-tooltip"><div class="sponsor-tooltip-name">KPMG</div><div class="sponsor-tooltip-type">Accounting &amp; Consulting</div></div>
+      <div class="sponsor-logo" data-name="GoDaddy" data-type="Web Services">
+        <img src="https://logo.clearbit.com/godaddy.com" alt="GoDaddy" onerror="this.style.display='none';this.nextElementSibling.style.display=''">
+        <span class="sponsor-logo-name" style="display:none">GoDaddy</span>
+        <div class="sponsor-tooltip"><div class="sponsor-tooltip-name">GoDaddy</div><div class="sponsor-tooltip-type">Web Services</div></div>
       </div>
-      <div class="sponsor-logo" data-name="Star One Credit Union" data-type="Financial Services">
-        <img src="images/consulting-star-one.jpg" alt="Star One Credit Union">
-        <span class="sponsor-logo-name">Star One</span>
-        <div class="sponsor-tooltip"><div class="sponsor-tooltip-name">Star One Credit Union</div><div class="sponsor-tooltip-type">Financial Services</div></div>
+      <div class="sponsor-logo" data-name="Goldman Sachs" data-type="Investment Banking">
+        <img src="https://logo.clearbit.com/goldmansachs.com" alt="Goldman Sachs" onerror="this.style.display='none';this.nextElementSibling.style.display=''">
+        <span class="sponsor-logo-name" style="display:none">Goldman Sachs</span>
+        <div class="sponsor-tooltip"><div class="sponsor-tooltip-name">Goldman Sachs</div><div class="sponsor-tooltip-type">Investment Banking</div></div>
       </div>
-      <div class="sponsor-logo" data-name="Foundation for Economic Education" data-type="Economics Education">
-        <img src="images/consulting-fee.jpg" alt="Foundation for Economic Education">
-        <span class="sponsor-logo-name">FEE</span>
-        <div class="sponsor-tooltip"><div class="sponsor-tooltip-name">Foundation for Economic Education</div><div class="sponsor-tooltip-type">Economics Education</div></div>
+      <div class="sponsor-logo" data-name="Culvert" data-type="AI Analytics">
+        <img src="https://logo.clearbit.com/culvert-ai.com" alt="Culvert" onerror="this.style.display='none';this.nextElementSibling.style.display=''">
+        <span class="sponsor-logo-name" style="display:none">Culvert</span>
+        <div class="sponsor-tooltip"><div class="sponsor-tooltip-name">Culvert</div><div class="sponsor-tooltip-type">AI Analytics</div></div>
       </div>
-      <div class="sponsor-logo" data-name="KeyPoint Credit Union" data-type="Financial Services">
-        <img src="images/consulting-keypoint.jpg" alt="KeyPoint Credit Union">
-        <span class="sponsor-logo-name">KeyPoint CU</span>
-        <div class="sponsor-tooltip"><div class="sponsor-tooltip-name">KeyPoint Credit Union</div><div class="sponsor-tooltip-type">Financial Services</div></div>
+      <div class="sponsor-logo" data-name="Vectice" data-type="MLOps">
+        <img src="https://logo.clearbit.com/vectice.com" alt="Vectice" onerror="this.style.display='none';this.nextElementSibling.style.display=''">
+        <span class="sponsor-logo-name" style="display:none">Vectice</span>
+        <div class="sponsor-tooltip"><div class="sponsor-tooltip-name">Vectice</div><div class="sponsor-tooltip-type">MLOps</div></div>
       </div>
-      <div class="sponsor-logo" data-name="KPMG" data-type="Accounting &amp; Consulting">
-        <img src="images/consulting-kpmg.jpg" alt="KPMG">
-        <span class="sponsor-logo-name">KPMG</span>
-        <div class="sponsor-tooltip"><div class="sponsor-tooltip-name">KPMG</div><div class="sponsor-tooltip-type">Accounting &amp; Consulting</div></div>
+      <div class="sponsor-logo" data-name="Amazon" data-type="Cloud & E-Commerce">
+        <img src="https://logo.clearbit.com/amazon.com" alt="Amazon" onerror="this.style.display='none';this.nextElementSibling.style.display=''">
+        <span class="sponsor-logo-name" style="display:none">Amazon</span>
+        <div class="sponsor-tooltip"><div class="sponsor-tooltip-name">Amazon</div><div class="sponsor-tooltip-type">Cloud & E-Commerce</div></div>
       </div>
-      <div class="sponsor-logo" data-name="Star One Credit Union" data-type="Financial Services">
-        <img src="images/consulting-star-one.jpg" alt="Star One Credit Union">
-        <span class="sponsor-logo-name">Star One</span>
-        <div class="sponsor-tooltip"><div class="sponsor-tooltip-name">Star One Credit Union</div><div class="sponsor-tooltip-type">Financial Services</div></div>
+      <div class="sponsor-logo" data-name="ClearlyRated" data-type="B2B Research">
+        <img src="https://logo.clearbit.com/clearlyrated.com" alt="ClearlyRated" onerror="this.style.display='none';this.nextElementSibling.style.display=''">
+        <span class="sponsor-logo-name" style="display:none">ClearlyRated</span>
+        <div class="sponsor-tooltip"><div class="sponsor-tooltip-name">ClearlyRated</div><div class="sponsor-tooltip-type">B2B Research</div></div>
       </div>
-      <div class="sponsor-logo" data-name="Foundation for Economic Education" data-type="Economics Education">
-        <img src="images/consulting-fee.jpg" alt="Foundation for Economic Education">
-        <span class="sponsor-logo-name">FEE</span>
-        <div class="sponsor-tooltip"><div class="sponsor-tooltip-name">Foundation for Economic Education</div><div class="sponsor-tooltip-type">Economics Education</div></div>
+      <div class="sponsor-logo" data-name="Google" data-type="Technology">
+        <img src="https://logo.clearbit.com/google.com" alt="Google" onerror="this.style.display='none';this.nextElementSibling.style.display=''">
+        <span class="sponsor-logo-name" style="display:none">Google</span>
+        <div class="sponsor-tooltip"><div class="sponsor-tooltip-name">Google</div><div class="sponsor-tooltip-type">Technology</div></div>
       </div>
-      <div class="sponsor-logo" data-name="KeyPoint Credit Union" data-type="Financial Services">
-        <img src="images/consulting-keypoint.jpg" alt="KeyPoint Credit Union">
-        <span class="sponsor-logo-name">KeyPoint CU</span>
-        <div class="sponsor-tooltip"><div class="sponsor-tooltip-name">KeyPoint Credit Union</div><div class="sponsor-tooltip-type">Financial Services</div></div>
+      <div class="sponsor-logo" data-name="NVIDIA" data-type="AI & Hardware">
+        <img src="https://logo.clearbit.com/nvidia.com" alt="NVIDIA" onerror="this.style.display='none';this.nextElementSibling.style.display=''">
+        <span class="sponsor-logo-name" style="display:none">NVIDIA</span>
+        <div class="sponsor-tooltip"><div class="sponsor-tooltip-name">NVIDIA</div><div class="sponsor-tooltip-type">AI & Hardware</div></div>
       </div>
-      <div class="sponsor-logo" data-name="KPMG" data-type="Accounting &amp; Consulting">
-        <img src="images/consulting-kpmg.jpg" alt="KPMG">
-        <span class="sponsor-logo-name">KPMG</span>
-        <div class="sponsor-tooltip"><div class="sponsor-tooltip-name">KPMG</div><div class="sponsor-tooltip-type">Accounting &amp; Consulting</div></div>
+      <div class="sponsor-logo" data-name="Informatica" data-type="Data Management">
+        <img src="https://logo.clearbit.com/informatica.com" alt="Informatica" onerror="this.style.display='none';this.nextElementSibling.style.display=''">
+        <span class="sponsor-logo-name" style="display:none">Informatica</span>
+        <div class="sponsor-tooltip"><div class="sponsor-tooltip-name">Informatica</div><div class="sponsor-tooltip-type">Data Management</div></div>
       </div>
-      <div class="sponsor-logo" data-name="Star One Credit Union" data-type="Financial Services">
-        <img src="images/consulting-star-one.jpg" alt="Star One Credit Union">
-        <span class="sponsor-logo-name">Star One</span>
-        <div class="sponsor-tooltip"><div class="sponsor-tooltip-name">Star One Credit Union</div><div class="sponsor-tooltip-type">Financial Services</div></div>
+      <div class="sponsor-logo" data-name="Salesforce" data-type="CRM & Cloud">
+        <img src="https://logo.clearbit.com/salesforce.com" alt="Salesforce" onerror="this.style.display='none';this.nextElementSibling.style.display=''">
+        <span class="sponsor-logo-name" style="display:none">Salesforce</span>
+        <div class="sponsor-tooltip"><div class="sponsor-tooltip-name">Salesforce</div><div class="sponsor-tooltip-type">CRM & Cloud</div></div>
       </div>
-      <div class="sponsor-logo" data-name="Foundation for Economic Education" data-type="Economics Education">
-        <img src="images/consulting-fee.jpg" alt="Foundation for Economic Education">
-        <span class="sponsor-logo-name">FEE</span>
-        <div class="sponsor-tooltip"><div class="sponsor-tooltip-name">Foundation for Economic Education</div><div class="sponsor-tooltip-type">Economics Education</div></div>
+      <div class="sponsor-logo" data-name="Cisco" data-type="Networking">
+        <img src="https://logo.clearbit.com/cisco.com" alt="Cisco" onerror="this.style.display='none';this.nextElementSibling.style.display=''">
+        <span class="sponsor-logo-name" style="display:none">Cisco</span>
+        <div class="sponsor-tooltip"><div class="sponsor-tooltip-name">Cisco</div><div class="sponsor-tooltip-type">Networking</div></div>
       </div>
-      <div class="sponsor-logo" data-name="KeyPoint Credit Union" data-type="Financial Services">
-        <img src="images/consulting-keypoint.jpg" alt="KeyPoint Credit Union">
-        <span class="sponsor-logo-name">KeyPoint CU</span>
-        <div class="sponsor-tooltip"><div class="sponsor-tooltip-name">KeyPoint Credit Union</div><div class="sponsor-tooltip-type">Financial Services</div></div>
+      <div class="sponsor-logo" data-name="Meta" data-type="Social Technology">
+        <img src="https://logo.clearbit.com/meta.com" alt="Meta" onerror="this.style.display='none';this.nextElementSibling.style.display=''">
+        <span class="sponsor-logo-name" style="display:none">Meta</span>
+        <div class="sponsor-tooltip"><div class="sponsor-tooltip-name">Meta</div><div class="sponsor-tooltip-type">Social Technology</div></div>
       </div>
-      <div class="sponsor-logo" data-name="KPMG" data-type="Accounting &amp; Consulting">
-        <img src="images/consulting-kpmg.jpg" alt="KPMG">
-        <span class="sponsor-logo-name">KPMG</span>
-        <div class="sponsor-tooltip"><div class="sponsor-tooltip-name">KPMG</div><div class="sponsor-tooltip-type">Accounting &amp; Consulting</div></div>
+      <div class="sponsor-logo" data-name="Perplexity" data-type="AI Search">
+        <img src="https://logo.clearbit.com/perplexity.ai" alt="Perplexity" onerror="this.style.display='none';this.nextElementSibling.style.display=''">
+        <span class="sponsor-logo-name" style="display:none">Perplexity</span>
+        <div class="sponsor-tooltip"><div class="sponsor-tooltip-name">Perplexity</div><div class="sponsor-tooltip-type">AI Search</div></div>
       </div>
-      <div class="sponsor-logo" data-name="Star One Credit Union" data-type="Financial Services">
-        <img src="images/consulting-star-one.jpg" alt="Star One Credit Union">
-        <span class="sponsor-logo-name">Star One</span>
-        <div class="sponsor-tooltip"><div class="sponsor-tooltip-name">Star One Credit Union</div><div class="sponsor-tooltip-type">Financial Services</div></div>
+      <div class="sponsor-logo" data-name="McAfee" data-type="Cybersecurity">
+        <img src="https://logo.clearbit.com/mcafee.com" alt="McAfee" onerror="this.style.display='none';this.nextElementSibling.style.display=''">
+        <span class="sponsor-logo-name" style="display:none">McAfee</span>
+        <div class="sponsor-tooltip"><div class="sponsor-tooltip-name">McAfee</div><div class="sponsor-tooltip-type">Cybersecurity</div></div>
       </div>
-      <div class="sponsor-logo" data-name="Foundation for Economic Education" data-type="Economics Education">
-        <img src="images/consulting-fee.jpg" alt="Foundation for Economic Education">
-        <span class="sponsor-logo-name">FEE</span>
-        <div class="sponsor-tooltip"><div class="sponsor-tooltip-name">Foundation for Economic Education</div><div class="sponsor-tooltip-type">Economics Education</div></div>
+      <div class="sponsor-logo" data-name="GoDaddy" data-type="Web Services">
+        <img src="https://logo.clearbit.com/godaddy.com" alt="GoDaddy" onerror="this.style.display='none';this.nextElementSibling.style.display=''">
+        <span class="sponsor-logo-name" style="display:none">GoDaddy</span>
+        <div class="sponsor-tooltip"><div class="sponsor-tooltip-name">GoDaddy</div><div class="sponsor-tooltip-type">Web Services</div></div>
       </div>
-      <div class="sponsor-logo" data-name="KeyPoint Credit Union" data-type="Financial Services">
-        <img src="images/consulting-keypoint.jpg" alt="KeyPoint Credit Union">
-        <span class="sponsor-logo-name">KeyPoint CU</span>
-        <div class="sponsor-tooltip"><div class="sponsor-tooltip-name">KeyPoint Credit Union</div><div class="sponsor-tooltip-type">Financial Services</div></div>
+      <div class="sponsor-logo" data-name="Goldman Sachs" data-type="Investment Banking">
+        <img src="https://logo.clearbit.com/goldmansachs.com" alt="Goldman Sachs" onerror="this.style.display='none';this.nextElementSibling.style.display=''">
+        <span class="sponsor-logo-name" style="display:none">Goldman Sachs</span>
+        <div class="sponsor-tooltip"><div class="sponsor-tooltip-name">Goldman Sachs</div><div class="sponsor-tooltip-type">Investment Banking</div></div>
       </div>
-      <div class="sponsor-logo" data-name="KPMG" data-type="Accounting &amp; Consulting">
-        <img src="images/consulting-kpmg.jpg" alt="KPMG">
-        <span class="sponsor-logo-name">KPMG</span>
-        <div class="sponsor-tooltip"><div class="sponsor-tooltip-name">KPMG</div><div class="sponsor-tooltip-type">Accounting &amp; Consulting</div></div>
+      <div class="sponsor-logo" data-name="Culvert" data-type="AI Analytics">
+        <img src="https://logo.clearbit.com/culvert-ai.com" alt="Culvert" onerror="this.style.display='none';this.nextElementSibling.style.display=''">
+        <span class="sponsor-logo-name" style="display:none">Culvert</span>
+        <div class="sponsor-tooltip"><div class="sponsor-tooltip-name">Culvert</div><div class="sponsor-tooltip-type">AI Analytics</div></div>
       </div>
-      <div class="sponsor-logo" data-name="Star One Credit Union" data-type="Financial Services">
-        <img src="images/consulting-star-one.jpg" alt="Star One Credit Union">
-        <span class="sponsor-logo-name">Star One</span>
-        <div class="sponsor-tooltip"><div class="sponsor-tooltip-name">Star One Credit Union</div><div class="sponsor-tooltip-type">Financial Services</div></div>
+      <div class="sponsor-logo" data-name="Vectice" data-type="MLOps">
+        <img src="https://logo.clearbit.com/vectice.com" alt="Vectice" onerror="this.style.display='none';this.nextElementSibling.style.display=''">
+        <span class="sponsor-logo-name" style="display:none">Vectice</span>
+        <div class="sponsor-tooltip"><div class="sponsor-tooltip-name">Vectice</div><div class="sponsor-tooltip-type">MLOps</div></div>
       </div>
-      <div class="sponsor-logo" data-name="Foundation for Economic Education" data-type="Economics Education">
-        <img src="images/consulting-fee.jpg" alt="Foundation for Economic Education">
-        <span class="sponsor-logo-name">FEE</span>
-        <div class="sponsor-tooltip"><div class="sponsor-tooltip-name">Foundation for Economic Education</div><div class="sponsor-tooltip-type">Economics Education</div></div>
+      <div class="sponsor-logo" data-name="Amazon" data-type="Cloud & E-Commerce">
+        <img src="https://logo.clearbit.com/amazon.com" alt="Amazon" onerror="this.style.display='none';this.nextElementSibling.style.display=''">
+        <span class="sponsor-logo-name" style="display:none">Amazon</span>
+        <div class="sponsor-tooltip"><div class="sponsor-tooltip-name">Amazon</div><div class="sponsor-tooltip-type">Cloud & E-Commerce</div></div>
       </div>
-      <div class="sponsor-logo" data-name="KeyPoint Credit Union" data-type="Financial Services">
-        <img src="images/consulting-keypoint.jpg" alt="KeyPoint Credit Union">
-        <span class="sponsor-logo-name">KeyPoint CU</span>
-        <div class="sponsor-tooltip"><div class="sponsor-tooltip-name">KeyPoint Credit Union</div><div class="sponsor-tooltip-type">Financial Services</div></div>
+      <div class="sponsor-logo" data-name="ClearlyRated" data-type="B2B Research">
+        <img src="https://logo.clearbit.com/clearlyrated.com" alt="ClearlyRated" onerror="this.style.display='none';this.nextElementSibling.style.display=''">
+        <span class="sponsor-logo-name" style="display:none">ClearlyRated</span>
+        <div class="sponsor-tooltip"><div class="sponsor-tooltip-name">ClearlyRated</div><div class="sponsor-tooltip-type">B2B Research</div></div>
       </div>
-      <div class="sponsor-logo" data-name="KPMG" data-type="Accounting &amp; Consulting">
-        <img src="images/consulting-kpmg.jpg" alt="KPMG">
-        <span class="sponsor-logo-name">KPMG</span>
-        <div class="sponsor-tooltip"><div class="sponsor-tooltip-name">KPMG</div><div class="sponsor-tooltip-type">Accounting &amp; Consulting</div></div>
+      <div class="sponsor-logo" data-name="Google" data-type="Technology">
+        <img src="https://logo.clearbit.com/google.com" alt="Google" onerror="this.style.display='none';this.nextElementSibling.style.display=''">
+        <span class="sponsor-logo-name" style="display:none">Google</span>
+        <div class="sponsor-tooltip"><div class="sponsor-tooltip-name">Google</div><div class="sponsor-tooltip-type">Technology</div></div>
       </div>
-      <div class="sponsor-logo" data-name="Star One Credit Union" data-type="Financial Services">
-        <img src="images/consulting-star-one.jpg" alt="Star One Credit Union">
-        <span class="sponsor-logo-name">Star One</span>
-        <div class="sponsor-tooltip"><div class="sponsor-tooltip-name">Star One Credit Union</div><div class="sponsor-tooltip-type">Financial Services</div></div>
+      <div class="sponsor-logo" data-name="NVIDIA" data-type="AI & Hardware">
+        <img src="https://logo.clearbit.com/nvidia.com" alt="NVIDIA" onerror="this.style.display='none';this.nextElementSibling.style.display=''">
+        <span class="sponsor-logo-name" style="display:none">NVIDIA</span>
+        <div class="sponsor-tooltip"><div class="sponsor-tooltip-name">NVIDIA</div><div class="sponsor-tooltip-type">AI & Hardware</div></div>
       </div>
-      <div class="sponsor-logo" data-name="Foundation for Economic Education" data-type="Economics Education">
-        <img src="images/consulting-fee.jpg" alt="Foundation for Economic Education">
-        <span class="sponsor-logo-name">FEE</span>
-        <div class="sponsor-tooltip"><div class="sponsor-tooltip-name">Foundation for Economic Education</div><div class="sponsor-tooltip-type">Economics Education</div></div>
+      <div class="sponsor-logo" data-name="Informatica" data-type="Data Management">
+        <img src="https://logo.clearbit.com/informatica.com" alt="Informatica" onerror="this.style.display='none';this.nextElementSibling.style.display=''">
+        <span class="sponsor-logo-name" style="display:none">Informatica</span>
+        <div class="sponsor-tooltip"><div class="sponsor-tooltip-name">Informatica</div><div class="sponsor-tooltip-type">Data Management</div></div>
       </div>
-      <div class="sponsor-logo" data-name="KeyPoint Credit Union" data-type="Financial Services">
-        <img src="images/consulting-keypoint.jpg" alt="KeyPoint Credit Union">
-        <span class="sponsor-logo-name">KeyPoint CU</span>
-        <div class="sponsor-tooltip"><div class="sponsor-tooltip-name">KeyPoint Credit Union</div><div class="sponsor-tooltip-type">Financial Services</div></div>
+      <div class="sponsor-logo" data-name="Salesforce" data-type="CRM & Cloud">
+        <img src="https://logo.clearbit.com/salesforce.com" alt="Salesforce" onerror="this.style.display='none';this.nextElementSibling.style.display=''">
+        <span class="sponsor-logo-name" style="display:none">Salesforce</span>
+        <div class="sponsor-tooltip"><div class="sponsor-tooltip-name">Salesforce</div><div class="sponsor-tooltip-type">CRM & Cloud</div></div>
+      </div>
+      <div class="sponsor-logo" data-name="Cisco" data-type="Networking">
+        <img src="https://logo.clearbit.com/cisco.com" alt="Cisco" onerror="this.style.display='none';this.nextElementSibling.style.display=''">
+        <span class="sponsor-logo-name" style="display:none">Cisco</span>
+        <div class="sponsor-tooltip"><div class="sponsor-tooltip-name">Cisco</div><div class="sponsor-tooltip-type">Networking</div></div>
+      </div>
+      <div class="sponsor-logo" data-name="Meta" data-type="Social Technology">
+        <img src="https://logo.clearbit.com/meta.com" alt="Meta" onerror="this.style.display='none';this.nextElementSibling.style.display=''">
+        <span class="sponsor-logo-name" style="display:none">Meta</span>
+        <div class="sponsor-tooltip"><div class="sponsor-tooltip-name">Meta</div><div class="sponsor-tooltip-type">Social Technology</div></div>
+      </div>
+      <div class="sponsor-logo" data-name="Perplexity" data-type="AI Search">
+        <img src="https://logo.clearbit.com/perplexity.ai" alt="Perplexity" onerror="this.style.display='none';this.nextElementSibling.style.display=''">
+        <span class="sponsor-logo-name" style="display:none">Perplexity</span>
+        <div class="sponsor-tooltip"><div class="sponsor-tooltip-name">Perplexity</div><div class="sponsor-tooltip-type">AI Search</div></div>
+      </div>
+      <div class="sponsor-logo" data-name="McAfee" data-type="Cybersecurity">
+        <img src="https://logo.clearbit.com/mcafee.com" alt="McAfee" onerror="this.style.display='none';this.nextElementSibling.style.display=''">
+        <span class="sponsor-logo-name" style="display:none">McAfee</span>
+        <div class="sponsor-tooltip"><div class="sponsor-tooltip-name">McAfee</div><div class="sponsor-tooltip-type">Cybersecurity</div></div>
+      </div>
+      <div class="sponsor-logo" data-name="GoDaddy" data-type="Web Services">
+        <img src="https://logo.clearbit.com/godaddy.com" alt="GoDaddy" onerror="this.style.display='none';this.nextElementSibling.style.display=''">
+        <span class="sponsor-logo-name" style="display:none">GoDaddy</span>
+        <div class="sponsor-tooltip"><div class="sponsor-tooltip-name">GoDaddy</div><div class="sponsor-tooltip-type">Web Services</div></div>
+      </div>
+      <div class="sponsor-logo" data-name="Goldman Sachs" data-type="Investment Banking">
+        <img src="https://logo.clearbit.com/goldmansachs.com" alt="Goldman Sachs" onerror="this.style.display='none';this.nextElementSibling.style.display=''">
+        <span class="sponsor-logo-name" style="display:none">Goldman Sachs</span>
+        <div class="sponsor-tooltip"><div class="sponsor-tooltip-name">Goldman Sachs</div><div class="sponsor-tooltip-type">Investment Banking</div></div>
+      </div>
+      <div class="sponsor-logo" data-name="Culvert" data-type="AI Analytics">
+        <img src="https://logo.clearbit.com/culvert-ai.com" alt="Culvert" onerror="this.style.display='none';this.nextElementSibling.style.display=''">
+        <span class="sponsor-logo-name" style="display:none">Culvert</span>
+        <div class="sponsor-tooltip"><div class="sponsor-tooltip-name">Culvert</div><div class="sponsor-tooltip-type">AI Analytics</div></div>
+      </div>
+      <div class="sponsor-logo" data-name="Vectice" data-type="MLOps">
+        <img src="https://logo.clearbit.com/vectice.com" alt="Vectice" onerror="this.style.display='none';this.nextElementSibling.style.display=''">
+        <span class="sponsor-logo-name" style="display:none">Vectice</span>
+        <div class="sponsor-tooltip"><div class="sponsor-tooltip-name">Vectice</div><div class="sponsor-tooltip-type">MLOps</div></div>
+      </div>
+      <div class="sponsor-logo" data-name="Amazon" data-type="Cloud & E-Commerce">
+        <img src="https://logo.clearbit.com/amazon.com" alt="Amazon" onerror="this.style.display='none';this.nextElementSibling.style.display=''">
+        <span class="sponsor-logo-name" style="display:none">Amazon</span>
+        <div class="sponsor-tooltip"><div class="sponsor-tooltip-name">Amazon</div><div class="sponsor-tooltip-type">Cloud & E-Commerce</div></div>
+      </div>
+      <div class="sponsor-logo" data-name="ClearlyRated" data-type="B2B Research">
+        <img src="https://logo.clearbit.com/clearlyrated.com" alt="ClearlyRated" onerror="this.style.display='none';this.nextElementSibling.style.display=''">
+        <span class="sponsor-logo-name" style="display:none">ClearlyRated</span>
+        <div class="sponsor-tooltip"><div class="sponsor-tooltip-name">ClearlyRated</div><div class="sponsor-tooltip-type">B2B Research</div></div>
+      </div>
+      <div class="sponsor-logo" data-name="Google" data-type="Technology">
+        <img src="https://logo.clearbit.com/google.com" alt="Google" onerror="this.style.display='none';this.nextElementSibling.style.display=''">
+        <span class="sponsor-logo-name" style="display:none">Google</span>
+        <div class="sponsor-tooltip"><div class="sponsor-tooltip-name">Google</div><div class="sponsor-tooltip-type">Technology</div></div>
+      </div>
+      <div class="sponsor-logo" data-name="NVIDIA" data-type="AI & Hardware">
+        <img src="https://logo.clearbit.com/nvidia.com" alt="NVIDIA" onerror="this.style.display='none';this.nextElementSibling.style.display=''">
+        <span class="sponsor-logo-name" style="display:none">NVIDIA</span>
+        <div class="sponsor-tooltip"><div class="sponsor-tooltip-name">NVIDIA</div><div class="sponsor-tooltip-type">AI & Hardware</div></div>
+      </div>
+      <div class="sponsor-logo" data-name="Informatica" data-type="Data Management">
+        <img src="https://logo.clearbit.com/informatica.com" alt="Informatica" onerror="this.style.display='none';this.nextElementSibling.style.display=''">
+        <span class="sponsor-logo-name" style="display:none">Informatica</span>
+        <div class="sponsor-tooltip"><div class="sponsor-tooltip-name">Informatica</div><div class="sponsor-tooltip-type">Data Management</div></div>
+      </div>
+      <div class="sponsor-logo" data-name="Salesforce" data-type="CRM & Cloud">
+        <img src="https://logo.clearbit.com/salesforce.com" alt="Salesforce" onerror="this.style.display='none';this.nextElementSibling.style.display=''">
+        <span class="sponsor-logo-name" style="display:none">Salesforce</span>
+        <div class="sponsor-tooltip"><div class="sponsor-tooltip-name">Salesforce</div><div class="sponsor-tooltip-type">CRM & Cloud</div></div>
+      </div>
+      <div class="sponsor-logo" data-name="Cisco" data-type="Networking">
+        <img src="https://logo.clearbit.com/cisco.com" alt="Cisco" onerror="this.style.display='none';this.nextElementSibling.style.display=''">
+        <span class="sponsor-logo-name" style="display:none">Cisco</span>
+        <div class="sponsor-tooltip"><div class="sponsor-tooltip-name">Cisco</div><div class="sponsor-tooltip-type">Networking</div></div>
+      </div>
+      <div class="sponsor-logo" data-name="Meta" data-type="Social Technology">
+        <img src="https://logo.clearbit.com/meta.com" alt="Meta" onerror="this.style.display='none';this.nextElementSibling.style.display=''">
+        <span class="sponsor-logo-name" style="display:none">Meta</span>
+        <div class="sponsor-tooltip"><div class="sponsor-tooltip-name">Meta</div><div class="sponsor-tooltip-type">Social Technology</div></div>
+      </div>
+      <div class="sponsor-logo" data-name="Perplexity" data-type="AI Search">
+        <img src="https://logo.clearbit.com/perplexity.ai" alt="Perplexity" onerror="this.style.display='none';this.nextElementSibling.style.display=''">
+        <span class="sponsor-logo-name" style="display:none">Perplexity</span>
+        <div class="sponsor-tooltip"><div class="sponsor-tooltip-name">Perplexity</div><div class="sponsor-tooltip-type">AI Search</div></div>
+      </div>
+      <div class="sponsor-logo" data-name="McAfee" data-type="Cybersecurity">
+        <img src="https://logo.clearbit.com/mcafee.com" alt="McAfee" onerror="this.style.display='none';this.nextElementSibling.style.display=''">
+        <span class="sponsor-logo-name" style="display:none">McAfee</span>
+        <div class="sponsor-tooltip"><div class="sponsor-tooltip-name">McAfee</div><div class="sponsor-tooltip-type">Cybersecurity</div></div>
+      </div>
+      <div class="sponsor-logo" data-name="GoDaddy" data-type="Web Services">
+        <img src="https://logo.clearbit.com/godaddy.com" alt="GoDaddy" onerror="this.style.display='none';this.nextElementSibling.style.display=''">
+        <span class="sponsor-logo-name" style="display:none">GoDaddy</span>
+        <div class="sponsor-tooltip"><div class="sponsor-tooltip-name">GoDaddy</div><div class="sponsor-tooltip-type">Web Services</div></div>
+      </div>
+      <div class="sponsor-logo" data-name="Goldman Sachs" data-type="Investment Banking">
+        <img src="https://logo.clearbit.com/goldmansachs.com" alt="Goldman Sachs" onerror="this.style.display='none';this.nextElementSibling.style.display=''">
+        <span class="sponsor-logo-name" style="display:none">Goldman Sachs</span>
+        <div class="sponsor-tooltip"><div class="sponsor-tooltip-name">Goldman Sachs</div><div class="sponsor-tooltip-type">Investment Banking</div></div>
+      </div>
+      <div class="sponsor-logo" data-name="Culvert" data-type="AI Analytics">
+        <img src="https://logo.clearbit.com/culvert-ai.com" alt="Culvert" onerror="this.style.display='none';this.nextElementSibling.style.display=''">
+        <span class="sponsor-logo-name" style="display:none">Culvert</span>
+        <div class="sponsor-tooltip"><div class="sponsor-tooltip-name">Culvert</div><div class="sponsor-tooltip-type">AI Analytics</div></div>
+      </div>
+      <div class="sponsor-logo" data-name="Vectice" data-type="MLOps">
+        <img src="https://logo.clearbit.com/vectice.com" alt="Vectice" onerror="this.style.display='none';this.nextElementSibling.style.display=''">
+        <span class="sponsor-logo-name" style="display:none">Vectice</span>
+        <div class="sponsor-tooltip"><div class="sponsor-tooltip-name">Vectice</div><div class="sponsor-tooltip-type">MLOps</div></div>
+      </div>
+      <div class="sponsor-logo" data-name="Amazon" data-type="Cloud & E-Commerce">
+        <img src="https://logo.clearbit.com/amazon.com" alt="Amazon" onerror="this.style.display='none';this.nextElementSibling.style.display=''">
+        <span class="sponsor-logo-name" style="display:none">Amazon</span>
+        <div class="sponsor-tooltip"><div class="sponsor-tooltip-name">Amazon</div><div class="sponsor-tooltip-type">Cloud & E-Commerce</div></div>
+      </div>
+      <div class="sponsor-logo" data-name="ClearlyRated" data-type="B2B Research">
+        <img src="https://logo.clearbit.com/clearlyrated.com" alt="ClearlyRated" onerror="this.style.display='none';this.nextElementSibling.style.display=''">
+        <span class="sponsor-logo-name" style="display:none">ClearlyRated</span>
+        <div class="sponsor-tooltip"><div class="sponsor-tooltip-name">ClearlyRated</div><div class="sponsor-tooltip-type">B2B Research</div></div>
       </div>
     </div>
   </div>
