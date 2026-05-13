@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Contact — Phi Beta Lambda De Anza</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Unbounded:wght@400;700&family=DM+Sans:wght@300;400;500&family=IBM+Plex+Mono:wght@400;500&family=Playfair+Display:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<style>
+.page-hero{min-height:100vh;display:flex;flex-direction:column;justify-content:center;padding:9rem 2.5rem 5rem;position:relative;overflow:hidden;border-bottom:1px solid rgba(245,243,239,0.06);background:#050505;cursor:none}
+.plx-canvas{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:0}
+.plx-vignette{position:absolute;inset:0;background:radial-gradient(ellipse 75% 75% at 50% 50%,transparent 30%,#050505 100%);pointer-events:none;z-index:1}
+.plx-crt{position:absolute;inset:0;background:repeating-linear-gradient(0deg,transparent,transparent 2px,rgba(0,0,0,.03) 2px,rgba(0,0,0,.03) 4px);pointer-events:none;z-index:2}
+.plx-text{position:relative;z-index:3;will-change:transform;transition:transform .07s ease-out}
+.page-hero .hero-tag,.page-hero .page-sub,.page-hero .page-hero-wm,.page-hero .page-hero-year{position:relative;z-index:3}
+.page-hero .hero-tag::after,.page-hero .hero-tag::before{display:none!important;content:none!important;background:none!important;}
+.page-hero .hero-tag{border:none!important;}
+@media(max-width:768px){.page-hero{padding:7rem 1.5rem 4rem;min-height:90vh}}
+
+.contact-wrap{max-width:680px;padding:5rem 2.5rem}
+.contact-tag{font-family:'IBM Plex Mono',monospace;font-size:.55rem;letter-spacing:.22em;text-transform:uppercase;color:rgba(192,57,43,0.8);margin-bottom:1.2rem;display:flex;align-items:center;gap:.75rem}
+.contact-tag::before{content:'';display:block;width:2rem;height:1px;background:rgba(192,57,43,0.5)}
+.contact-sub{font-size:.92rem;color:rgba(245,243,239,.45);line-height:1.75;margin-bottom:3rem;max-width:420px}
+.contact-section-label{font-family:'IBM Plex Mono',monospace;font-size:.48rem;letter-spacing:.22em;text-transform:uppercase;color:rgba(192,57,43,0.65);margin-bottom:.5rem;padding-bottom:.5rem;border-bottom:1px solid rgba(245,243,239,.04)}
+.contact-row{display:flex;align-items:center;justify-content:space-between;padding:1rem 0;border-bottom:1px solid rgba(245,243,239,.05);text-decoration:none;transition:background .2s;cursor:pointer}
+.contact-row:hover .contact-row-arr{color:rgba(245,243,239,.8);transform:translateX(4px)}
+.contact-row:hover .contact-row-name{color:#fff}
+.contact-row-left{display:flex;flex-direction:column;gap:.2rem}
+.contact-row-name{font-family:'Unbounded',sans-serif;font-weight:400;font-size:.75rem;color:rgba(245,243,239,.75);letter-spacing:.02em;transition:color .2s}
+.contact-row-desc{font-family:'IBM Plex Mono',monospace;font-size:.48rem;letter-spacing:.12em;text-transform:uppercase;color:rgba(245,243,239,.28)}
+.contact-row-arr{color:rgba(245,243,239,.25);font-size:.9rem;transition:all .2s}
+.contact-group{margin-bottom:2.5rem}
+</style>
+</head>
+<body>
+<div class="cur" id="cur"></div>
+<div class="cur-ring" id="ring"></div>
+<div class="mob-overlay" id="mob">
+  <button class="mob-close" onclick="closeMob()">Close ×</button>
+  <ul class="mob-links">
+    <li><a href="index.html">Home</a></li><li><a href="leadership.html">Leadership</a></li><li><a href="events.html">Events</a></li><li><a href="accolades.html">Accolades</a></li><li><a href="alumni.html">Alumni</a></li><li><a href="consulting.html">Consulting</a></li><li><a href="polaris.html">Polaris</a></li>
+  </ul>
+  <div class="mob-meta">De Anza College · Cupertino, CA</div>
+</div>
+<nav id="nav">
+  <div class="nav-left">
+    <a href="index.html" style="background:none;border:none;cursor:pointer;padding:0;display:flex;align-items:center;text-decoration:none"><span style="font-family:'Playfair Display',serif;font-size:1.8rem;color:rgba(245,243,239,0.88);line-height:1;user-select:none">Φ</span></a>
+    <div class="nav-wordmark" style="border-left:1px solid var(--border);padding-left:1rem">Phi Beta Lambda<br>De Anza Chapter</div>
+  </div>
+  <div class="nav-right" style="display:flex;align-items:center;gap:2.5rem">
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li><li><a href="leadership.html">Leadership</a></li><li><a href="events.html">Events</a></li><li><a href="accolades.html">Accolades</a></li><li><a href="alumni.html">Alumni</a></li><li><a href="consulting.html">Consulting</a></li><li><a href="polaris.html">Polaris</a></li>
+    </ul>
+    <a href="https://forms.gle/2zixWcFPcGG6sCBF7" target="_blank" class="nav-apply" style="flex-shrink:0">Apply</a>
+    <button class="hamburger" onclick="openMob()"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+<div class="page active">
+<section class="page-hero">
+  <canvas class="plx-canvas" id="plxCanvas"></canvas>
+  <div class="plx-vignette"></div>
+  <div class="plx-crt"></div>
+  <div class="plx-text">
+    <div class="hero-tag">Contact</div>
+    <h1 class="page-title"><span>Get in</span><span>Touch.</span></h1>
+    <p class="page-sub">Membership, partnerships, or just say hi.</p>
+  </div>
+</section>
+
+<div class="contact-wrap">
+  <div class="contact-tag">De Anza PBL</div>
+  <p class="contact-sub">Reach out to join as a member, explore a consulting partnership, or connect with our chapter.</p>
+
+  <div class="contact-group">
+    <div class="contact-section-label">Membership</div>
+    <a href="https://forms.gle/2zixWcFPcGG6sCBF7" target="_blank" class="contact-row">
+      <div class="contact-row-left"><div class="contact-row-name">Apply to PBL</div><div class="contact-row-desc">New member application form</div></div>
+      <div class="contact-row-arr">→</div>
+    </a>
+    <a href="https://discord.gg/w7zap3SfUm" target="_blank" class="contact-row">
+      <div class="contact-row-left"><div class="contact-row-name">Discord Server</div><div class="contact-row-desc">Join the community</div></div>
+      <div class="contact-row-arr">→</div>
+    </a>
+  </div>
+
+  <div class="contact-group">
+    <div class="contact-section-label">Partnerships &amp; Inquiries</div>
+    <a href="mailto:deanzacapbl@gmail.com" class="contact-row">
+      <div class="contact-row-left"><div class="contact-row-name">deanzacapbl@gmail.com</div><div class="contact-row-desc">General · Consulting · Press</div></div>
+      <div class="contact-row-arr">→</div>
+    </a>
+    <a href="consulting.html" class="contact-row">
+      <div class="contact-row-left"><div class="contact-row-name">Consulting Division</div><div class="contact-row-desc">Learn about our client work</div></div>
+      <div class="contact-row-arr">→</div>
+    </a>
+  </div>
+
+  <div class="contact-group">
+    <div class="contact-section-label">Social</div>
+    <a href="https://www.instagram.com/deanzapbl/" target="_blank" class="contact-row">
+      <div class="contact-row-left"><div class="contact-row-name">@deanzapbl</div><div class="contact-row-desc">Instagram · Main chapter</div></div>
+      <div class="contact-row-arr">→</div>
+    </a>
+    <a href="https://www.instagram.com/pblcsp/" target="_blank" class="contact-row">
+      <div class="contact-row-left"><div class="contact-row-name">@pblcsp</div><div class="contact-row-desc">Instagram · Community service</div></div>
+      <div class="contact-row-arr">→</div>
+    </a>
+    <a href="https://linktr.ee/deanzapbl" target="_blank" class="contact-row">
+      <div class="contact-row-left"><div class="contact-row-name">Linktree</div><div class="contact-row-desc">All links in one place</div></div>
+      <div class="contact-row-arr">→</div>
+    </a>
+  </div>
+</div>
+</div>
+
+<footer style="display:flex;align-items:center;justify-content:space-between;padding:2rem 2.5rem;border-top:1px solid var(--border);flex-wrap:wrap;gap:1rem">
+  <div style="display:flex;align-items:center;gap:1.2rem">
+    <span class="foot-logo">ΦΒΛ</span>
+    <div style="width:1px;height:2rem;background:var(--border)"></div>
+    <span class="foot-copy">© 2025 Phi Beta Lambda · De Anza College</span>
+  </div>
+  <ul class="foot-links">
+    <li><a href="https://instagram.com/deanzapbl" target="_blank">Instagram</a></li><li><a href="https://discord.gg/w7zap3SfUm" target="_blank">Discord</a></li><li><a href="https://linktr.ee/deanzapbl" target="_blank">Linktree</a></li><li><a href="contact.html">Contact</a></li>
+  </ul>
+</footer>
+<script src="main.js"></script>
+<script>(function(){var hero=document.querySelector(".page-hero");if(!hero)return;var canvas=document.getElementById("plxCanvas");var txt=hero.querySelector(".plx-text");var ctx=canvas.getContext("2d");var mx,my,smx,smy;var stars=[];var t=0;function buildStars(){stars=[];var W=canvas.width,H=canvas.height;for(var k=0;k<280;k++){stars.push({x:Math.random()*W,y:Math.random()*H,r:Math.random()*1.2+0.2,ph:Math.random()*6.28,spd:Math.random()*1.5+0.5,a:Math.random()*0.3+0.05});}}function resize(){canvas.width=hero.offsetWidth;canvas.height=hero.offsetHeight;if(smx==null){smx=canvas.width/2;smy=canvas.height/2;mx=smx;my=smy;}buildStars();}resize();window.addEventListener("resize",resize);var inside=false;hero.addEventListener("mousemove",function(e){var r=hero.getBoundingClientRect();mx=e.clientX-r.left;my=e.clientY-r.top;inside=true;if(txt){var hw=r.width/2,hh=r.height/2,rx=(mx-hw)/hw,ry=(my-hh)/hh;txt.style.transform="translate("+(rx*-7)+"px,"+(ry*-7)+"px)";}});hero.addEventListener("mouseleave",function(){inside=false;if(txt)txt.style.transform="";});var curA=0;function draw(){t+=0.014;var W=canvas.width,H=canvas.height;if(!W||!H){requestAnimationFrame(draw);return;}smx=smx+(mx-smx)*0.1;smy=smy+(my-smy)*0.1;curA+=((inside?1:0)-curA)*0.065;ctx.clearRect(0,0,W,H);var dx,dy,d,inf,a,r,tw;stars.forEach(function(p){tw=Math.sin(t*p.spd+p.ph)*0.4+0.6;dx=p.x-smx;dy=p.y-smy;d=Math.sqrt(dx*dx+dy*dy);inf=Math.max(0,1-d/170)*0.6;a=p.a*tw+inf;r=p.r*tw+inf*1.5;ctx.beginPath();ctx.arc(p.x,p.y,r,0,6.28);ctx.fillStyle="rgba(220,210,200,"+Math.min(a,0.75).toFixed(2)+")";ctx.fill();if(inf>0.1){ctx.beginPath();ctx.arc(p.x,p.y,r*2.5,0,6.28);ctx.fillStyle="rgba(192,57,43,"+(inf*0.2).toFixed(2)+")";ctx.fill();}});if(curA>0.01){ctx.beginPath();ctx.arc(smx,smy,14,0,6.28);ctx.strokeStyle="rgba(192,57,43,"+(curA*0.4).toFixed(2)+")";ctx.lineWidth=0.7;ctx.stroke();ctx.beginPath();ctx.arc(smx,smy,28,0,6.28);ctx.strokeStyle="rgba(192,57,43,"+(curA*0.18).toFixed(2)+")";ctx.lineWidth=0.7;ctx.stroke();ctx.beginPath();ctx.arc(smx,smy,2,0,6.28);ctx.fillStyle="rgba(192,57,43,"+(curA*0.85).toFixed(2)+")";ctx.fill();}requestAnimationFrame(draw);}requestAnimationFrame(draw);})();</script>
+</body>
+</html>
