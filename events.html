@@ -75,21 +75,28 @@
   z-index:1000;display:flex;align-items:center;justify-content:center;
   padding:2rem;
   opacity:0;pointer-events:none;transition:opacity .3s ease;
-  backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);
+  backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);
 }
 .ev-modal-overlay.open{opacity:1;pointer-events:all}
 .ev-modal{
-  background:#111;border:1px solid rgba(245,243,239,.1);
+  background:#0e0e0e;
+  border:1px solid rgba(255,255,255,0.1);
   width:min(860px,92vw);max-height:88vh;overflow-y:auto;
   position:relative;
   transform:translateY(28px) scale(.97);
   transition:transform .35s cubic-bezier(.16,1,.3,1),opacity .3s ease;
   opacity:0;
+  box-shadow:
+    0 0 0 1px rgba(255,255,255,0.05),
+    0 0 40px rgba(255,255,255,0.07),
+    0 0 100px rgba(255,255,255,0.04),
+    0 0 200px rgba(255,255,255,0.02),
+    0 30px 80px rgba(0,0,0,0.9);
 }
 .ev-modal-overlay.open .ev-modal{transform:translateY(0) scale(1);opacity:1}
 .ev-modal-hero{position:relative;height:260px;overflow:hidden;background:#1a1010;flex-shrink:0}
 .ev-modal-hero img{width:100%;height:100%;object-fit:cover;opacity:.75}
-.ev-modal-hero::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,transparent 40%,#111 100%)}
+.ev-modal-hero::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,transparent 40%,#0e0e0e 100%)}
 .ev-modal-close{
   position:absolute;top:1rem;right:1rem;z-index:10;
   width:36px;height:36px;background:rgba(10,10,10,.7);border:1px solid rgba(245,243,239,.15);
@@ -97,25 +104,31 @@
   display:flex;align-items:center;justify-content:center;transition:all .2s;
 }
 .ev-modal-close:hover{background:#c8102e;border-color:#c8102e;color:#fff}
-.ev-modal-body{padding:2.5rem}
-.ev-modal-badges{display:flex;gap:.5rem;flex-wrap:wrap;margin-bottom:1.25rem}
+.ev-modal-body{
+  padding:2.5rem;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  text-align:center;
+}
+.ev-modal-badges{display:flex;gap:.5rem;flex-wrap:wrap;margin-bottom:1.25rem;justify-content:center}
 .ev-modal-type{font-family:'IBM Plex Mono',monospace;font-size:.5rem;letter-spacing:.18em;text-transform:uppercase;padding:.3rem .85rem;border:1px solid rgba(200,16,46,.5);color:rgba(220,55,65,.95)}
 .ev-modal-datestr{font-family:'IBM Plex Mono',monospace;font-size:.5rem;letter-spacing:.15em;text-transform:uppercase;padding:.3rem .85rem;border:1px solid rgba(245,243,239,.18);color:rgba(245,243,239,.55)}
 .ev-modal-title{font-family:'Unbounded',sans-serif;font-weight:700;font-size:clamp(1.3rem,3vw,2rem);line-height:1.1;color:#f5f3ef;margin-bottom:1.25rem}
 .ev-modal-about-h{font-family:'IBM Plex Mono',monospace;font-size:.5rem;letter-spacing:.2em;text-transform:uppercase;color:rgba(200,16,46,.7);margin-bottom:.65rem;display:flex;align-items:center;gap:.5rem}
 .ev-modal-about-h::before{content:'';width:14px;height:1px;background:rgba(200,16,46,.5)}
 .ev-modal-about{font-size:.95rem;color:rgba(245,243,239,.65);line-height:1.85;margin-bottom:2rem}
-.ev-modal-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:3px;margin-bottom:2rem}
+.ev-modal-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:3px;margin-bottom:2rem;width:100%}
 .ev-modal-stat{background:#161616;padding:.85rem 1.1rem}
 .ev-modal-stat-n{font-family:'Bebas Neue',sans-serif;font-size:1.6rem;color:#f5f3ef;line-height:1}
 .ev-modal-stat-l{font-family:'IBM Plex Mono',monospace;font-size:.42rem;letter-spacing:.14em;text-transform:uppercase;color:rgba(245,243,239,.3);margin-top:.2rem}
 .ev-modal-section-h{font-family:'IBM Plex Mono',monospace;font-size:.5rem;letter-spacing:.2em;text-transform:uppercase;color:rgba(245,243,239,.3);margin-bottom:.75rem;display:flex;align-items:center;gap:.5rem}
 .ev-modal-section-h::before{content:'';width:14px;height:1px;background:rgba(245,243,239,.2)}
-.ev-modal-results{display:flex;flex-direction:column;gap:2px;margin-bottom:2rem}
+.ev-modal-results{display:flex;flex-direction:column;gap:2px;margin-bottom:2rem;width:100%}
 .ev-modal-result-row{display:flex;justify-content:space-between;align-items:baseline;padding:.55rem .85rem;background:#161616}
 .ev-modal-result-place{font-size:.9rem;font-weight:500;color:#f5f3ef}
 .ev-modal-result-names{font-family:'IBM Plex Mono',monospace;font-size:.45rem;letter-spacing:.08em;color:rgba(245,243,239,.35)}
-.ev-modal-photos{display:grid;grid-template-columns:1fr 1fr;gap:3px;margin-bottom:2rem}
+.ev-modal-photos{display:grid;grid-template-columns:1fr 1fr;gap:3px;margin-bottom:2rem;width:100%}
 .ev-modal-photo{aspect-ratio:4/3;overflow:hidden;background:#1a1010}
 .ev-modal-photo img{width:100%;height:100%;object-fit:cover;opacity:.7;transition:opacity .3s}
 .ev-modal-photo:hover img{opacity:1}
@@ -182,7 +195,18 @@
 <div class="ev-grid">
   <div class="ev-gi" onclick="openModal('sharktank2026')" style="cursor:pointer"><div class="ev-gi-img"><img src="images/events-shark-tank.jpg" alt="PBL Shark Tank 2026"></div><div class="ev-gi-body"><div class="ev-gi-badges"><span class="ev-gi-type">Flagship</span><span class="ev-gi-date">Spring 2026 · De Anza College</span></div><div class="ev-gi-title">PBL Shark Tank 2026</div><div class="ev-gi-desc">50+ participants, 11 teams, 1 hour to pitch. Industry judges from Meta, Cisco, McAfee, and Informatica. Click to see results.</div></div></div>
   <div class="ev-gi" onclick="openModal('ocf2026')" style="cursor:pointer"><div class="ev-gi-img"><img src="images/events-our-city-forest.jpg" alt="PBL × Our City Forest"></div><div class="ev-gi-body"><div class="ev-gi-badges"><span class="ev-gi-type">Service</span><span class="ev-gi-date">Winter 2026 · San Jose, CA</span></div><div class="ev-gi-title">PBL × Our City Forest</div><div class="ev-gi-desc">100 trees planted. 609 volunteer hours. $88,018 in projected community benefit. Three days of hands-on environmental service.</div></div></div>
-
+  <div class="ev-gi" style="cursor:default">
+    <div class="ev-gi-img" style="background:#0c0404;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:.35rem;position:relative;overflow:hidden">
+      <div style="position:absolute;font-family:'Bebas Neue',sans-serif;font-size:5rem;color:rgba(200,16,46,.05);letter-spacing:.04em;user-select:none">TBD</div>
+      <div style="font-family:'Unbounded',sans-serif;font-weight:700;font-size:1rem;color:rgba(200,16,46,.65);letter-spacing:.04em;z-index:1">Coming Soon</div>
+      <div style="font-family:'IBM Plex Mono',monospace;font-size:.38rem;letter-spacing:.22em;text-transform:uppercase;color:rgba(200,16,46,.28);z-index:1">Spring 2026</div>
+    </div>
+    <div class="ev-gi-body">
+      <div class="ev-gi-badges"><span class="ev-gi-type">Upcoming</span><span class="ev-gi-date">2026 · De Anza</span></div>
+      <div class="ev-gi-title">Next Chapter Event</div>
+      <div class="ev-gi-desc">Stay tuned — announcement coming soon on Instagram and Discord.</div>
+    </div>
+  </div>
 </div>
 
 <div class="ev-year-header">
@@ -196,6 +220,10 @@
   <div class="ev-gi" onclick="openModal('nationals2025')" style="cursor:pointer"><div class="ev-gi-img"><img src="images/events-national-blc.jpg" alt="National Business Leadership Conference 2025"></div><div class="ev-gi-body"><div class="ev-gi-badges"><span class="ev-gi-type">National</span><span class="ev-gi-date">May 31–Jun 2, 2025 · Dallas, TX</span></div><div class="ev-gi-title">National Business Leadership Conference 2025</div><div class="ev-gi-desc">3 national championships. 13 delegations. De Anza PBL on the national stage in Dallas, Texas.</div></div></div>
   <div class="ev-gi" onclick="openModal('sharktank2025')" style="cursor:pointer"><div class="ev-gi-img"><img src="images/events-shark-tank-2025.jpg" alt="PBL Shark Tank 2025"></div><div class="ev-gi-body"><div class="ev-gi-badges"><span class="ev-gi-type">Flagship</span><span class="ev-gi-date">Spring 2025 · De Anza College</span></div><div class="ev-gi-title">PBL Shark Tank 2025</div><div class="ev-gi-desc">The event that started it all. 50 participants, 10 teams, judges from Facebook, McAfee, Cisco, and Informatica.</div></div></div>
   <div class="ev-gi" onclick="openModal('hungerathome')" style="cursor:pointer"><div class="ev-gi-img"><img src="images/events-hunger-at-home.jpg" alt="PBL × Hunger at Home"></div><div class="ev-gi-body"><div class="ev-gi-badges"><span class="ev-gi-type">Service</span><span class="ev-gi-date">2025 · San Jose, CA</span></div><div class="ev-gi-title">PBL × Hunger at Home</div><div class="ev-gi-desc">PBL members spent a full day at Hunger at Home's San Jose kitchen, preparing and packaging meals for families across the South Bay.</div></div></div>
+  <div class="ev-gi" style="background:#111;cursor:default;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:2rem;border-left:2px solid rgba(200,16,46,.25)">
+    <div style="font-family:'Playfair Display',serif;font-style:italic;font-size:.82rem;color:rgba(245,243,239,.5);line-height:1.75;text-align:center;max-width:240px">"The best chapters aren't built in a semester — they're built in moments exactly like these."</div>
+    <div style="font-family:'IBM Plex Mono',monospace;font-size:.42rem;letter-spacing:.18em;text-transform:uppercase;color:rgba(200,16,46,.5);margin-top:1rem">@deanzapbl</div>
+  </div>
 </div>
 
 <div class="ev-year-header">
@@ -253,7 +281,6 @@
       <div class="ev-modal-about-h">About</div>
       <div class="ev-modal-about">Over three consecutive service days in Winter 2026, PBL members partnered with Our City Forest to green the Bay Area. The team planted 100 trees, engaged 203 volunteers, and logged 609 volunteer hours — raising $1,000 for urban canopy expansion. The project is projected to deliver $88,018 in long-term community environmental benefit.</div>
       <div class="ev-modal-stats"><div class="ev-modal-stat"><div class="ev-modal-stat-n">100</div><div class="ev-modal-stat-l">Trees planted</div></div><div class="ev-modal-stat"><div class="ev-modal-stat-n">609</div><div class="ev-modal-stat-l">Volunteer hours</div></div><div class="ev-modal-stat"><div class="ev-modal-stat-n">$88K</div><div class="ev-modal-stat-l">Community value</div></div></div>
-      
     </div>
   </div>
 </div>
@@ -267,7 +294,6 @@
       <div class="ev-modal-about-h">About</div>
       <div class="ev-modal-about">PBL members volunteered at Hunger at Home's San Jose kitchen facility, preparing and packaging meals for families in need across the South Bay. Hunger at Home operates one of the region's largest food rescue programs, redistributing surplus food from hotels, stadiums, and convention centers. Our members spent a full day on the line — cutting, cooking, packaging, and serving alongside the nonprofit's staff.</div>
       <div class="ev-modal-stats"><div class="ev-modal-stat"><div class="ev-modal-stat-n">200+</div><div class="ev-modal-stat-l">Meals packed</div></div><div class="ev-modal-stat"><div class="ev-modal-stat-n">25+</div><div class="ev-modal-stat-l">Members</div></div><div class="ev-modal-stat"><div class="ev-modal-stat-n">1 day</div><div class="ev-modal-stat-l">Of service</div></div></div>
-      
     </div>
   </div>
 </div>
@@ -295,7 +321,6 @@
       <div class="ev-modal-about-h">About</div>
       <div class="ev-modal-about">The 2025 edition of PBL's Shark Tank drew 50 participants across 10 teams, each given just one hour to build and present a full business pitch. Industry judges from Facebook, McAfee, Cisco, and Informatica evaluated teams on market viability, financial modeling, and presentation confidence. This event has become the flagship entrepreneurship showcase of the De Anza business community.</div>
       <div class="ev-modal-stats"><div class="ev-modal-stat"><div class="ev-modal-stat-n">50</div><div class="ev-modal-stat-l">Participants</div></div><div class="ev-modal-stat"><div class="ev-modal-stat-n">10</div><div class="ev-modal-stat-l">Teams</div></div><div class="ev-modal-stat"><div class="ev-modal-stat-n">4</div><div class="ev-modal-stat-l">Industry judges</div></div></div>
-      
     </div>
   </div>
 </div>
