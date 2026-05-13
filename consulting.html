@@ -8,7 +8,8 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Unbounded:wght@400;700&family=DM+Sans:wght@300;400;500&family=IBM+Plex+Mono:wght@400;500&family=Playfair+Display:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
-<style id="parallax-hero-css">
+<style>
+/* ── Parallax Hero ── */
 .page-hero{min-height:100vh;display:flex;flex-direction:column;justify-content:center;padding:9rem 2.5rem 5rem;position:relative;overflow:hidden;border-bottom:1px solid var(--border);background:#050505;cursor:none}
 .plx-l3,.plx-l2,.plx-l1{position:absolute;pointer-events:none;will-change:transform}
 .plx-l3{inset:-30px;background-image:radial-gradient(circle,rgba(200,16,46,.05) 1px,transparent 1px);background-size:64px 64px;transition:transform .12s ease-out}
@@ -20,61 +21,85 @@
 .plx-text{position:relative;z-index:3;will-change:transform;transition:transform .07s ease-out}
 .plx-cursor{position:absolute;width:28px;height:28px;border:1px solid rgba(200,16,46,.45);border-radius:50%;pointer-events:none;transform:translate(-50%,-50%);z-index:10;transition:opacity .18s;opacity:0}
 .page-hero:hover .plx-cursor{opacity:1}
-.page-hero .hero-tag,.page-hero .page-sub,.page-hero .page-hero-wm,.page-hero .page-hero-year{position:relative;z-index:3}
-@keyframes fadeIn{from{opacity:0}to{opacity:1}}
-@keyframes slideUp{from{opacity:0;transform:translateY(60px)}to{opacity:1;transform:translateY(0)}}
-@keyframes slideUpGlitch{0%{opacity:0;transform:translateY(50px)}60%{opacity:1;transform:translateY(0)}62%{transform:translateX(-3px)}64%{transform:translateX(3px)}66%{transform:translateX(-2px)}68%,100%{transform:translateX(0);opacity:1}}
-@keyframes heroBlink{0%,100%{opacity:1}50%{opacity:.2}}
+.page-hero .hero-tag,.page-hero .page-sub{position:relative;z-index:3}
 @keyframes heroScan{0%{top:-2px;opacity:0}5%{opacity:1}95%{opacity:1}100%{top:100%;opacity:0}}
 @media(max-width:768px){.page-hero{padding:7rem 1.5rem 4rem;min-height:90vh}}
-</style>
-<style>
-/* ── Clients Carousel ── */
-.clients-section{padding:5rem 0 0}
-.clients-label{font-family:'IBM Plex Mono',monospace;font-size:.48rem;letter-spacing:.26em;text-transform:uppercase;color:rgba(245,243,239,.22);padding:0 2.5rem 1.5rem;display:flex;align-items:center;gap:.75rem}
-.clients-label::before{content:'';width:18px;height:1px;background:rgba(245,243,239,.12)}
-.carousel-outer{overflow:hidden;padding:0 2.5rem}
-.carousel-track{display:flex;gap:6px;transition:transform .6s cubic-bezier(.16,1,.3,1);will-change:transform}
-.cl-card{flex:0 0 calc(20% - 5px);height:300px;background:#0b0b0b;border:1px solid rgba(245,243,239,.06);position:relative;overflow:hidden;cursor:default;transition:background .4s,border-color .4s;display:flex;flex-direction:column;justify-content:space-between;padding:2rem 1.75rem}
-.cl-card:hover{background:#0e0e0e;border-color:rgba(200,16,46,.22)}
-.cl-scan{position:absolute;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(200,16,46,.85),transparent);top:-1px;opacity:0}
-.cl-card:hover .cl-scan{animation:clScan .65s ease forwards}
-@keyframes clScan{0%{top:0;opacity:1}100%{top:110%;opacity:0}}
-.cl-mark{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);opacity:.045;transition:opacity .4s;pointer-events:none}
-.cl-card:hover .cl-mark{opacity:.09}
-.cl-top{position:relative;z-index:1}
-.cl-idx{font-family:'IBM Plex Mono',monospace;font-size:.44rem;letter-spacing:.22em;color:rgba(200,16,46,.4);margin-bottom:.85rem}
-.cl-rule{width:20px;height:1px;background:rgba(200,16,46,.28);margin-bottom:.8rem;transition:width .4s,background .4s}
-.cl-card:hover .cl-rule{width:40px;background:rgba(200,16,46,.55)}
-.cl-name{font-family:'Bebas Neue',sans-serif;font-size:1.2rem;letter-spacing:.03em;color:#f5f3ef;line-height:1.2}
-.cl-bot{position:relative;z-index:1}
-.cl-svc{font-family:'IBM Plex Mono',monospace;font-size:.4rem;letter-spacing:.16em;text-transform:uppercase;padding:.24rem .7rem;border:1px solid rgba(200,16,46,.18);color:rgba(200,16,46,.55);display:inline-block;transition:all .3s}
-.cl-card:hover .cl-svc{border-color:rgba(200,16,46,.5);color:rgba(200,16,46,.95)}
-.dots-row{display:flex;align-items:center;justify-content:center;gap:8px;margin-top:1.75rem;padding:0 2.5rem}
-.cl-dot{width:6px;height:6px;border-radius:50%;background:rgba(245,243,239,.12);cursor:pointer;transition:all .45s cubic-bezier(.16,1,.3,1)}
-.cl-dot.on{background:#c8102e;width:24px;border-radius:3px}
-.cl-dot:hover:not(.on){background:rgba(200,16,46,.4)}
 
-/* ── Sponsors ── */
-.spon-section{padding:5rem 2.5rem 0}
-.spon-head{margin-bottom:1.75rem}
-.spon-tag{font-family:'IBM Plex Mono',monospace;font-size:.48rem;letter-spacing:.22em;text-transform:uppercase;color:rgba(245,243,239,.2);display:flex;align-items:center;gap:.65rem}
-.spon-tag::before{content:'';width:14px;height:1px;background:rgba(245,243,239,.12)}
-.spon-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:3px}
-.spon-card{background:#0a0a0a;border:1px solid rgba(245,243,239,.05);padding:2rem 1.75rem;display:flex;flex-direction:column;gap:.55rem;transition:background .2s,border-color .2s}
-.spon-card:hover{background:#0d0d0d;border-color:rgba(245,243,239,.1)}
-.spon-name{font-family:'Bebas Neue',sans-serif;font-size:1.05rem;letter-spacing:.03em;color:rgba(245,243,239,.5);transition:color .2s;line-height:1.15}
-.spon-card:hover .spon-name{color:rgba(245,243,239,.8)}
-.spon-type{font-family:'IBM Plex Mono',monospace;font-size:.38rem;letter-spacing:.14em;text-transform:uppercase;color:rgba(245,243,239,.18)}
+/* ── Section utility ── */
+.con-section{padding:5rem 2.5rem}
+.con-section-sm{padding:3.5rem 2.5rem}
+.sec-tag-line{font-family:'IBM Plex Mono',monospace;font-size:.5rem;letter-spacing:.26em;text-transform:uppercase;color:rgba(245,243,239,.22);display:flex;align-items:center;gap:.75rem;margin-bottom:1.5rem}
+.sec-tag-line::before{content:'';width:18px;height:1px;background:rgba(245,243,239,.12)}
+
+/* ── W6: What We Do ── */
+.wwd-grid{display:grid;grid-template-columns:1fr 1fr;gap:3px}
+.wwd-left{background:#0d0d0d;border:1px solid rgba(200,16,46,.12);padding:3rem 2.5rem;position:relative;overflow:hidden}
+.wwd-left::after{content:'';position:absolute;left:0;top:0;bottom:0;width:3px;background:#c8102e}
+.wwd-left-tag{font-family:'IBM Plex Mono',monospace;font-size:.5rem;letter-spacing:.22em;text-transform:uppercase;color:rgba(200,16,46,.7);margin-bottom:1rem}
+.wwd-left-title{font-family:'Bebas Neue',sans-serif;font-size:2.8rem;color:#f5f3ef;letter-spacing:.02em;line-height:1;margin-bottom:1.25rem}
+.wwd-left-body{font-size:.92rem;color:rgba(245,243,239,.55);line-height:1.9;margin-bottom:1.75rem}
+.wwd-tags{display:flex;gap:.4rem;flex-wrap:wrap}
+.wwd-tag{font-family:'IBM Plex Mono',monospace;font-size:.46rem;letter-spacing:.1em;text-transform:uppercase;padding:.22rem .65rem;border:1px solid rgba(245,243,239,.1);color:rgba(245,243,239,.45)}
+.wwd-right{background:#0d0d0d;border:1px solid rgba(245,243,239,.07);padding:2.5rem 2.25rem;display:flex;flex-direction:column;justify-content:space-between}
+.wwd-step{display:flex;gap:1.25rem;align-items:flex-start;padding:1.25rem 0;border-bottom:1px solid rgba(245,243,239,.05)}
+.wwd-step:first-child{padding-top:0}
+.wwd-step:last-child{border-bottom:none;padding-bottom:0}
+.wwd-step-n{font-family:'Bebas Neue',sans-serif;font-size:2rem;color:rgba(200,16,46,.35);line-height:1;flex-shrink:0;width:32px;transition:color .2s}
+.wwd-step:hover .wwd-step-n{color:rgba(200,16,46,.7)}
+.wwd-step-title{font-family:'DM Sans',sans-serif;font-weight:500;font-size:.9rem;color:#f5f3ef;margin-bottom:.3rem}
+.wwd-step-desc{font-size:.8rem;color:rgba(245,243,239,.45);line-height:1.7}
+
+/* ── Clients Spotlight Carousel ── */
+.clients-section{padding:0 2.5rem 5rem}
+.clients-carousel{overflow:hidden;position:relative}
+.clients-track{display:flex;will-change:transform;transition:transform .7s cubic-bezier(.4,0,.2,1)}
+.client-slide{flex-shrink:0;width:100%;display:grid;grid-template-columns:1fr 1fr;min-height:280px;background:#0d0d0d;border:1px solid rgba(245,243,239,.07)}
+.cs-left{padding:3.5rem 3rem;display:flex;flex-direction:column;justify-content:space-between;position:relative;overflow:hidden;border-right:1px solid rgba(245,243,239,.06)}
+.cs-left-wm{position:absolute;bottom:-2rem;left:-1rem;font-family:'Bebas Neue',sans-serif;font-size:9rem;color:rgba(200,16,46,.04);line-height:1;user-select:none;letter-spacing:.02em}
+.cs-idx{font-family:'IBM Plex Mono',monospace;font-size:.52rem;letter-spacing:.22em;text-transform:uppercase;color:rgba(200,16,46,.5);margin-bottom:auto;position:relative;z-index:1}
+.cs-name{font-family:'Bebas Neue',sans-serif;font-size:clamp(2rem,4vw,3.2rem);color:#f5f3ef;line-height:.95;letter-spacing:.01em;position:relative;z-index:1}
+.cs-right{padding:3.5rem 3rem;display:flex;flex-direction:column;justify-content:center;gap:1.25rem}
+.cs-work-lbl{font-family:'IBM Plex Mono',monospace;font-size:.5rem;letter-spacing:.24em;text-transform:uppercase;color:rgba(245,243,239,.3)}
+.cs-work{font-family:'Unbounded',sans-serif;font-weight:700;font-size:clamp(.85rem,1.5vw,1.15rem);color:#f5f3ef;line-height:1.3}
+.cs-rule{width:32px;height:1px;background:rgba(200,16,46,.5)}
+.cs-desc{font-size:.9rem;color:rgba(245,243,239,.52);line-height:1.85}
+.clients-nav{display:flex;align-items:center;justify-content:space-between;margin-top:1.25rem}
+.clients-dots{display:flex;gap:8px}
+.c-dot{width:6px;height:6px;border-radius:50%;background:rgba(245,243,239,.12);cursor:pointer;transition:all .45s cubic-bezier(.16,1,.3,1)}
+.c-dot.on{background:#c8102e;width:24px;border-radius:3px}
+.c-dot:hover:not(.on){background:rgba(200,16,46,.4)}
+.clients-arr{width:44px;height:44px;border-radius:50%;border:1px solid rgba(245,243,239,.15);background:none;color:rgba(245,243,239,.45);font-size:1rem;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .3s}
+.clients-arr:hover{border-color:#c8102e;color:#c8102e;background:rgba(200,16,46,.08)}
+
+/* ── Sponsors Marquee ── */
+.spon-section{border-top:1px solid rgba(245,243,239,.06);border-bottom:1px solid rgba(245,243,239,.06);background:#0a0a0a;overflow:hidden;padding:2rem 0;position:relative}
+.spon-section::before,.spon-section::after{content:'';position:absolute;top:0;bottom:0;width:120px;z-index:2;pointer-events:none}
+.spon-section::before{left:0;background:linear-gradient(90deg,#0a0a0a,transparent)}
+.spon-section::after{right:0;background:linear-gradient(-90deg,#0a0a0a,transparent)}
+.spon-track{display:flex;animation:sponAnim 35s linear infinite;width:max-content}
+.spon-track:hover{animation-play-state:paused}
+@keyframes sponAnim{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+.spon-item{display:flex;align-items:center;justify-content:center;padding:0 3.5rem;border-right:1px solid rgba(245,243,239,.05);flex-shrink:0;height:60px}
+.spon-item img{height:36px;width:auto;object-fit:contain;filter:grayscale(100%) brightness(1.8);opacity:.55;transition:all .3s}
+.spon-item:hover img{filter:grayscale(0%) brightness(1);opacity:1}
+.spon-lbl-wrap{padding:.75rem 2.5rem;display:flex;align-items:center;gap:.75rem;justify-content:center}
+.spon-lbl{font-family:'IBM Plex Mono',monospace;font-size:.46rem;letter-spacing:.24em;text-transform:uppercase;color:rgba(245,243,239,.2)}
+
+/* ── CTA ── */
+.cta-section{padding:5rem 2.5rem}
+.cta-box{background:#0d0d0d;border:1px solid rgba(245,243,239,.07);padding:4rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:2rem;position:relative;overflow:hidden}
+.cta-box::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,rgba(200,16,46,.4),transparent)}
+.cta-wm{position:absolute;bottom:-2rem;right:-1rem;font-family:'Bebas Neue',sans-serif;font-size:9rem;color:rgba(200,16,46,.03);line-height:1;user-select:none}
+.cta-title{font-family:'Bebas Neue',sans-serif;font-size:2.5rem;letter-spacing:.02em;line-height:1;color:#f5f3ef;margin-bottom:.5rem;position:relative;z-index:1}
+.cta-sub{font-size:.9rem;color:rgba(245,243,239,.48);position:relative;z-index:1}
+.cta-btn{font-family:'IBM Plex Mono',monospace;font-size:.52rem;letter-spacing:.18em;text-transform:uppercase;padding:.85rem 2rem;background:#c8102e;color:#f5f3ef;text-decoration:none;border:1px solid #c8102e;transition:all .3s;position:relative;z-index:1;flex-shrink:0}
+.cta-btn:hover{background:transparent;color:#c8102e}
 
 @media(max-width:900px){
-  .cl-card{flex:0 0 calc(33.33% - 4px)}
-  .spon-grid{grid-template-columns:repeat(2,1fr)}
-}
-@media(max-width:600px){
-  .cl-card{flex:0 0 calc(80% - 3px)}
-  .spon-grid{grid-template-columns:1fr}
-  .clients-label,.carousel-outer,.dots-row,.spon-section{padding-left:1.5rem;padding-right:1.5rem}
+  .wwd-grid{grid-template-columns:1fr}
+  .client-slide{grid-template-columns:1fr}
+  .cs-left{border-right:none;border-bottom:1px solid rgba(245,243,239,.06)}
+  .con-section,.con-section-sm,.clients-section,.cta-section{padding-left:1.5rem;padding-right:1.5rem}
 }
 </style>
 </head>
@@ -101,14 +126,13 @@
     <button class="hamburger" onclick="openMob()"><span></span><span></span><span></span></button>
   </div>
 </nav>
+
 <div class="page active">
+
+<!-- ── HERO ── -->
 <section class="page-hero">
-  <div class="plx-l3"></div>
-  <div class="plx-l2"></div>
-  <div class="plx-l1"></div>
-  <div class="plx-vignette"></div>
-  <div class="plx-crt"></div>
-  <div class="plx-scan"></div>
+  <div class="plx-l3"></div><div class="plx-l2"></div><div class="plx-l1"></div>
+  <div class="plx-vignette"></div><div class="plx-crt"></div><div class="plx-scan"></div>
   <div class="plx-cursor"></div>
   <div class="plx-text">
     <div class="hero-tag">Consulting</div>
@@ -117,175 +141,169 @@
   </div>
 </section>
 
-<!-- WHAT WE DO -->
-<div class="sw">
-  <div style="display:grid;grid-template-columns:1fr 1fr;gap:6rem;margin-bottom:5rem;align-items:start" class="g2">
-    <div>
-      <div class="sec-tag">What We Do</div>
-      <div class="sec-body">
-        <p>PBL's consulting division pairs student analysts with real organizations across industries. Members develop data-driven strategy recommendations under the mentorship of industry professionals — building portfolio-ready work from day one.</p>
-        <p style="margin-top:1.25rem">Whether market entry analysis, operational improvement, or brand strategy — our teams deliver work that matters.</p>
-      </div>
-      <div style="display:flex;flex-wrap:wrap;gap:.4rem;margin-top:2rem">
-        <span class="pill">Market Analysis</span>
-        <span class="pill">Brand Strategy</span>
-        <span class="pill">Operations</span>
-        <span class="pill">Financial Modeling</span>
-        <span class="pill">Go-to-Market</span>
-        <span class="pill">Grant Research</span>
-        <span class="pill">Social Media</span>
-        <span class="pill">Pitch Development</span>
+<!-- ── WHAT WE DO (W6) ── -->
+<div class="con-section">
+  <div class="sec-tag-line">What We Do</div>
+  <div class="wwd-grid">
+    <div class="wwd-left">
+      <div class="wwd-left-tag">Consulting Division</div>
+      <div class="wwd-left-title">Student Analysts.<br>Real Work.</div>
+      <div class="wwd-left-body">We pair students with real Bay Area organizations to deliver strategy, research, and pitch work that actually gets used — not filed away. Every engagement is real. Every deliverable counts.</div>
+      <div class="wwd-tags">
+        <span class="wwd-tag">Market Analysis</span>
+        <span class="wwd-tag">Brand Strategy</span>
+        <span class="wwd-tag">Pitch Development</span>
+        <span class="wwd-tag">Grant Research</span>
+        <span class="wwd-tag">Social Media</span>
+        <span class="wwd-tag">Fundraising</span>
       </div>
     </div>
-    <div style="display:flex;flex-direction:column;gap:2px">
-      <div style="background:var(--gray);padding:2.5rem;display:flex;gap:2rem;align-items:flex-start">
-        <span style="font-family:'Bebas Neue',sans-serif;font-size:3.5rem;color:var(--red);line-height:1;min-width:60px">01</span>
-        <div>
-          <div style="font-size:1rem;font-weight:500;margin-bottom:.4rem">Intake &amp; Scoping</div>
-          <div style="font-size:.85rem;color:rgba(245,243,239,.5);line-height:1.75">Client presents their challenge. Our team scopes the project and assembles the right analysts.</div>
-        </div>
+    <div class="wwd-right">
+      <div class="wwd-step">
+        <div class="wwd-step-n">01</div>
+        <div><div class="wwd-step-title">Intake & Scoping</div><div class="wwd-step-desc">Client presents their challenge. We scope the project and build the right team of analysts.</div></div>
       </div>
-      <div style="background:var(--gray);padding:2.5rem;display:flex;gap:2rem;align-items:flex-start">
-        <span style="font-family:'Bebas Neue',sans-serif;font-size:3.5rem;color:var(--red);line-height:1;min-width:60px">02</span>
-        <div>
-          <div style="font-size:1rem;font-weight:500;margin-bottom:.4rem">Research &amp; Analysis</div>
-          <div style="font-size:.85rem;color:rgba(245,243,239,.5);line-height:1.75">Analysts conduct primary and secondary research, building models under professional mentorship.</div>
-        </div>
+      <div class="wwd-step">
+        <div class="wwd-step-n">02</div>
+        <div><div class="wwd-step-title">Research & Analysis</div><div class="wwd-step-desc">Analysts conduct primary and secondary research, building models under professional mentorship.</div></div>
       </div>
-      <div style="background:var(--gray);padding:2.5rem;display:flex;gap:2rem;align-items:flex-start">
-        <span style="font-family:'Bebas Neue',sans-serif;font-size:3.5rem;color:var(--red);line-height:1;min-width:60px">03</span>
-        <div>
-          <div style="font-size:1rem;font-weight:500;margin-bottom:.4rem">Delivery &amp; Impact</div>
-          <div style="font-size:.85rem;color:rgba(245,243,239,.5);line-height:1.75">Teams present strategic recommendations directly to clients — polished, actionable, portfolio-ready.</div>
-        </div>
+      <div class="wwd-step">
+        <div class="wwd-step-n">03</div>
+        <div><div class="wwd-step-title">Delivery & Impact</div><div class="wwd-step-desc">Teams present polished, actionable recommendations directly to clients — ready to implement.</div></div>
       </div>
     </div>
   </div>
 </div>
 
-<!-- CURRENT CLIENTS -->
+<!-- ── CURRENT CLIENTS (Option 1) ── -->
 <div class="clients-section">
-  <div class="clients-label">Current Clients — 2025–26</div>
-  <div class="carousel-outer">
-    <div class="carousel-track" id="clTrack">
+  <div class="sec-tag-line">Current Clients — 2025–26</div>
+  <div class="clients-carousel">
+    <div class="clients-track" id="clientsTrack">
 
-      <!-- 1: Star One — concentric rings -->
-      <div class="cl-card">
-        <div class="cl-scan"></div>
-        <svg class="cl-mark" width="180" height="180" viewBox="0 0 160 160" fill="none">
-          <circle cx="80" cy="80" r="70" stroke="#c8102e" stroke-width="1"/>
-          <circle cx="80" cy="80" r="50" stroke="#c8102e" stroke-width="1"/>
-          <circle cx="80" cy="80" r="30" stroke="#c8102e" stroke-width="1"/>
-          <circle cx="80" cy="80" r="4" fill="#c8102e"/>
-        </svg>
-        <div class="cl-top"><div class="cl-idx">01 ——</div><div class="cl-rule"></div><div class="cl-name">Star One Credit Union</div></div>
-        <div class="cl-bot"><span class="cl-svc">Marketing</span></div>
+      <div class="client-slide">
+        <div class="cs-left">
+          <div class="cs-idx">01 / 06</div>
+          <div class="cs-name">Star One<br>Credit Union</div>
+          <div class="cs-left-wm">SO</div>
+        </div>
+        <div class="cs-right">
+          <div class="cs-work-lbl">What We Did</div>
+          <div class="cs-work">Marketing Strategy</div>
+          <div class="cs-rule"></div>
+          <div class="cs-desc">Developed a comprehensive outreach and member acquisition campaign for one of Silicon Valley's largest credit unions, targeting younger demographics and digital engagement.</div>
+        </div>
       </div>
 
-      <!-- 2: Hunger at Home — leaf/organic -->
-      <div class="cl-card">
-        <div class="cl-scan"></div>
-        <svg class="cl-mark" width="180" height="180" viewBox="0 0 160 160" fill="none">
-          <path d="M80 20 Q140 80 80 140 Q20 80 80 20Z" stroke="#c8102e" stroke-width="1" fill="none"/>
-          <path d="M80 40 Q120 80 80 120 Q40 80 80 40Z" stroke="#c8102e" stroke-width="1" fill="none"/>
-          <line x1="80" y1="20" x2="80" y2="140" stroke="#c8102e" stroke-width="1"/>
-        </svg>
-        <div class="cl-top"><div class="cl-idx">02 ——</div><div class="cl-rule"></div><div class="cl-name">Hunger at Home</div></div>
-        <div class="cl-bot"><span class="cl-svc">Grant Research</span></div>
+      <div class="client-slide">
+        <div class="cs-left">
+          <div class="cs-idx">02 / 06</div>
+          <div class="cs-name">Hunger<br>at Home</div>
+          <div class="cs-left-wm">HH</div>
+        </div>
+        <div class="cs-right">
+          <div class="cs-work-lbl">What We Did</div>
+          <div class="cs-work">Grant Research & Fundraising</div>
+          <div class="cs-rule"></div>
+          <div class="cs-desc">Identified federal and private grant opportunities and packaged a full donor outreach strategy for Bay Area food rescue nonprofit, supporting expanded operations across the South Bay.</div>
+        </div>
       </div>
 
-      <!-- 3: Palm & Stone — angular crystal -->
-      <div class="cl-card">
-        <div class="cl-scan"></div>
-        <svg class="cl-mark" width="180" height="180" viewBox="0 0 160 160" fill="none">
-          <polygon points="80,15 140,55 140,105 80,145 20,105 20,55" stroke="#c8102e" stroke-width="1" fill="none"/>
-          <polygon points="80,35 120,62 120,98 80,125 40,98 40,62" stroke="#c8102e" stroke-width="1" fill="none"/>
-          <line x1="80" y1="15" x2="80" y2="145" stroke="#c8102e" stroke-width=".5"/>
-          <line x1="20" y1="55" x2="140" y2="105" stroke="#c8102e" stroke-width=".5"/>
-          <line x1="140" y1="55" x2="20" y2="105" stroke="#c8102e" stroke-width=".5"/>
-        </svg>
-        <div class="cl-top"><div class="cl-idx">03 ——</div><div class="cl-rule"></div><div class="cl-name">Palm &amp; Stone</div></div>
-        <div class="cl-bot"><span class="cl-svc">Pitch</span></div>
+      <div class="client-slide">
+        <div class="cs-left">
+          <div class="cs-idx">03 / 06</div>
+          <div class="cs-name">Palm &<br>Stone</div>
+          <div class="cs-left-wm">PS</div>
+        </div>
+        <div class="cs-right">
+          <div class="cs-work-lbl">What We Did</div>
+          <div class="cs-work">Pitch & Entrepreneurship</div>
+          <div class="cs-rule"></div>
+          <div class="cs-desc">Built a full investor pitch deck, financial model, and go-to-market strategy for a launch-stage brand — structured for early fundraising rounds and retail expansion.</div>
+        </div>
       </div>
 
-      <!-- 4: VIDA — wave -->
-      <div class="cl-card">
-        <div class="cl-scan"></div>
-        <svg class="cl-mark" width="180" height="180" viewBox="0 0 160 160" fill="none">
-          <path d="M20 80 Q50 30 80 80 Q110 130 140 80" stroke="#c8102e" stroke-width="1.5" fill="none"/>
-          <path d="M20 100 Q50 50 80 100 Q110 150 140 100" stroke="#c8102e" stroke-width="1" fill="none"/>
-          <path d="M20 60 Q50 10 80 60 Q110 110 140 60" stroke="#c8102e" stroke-width="1" fill="none"/>
-          <line x1="125" y1="70" x2="140" y2="80" stroke="#c8102e" stroke-width="1.5"/>
-          <line x1="125" y1="90" x2="140" y2="80" stroke="#c8102e" stroke-width="1.5"/>
-        </svg>
-        <div class="cl-top"><div class="cl-idx">04 ——</div><div class="cl-rule"></div><div class="cl-name">VIDA</div></div>
-        <div class="cl-bot"><span class="cl-svc">Marketing + Social</span></div>
+      <div class="client-slide">
+        <div class="cs-left">
+          <div class="cs-idx">04 / 06</div>
+          <div class="cs-name">VIDA</div>
+          <div class="cs-left-wm">VD</div>
+        </div>
+        <div class="cs-right">
+          <div class="cs-work-lbl">What We Did</div>
+          <div class="cs-work">Marketing + Social Media Strategy</div>
+          <div class="cs-rule"></div>
+          <div class="cs-desc">Designed a full marketing and social media strategy including content calendar, platform optimization, and brand voice guidelines to drive audience growth and engagement.</div>
+        </div>
       </div>
 
-      <!-- 5: Azalea Jewelry — diamond -->
-      <div class="cl-card">
-        <div class="cl-scan"></div>
-        <svg class="cl-mark" width="180" height="180" viewBox="0 0 160 160" fill="none">
-          <polygon points="80,20 140,80 80,140 20,80" stroke="#c8102e" stroke-width="1" fill="none"/>
-          <polygon points="80,35 125,80 80,125 35,80" stroke="#c8102e" stroke-width="1" fill="none"/>
-          <polygon points="80,50 110,80 80,110 50,80" stroke="#c8102e" stroke-width="1" fill="none"/>
-          <circle cx="80" cy="80" r="5" stroke="#c8102e" stroke-width="1" fill="none"/>
-          <line x1="80" y1="20" x2="80" y2="140" stroke="#c8102e" stroke-width=".5"/>
-          <line x1="20" y1="80" x2="140" y2="80" stroke="#c8102e" stroke-width=".5"/>
-        </svg>
-        <div class="cl-top"><div class="cl-idx">05 ——</div><div class="cl-rule"></div><div class="cl-name">Azalea Jewelry</div></div>
-        <div class="cl-bot"><span class="cl-svc">Pitch</span></div>
+      <div class="client-slide">
+        <div class="cs-left">
+          <div class="cs-idx">05 / 06</div>
+          <div class="cs-name">Azalea<br>Jewelry</div>
+          <div class="cs-left-wm">AZ</div>
+        </div>
+        <div class="cs-right">
+          <div class="cs-work-lbl">What We Did</div>
+          <div class="cs-work">Pitch Strategy & Market Entry</div>
+          <div class="cs-rule"></div>
+          <div class="cs-desc">Developed competitive positioning, premium market entry framework, and investor pitch materials for a Bay Area jewelry brand entering an established luxury segment.</div>
+        </div>
       </div>
 
-      <!-- 6: Berkeley IEEE — circuit -->
-      <div class="cl-card">
-        <div class="cl-scan"></div>
-        <svg class="cl-mark" width="180" height="180" viewBox="0 0 160 160" fill="none">
-          <rect x="25" y="25" width="110" height="110" stroke="#c8102e" stroke-width="1" fill="none"/>
-          <rect x="50" y="50" width="60" height="60" stroke="#c8102e" stroke-width="1" fill="none"/>
-          <line x1="80" y1="25" x2="80" y2="50" stroke="#c8102e" stroke-width="1"/>
-          <line x1="80" y1="110" x2="80" y2="135" stroke="#c8102e" stroke-width="1"/>
-          <line x1="25" y1="80" x2="50" y2="80" stroke="#c8102e" stroke-width="1"/>
-          <line x1="110" y1="80" x2="135" y2="80" stroke="#c8102e" stroke-width="1"/>
-          <circle cx="80" cy="80" r="8" stroke="#c8102e" stroke-width="1" fill="none"/>
-          <circle cx="80" cy="25" r="3" fill="#c8102e"/>
-          <circle cx="80" cy="135" r="3" fill="#c8102e"/>
-          <circle cx="25" cy="80" r="3" fill="#c8102e"/>
-          <circle cx="135" cy="80" r="3" fill="#c8102e"/>
-        </svg>
-        <div class="cl-top"><div class="cl-idx">06 ——</div><div class="cl-rule"></div><div class="cl-name">Berkeley IEEE</div></div>
-        <div class="cl-bot"><span class="cl-svc">Fundraising Package</span></div>
+      <div class="client-slide">
+        <div class="cs-left">
+          <div class="cs-idx">06 / 06</div>
+          <div class="cs-name">Berkeley<br>IEEE</div>
+          <div class="cs-left-wm">IE</div>
+        </div>
+        <div class="cs-right">
+          <div class="cs-work-lbl">What We Did</div>
+          <div class="cs-work">Fundraising Package</div>
+          <div class="cs-rule"></div>
+          <div class="cs-desc">Built a comprehensive sponsorship and fundraising package for UC Berkeley's IEEE chapter, including tiered sponsor tiers, outreach templates, and a pitch deck for industry partners.</div>
+        </div>
       </div>
 
     </div>
   </div>
-  <div class="dots-row">
-    <div class="cl-dot on" onclick="clGoTo(0)"></div>
-    <div class="cl-dot" onclick="clGoTo(1)"></div>
+  <div class="clients-nav">
+    <div class="clients-dots" id="clientsDots">
+      <div class="c-dot on" onclick="clientsGoTo(0)"></div>
+      <div class="c-dot" onclick="clientsGoTo(1)"></div>
+      <div class="c-dot" onclick="clientsGoTo(2)"></div>
+      <div class="c-dot" onclick="clientsGoTo(3)"></div>
+      <div class="c-dot" onclick="clientsGoTo(4)"></div>
+      <div class="c-dot" onclick="clientsGoTo(5)"></div>
+    </div>
+    <button class="clients-arr" onclick="clientsNext()">→</button>
   </div>
 </div>
 
-<!-- SPONSORS -->
+<!-- ── SPONSORS MARQUEE ── -->
+<div class="spon-lbl-wrap"><span class="spon-lbl">Industry Partners & Sponsors</span></div>
 <div class="spon-section">
-  <div class="spon-head">
-    <div class="spon-tag">Industry Partners &amp; Sponsors</div>
-  </div>
-  <div class="spon-grid">
-    <div class="spon-card"><div class="spon-name">KPMG</div><div class="spon-type">Accounting &amp; Advisory</div></div>
-    <div class="spon-card"><div class="spon-name">Star One Credit Union</div><div class="spon-type">Financial Services</div></div>
-    <div class="spon-card"><div class="spon-name">KeyPoint Credit Union</div><div class="spon-type">Financial Services</div></div>
-    <div class="spon-card"><div class="spon-name">Foundation for Economic Education</div><div class="spon-type">Economics Education</div></div>
+  <div class="spon-track">
+    <div class="spon-item"><img src="images/consulting-kpmg.png" alt="KPMG"></div>
+    <div class="spon-item"><img src="images/consulting-star-one.png" alt="Star One Credit Union"></div>
+    <div class="spon-item"><img src="images/consulting-keypoint.png" alt="KeyPoint Federal Credit Union"></div>
+    <div class="spon-item"><img src="images/consulting-fee.png" alt="Foundation for Economic Education"></div>
+    <div class="spon-item"><img src="images/consulting-kpmg.png" alt="KPMG"></div>
+    <div class="spon-item"><img src="images/consulting-star-one.png" alt="Star One Credit Union"></div>
+    <div class="spon-item"><img src="images/consulting-keypoint.png" alt="KeyPoint Federal Credit Union"></div>
+    <div class="spon-item"><img src="images/consulting-fee.png" alt="Foundation for Economic Education"></div>
   </div>
 </div>
 
-<!-- CTA -->
-<div class="sw" style="padding-top:5rem">
-  <div style="background:var(--gray);padding:4rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:2rem">
+<!-- ── CTA ── -->
+<div class="cta-section">
+  <div class="cta-box">
     <div>
-      <div style="font-family:'Bebas Neue',sans-serif;font-size:2.5rem;letter-spacing:.02em;line-height:1;margin-bottom:.5rem">Interested in Working With Us?</div>
-      <div style="font-size:.9rem;color:rgba(245,243,239,.55)">Reach out to explore a consulting partnership.</div>
+      <div class="cta-title">Interested in Working With Us?</div>
+      <div class="cta-sub">Reach out to explore a consulting partnership with De Anza PBL.</div>
     </div>
-    <a href="mailto:deanzacapbl@gmail.com" class="btn btn-red">Get in Touch →</a>
+    <a href="mailto:deanzacapbl@gmail.com" class="cta-btn">Get in Touch →</a>
+    <div class="cta-wm">PBL</div>
   </div>
 </div>
 
@@ -298,43 +316,35 @@
     <span class="foot-copy">© 2025 Phi Beta Lambda · De Anza College</span>
   </div>
   <ul class="foot-links">
-    <li><a href="https://instagram.com/deanzapbl" target="_blank">Instagram</a></li><li><a href="https://discord.gg/w7zap3SfUm" target="_blank">Discord</a></li><li><a href="https://linktr.ee/deanzapbl" target="_blank">Linktree</a></li><li><a href="contact.html">Contact</a></li>
+    <li><a href="https://instagram.com/deanzapbl" target="_blank">Instagram</a></li>
+    <li><a href="https://discord.gg/w7zap3SfUm" target="_blank">Discord</a></li>
+    <li><a href="https://linktr.ee/deanzapbl" target="_blank">Linktree</a></li>
+    <li><a href="contact.html">Contact</a></li>
   </ul>
 </footer>
 
 <script src="main.js"></script>
 <script>
 (function(){
-  var track = document.getElementById('clTrack');
-  if(!track) return;
   var cur = 0;
-  var cards = track.querySelectorAll('.cl-card');
-  var dots = document.querySelectorAll('.cl-dot');
-  var visibleCount = 5;
+  var total = 6;
+  var track = document.getElementById('clientsTrack');
+  var dots = document.querySelectorAll('.c-dot');
 
-  function getCardWidth(){
-    if(!cards[0]) return 0;
-    return cards[0].offsetWidth + 6;
-  }
-
-  window.clGoTo = function(idx){
-    cur = idx;
-    var offset = idx * visibleCount * getCardWidth();
-    track.style.transform = 'translateX(-' + offset + 'px)';
-    dots.forEach(function(d, i){
-      d.classList.toggle('on', i === idx);
-    });
+  window.clientsGoTo = function(idx){
+    cur = ((idx % total) + total) % total;
+    track.style.transform = 'translateX(-' + (cur * 100) + '%)';
+    dots.forEach(function(d, i){ d.classList.toggle('on', i === cur); });
   };
 
-  // swipe support
-  var startX = 0;
-  track.addEventListener('touchstart', function(e){ startX = e.touches[0].clientX; }, {passive:true});
+  window.clientsNext = function(){
+    clientsGoTo(cur + 1);
+  };
+
+  track.addEventListener('touchstart', function(e){ this._tx = e.touches[0].clientX; }, {passive:true});
   track.addEventListener('touchend', function(e){
-    var diff = startX - e.changedTouches[0].clientX;
-    if(Math.abs(diff) > 50){
-      var next = diff > 0 ? Math.min(cur+1, dots.length-1) : Math.max(cur-1, 0);
-      clGoTo(next);
-    }
+    var diff = this._tx - e.changedTouches[0].clientX;
+    if(Math.abs(diff) > 50) clientsGoTo(diff > 0 ? cur + 1 : cur - 1);
   }, {passive:true});
 })();
 </script>
