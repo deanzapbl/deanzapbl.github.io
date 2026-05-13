@@ -73,6 +73,7 @@
 .ev-modal-overlay{
   position:fixed;inset:0;background:rgba(5,5,5,.88);
   z-index:1000;display:flex;align-items:center;justify-content:center;
+  padding:2rem;
   opacity:0;pointer-events:none;transition:opacity .3s ease;
   backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);
 }
@@ -159,8 +160,8 @@
   <div class="plx-cursor"></div>
   <div class="plx-text">
     <div class="hero-tag">Events</div>
-    <h1 class="page-title"><span>Every Quarter,</span><span>Something Bigger.</span></h1>
-    <p class="page-sub">From national podiums to community kitchens — every event is a chapter in our story.</p>
+    <h1 class="page-title"><span>Where Ideas</span><span>Become Action.</span></h1>
+    <p class="page-sub">Competitions, conferences, and community — this is how we show up.</p>
   </div>
 </section>
 <div class="ev-feat" onclick="openModal('slc2026')" style="cursor:pointer">
@@ -204,8 +205,14 @@
 </div>
 <div class="ev-grid past-grid">
   <div class="ev-gi" onclick="openModal('falllc2024')" style="cursor:pointer"><div class="ev-gi-img"><img src="images/events-fall-lc-2024.jpg" alt="Fall Leadership Conference 2024"></div><div class="ev-gi-body"><div class="ev-gi-badges"><span class="ev-gi-type">Conference</span><span class="ev-gi-date">Nov 16–17, 2024 · Emeryville, CA</span></div><div class="ev-gi-title">Fall Leadership Conference 2024</div><div class="ev-gi-desc">Where it began. 1st place Finance Case Study against 15 teams from across California — the spark that lit the chapter's competitive fire.</div></div></div>
-  <div class="ev-gi" style="background:#0a0a0a;cursor:default"></div>
-  <div class="ev-gi" style="background:#0a0a0a;cursor:default"></div>
+<div class="ev-gi" style="background:#111;cursor:default;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:2rem;border-left:2px solid rgba(200,16,46,.25)">
+    <div style="font-family:'Playfair Display',serif;font-style:italic;font-size:.82rem;color:rgba(245,243,239,.5);line-height:1.75;text-align:center;max-width:240px">"All the late nights and hard work paid off — you represented De Anza with confidence, professionalism, and teamwork."</div>
+    <div style="font-family:'IBM Plex Mono',monospace;font-size:.42rem;letter-spacing:.18em;text-transform:uppercase;color:rgba(200,16,46,.5);margin-top:1rem">@deanzapbl</div>
+  </div>
+<div class="ev-gi" style="background:#0d0d0d;cursor:default;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.5rem">
+    <div style="font-family:'Playfair Display',serif;font-size:3rem;color:rgba(200,16,46,.15);line-height:1">ΦΒΛ</div>
+    <div style="font-family:'IBM Plex Mono',monospace;font-size:.42rem;letter-spacing:.22em;text-transform:uppercase;color:rgba(245,243,239,.12)">De Anza Chapter</div>
+  </div>
 </div>
 
 <div class="ev-modal-overlay" id="modal-slc2026" onclick="if(event.target===this)closeModal()">
