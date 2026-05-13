@@ -44,7 +44,7 @@
 .strip-shell{background:#0c0c0c;border:1px solid rgba(245,243,239,.08);overflow:hidden;clip-path:inset(0);position:relative;cursor:pointer;transition:border-color .3s,background .3s;margin-bottom:4px}
 .strip-shell:hover{border-color:rgba(200,16,46,.3);background:#0e0e0e}
 .strip-track{display:flex;will-change:transform;transition:transform .7s cubic-bezier(.4,0,.2,1)}
-.strip-page{flex-shrink:0;display:grid;grid-template-columns:220px 1fr 64px;min-height:150px}
+.strip-page{flex-shrink:0;display:grid;grid-template-columns:220px minmax(0,1fr) 64px;min-height:150px}
 
 /* Left zone */
 .sp-left{background:linear-gradient(135deg,#180808 0%,#0e0303 100%);display:flex;flex-direction:column;justify-content:space-between;padding:1.75rem 1.5rem;position:relative;overflow:hidden}
@@ -55,10 +55,10 @@
 .sp-yr{font-family:'Bebas Neue',sans-serif;font-size:3.8rem;color:#f5f3ef;line-height:1;position:relative;z-index:1}
 
 /* Middle zone */
-.sp-mid{padding:1.75rem 2rem;display:flex;flex-direction:column;justify-content:center;gap:.65rem;min-width:0;overflow:hidden}
+.sp-mid{padding:1.75rem 2rem;display:flex;flex-direction:column;justify-content:center;gap:.65rem;min-width:0;overflow:hidden;width:100%}
 .sp-conf{font-family:'Unbounded',sans-serif;font-weight:700;font-size:.82rem;color:#f5f3ef;line-height:1.25}
 .sp-loc{font-family:'IBM Plex Mono',monospace;font-size:.5rem;letter-spacing:.1em;text-transform:uppercase;color:rgba(245,243,239,.48);margin-top:.1rem}
-.sp-medals{display:flex;gap:.4rem;margin-top:.5rem;flex-wrap:wrap;justify-content:flex-start;align-content:flex-start;align-items:flex-start}
+.sp-medals{display:flex;gap:.4rem;margin-top:.5rem;flex-wrap:wrap;width:100%;align-items:flex-start;align-content:flex-start}
 .sp-m{font-family:'IBM Plex Mono',monospace;font-size:.5rem;letter-spacing:.08em;padding:.24rem .7rem;border:1px solid rgba(245,243,239,.1);color:rgba(245,243,239,.55);transition:all .2s}
 .sp-m.g{border-color:rgba(200,170,50,.4);color:rgba(220,190,70,.9)}
 .sp-m.s{border-color:rgba(170,170,185,.3);color:rgba(190,190,205,.75)}
