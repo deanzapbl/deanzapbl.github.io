@@ -16,124 +16,24 @@ body{background:#080808}
 .prg-page .sec-body{font-family:'Open Sauce One',Avenir,system-ui,sans-serif;color:rgba(186,169,194,.75)}
 .prg-page .pill{font-family:'Open Sauce One',Avenir,system-ui,sans-serif;border-color:rgba(186,169,194,.35);color:#baa9c2}
 .prg-page .pill:hover{background:#0000ff;color:#fff;border-color:#0000ff}
-
-/* ── HERO — D: pill tag + big serif, black bg, blue accent ── */
-.prg-hero{
-  min-height:100vh;
-  padding:9rem 2.5rem 5rem;
-  background:#080808;
-  position:relative;
-  overflow:hidden;
-  border-bottom:1px solid rgba(100,140,255,.15);
-  display:flex;
-  flex-direction:column;
-  justify-content:center;
-}
-.prg-hero::before{
-  content:'';
-  position:absolute;
-  inset:0;
-  background:radial-gradient(ellipse 60% 70% at 80% 40%,rgba(0,102,255,.06) 0%,transparent 70%);
-  pointer-events:none;
-}
-
+.prg-hero{min-height:100vh;padding:9rem 2.5rem 5rem;background:#080808;position:relative;overflow:hidden;border-bottom:1px solid rgba(100,140,255,.15);display:flex;flex-direction:column;justify-content:center}
+.prg-hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 60% 70% at 80% 40%,rgba(0,102,255,.06) 0%,transparent 70%);pointer-events:none}
 @keyframes expandR{from{transform:scale(.2);opacity:.8}to{transform:scale(3);opacity:0}}
 @keyframes scaleIn{from{opacity:0;transform:scale(0)}to{opacity:1;transform:scale(1)}}
 @keyframes pulseS{0%,100%{transform:scale(1)}50%{transform:scale(1.15)}}
 @keyframes lineG{from{width:0}to{width:100%}}
-
-.prg-hero-top{
-  margin-bottom:2rem;
-  opacity:0;
-  animation:fadeIn .5s .1s forwards;
-  position:relative;
-  z-index:1;
-}
-.prg-pill{
-  display:inline-flex;
-  align-items:center;
-  gap:.6rem;
-  padding:.35rem 1rem;
-  border:1px solid rgba(0,102,255,.35);
-  border-radius:100px;
-}
-.prg-pill-dot{
-  width:5px;height:5px;
-  background:#0066ff;
-  border-radius:50%;
-  display:inline-block;
-}
-.prg-mark{
-  font-family:'IBM Plex Mono',monospace;
-  font-size:.58rem;
-  letter-spacing:.22em;
-  text-transform:uppercase;
-  color:rgba(0,102,255,.85);
-}
-
-.prg-title{
-  font-family:Georgia,"Georgia Pro",serif;
-  font-weight:700;
-  font-size:clamp(3.5rem,8vw,7.5rem);
-  line-height:.92;
-  letter-spacing:-.02em;
-  position:relative;
-  z-index:1;
-  margin:0 0 .25rem;
-}
-.prg-title span{
-  display:block;
-  opacity:0;
-  transform:translateY(50px);
-  animation:slideUp .9s cubic-bezier(.16,1,.3,1) forwards;
-}
+.prg-hero-top{margin-bottom:2rem;opacity:0;animation:fadeIn .5s .1s forwards;position:relative;z-index:1}
+.prg-pill{display:inline-flex;align-items:center;gap:.6rem;padding:.35rem 1rem;border:1px solid rgba(0,102,255,.35);border-radius:100px}
+.prg-pill-dot{width:5px;height:5px;background:#0066ff;border-radius:50%;display:inline-block}
+.prg-mark{font-family:'IBM Plex Mono',monospace;font-size:.58rem;letter-spacing:.22em;text-transform:uppercase;color:rgba(0,102,255,.85)}
+.prg-title{font-family:Georgia,"Georgia Pro",serif;font-weight:700;font-size:clamp(3.5rem,8vw,7.5rem);line-height:.92;letter-spacing:-.02em;position:relative;z-index:1;margin:0 0 .25rem}
+.prg-title span{display:block;opacity:0;transform:translateY(50px);animation:slideUp .9s cubic-bezier(.16,1,.3,1) forwards}
 .prg-title span:nth-child(1){animation-delay:.2s;color:#f5f3ef}
 .prg-title span:nth-child(2){animation-delay:.35s;color:#0066ff;font-style:italic}
-
-.prg-hero-bottom{
-  position:relative;
-  z-index:1;
-  margin-top:2rem;
-}
-.prg-divider{
-  height:1px;
-  background:#0066ff;
-  margin-bottom:1.25rem;
-  animation:lineG .7s 1.1s both;
-  width:0;
-  opacity:.4;
-}
-.prg-tagline{
-  font-family:'IBM Plex Mono',monospace;
-  font-size:clamp(.7rem,1.1vw,.88rem);
-  letter-spacing:.08em;
-  color:rgba(245,243,239,.32);
-  line-height:1.8;
-  border-left:2px solid rgba(0,102,255,.3);
-  padding-left:1rem;
-  margin:0;
-  max-width:560px;
-  opacity:0;
-  animation:fadeIn .6s 1.5s forwards;
-}
-
-
-.prg-wm-text{
-  position:absolute;
-  right:-1rem;
-  top:50%;
-  transform:translateY(-50%);
-  font-family:Georgia,"Georgia Pro",serif;
-  font-weight:700;
-  font-size:14rem;
-  color:rgba(0,102,255,.05);
-  line-height:1;
-  user-select:none;
-  pointer-events:none;
-  z-index:0;
-  letter-spacing:-.02em;
-}
-
+.prg-hero-bottom{position:relative;z-index:1;margin-top:2rem}
+.prg-divider{height:1px;background:#0066ff;margin-bottom:1.25rem;animation:lineG .7s 1.1s both;width:0;opacity:.4}
+.prg-tagline{font-family:'IBM Plex Mono',monospace;font-size:clamp(.7rem,1.1vw,.88rem);letter-spacing:.08em;color:rgba(245,243,239,.32);line-height:1.8;border-left:2px solid rgba(0,102,255,.3);padding-left:1rem;margin:0;max-width:560px;opacity:0;animation:fadeIn .6s 1.5s forwards}
+.prg-wm-text{position:absolute;right:-1rem;top:50%;transform:translateY(-50%);font-family:Georgia,"Georgia Pro",serif;font-weight:700;font-size:14rem;color:rgba(0,102,255,.05);line-height:1;user-select:none;pointer-events:none;z-index:0;letter-spacing:-.02em}
 .prg-rule{border:none;height:1px;background:rgba(186,169,194,.2);margin:5rem 0}
 .prg-pillars{display:grid;grid-template-columns:repeat(4,1fr);border:1px solid rgba(186,169,194,.2);margin-bottom:5rem}
 .prg-pillar{padding:2.5rem 2rem;border-right:1px solid rgba(186,169,194,.2)}
@@ -151,8 +51,8 @@ body{background:#080808}
 .prg-leader-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:2.5rem}
 .prg-leader-card{text-align:center}
 .prg-leader-photo{width:100px;height:100px;border-radius:50%;background:rgba(1,24,64,.9);margin:0 auto 1rem;display:flex;align-items:center;justify-content:center;border:1px solid rgba(186,169,194,.25);position:relative;overflow:hidden}
-.prg-leader-initials{font-family:Georgia,"Georgia Pro",serif;font-size:1.4rem;font-weight:700;color:rgba(186,169,194,.35);user-select:none}
-.prg-leader-photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:2}
+.prg-leader-initials{font-family:Georgia,"Georgia Pro",serif;font-size:1.4rem;font-weight:700;color:rgba(186,169,194,.35);user-select:none;position:relative;z-index:1}
+.prg-leader-photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 15%;z-index:2}
 .prg-leader-name{font-family:Georgia,"Georgia Pro",serif;font-size:.95rem;font-weight:700;color:#ffffff;line-height:1.2}
 .prg-leader-title{font-family:'Open Sauce One',Avenir,system-ui,sans-serif;font-size:.48rem;letter-spacing:.14em;text-transform:uppercase;color:#baa9c2;margin-top:.3rem}
 .prg-cta{border:1px solid rgba(186,169,194,.2);background:#021840;padding:4rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:2rem}
@@ -163,7 +63,6 @@ body{background:#080808}
 .prg-btn-outline{display:inline-block;font-family:'Open Sauce One',Avenir,system-ui,sans-serif;font-size:.62rem;letter-spacing:.18em;text-transform:uppercase;padding:1rem 2.5rem;text-decoration:none;background:transparent;color:#baa9c2;border:1px solid rgba(186,169,194,.35);transition:all .2s}
 .prg-btn-outline:hover{border-color:#baa9c2;color:#ffffff}
 footer{background:#080808;border-top-color:rgba(100,140,255,.15)}
-
 @media(max-width:900px){.prg-pillars{grid-template-columns:1fr 1fr}.prg-pillar{border-right:none;border-bottom:1px solid rgba(186,169,194,.2)}.prg-pillar:nth-child(odd){border-right:1px solid rgba(186,169,194,.2)}.prg-pillar:nth-child(3),.prg-pillar:nth-child(4){border-bottom:none}.prg-leader-grid{grid-template-columns:repeat(4,1fr);gap:1.5rem}}
 @media(max-width:700px){.prg-hero{padding:7rem 1.5rem 4rem}.prg-title{font-size:clamp(4rem,14vw,10rem)}.prg-pillars{grid-template-columns:1fr}.prg-pillar{border-right:none;border-bottom:1px solid rgba(186,169,194,.2)}.prg-pillar:last-child{border-bottom:none}.prg-leader-grid{grid-template-columns:repeat(2,1fr)}.prg-cta{padding:2.5rem 1.5rem}}
 </style>
@@ -171,7 +70,6 @@ footer{background:#080808;border-top-color:rgba(100,140,255,.15)}
 <body>
 <div class="cur" id="cur"></div>
 <div class="cur-ring" id="ring"></div>
-
 <div class="mob-overlay" id="mob">
   <button class="mob-close" onclick="closeMob()">Close ×</button>
   <ul class="mob-links">
@@ -180,13 +78,12 @@ footer{background:#080808;border-top-color:rgba(100,140,255,.15)}
     <li><a href="events.html">Events</a></li>
     <li><a href="accolades.html">Accolades</a></li>
     <li><a href="alumni.html">Alumni</a></li>
-    <li><a href="polaris.html">Polaris</a></li>
     <li><a href="consulting.html">Consulting</a></li>
+    <li><a href="polaris.html">Polaris</a></li>
     <li><a href="contact.html">Contact</a></li>
   </ul>
   <div class="mob-meta">De Anza College · Cupertino, CA</div>
 </div>
-
 <nav id="nav">
   <div class="nav-left">
     <a href="index.html" style="background:none;border:none;cursor:pointer;padding:0;display:flex;align-items:center;text-decoration:none">
@@ -201,16 +98,14 @@ footer{background:#080808;border-top-color:rgba(100,140,255,.15)}
       <li><a id="nl-events" href="events.html">Events</a></li>
       <li><a id="nl-accolades" href="accolades.html">Accolades</a></li>
       <li><a id="nl-alumni" href="alumni.html">Alumni</a></li>
-      <li><a id="nl-polaris" href="polaris.html">Polaris</a></li>
       <li><a id="nl-consulting" href="consulting.html">Consulting</a></li>
+      <li><a id="nl-polaris" href="polaris.html">Polaris</a></li>
     </ul>
     <a href="https://forms.gle/2zixWcFPcGG6sCBF7" target="_blank" class="nav-apply" style="flex-shrink:0">Apply</a>
     <button class="hamburger" onclick="openMob()"><span></span><span></span><span></span></button>
   </div>
 </nav>
-
 <div class="page active prg-page">
-
 <section class="prg-hero">
   <div class="prg-wm-text">PRG</div>
   <div class="prg-hero-top">
@@ -227,18 +122,15 @@ footer{background:#080808;border-top-color:rgba(100,140,255,.15)}
       </div>
     </div>
   </div>
-
   <h1 class="prg-title">
     <span>A launchpad</span>
     <span>for leaders.</span>
   </h1>
-
   <div class="prg-hero-bottom">
     <div class="prg-divider"></div>
     <p class="prg-tagline">Where leadership meets specialization — producing rigorous, institutional-quality research.</p>
   </div>
 </section>
-
 <div class="sw">
   <div style="display:grid;grid-template-columns:1fr 1fr;gap:6rem;margin-bottom:5rem;align-items:start" class="g2">
     <div>
@@ -262,9 +154,7 @@ footer{background:#080808;border-top-color:rgba(100,140,255,.15)}
       </div>
     </div>
   </div>
-
   <hr class="prg-rule">
-
   <div>
     <div class="sec-tag" style="margin-bottom:2.5rem">Strategy Pillars</div>
     <div class="prg-pillars">
@@ -274,23 +164,44 @@ footer{background:#080808;border-top-color:rgba(100,140,255,.15)}
       <div class="prg-pillar"><div class="prg-pillar-num">04</div><div class="prg-pillar-h">Collaborative Rigor</div><p class="prg-pillar-p">Teams work in high-performance cohorts to publish reports and lead discussions within the larger Phi Beta Lambda community.</p></div>
     </div>
   </div>
-
   <hr class="prg-rule">
-
   <div style="margin-bottom:5rem">
     <div class="sec-tag">Leadership</div>
     <div class="prg-leader-grid">
-      <div class="prg-leader-card"><div class="prg-leader-photo"><span class="prg-leader-initials">AS</span><img src="images/polaris-arya-somu.jpg" onerror="this.style.display='none'" alt="Arya Somu"></div><div class="prg-leader-name">Arya Somu</div><div class="prg-leader-title">President</div></div>
-      <div class="prg-leader-card"><div class="prg-leader-photo"><span class="prg-leader-initials">NM</span><img src="images/polaris-nikunj-more.jpg" onerror="this.style.display='none'" alt="Nikunj More"></div><div class="prg-leader-name">Nikunj More</div><div class="prg-leader-title">Co-Portfolio Manager</div></div>
-      <div class="prg-leader-card"><div class="prg-leader-photo"><span class="prg-leader-initials">IB</span><img src="images/polaris-ilay-botzer.jpg" onerror="this.style.display='none'" alt="Ilay Botzer"></div><div class="prg-leader-name">Ilay Botzer</div><div class="prg-leader-title">Co-Portfolio Manager</div></div>
-      <div class="prg-leader-card"><div class="prg-leader-photo"><span class="prg-leader-initials">AM</span><img src="images/polaris-angelo-maniraho.jpg" onerror="this.style.display='none'" alt="Angelo Maniraho"></div><div class="prg-leader-name">Angelo Maniraho</div><div class="prg-leader-title">Co-Head of Macroeconomic Research</div></div>
-      <div class="prg-leader-card"><div class="prg-leader-photo"><span class="prg-leader-initials">LQ</span><img src="images/polaris-lisa-qian.jpg" onerror="this.style.display='none'" alt="Lisa Qian"></div><div class="prg-leader-name">Lisa Qian</div><div class="prg-leader-title">Co-Head of Macroeconomic Research</div></div>
-      <div class="prg-leader-card"><div class="prg-leader-photo"><span class="prg-leader-initials">KK</span><img src="images/polaris-kyle-krawez.jpg" onerror="this.style.display='none'" alt="Kyle Krawez"></div><div class="prg-leader-name">Kyle Krawez</div><div class="prg-leader-title">Managing Director</div></div>
-      <div class="prg-leader-card"><div class="prg-leader-photo"><span class="prg-leader-initials">AK</span><img src="images/polaris-arin-kumar.jpg" onerror="this.style.display='none'" alt="Arin Kumar"></div><div class="prg-leader-name">Arin Kumar</div><div class="prg-leader-title">Managing Director</div></div>
-      <div class="prg-leader-card"><div class="prg-leader-photo"><span class="prg-leader-initials">EH</span><img src="images/polaris-evan-hoeffner.jpg" onerror="this.style.display='none'" alt="Evan Hoeffner"></div><div class="prg-leader-name">Evan Hoeffner</div><div class="prg-leader-title">Managing Director</div></div>
+      <div class="prg-leader-card">
+        <div class="prg-leader-photo"><span class="prg-leader-initials">AS</span><img src="images/polaris-arya-somu.jpg" onerror="this.style.display='none'" alt="Arya Somu"></div>
+        <div class="prg-leader-name">Arya Somu</div><div class="prg-leader-title">President</div>
+      </div>
+      <div class="prg-leader-card">
+        <div class="prg-leader-photo"><span class="prg-leader-initials">NM</span><img src="images/polaris-nikunj-more.jpg" onerror="this.style.display='none'" alt="Nikunj More"></div>
+        <div class="prg-leader-name">Nikunj More</div><div class="prg-leader-title">Co-Portfolio Manager</div>
+      </div>
+      <div class="prg-leader-card">
+        <div class="prg-leader-photo"><span class="prg-leader-initials">IB</span><img src="images/polaris-ilay-botzer.jpg" onerror="this.style.display='none'" alt="Ilay Botzer"></div>
+        <div class="prg-leader-name">Ilay Botzer</div><div class="prg-leader-title">Co-Portfolio Manager</div>
+      </div>
+      <div class="prg-leader-card">
+        <div class="prg-leader-photo"><span class="prg-leader-initials">AM</span><img src="images/polaris-angelo-maniraho.jpg" onerror="this.style.display='none'" alt="Angelo Maniraho"></div>
+        <div class="prg-leader-name">Angelo Maniraho</div><div class="prg-leader-title">Co-Head of Macroeconomic Research</div>
+      </div>
+      <div class="prg-leader-card">
+        <div class="prg-leader-photo"><span class="prg-leader-initials">LQ</span><img src="images/polaris-lisa-qian.jpg" onerror="this.style.display='none'" alt="Lisa Qian"></div>
+        <div class="prg-leader-name">Lisa Qian</div><div class="prg-leader-title">Co-Head of Macroeconomic Research</div>
+      </div>
+      <div class="prg-leader-card">
+        <div class="prg-leader-photo"><span class="prg-leader-initials">KK</span><img src="images/polaris-kyle-krawez.jpg" onerror="this.style.display='none'" alt="Kyle Krawez"></div>
+        <div class="prg-leader-name">Kyle Krawez</div><div class="prg-leader-title">Managing Director</div>
+      </div>
+      <div class="prg-leader-card">
+        <div class="prg-leader-photo"><span class="prg-leader-initials">AK</span><img src="images/polaris-arin-kumar.jpg" onerror="this.style.display='none'" alt="Arin Kumar"></div>
+        <div class="prg-leader-name">Arin Kumar</div><div class="prg-leader-title">Managing Director</div>
+      </div>
+      <div class="prg-leader-card">
+        <div class="prg-leader-photo"><span class="prg-leader-initials">EH</span><img src="images/polaris-evan-hoeffner.jpg" onerror="this.style.display='none'" alt="Evan Hoeffner"></div>
+        <div class="prg-leader-name">Evan Hoeffner</div><div class="prg-leader-title">Managing Director</div>
+      </div>
     </div>
   </div>
-
   <div class="prg-cta">
     <div>
       <div class="prg-cta-h">Ready to Research?</div>
@@ -303,7 +214,6 @@ footer{background:#080808;border-top-color:rgba(100,140,255,.15)}
   </div>
 </div>
 </div>
-
 <footer>
   <span class="foot-logo">ΦΒΛ</span>
   <span class="foot-copy">© 2025 Phi Beta Lambda · De Anza College</span>
