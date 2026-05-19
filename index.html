@@ -45,10 +45,10 @@
 .sep-overlay{position:absolute;inset:0;background:radial-gradient(ellipse 70% 70% at 50% 50%,rgba(10,8,8,.25) 0%,rgba(10,8,8,.65) 100%);pointer-events:none}
 .sep-center{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;z-index:10;pointer-events:none;gap:.5rem}
 .sep-bottom{position:absolute;bottom:2.5rem;left:0;right:0;display:flex;justify-content:space-between;align-items:flex-end;padding:0 3rem;z-index:10;pointer-events:none}
-.sep-wordmark-txt{font-size:clamp(.65rem,1.2vw,1rem);letter-spacing:.2em;text-transform:uppercase;color:rgba(245,243,239,.4);line-height:1.5}
+.sep-wordmark-txt{font-size:clamp(.65rem,1.2vw,1rem);letter-spacing:.2em;text-transform:uppercase;color:rgba(245,243,239,.50);line-height:1.5}
 .sep-stats{display:flex;gap:3rem}
 .sep-stat-n{font-family:'Bebas Neue',sans-serif;font-size:2.5rem;color:var(--white);letter-spacing:.04em;line-height:1}
-.sep-stat-l{font-family:'IBM Plex Mono',monospace;font-size:.5rem;letter-spacing:.18em;text-transform:uppercase;color:rgba(245,243,239,.35);margin-top:.2rem}
+.sep-stat-l{font-family:'IBM Plex Mono',monospace;font-size:.5rem;letter-spacing:.18em;text-transform:uppercase;color:rgba(245,243,239,.50);margin-top:.2rem}
 .sep-scroll-dot{width:4px;height:4px;background:var(--red);border-radius:50%;animation:scrollBounce 1.8s ease-in-out infinite;margin:0 auto}
 @keyframes scrollBounce{0%,100%{transform:translateY(0)}50%{transform:translateY(8px)}}
 #nav.on-home{background:transparent!important;border-color:transparent!important}
@@ -69,6 +69,7 @@
 @keyframes scrollR{0%{transform:translateX(-50%)}100%{transform:translateX(0)}}
 </style>
 <style>
+/* ── SPONSOR STRIP ── */
 .sponsor-strip{border-top:1px solid var(--border);background:var(--black);padding:2.25rem 0;position:relative;overflow:hidden}
 .sponsor-strip::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 60% 300% at 50% 50%,rgba(200,16,46,.035) 0%,transparent 70%);pointer-events:none}
 .sponsor-strip-label{font-family:'IBM Plex Mono',monospace;font-size:.47rem;letter-spacing:.28em;text-transform:uppercase;color:rgba(245,243,239,.55);text-align:center;margin-bottom:1.4rem;position:relative;z-index:1;display:flex;align-items:center;justify-content:center;gap:1.4rem}
@@ -81,14 +82,75 @@
 .sponsor-track{display:flex;gap:14px;width:max-content;padding:6px 0;animation:sponsorScroll 40s linear infinite}
 .sponsor-track.paused{animation-play-state:paused}
 @keyframes sponsorScroll{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
-.sponsor-logo{flex-shrink:0;width:164px;height:74px;background:#111;border:1px solid rgba(245,243,239,.06);border-radius:6px;display:flex;align-items:center;justify-content:center;cursor:pointer;position:relative;overflow:hidden;transition:border-color .4s,transform .45s cubic-bezier(.16,1,.3,1),box-shadow .45s;transform-origin:center}
-.sponsor-logo::before{content:'';position:absolute;top:0;left:12%;right:12%;height:1px;background:linear-gradient(90deg,transparent,rgba(255,255,255,.07),transparent);pointer-events:none}
-.sponsor-logo::after{content:'';position:absolute;inset:0;background:radial-gradient(circle at 50% 0%,rgba(255,255,255,.08),transparent 65%);opacity:0;transition:opacity .4s;pointer-events:none}
-.sponsor-logo:hover{border-color:rgba(245,243,239,.2)}
-.sponsor-logo.active{border-color:rgba(255,255,255,.78);transform:scale(1.13);z-index:20;background:#161616;box-shadow:0 0 0 1px rgba(255,255,255,.22),0 0 12px 3px rgba(255,255,255,.13),0 0 32px 8px rgba(255,255,255,.07),0 0 64px 18px rgba(255,255,255,.025)}
-.sponsor-logo.active::after{opacity:1}
+
+/* ── LOGO CARD — deep dark + white halo glow ── */
+.sponsor-logo{
+  flex-shrink:0;
+  width:164px;height:74px;
+  background:#0e0e0e;
+  border:1px solid rgba(255,255,255,.07);
+  border-radius:8px;
+  display:flex;align-items:center;justify-content:center;
+  cursor:pointer;
+  position:relative;
+  overflow:hidden;
+  transition:border-color .4s,transform .45s cubic-bezier(.16,1,.3,1),box-shadow .45s;
+  transform-origin:center;
+  /* white halo: top radial bloom */
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.13),
+    inset 0 0 28px 0 rgba(255,255,255,.04),
+    0 0 0 1px rgba(255,255,255,.04);
+}
+/* inner top-glow layer */
+.sponsor-logo::before{
+  content:'';
+  position:absolute;
+  top:0;left:0;right:0;
+  height:55%;
+  background:radial-gradient(ellipse 80% 100% at 50% 0%,rgba(255,255,255,.14) 0%,rgba(255,255,255,0) 100%);
+  pointer-events:none;
+  z-index:0;
+  transition:opacity .4s;
+}
+/* subtle edge ring */
+.sponsor-logo::after{
+  content:'';
+  position:absolute;
+  inset:0;
+  border-radius:8px;
+  background:radial-gradient(circle at 50% -20%,rgba(255,255,255,.18) 0%,transparent 55%);
+  opacity:.7;
+  pointer-events:none;
+  transition:opacity .4s;
+}
+.sponsor-logo:hover{
+  border-color:rgba(255,255,255,.22);
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.22),
+    inset 0 0 32px 0 rgba(255,255,255,.07),
+    0 0 0 1px rgba(255,255,255,.1),
+    0 4px 24px rgba(255,255,255,.06);
+}
+.sponsor-logo:hover::after{opacity:1}
+
+.sponsor-logo.active{
+  border-color:rgba(255,255,255,.6);
+  transform:scale(1.13);
+  z-index:20;
+  background:#101010;
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.35),
+    inset 0 0 40px 0 rgba(255,255,255,.1),
+    0 0 0 1px rgba(255,255,255,.25),
+    0 0 18px 4px rgba(255,255,255,.14),
+    0 0 48px 12px rgba(255,255,255,.07),
+    0 0 80px 24px rgba(255,255,255,.03);
+}
+.sponsor-logo.active::before{opacity:1.4}
+.sponsor-logo.active::after{opacity:1;background:radial-gradient(circle at 50% -20%,rgba(255,255,255,.28) 0%,transparent 55%)}
+
 .sponsor-logo img{max-width:96px;max-height:42px;object-fit:contain;transition:transform .35s;position:relative;z-index:1;display:block}
-.sponsor-logo:hover img{}
 .sponsor-logo.active img{transform:scale(1.04)}
 .sponsor-logo-name{font-family:'Bebas Neue',sans-serif;font-size:1.05rem;color:rgba(245,243,239,.38);letter-spacing:.08em;text-align:center;padding:0 12px;line-height:1.3;transition:color .3s;position:relative;z-index:1;user-select:none}
 .sponsor-logo:hover .sponsor-logo-name{color:rgba(245,243,239,.68)}
@@ -98,6 +160,26 @@
 .sponsor-tooltip-name{font-family:'Bebas Neue',sans-serif;font-size:1rem;color:#f5f3ef;letter-spacing:.05em;line-height:1.2;margin-bottom:.2rem}
 .sponsor-tooltip-type{font-family:'IBM Plex Mono',monospace;font-size:.42rem;letter-spacing:.18em;text-transform:uppercase;color:#c8102e}
 .sponsor-tooltip::after{content:'';position:absolute;top:100%;left:50%;transform:translateX(-50%);border:5px solid transparent;border-top-color:#181818}
+
+/* ── VALUES inline highlight ── */
+.values-line{
+  margin-top:1.5rem;
+  font-family:'DM Sans',sans-serif;
+  font-size:.9rem;
+  color:rgba(245,243,239,.45);
+  line-height:2;
+  letter-spacing:.01em;
+}
+.val-hi{
+  color:#f5f3ef;
+  font-weight:500;
+  border-bottom:1px solid rgba(200,16,46,.65);
+  padding-bottom:1px;
+  transition:border-color .2s,color .2s;
+}
+.val-hi:hover{color:#c8102e;border-color:#c8102e}
+
+
 </style>
 </head>
 <body style="cursor:none">
@@ -139,6 +221,8 @@
   </div>
 </nav>
 <div class="page active">
+
+<!-- HERO -->
 <div class="sep-home">
   <div class="film-bg">
     <div class="film-row rl"><div class="fc c1"></div><div class="fc c2"></div><div class="fc c3"></div><div class="fc c4"></div><div class="fc c5"></div><div class="fc c6"></div><div class="fc c7"></div><div class="fc c8"></div><div class="fc c9"></div><div class="fc c10"></div><div class="fc c11"></div><div class="fc c12"></div><div class="fc c13"></div><div class="fc c14"></div><div class="fc c15"></div><div class="fc c16"></div><div class="fc c17"></div><div class="fc c18"></div><div class="fc c1"></div><div class="fc c2"></div><div class="fc c3"></div><div class="fc c4"></div><div class="fc c5"></div><div class="fc c6"></div><div class="fc c7"></div><div class="fc c8"></div><div class="fc c9"></div><div class="fc c10"></div><div class="fc c11"></div><div class="fc c12"></div><div class="fc c13"></div><div class="fc c14"></div><div class="fc c15"></div><div class="fc c16"></div><div class="fc c17"></div><div class="fc c18"></div></div>
@@ -168,13 +252,18 @@
   </div>
 </div>
 
+<!-- ABOUT / GROWTH -->
 <div class="about-band">
   <div class="about-left">
     <div class="sec-tag">About PBL</div>
     <h2 class="sec-h">The Group<br>For Growth.</h2>
     <div class="sec-body">
-      <p>De Anza's premier business organization, built on one principle: do work that matters. Since 2024, we've earned <strong>100+ competitive awards</strong> at regional, state, and national levels. In 2026, we swept the California State Leadership Conference — taking home the Sweepstakes Award, 6 Gold medals, and the Largest Chapter Award.</p>
-      <p style="margin-top:1.25rem">PBL members don't just study business — they practice it. Through our Consulting Division, Polaris Research Group, and FBLA competition team, members build real portfolios, publish research, and compete on the national stage. Open to all majors at De Anza College.</p>
+      <p>At De Anza College Phi Beta Lambda, our mission is to create a <strong>constructively critical environment</strong> that facilitates exploration, ethical decision-making, and professional development for all De Anza students. We are united by a commitment to <strong>excellence, professionalism, and growth</strong> — empowering aspiring business leaders through professional development, innovation, and collaboration. Our chapter provides an inclusive and dynamic environment where students develop real-world skills, lead with purpose, and drive positive impact in their communities and future industries.</p>
+
+      <!-- VALUES — inline highlight version 5 -->
+      <div class="values-line">
+        We lead with <span class="val-hi">Inclusion</span>, act with <span class="val-hi">Integrity</span>, stay driven by <span class="val-hi">Curiosity</span>, embrace <span class="val-hi">Courage</span>, and win through <span class="val-hi">Collaboration</span>.
+      </div>
     </div>
   </div>
   <div class="about-right">
@@ -208,6 +297,7 @@
   </div>
 </div>
 
+<!-- SPONSOR STRIP -->
 <div class="sponsor-strip">
   <div class="sponsor-strip-label">Our Collaborators &amp; Partners</div>
   <div class="sponsor-track-outer">
@@ -226,6 +316,7 @@
       <div class="sponsor-logo" data-name="ElevenLabs" data-type="AI Voice"><img src="images/elevenlabs.png" alt="ElevenLabs"><span class="sponsor-logo-name" style="display:none">ElevenLabs</span><div class="sponsor-tooltip"><div class="sponsor-tooltip-name">ElevenLabs</div><div class="sponsor-tooltip-type">AI Voice</div></div></div>
       <div class="sponsor-logo" data-name="Yahoo" data-type="Technology"><img src="images/yahoo.png" alt="Yahoo"><span class="sponsor-logo-name" style="display:none">Yahoo</span><div class="sponsor-tooltip"><div class="sponsor-tooltip-name">Yahoo</div><div class="sponsor-tooltip-type">Technology</div></div></div>
       <div class="sponsor-logo" data-name="Wall Street Oasis" data-type="Finance"><img src="images/wso.png" alt="Wall Street Oasis"><span class="sponsor-logo-name" style="display:none">Wall Street Oasis</span><div class="sponsor-tooltip"><div class="sponsor-tooltip-name">Wall Street Oasis</div><div class="sponsor-tooltip-type">Finance</div></div></div>
+      <!-- duplicate set for seamless loop -->
       <div class="sponsor-logo" data-name="Google" data-type="Technology"><img src="images/google.png" alt="Google"><span class="sponsor-logo-name" style="display:none">Google</span><div class="sponsor-tooltip"><div class="sponsor-tooltip-name">Google</div><div class="sponsor-tooltip-type">Technology</div></div></div>
       <div class="sponsor-logo" data-name="NVIDIA" data-type="AI & Hardware"><img src="images/nvidia.png" alt="NVIDIA"><span class="sponsor-logo-name" style="display:none">NVIDIA</span><div class="sponsor-tooltip"><div class="sponsor-tooltip-name">NVIDIA</div><div class="sponsor-tooltip-type">AI & Hardware</div></div></div>
       <div class="sponsor-logo" data-name="Informatica" data-type="Data Management"><img src="images/informatica.png" alt="Informatica"><span class="sponsor-logo-name" style="display:none">Informatica</span><div class="sponsor-tooltip"><div class="sponsor-tooltip-name">Informatica</div><div class="sponsor-tooltip-type">Data Management</div></div></div>
