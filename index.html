@@ -83,12 +83,12 @@
 .sponsor-track.paused{animation-play-state:paused}
 @keyframes sponsorScroll{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
 
-/* ── LOGO CARD — deep dark + white halo glow ── */
+/* ── LOGO CARD — #1e1e1e + strong white halo ── */
 .sponsor-logo{
   flex-shrink:0;
   width:164px;height:74px;
-  background:#0e0e0e;
-  border:1px solid rgba(255,255,255,.07);
+  background:#1e1e1e;
+  border:1px solid rgba(255,255,255,.12);
   border-radius:8px;
   display:flex;align-items:center;justify-content:center;
   cursor:pointer;
@@ -96,59 +96,60 @@
   overflow:hidden;
   transition:border-color .4s,transform .45s cubic-bezier(.16,1,.3,1),box-shadow .45s;
   transform-origin:center;
-  /* white halo: top radial bloom */
   box-shadow:
-    inset 0 1px 0 rgba(255,255,255,.13),
-    inset 0 0 28px 0 rgba(255,255,255,.04),
-    0 0 0 1px rgba(255,255,255,.04);
+    inset 0 1px 0 rgba(255,255,255,.22),
+    inset 0 0 36px 0 rgba(255,255,255,.07),
+    0 0 0 1px rgba(255,255,255,.06);
 }
-/* inner top-glow layer */
+/* top bloom */
 .sponsor-logo::before{
   content:'';
   position:absolute;
   top:0;left:0;right:0;
-  height:55%;
-  background:radial-gradient(ellipse 80% 100% at 50% 0%,rgba(255,255,255,.14) 0%,rgba(255,255,255,0) 100%);
+  height:60%;
+  background:radial-gradient(ellipse 85% 110% at 50% 0%,rgba(255,255,255,.22) 0%,rgba(255,255,255,0) 100%);
   pointer-events:none;
   z-index:0;
   transition:opacity .4s;
 }
-/* subtle edge ring */
+/* crown ring */
 .sponsor-logo::after{
   content:'';
   position:absolute;
   inset:0;
   border-radius:8px;
-  background:radial-gradient(circle at 50% -20%,rgba(255,255,255,.18) 0%,transparent 55%);
-  opacity:.7;
+  background:radial-gradient(circle at 50% -15%,rgba(255,255,255,.26) 0%,transparent 52%);
+  opacity:.8;
   pointer-events:none;
   transition:opacity .4s;
 }
 .sponsor-logo:hover{
-  border-color:rgba(255,255,255,.22);
+  border-color:rgba(255,255,255,.28);
+  background:#242424;
   box-shadow:
-    inset 0 1px 0 rgba(255,255,255,.22),
-    inset 0 0 32px 0 rgba(255,255,255,.07),
-    0 0 0 1px rgba(255,255,255,.1),
-    0 4px 24px rgba(255,255,255,.06);
+    inset 0 1px 0 rgba(255,255,255,.32),
+    inset 0 0 44px 0 rgba(255,255,255,.10),
+    0 0 0 1px rgba(255,255,255,.14),
+    0 4px 28px rgba(255,255,255,.08);
 }
+.sponsor-logo:hover::before{opacity:1.2}
 .sponsor-logo:hover::after{opacity:1}
 
 .sponsor-logo.active{
-  border-color:rgba(255,255,255,.6);
+  border-color:rgba(255,255,255,.65);
   transform:scale(1.13);
   z-index:20;
-  background:#101010;
+  background:#262626;
   box-shadow:
-    inset 0 1px 0 rgba(255,255,255,.35),
-    inset 0 0 40px 0 rgba(255,255,255,.1),
-    0 0 0 1px rgba(255,255,255,.25),
-    0 0 18px 4px rgba(255,255,255,.14),
-    0 0 48px 12px rgba(255,255,255,.07),
-    0 0 80px 24px rgba(255,255,255,.03);
+    inset 0 1px 0 rgba(255,255,255,.45),
+    inset 0 0 52px 0 rgba(255,255,255,.14),
+    0 0 0 1px rgba(255,255,255,.28),
+    0 0 18px 4px rgba(255,255,255,.16),
+    0 0 48px 12px rgba(255,255,255,.08),
+    0 0 80px 24px rgba(255,255,255,.04);
 }
-.sponsor-logo.active::before{opacity:1.4}
-.sponsor-logo.active::after{opacity:1;background:radial-gradient(circle at 50% -20%,rgba(255,255,255,.28) 0%,transparent 55%)}
+.sponsor-logo.active::before{opacity:1.5}
+.sponsor-logo.active::after{opacity:1;background:radial-gradient(circle at 50% -15%,rgba(255,255,255,.36) 0%,transparent 52%)}
 
 .sponsor-logo img{max-width:96px;max-height:42px;object-fit:contain;transition:transform .35s;position:relative;z-index:1;display:block}
 .sponsor-logo.active img{transform:scale(1.04)}
