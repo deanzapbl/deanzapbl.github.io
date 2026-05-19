@@ -83,12 +83,12 @@
 .sponsor-track.paused{animation-play-state:paused}
 @keyframes sponsorScroll{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
 
-/* ── LOGO CARD — #1e1e1e + strong white halo ── */
+/* ── LOGO CARD — light gray bg ── */
 .sponsor-logo{
   flex-shrink:0;
   width:164px;height:74px;
-  background:#1e1e1e;
-  border:1px solid rgba(255,255,255,.12);
+  background:#f0f0f0;
+  border:1px solid rgba(0,0,0,.06);
   border-radius:8px;
   display:flex;align-items:center;justify-content:center;
   cursor:pointer;
@@ -97,61 +97,42 @@
   transition:border-color .4s,transform .45s cubic-bezier(.16,1,.3,1),box-shadow .45s;
   transform-origin:center;
   box-shadow:
-    inset 0 1px 0 rgba(255,255,255,.22),
-    inset 0 0 36px 0 rgba(255,255,255,.07),
-    0 0 0 1px rgba(255,255,255,.06);
+    inset 0 1px 0 rgba(255,255,255,.9),
+    inset 0 -1px 0 rgba(0,0,0,.06),
+    0 1px 4px rgba(0,0,0,.08);
 }
-/* top bloom */
 .sponsor-logo::before{
   content:'';
   position:absolute;
   top:0;left:0;right:0;
-  height:60%;
-  background:radial-gradient(ellipse 85% 110% at 50% 0%,rgba(255,255,255,.22) 0%,rgba(255,255,255,0) 100%);
+  height:50%;
+  background:linear-gradient(to bottom,rgba(255,255,255,.6),transparent);
   pointer-events:none;
   z-index:0;
-  transition:opacity .4s;
 }
-/* crown ring */
-.sponsor-logo::after{
-  content:'';
-  position:absolute;
-  inset:0;
-  border-radius:8px;
-  background:radial-gradient(circle at 50% -15%,rgba(255,255,255,.26) 0%,transparent 52%);
-  opacity:.8;
-  pointer-events:none;
-  transition:opacity .4s;
-}
+.sponsor-logo::after{display:none}
 .sponsor-logo:hover{
-  border-color:rgba(255,255,255,.28);
-  background:#242424;
+  border-color:rgba(0,0,0,.14);
+  background:#ebebeb;
   box-shadow:
-    inset 0 1px 0 rgba(255,255,255,.32),
-    inset 0 0 44px 0 rgba(255,255,255,.10),
-    0 0 0 1px rgba(255,255,255,.14),
-    0 4px 28px rgba(255,255,255,.08);
+    inset 0 1px 0 rgba(255,255,255,.9),
+    0 2px 10px rgba(0,0,0,.12);
+  transform:translateY(-1px);
 }
-.sponsor-logo:hover::before{opacity:1.2}
-.sponsor-logo:hover::after{opacity:1}
-
 .sponsor-logo.active{
-  border-color:rgba(255,255,255,.65);
-  transform:scale(1.13);
+  border-color:rgba(200,16,46,.5);
+  transform:scale(1.1);
   z-index:20;
-  background:#262626;
+  background:#f5f5f5;
   box-shadow:
-    inset 0 1px 0 rgba(255,255,255,.45),
-    inset 0 0 52px 0 rgba(255,255,255,.14),
-    0 0 0 1px rgba(255,255,255,.28),
-    0 0 18px 4px rgba(255,255,255,.16),
-    0 0 48px 12px rgba(255,255,255,.08),
-    0 0 80px 24px rgba(255,255,255,.04);
+    0 0 0 2px rgba(200,16,46,.2),
+    0 8px 24px rgba(0,0,0,.15);
 }
-.sponsor-logo.active::before{opacity:1.5}
-.sponsor-logo.active::after{opacity:1;background:radial-gradient(circle at 50% -15%,rgba(255,255,255,.36) 0%,transparent 52%)}
+.sponsor-logo.active::after{display:none}
 
-.sponsor-logo img{max-width:96px;max-height:42px;object-fit:contain;transition:transform .35s;position:relative;z-index:1;display:block}
+.sponsor-logo img{max-width:96px;max-height:42px;object-fit:contain;position:relative;z-index:1;display:block;transition:transform .35s,opacity .35s;opacity:.82}
+.sponsor-logo:hover img{opacity:1}
+.sponsor-logo.active img{transform:scale(1.04);opacity:1}
 .sponsor-logo.active img{transform:scale(1.04)}
 .sponsor-logo-name{font-family:'Bebas Neue',sans-serif;font-size:1.05rem;color:rgba(245,243,239,.38);letter-spacing:.08em;text-align:center;padding:0 12px;line-height:1.3;transition:color .3s;position:relative;z-index:1;user-select:none}
 .sponsor-logo:hover .sponsor-logo-name{color:rgba(245,243,239,.68)}
