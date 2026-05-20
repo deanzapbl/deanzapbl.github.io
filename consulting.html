@@ -9,25 +9,19 @@
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Unbounded:wght@400;700&family=DM+Sans:wght@300;400;500&family=IBM+Plex+Mono:wght@400;500&family=Playfair+Display:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
 <style>
-/* ── Parallax Hero ── */
 .page-hero{min-height:100vh;display:flex;flex-direction:column;justify-content:center;padding:9rem 2.5rem 5rem;position:relative;overflow:hidden;border-bottom:1px solid rgba(245,243,239,0.06);background:#050505;cursor:none}
 .plx-canvas{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:0}
 .plx-vignette{position:absolute;inset:0;background:radial-gradient(ellipse 75% 75% at 50% 50%,transparent 30%,#050505 100%);pointer-events:none;z-index:1}
 .plx-crt{position:absolute;inset:0;background:repeating-linear-gradient(0deg,transparent,transparent 2px,rgba(0,0,0,.03) 2px,rgba(0,0,0,.03) 4px);pointer-events:none;z-index:2}
 .plx-text{position:relative;z-index:3;will-change:transform;transition:transform .07s ease-out}
 .page-hero .hero-tag,.page-hero .page-sub{position:relative;z-index:3}
-5%{opacity:1}95%{opacity:1}100%{top:100%;opacity:0}}
 @media(max-width:768px){.page-hero{padding:7rem 1.5rem 4rem;min-height:90vh}}
 .page-hero .hero-tag::after,.page-hero .hero-tag::before{display:none!important;content:none!important;background:none!important;}
 .page-hero .hero-tag{border:none!important;}
-
-/* ── Section utility ── */
 .con-section{padding:5rem 2.5rem}
 .con-section-sm{padding:3.5rem 2.5rem}
 .sec-tag-line{font-family:'IBM Plex Mono',monospace;font-size:.5rem;letter-spacing:.26em;text-transform:uppercase;color:rgba(245,243,239,.55);display:flex;align-items:center;gap:.75rem;margin-bottom:1.5rem}
 .sec-tag-line::before{content:'';width:18px;height:1px;background:rgba(245,243,239,.35)}
-
-/* ── W6: What We Do ── */
 .wwd-grid{display:grid;grid-template-columns:1fr 1fr;gap:3px}
 .wwd-left{background:#0d0d0d;border:1px solid rgba(200,16,46,.12);padding:3rem 2.5rem;position:relative;overflow:hidden}
 .wwd-left::after{content:'';position:absolute;left:0;top:0;bottom:0;width:3px;background:#c8102e}
@@ -44,8 +38,6 @@
 .wwd-step:hover .wwd-step-n{color:rgba(200,16,46,.7)}
 .wwd-step-title{font-family:'DM Sans',sans-serif;font-weight:500;font-size:.9rem;color:#f5f3ef;margin-bottom:.3rem}
 .wwd-step-desc{font-size:.8rem;color:rgba(245,243,239,.45);line-height:1.7}
-
-/* ── Clients Spotlight Carousel ── */
 .clients-section{padding:0 2.5rem 5rem}
 .clients-carousel{overflow:hidden;position:relative}
 .clients-track{display:flex;will-change:transform;transition:transform .7s cubic-bezier(.4,0,.2,1)}
@@ -64,11 +56,8 @@
 .c-dot{width:6px;height:6px;border-radius:50%;background:rgba(245,243,239,.12);cursor:pointer;transition:all .45s cubic-bezier(.16,1,.3,1)}
 .c-dot.on{background:#c8102e;width:24px;border-radius:3px}
 .c-dot:hover:not(.on){background:rgba(200,16,46,.4)}
-.clients-arr{width:56px;height:56px;border-radius:50%;border:1px solid rgba(255,255,255,0.7);background:none;color:#fff;font-size:1.1rem;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .3s;box-shadow:0 0 10px 2px rgba(255,255,255,0.15),inset 0 0 10px rgba(255,255,255,0.05);text-shadow:0 0 8px rgba(255,255,255,0.8)}
-.clients-arr:hover{border-color:#fff;box-shadow:0 0 20px 6px rgba(255,255,255,0.35),inset 0 0 15px rgba(255,255,255,0.1);transform:scale(1.1);color:#fff;background:none}
+.clients-arr{width:56px;height:56px;border-radius:50%;border:1px solid rgba(255,255,255,0.7);background:none;color:#fff;font-size:1.1rem;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .3s;box-shadow:0 0 10px 2px rgba(255,255,255,0.15),inset 0 0 10px rgba(255,255,255,0.05)}
 .clients-arr:hover{border-color:#c8102e;color:#c8102e;background:rgba(200,16,46,.08)}
-
-/* ── Sponsors Marquee ── */
 .sponsor-strip{border-top:1px solid rgba(245,243,239,.06);background:#0a0a0a;padding:2.25rem 0;position:relative;overflow:hidden}
 .sponsor-strip::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 60% 300% at 50% 50%,rgba(200,16,46,.035) 0%,transparent 70%);pointer-events:none}
 .sponsor-strip-label{font-family:'IBM Plex Mono',monospace;font-size:.47rem;letter-spacing:.28em;text-transform:uppercase;color:rgba(245,243,239,.55);text-align:center;margin-bottom:1.4rem;position:relative;z-index:1;display:flex;align-items:center;justify-content:center;gap:1.4rem}
@@ -81,37 +70,25 @@
 .sponsor-track{display:flex;gap:14px;width:max-content;padding:6px 0;animation:sponsorScroll 40s linear infinite}
 .sponsor-track.paused{animation-play-state:paused}
 @keyframes sponsorScroll{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
-.sponsor-logo{flex-shrink:0;width:164px;height:74px;background:#0c0c0c;border:1px solid rgba(245,243,239,.06);border-radius:6px;display:flex;align-items:center;justify-content:center;cursor:pointer;position:relative;overflow:hidden;transition:border-color .4s,transform .45s cubic-bezier(.16,1,.3,1),box-shadow .45s;transform-origin:center}
-.sponsor-logo::before{content:'';position:absolute;top:0;left:12%;right:12%;height:1px;background:linear-gradient(90deg,transparent,rgba(255,255,255,.07),transparent);pointer-events:none}
-.sponsor-logo::after{content:'';position:absolute;inset:0;background:radial-gradient(circle at 50% 0%,rgba(255,255,255,.08),transparent 65%);opacity:0;transition:opacity .4s;pointer-events:none}
-.sponsor-logo:hover{border-color:rgba(245,243,239,.2)}
-.sponsor-logo.active{border-color:rgba(255,255,255,.78);transform:scale(1.13);z-index:20;background:#161616;box-shadow:0 0 0 1px rgba(255,255,255,.22),0 0 12px 3px rgba(255,255,255,.13),0 0 32px 8px rgba(255,255,255,.07),0 0 64px 18px rgba(255,255,255,.025)}
-.sponsor-logo.active::after{opacity:1}
-.sponsor-logo img{max-width:120px;max-height:52px;object-fit:contain;filter:brightness(0.8) saturate(0.7);opacity:0.6;transition:filter .35s,transform .35s,opacity .35s;position:relative;z-index:1;display:block}
-.sponsor-logo:hover img{opacity:1;filter:brightness(1) saturate(1)}
-.sponsor-logo.active img{filter:brightness(1) saturate(1);transform:scale(1.04)}
+.sponsor-logo{flex-shrink:0;width:164px;height:74px;background:#f0f0f0;border:1px solid rgba(0,0,0,.06);border-radius:6px;display:flex;align-items:center;justify-content:center;cursor:pointer;position:relative;overflow:hidden;transition:border-color .4s,transform .45s cubic-bezier(.16,1,.3,1),box-shadow .45s;transform-origin:center;box-shadow:inset 0 1px 0 rgba(255,255,255,.9),0 1px 4px rgba(0,0,0,.08)}
+.sponsor-logo:hover{border-color:rgba(0,0,0,.14);background:#ebebeb}
+.sponsor-logo.active{border-color:rgba(200,16,46,.5);transform:scale(1.1);z-index:20;background:#f5f5f5;box-shadow:0 0 0 2px rgba(200,16,46,.2),0 8px 24px rgba(0,0,0,.15)}
+.sponsor-logo img{max-width:120px;max-height:52px;object-fit:contain;opacity:.85;transition:opacity .35s,transform .35s;position:relative;z-index:1;display:block}
+.sponsor-logo:hover img{opacity:1}
+.sponsor-logo.active img{transform:scale(1.04);opacity:1}
 .sponsor-tooltip{position:absolute;bottom:calc(100% + 10px);left:50%;transform:translateX(-50%) translateY(6px);background:#181818;border:1px solid rgba(255,255,255,.14);border-radius:4px;padding:.55rem 1rem;white-space:nowrap;pointer-events:none;z-index:30;opacity:0;transition:opacity .22s,transform .22s;box-shadow:0 0 0 1px rgba(255,255,255,.05),0 8px 28px rgba(0,0,0,.7)}
 .sponsor-logo.active .sponsor-tooltip{opacity:1;transform:translateX(-50%) translateY(0)}
 .sponsor-tooltip-name{font-family:'Bebas Neue',sans-serif;font-size:1rem;color:#f5f3ef;letter-spacing:.05em;line-height:1.2;margin-bottom:.2rem}
 .sponsor-tooltip-type{font-family:'IBM Plex Mono',monospace;font-size:.42rem;letter-spacing:.18em;text-transform:uppercase;color:#c8102e}
 .sponsor-tooltip::after{content:'';position:absolute;top:100%;left:50%;transform:translateX(-50%);border:5px solid transparent;border-top-color:#181818}
-
-/* ── CTA ── */
 .cta-section{padding:2.5rem 2.5rem}
 .cta-box{background:#080808;border:none;padding:4rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:2rem;position:relative;overflow:hidden}
-.cta-box::before{display:none}
 .cta-wm{position:absolute;bottom:-2rem;right:-1rem;font-family:'Bebas Neue',sans-serif;font-size:9rem;color:rgba(200,16,46,.03);line-height:1;user-select:none}
 .cta-title{font-family:'Bebas Neue',sans-serif;font-size:2.5rem;letter-spacing:.02em;line-height:1;color:#f5f3ef;margin-bottom:.5rem;position:relative;z-index:1}
 .cta-sub{font-size:.9rem;color:rgba(245,243,239,.48);position:relative;z-index:1}
 .cta-btn{font-family:'IBM Plex Mono',monospace;font-size:.52rem;letter-spacing:.18em;text-transform:uppercase;padding:.85rem 2rem;background:#c8102e;color:#f5f3ef;text-decoration:none;border:1px solid #c8102e;transition:all .3s;position:relative;z-index:1;flex-shrink:0}
 .cta-btn:hover{background:transparent;color:#c8102e}
-
-@media(max-width:900px){
-  .wwd-grid{grid-template-columns:1fr}
-  .client-slide{grid-template-columns:1fr}
-  .cs-left{border-right:none;border-bottom:1px solid rgba(245,243,239,.06)}
-  .con-section,.con-section-sm,.clients-section,.cta-section{padding-left:1.5rem;padding-right:1.5rem}
-}
+@media(max-width:900px){.wwd-grid{grid-template-columns:1fr}.client-slide{grid-template-columns:1fr}.cs-left{border-right:none;border-bottom:1px solid rgba(245,243,239,.06)}.con-section,.con-section-sm,.clients-section,.cta-section{padding-left:1.5rem;padding-right:1.5rem}}
 </style>
 </head>
 <body>
@@ -140,19 +117,17 @@
 
 <div class="page active">
 
-<!-- ── HERO ── -->
 <section class="page-hero">
-    <canvas class="plx-canvas" id="plxCanvas"></canvas>
+  <canvas class="plx-canvas" id="plxCanvas"></canvas>
   <div class="plx-vignette"></div>
   <div class="plx-crt"></div>
   <div class="plx-text">
     <div class="hero-tag">Consulting</div>
-    <h1 class="page-title"><span>The Work</span><span>Speaks.</span></h1>
+    <h1 class="page-title"><span>Consulting</span><span>Track.</span></h1>
     <p class="page-sub">Student analysts. Real organizations. Portfolio-ready deliverables from day one.</p>
   </div>
 </section>
 
-<!-- ── SPONSORS STRIP ── -->
 <div class="sponsor-strip">
   <div class="sponsor-strip-label">Industry Partners &amp; Sponsors</div>
   <div class="sponsor-track-outer">
@@ -181,7 +156,6 @@
   </div>
 </div>
 
-<!-- ── WHAT WE DO (W6) ── -->
 <div class="con-section">
   <div class="sec-tag-line">What We Do</div>
   <div class="wwd-grid">
@@ -199,128 +173,33 @@
       </div>
     </div>
     <div class="wwd-right">
-      <div class="wwd-step">
-        <div class="wwd-step-n">01</div>
-        <div><div class="wwd-step-title">Intake & Scoping</div><div class="wwd-step-desc">Client presents their challenge. We scope the project and build the right team of analysts.</div></div>
-      </div>
-      <div class="wwd-step">
-        <div class="wwd-step-n">02</div>
-        <div><div class="wwd-step-title">Research & Analysis</div><div class="wwd-step-desc">Analysts conduct primary and secondary research, building models under professional mentorship.</div></div>
-      </div>
-      <div class="wwd-step">
-        <div class="wwd-step-n">03</div>
-        <div><div class="wwd-step-title">Delivery & Impact</div><div class="wwd-step-desc">Teams present polished, actionable recommendations directly to clients — ready to implement.</div></div>
-      </div>
+      <div class="wwd-step"><div class="wwd-step-n">01</div><div><div class="wwd-step-title">Intake & Scoping</div><div class="wwd-step-desc">Client presents their challenge. We scope the project and build the right team of analysts.</div></div></div>
+      <div class="wwd-step"><div class="wwd-step-n">02</div><div><div class="wwd-step-title">Research & Analysis</div><div class="wwd-step-desc">Analysts conduct primary and secondary research, building models under professional mentorship.</div></div></div>
+      <div class="wwd-step"><div class="wwd-step-n">03</div><div><div class="wwd-step-title">Delivery & Impact</div><div class="wwd-step-desc">Teams present polished, actionable recommendations directly to clients — ready to implement.</div></div></div>
     </div>
   </div>
 </div>
 
-<!-- ── CURRENT CLIENTS (Option 1) ── -->
 <div class="clients-section">
   <div class="sec-tag-line">Current Clients — 2025–26</div>
   <div class="clients-carousel">
     <div class="clients-track" id="clientsTrack">
-
-      <div class="client-slide">
-        <div class="cs-left">
-          <div class="cs-idx">01 / 06</div>
-          <div class="cs-name">Star One<br>Credit Union</div>
-          <div class="cs-left-wm">SO</div>
-        </div>
-        <div class="cs-right">
-          <div class="cs-work-lbl">What We Did</div>
-          <div class="cs-work">Marketing Strategy</div>
-          <div class="cs-rule"></div>
-          <div class="cs-desc">Developed a comprehensive outreach and member acquisition campaign for one of Silicon Valley's largest credit unions, targeting younger demographics and digital engagement.</div>
-        </div>
-      </div>
-
-      <div class="client-slide">
-        <div class="cs-left">
-          <div class="cs-idx">02 / 06</div>
-          <div class="cs-name">Hunger<br>at Home</div>
-          <div class="cs-left-wm">HH</div>
-        </div>
-        <div class="cs-right">
-          <div class="cs-work-lbl">What We Did</div>
-          <div class="cs-work">Grant Research & Fundraising</div>
-          <div class="cs-rule"></div>
-          <div class="cs-desc">Identified federal and private grant opportunities and packaged a full donor outreach strategy for Bay Area food rescue nonprofit, supporting expanded operations across the South Bay.</div>
-        </div>
-      </div>
-
-      <div class="client-slide">
-        <div class="cs-left">
-          <div class="cs-idx">03 / 06</div>
-          <div class="cs-name">Palm &<br>Stone</div>
-          <div class="cs-left-wm">PS</div>
-        </div>
-        <div class="cs-right">
-          <div class="cs-work-lbl">What We Did</div>
-          <div class="cs-work">Pitch & Entrepreneurship</div>
-          <div class="cs-rule"></div>
-          <div class="cs-desc">Built a full investor pitch deck, financial model, and go-to-market strategy for a launch-stage brand — structured for early fundraising rounds and retail expansion.</div>
-        </div>
-      </div>
-
-      <div class="client-slide">
-        <div class="cs-left">
-          <div class="cs-idx">04 / 06</div>
-          <div class="cs-name">VIDA</div>
-          <div class="cs-left-wm">VD</div>
-        </div>
-        <div class="cs-right">
-          <div class="cs-work-lbl">What We Did</div>
-          <div class="cs-work">Marketing + Social Media Strategy</div>
-          <div class="cs-rule"></div>
-          <div class="cs-desc">Designed a full marketing and social media strategy including content calendar, platform optimization, and brand voice guidelines to drive audience growth and engagement.</div>
-        </div>
-      </div>
-
-      <div class="client-slide">
-        <div class="cs-left">
-          <div class="cs-idx">05 / 06</div>
-          <div class="cs-name">Azalea<br>Jewelry</div>
-          <div class="cs-left-wm">AZ</div>
-        </div>
-        <div class="cs-right">
-          <div class="cs-work-lbl">What We Did</div>
-          <div class="cs-work">Pitch Strategy & Market Entry</div>
-          <div class="cs-rule"></div>
-          <div class="cs-desc">Developed competitive positioning, premium market entry framework, and investor pitch materials for a Bay Area jewelry brand entering an established luxury segment.</div>
-        </div>
-      </div>
-
-      <div class="client-slide">
-        <div class="cs-left">
-          <div class="cs-idx">06 / 06</div>
-          <div class="cs-name">Berkeley<br>IEEE</div>
-          <div class="cs-left-wm">IE</div>
-        </div>
-        <div class="cs-right">
-          <div class="cs-work-lbl">What We Did</div>
-          <div class="cs-work">Fundraising Package</div>
-          <div class="cs-rule"></div>
-          <div class="cs-desc">Built a comprehensive sponsorship and fundraising package for UC Berkeley's IEEE chapter, including tiered sponsor tiers, outreach templates, and a pitch deck for industry partners.</div>
-        </div>
-      </div>
-
+      <div class="client-slide"><div class="cs-left"><div class="cs-idx">01 / 06</div><div class="cs-name">Star One<br>Credit Union</div><div class="cs-left-wm">SO</div></div><div class="cs-right"><div class="cs-work-lbl">What We Did</div><div class="cs-work">Marketing Strategy</div><div class="cs-rule"></div><div class="cs-desc">Developed a comprehensive outreach and member acquisition campaign for one of Silicon Valley's largest credit unions, targeting younger demographics and digital engagement.</div></div></div>
+      <div class="client-slide"><div class="cs-left"><div class="cs-idx">02 / 06</div><div class="cs-name">Hunger<br>at Home</div><div class="cs-left-wm">HH</div></div><div class="cs-right"><div class="cs-work-lbl">What We Did</div><div class="cs-work">Grant Research & Fundraising</div><div class="cs-rule"></div><div class="cs-desc">Identified federal and private grant opportunities and packaged a full donor outreach strategy for Bay Area food rescue nonprofit, supporting expanded operations across the South Bay.</div></div></div>
+      <div class="client-slide"><div class="cs-left"><div class="cs-idx">03 / 06</div><div class="cs-name">Palm &<br>Stone</div><div class="cs-left-wm">PS</div></div><div class="cs-right"><div class="cs-work-lbl">What We Did</div><div class="cs-work">Pitch & Entrepreneurship</div><div class="cs-rule"></div><div class="cs-desc">Built a full investor pitch deck, financial model, and go-to-market strategy for a launch-stage brand — structured for early fundraising rounds and retail expansion.</div></div></div>
+      <div class="client-slide"><div class="cs-left"><div class="cs-idx">04 / 06</div><div class="cs-name">VIDA</div><div class="cs-left-wm">VD</div></div><div class="cs-right"><div class="cs-work-lbl">What We Did</div><div class="cs-work">Marketing + Social Media Strategy</div><div class="cs-rule"></div><div class="cs-desc">Designed a full marketing and social media strategy including content calendar, platform optimization, and brand voice guidelines to drive audience growth and engagement.</div></div></div>
+      <div class="client-slide"><div class="cs-left"><div class="cs-idx">05 / 06</div><div class="cs-name">Azalea<br>Jewelry</div><div class="cs-left-wm">AZ</div></div><div class="cs-right"><div class="cs-work-lbl">What We Did</div><div class="cs-work">Pitch Strategy & Market Entry</div><div class="cs-rule"></div><div class="cs-desc">Developed competitive positioning, premium market entry framework, and investor pitch materials for a Bay Area jewelry brand entering an established luxury segment.</div></div></div>
+      <div class="client-slide"><div class="cs-left"><div class="cs-idx">06 / 06</div><div class="cs-name">Berkeley<br>IEEE</div><div class="cs-left-wm">IE</div></div><div class="cs-right"><div class="cs-work-lbl">What We Did</div><div class="cs-work">Fundraising Package</div><div class="cs-rule"></div><div class="cs-desc">Built a comprehensive sponsorship and fundraising package for UC Berkeley's IEEE chapter, including tiered sponsor tiers, outreach templates, and a pitch deck for industry partners.</div></div></div>
     </div>
   </div>
   <div class="clients-nav">
     <div class="clients-dots" id="clientsDots">
-      <div class="c-dot on" onclick="clientsGoTo(0)"></div>
-      <div class="c-dot" onclick="clientsGoTo(1)"></div>
-      <div class="c-dot" onclick="clientsGoTo(2)"></div>
-      <div class="c-dot" onclick="clientsGoTo(3)"></div>
-      <div class="c-dot" onclick="clientsGoTo(4)"></div>
-      <div class="c-dot" onclick="clientsGoTo(5)"></div>
+      <div class="c-dot on" onclick="clientsGoTo(0)"></div><div class="c-dot" onclick="clientsGoTo(1)"></div><div class="c-dot" onclick="clientsGoTo(2)"></div><div class="c-dot" onclick="clientsGoTo(3)"></div><div class="c-dot" onclick="clientsGoTo(4)"></div><div class="c-dot" onclick="clientsGoTo(5)"></div>
     </div>
     <button class="clients-arr" onclick="clientsNext()">→</button>
   </div>
 </div>
 
-<!-- ── CTA ── -->
 <div class="cta-section">
   <div class="cta-box" style="flex-direction:column;align-items:center;text-align:center;padding:2.2rem 4rem;border:none;background:#050505">
     <div style="font-family:'Playfair Display',serif;font-style:italic;font-size:1.15rem;color:rgba(245,243,239,0.5);line-height:1.7;margin-bottom:1.2rem;max-width:480px">"Built on one principle:<br>do work that matters."</div>
@@ -339,46 +218,24 @@
     <span class="foot-copy">© 2025 Phi Beta Lambda · De Anza College</span>
   </div>
   <ul class="foot-links">
-    <li><a href="https://instagram.com/deanzapbl" target="_blank">Instagram</a></li>
-    <li><a href="https://discord.gg/w7zap3SfUm" target="_blank">Discord</a></li>
-    <li><a href="https://linktr.ee/deanzapbl" target="_blank">Linktree</a></li>
-    <li><a href="contact.html">Contact</a></li>
+    <li><a href="https://instagram.com/deanzapbl" target="_blank">Instagram</a></li><li><a href="https://discord.gg/w7zap3SfUm" target="_blank">Discord</a></li><li><a href="https://linktr.ee/deanzapbl" target="_blank">Linktree</a></li><li><a href="contact.html">Contact</a></li>
   </ul>
 </footer>
 
 <script src="main.js"></script>
 <script>
 (function(){
-  var cur = 0;
-  var total = 6;
-  var track = document.getElementById('clientsTrack');
-  var dots = document.querySelectorAll('.c-dot');
-
-  window.clientsGoTo = function(idx){
-    cur = ((idx % total) + total) % total;
-    track.style.transform = 'translateX(-' + (cur * 100) + '%)';
-    dots.forEach(function(d, i){ d.classList.toggle('on', i === cur); });
-  };
-
-  window.clientsNext = function(){
-    clientsGoTo(cur + 1);
-  };
-
-  track.addEventListener('touchstart', function(e){ this._tx = e.touches[0].clientX; }, {passive:true});
-  track.addEventListener('touchend', function(e){
-    var diff = this._tx - e.changedTouches[0].clientX;
-    if(Math.abs(diff) > 50) clientsGoTo(diff > 0 ? cur + 1 : cur - 1);
-  }, {passive:true});
-
-  var dragX = null;
-  track.addEventListener('mousedown', function(e){ dragX = e.clientX; track.style.cursor='grabbing'; });
-  window.addEventListener('mouseup', function(e){
-    if(dragX === null) return;
-    var diff = dragX - e.clientX;
-    if(Math.abs(diff) > 50) clientsGoTo(diff > 0 ? cur + 1 : cur - 1);
-    dragX = null; track.style.cursor='grab';
-  });
-  track.style.cursor = 'grab';
+  var cur=0,total=6;
+  var track=document.getElementById('clientsTrack');
+  var dots=document.querySelectorAll('.c-dot');
+  window.clientsGoTo=function(idx){cur=((idx%total)+total)%total;track.style.transform='translateX(-'+(cur*100)+'%)';dots.forEach(function(d,i){d.classList.toggle('on',i===cur);});};
+  window.clientsNext=function(){clientsGoTo(cur+1);};
+  track.addEventListener('touchstart',function(e){this._tx=e.touches[0].clientX;},{passive:true});
+  track.addEventListener('touchend',function(e){var diff=this._tx-e.changedTouches[0].clientX;if(Math.abs(diff)>50)clientsGoTo(diff>0?cur+1:cur-1);},{passive:true});
+  var dragX=null;
+  track.addEventListener('mousedown',function(e){dragX=e.clientX;track.style.cursor='grabbing';});
+  window.addEventListener('mouseup',function(e){if(dragX===null)return;var diff=dragX-e.clientX;if(Math.abs(diff)>50)clientsGoTo(diff>0?cur+1:cur-1);dragX=null;track.style.cursor='grab';});
+  track.style.cursor='grab';
 })();
 </script>
 <script>(function(){var hero=document.querySelector(".page-hero");if(!hero)return;var canvas=document.getElementById("plxCanvas");var txt=hero.querySelector(".plx-text");var ctx=canvas.getContext("2d");var mx,my,smx,smy;var stars=[];var t=0;function buildStars(){stars=[];var W=canvas.width,H=canvas.height;for(var k=0;k<280;k++){stars.push({x:Math.random()*W,y:Math.random()*H,r:Math.random()*1.2+0.2,ph:Math.random()*6.28,spd:Math.random()*1.5+0.5,a:Math.random()*0.3+0.05});}}function resize(){canvas.width=hero.offsetWidth;canvas.height=hero.offsetHeight;if(smx==null){smx=canvas.width/2;smy=canvas.height/2;mx=smx;my=smy;}buildStars();}resize();window.addEventListener("resize",resize);var inside=false;hero.addEventListener("mousemove",function(e){var r=hero.getBoundingClientRect();mx=e.clientX-r.left;my=e.clientY-r.top;inside=true;if(txt){var hw=r.width/2,hh=r.height/2,rx=(mx-hw)/hw,ry=(my-hh)/hh;txt.style.transform="translate("+(rx*-7)+"px,"+(ry*-7)+"px)";}});hero.addEventListener("mouseleave",function(){inside=false;if(txt)txt.style.transform="";});var curA=0;function draw(){t+=0.014;var W=canvas.width,H=canvas.height;if(!W||!H){requestAnimationFrame(draw);return;}smx=smx+(mx-smx)*0.1;smy=smy+(my-smy)*0.1;curA+=((inside?1:0)-curA)*0.065;ctx.clearRect(0,0,W,H);var dx,dy,d,inf,a,r,tw;stars.forEach(function(p){tw=Math.sin(t*p.spd+p.ph)*0.4+0.6;dx=p.x-smx;dy=p.y-smy;d=Math.sqrt(dx*dx+dy*dy);inf=Math.max(0,1-d/170)*0.6;a=p.a*tw+inf;r=p.r*tw+inf*1.5;ctx.beginPath();ctx.arc(p.x,p.y,r,0,6.28);ctx.fillStyle="rgba(220,210,200,"+Math.min(a,0.75).toFixed(2)+")";ctx.fill();if(inf>0.1){ctx.beginPath();ctx.arc(p.x,p.y,r*2.5,0,6.28);ctx.fillStyle="rgba(192,57,43,"+(inf*0.2).toFixed(2)+")";ctx.fill();}});if(curA>0.01){ctx.beginPath();ctx.arc(smx,smy,14,0,6.28);ctx.strokeStyle="rgba(192,57,43,"+(curA*0.4).toFixed(2)+")";ctx.lineWidth=0.7;ctx.stroke();ctx.beginPath();ctx.arc(smx,smy,28,0,6.28);ctx.strokeStyle="rgba(192,57,43,"+(curA*0.18).toFixed(2)+")";ctx.lineWidth=0.7;ctx.stroke();ctx.beginPath();ctx.arc(smx,smy,2,0,6.28);ctx.fillStyle="rgba(192,57,43,"+(curA*0.85).toFixed(2)+")";ctx.fill();}requestAnimationFrame(draw);}requestAnimationFrame(draw);})();</script>
