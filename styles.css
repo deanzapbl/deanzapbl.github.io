@@ -179,3 +179,32 @@ footer{padding:3rem 2.5rem;border-top:1px solid var(--border);display:flex;align
 .sponsor-logo:hover img,.sponsor-logo.active img{}
 .sponsor-logo-name{font-family:'IBM Plex Mono',monospace;font-size:.5rem;letter-spacing:.2em;text-transform:uppercase;color:rgba(245,243,239,.3);transition:color .2s}
 .sponsor-logo:hover .sponsor-logo-name,.sponsor-logo.active .sponsor-logo-name{color:rgba(245,243,239,.7)}
+
+/* ── Consulting client timeline (accolades) ── */
+.ctl{margin-top:1.6rem}
+.ctl-cycle{margin-bottom:2.8rem}
+.ctl-cycle:last-child{margin-bottom:0}
+.ctl-cycle-head{display:flex;align-items:baseline;gap:1rem;margin-bottom:1.4rem}
+.ctl-cycle-yr{font-family:'Playfair Display',serif;font-size:1.45rem;color:var(--white);line-height:1;flex-shrink:0}
+.ctl-cycle-head::after{content:'';flex:1;height:1px;background:var(--border)}
+.ctl-cycle-meta{font-family:'IBM Plex Mono',monospace;font-size:.55rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gray-light);flex-shrink:0;order:3}
+.ctl-items{position:relative;padding-left:1.7rem}
+.ctl-items::before{content:'';position:absolute;left:3px;top:.6rem;bottom:.6rem;width:1px;background:linear-gradient(180deg,var(--border-red),var(--border))}
+.ctl-item{position:relative;padding-bottom:1.7rem}
+.ctl-item:last-child{padding-bottom:0}
+.ctl-dot{position:absolute;left:-1.7rem;top:.5rem;width:7px;height:7px;border-radius:50%;background:var(--black);border:1px solid var(--red);transition:background .2s}
+.ctl-item:hover .ctl-dot{background:var(--red)}
+.ctl-top{display:flex;align-items:center;gap:.8rem;flex-wrap:wrap}
+.ctl-name{font-family:'Playfair Display',serif;font-size:1.05rem;color:var(--white);line-height:1.2}
+.ctl-place{font-family:'IBM Plex Mono',monospace;font-size:.55rem;letter-spacing:.12em;text-transform:uppercase;color:var(--gray-light);border:1px solid var(--border);padding:.22rem .55rem;white-space:nowrap}
+.ctl-place.g{color:var(--red);border-color:var(--border-red)}
+.ctl-place.s{color:rgba(245,243,239,.7)}
+.ctl-work{font-family:'IBM Plex Mono',monospace;font-size:.57rem;letter-spacing:.18em;text-transform:uppercase;color:var(--red);margin:.5rem 0 .5rem}
+.ctl-desc{font-size:.82rem;line-height:1.7;color:rgba(245,243,239,.5);max-width:62ch}
+@media(max-width:640px){
+  .ctl-cycle-head{flex-wrap:wrap;gap:.5rem}
+  .ctl-cycle-head::after{display:none}
+  .ctl-cycle-meta{order:2;width:100%}
+  .ctl-name{font-size:.95rem}
+  .ctl-desc{font-size:.78rem}
+}
