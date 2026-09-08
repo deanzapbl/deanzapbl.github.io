@@ -208,3 +208,10 @@ footer{padding:3rem 2.5rem;border-top:1px solid var(--border);display:flex;align
   .ctl-name{font-size:.95rem}
   .ctl-desc{font-size:.78rem}
 }
+.ctl-medals{display:flex;flex-wrap:wrap;gap:.4rem;margin-top:.6rem}
+.ctl-click{cursor:pointer}
+.ctl-click .ctl-body{transition:transform .2s}
+.ctl-click:hover .ctl-body{transform:translateX(4px)}
+.ctl-click:hover .ctl-name{color:var(--red)}
+.ctl-name{transition:color .2s}
+.ctl-hint{font-family:'IBM Plex Mono',monospace;font-size:.52rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gray-light);opacity:.6;margin-top:1.4rem;padding-left:1.7rem}
