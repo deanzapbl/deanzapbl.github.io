@@ -40,10 +40,11 @@
 .acc-sub-label::before{content:'';width:14px;height:1px;background:rgba(245,243,239,.15)}
 
 /* ── Strip Shell ── */
-.strip-shell{background:#0c0c0c;border:1px solid rgba(245,243,239,.08);overflow:hidden;clip-path:inset(0);position:relative;cursor:pointer;transition:border-color .3s,background .3s;margin-bottom:4px}
+.strip-shell{background:#0c0c0c;border:1px solid rgba(245,243,239,.08);overflow:hidden;clip-path:inset(0);position:relative;cursor:pointer;transition:border-color .3s,background .3s;margin-bottom:6px}
+.acc-sub-label{margin-top:1.25rem}
 .strip-shell:hover{border-color:rgba(200,16,46,.3);background:#0e0e0e}
 .strip-track{display:flex;will-change:transform;transition:transform .7s cubic-bezier(.4,0,.2,1)}
-.strip-page{flex-shrink:0;display:grid;grid-template-columns:220px minmax(0,1fr) 64px;min-height:150px}
+.strip-page{display:grid;grid-template-columns:220px minmax(0,1fr);min-height:150px}
 
 /* Left zone */
 .sp-left{background:linear-gradient(135deg,#180808 0%,#0e0303 100%);display:flex;flex-direction:column;justify-content:space-between;padding:1.75rem 1.5rem;position:relative;overflow:hidden}
@@ -96,7 +97,7 @@
 
 @media(max-width:768px){
   .acc-wrap{padding:4rem 1.5rem 5rem}
-  .strip-page{grid-template-columns:150px 1fr 52px}
+  .strip-page{grid-template-columns:130px minmax(0,1fr)}
   .sp-yr{font-size:2.8rem}
   .sp-conf{font-size:.7rem}
   .acc-modal-stats{grid-template-columns:repeat(2,1fr)}
@@ -143,7 +144,6 @@
 
 <div class="acc-wrap">
 
-  <!-- ══ FBLA ══ -->
   <div class="acc-section">
     <div class="acc-section-header">
       <div class="acc-section-name active">FBLA</div>
@@ -151,77 +151,127 @@
       <div class="acc-section-count active">6 Conferences</div>
     </div>
 
-    <div class="ctl">
-      <div class="ctl-cycle">
-        <div class="ctl-cycle-head">
-          <div class="ctl-cycle-yr">2025–26 Season</div>
-          <div class="ctl-cycle-meta">Nationals · State · Fall</div>
+    <div class="acc-sub-label">National Leadership Conference</div>
+    <div class="strip-shell" onclick="openModal('nlc',0)">
+      <div class="strip-page">
+        <div class="sp-left">
+          <div class="sp-tag">Nationals</div>
+          <div class="sp-yr">2026</div>
+          <div class="sp-wm">NL</div>
         </div>
-        <div class="ctl-items">
-        <div class="ctl-item ctl-click" onclick="openModal('nlc',0)">
-          <div class="ctl-dot"></div>
-          <div class="ctl-body">
-            <div class="ctl-top"><div class="ctl-name">National Leadership Conference</div><div class="ctl-place g">National</div></div>
-            <div class="ctl-work">Las Vegas, NV · June 2026</div>
-            <div class="ctl-medals"><span class="sp-m g">🥇 ×2 1st</span><span class="sp-m s">🥈 ×2 2nd</span><span class="sp-m ">🥉 ×2 3rd</span><span class="sp-m ">15 Top-10</span><span class="sp-m aw">Largest Collegiate Chapter</span></div>
+        <div class="sp-mid">
+          <div class="sp-conf">National Leadership Conference</div>
+          <div class="sp-loc">Las Vegas, NV · June 2026</div>
+          <div class="sp-medals">
+              <span class="sp-m g">🥇 ×2 1st</span>
+              <span class="sp-m s">🥈 ×2 2nd</span>
+              <span class="sp-m">🥉 ×2 3rd</span>
+              <span class="sp-m">15 Top-10</span>
+              <span class="sp-m aw">Largest Collegiate Chapter</span>
           </div>
-        </div>
-        <div class="ctl-item ctl-click" onclick="openModal('sblc',0)">
-          <div class="ctl-dot"></div>
-          <div class="ctl-body">
-            <div class="ctl-top"><div class="ctl-name">State Business Leadership Conference</div><div class="ctl-place g">🏆 Sweepstakes</div></div>
-            <div class="ctl-work">Emeryville, CA · Spring 2026</div>
-            <div class="ctl-medals"><span class="sp-m g">🥇 ×6 Gold</span><span class="sp-m s">🥈 ×8 Silver</span><span class="sp-m ">🥉 ×2 Bronze</span><span class="sp-m aw">4 Chapter Awards</span></div>
-          </div>
-        </div>
-        <div class="ctl-item ctl-click" onclick="openModal('flc',0)">
-          <div class="ctl-dot"></div>
-          <div class="ctl-body">
-            <div class="ctl-top"><div class="ctl-name">Fall Leadership Conference</div></div>
-            <div class="ctl-work">La Jolla, CA · Nov 8–9, 2025</div>
-            <div class="ctl-medals"><span class="sp-m g">🥇 ×1 Gold</span><span class="sp-m s">🥈 ×1 Silver</span><span class="sp-m ">🥉 ×1 Bronze</span><span class="sp-m aw">Greatest Membership</span></div>
-          </div>
-        </div>
-        </div>
-      </div>
-
-      <div class="ctl-cycle">
-        <div class="ctl-cycle-head">
-          <div class="ctl-cycle-yr">2024–25 Season</div>
-          <div class="ctl-cycle-meta">Nationals · State · Fall</div>
-        </div>
-        <div class="ctl-items">
-        <div class="ctl-item ctl-click" onclick="openModal('nlc',1)">
-          <div class="ctl-dot"></div>
-          <div class="ctl-body">
-            <div class="ctl-top"><div class="ctl-name">National Leadership Conference</div><div class="ctl-place g">National</div></div>
-            <div class="ctl-work">Dallas, TX · May 31–Jun 2, 2025</div>
-            <div class="ctl-medals"><span class="sp-m g">🥇 ×3 Gold</span><span class="sp-m s">🥈 ×1 Silver</span><span class="sp-m ">🥉 ×1 Bronze</span><span class="sp-m ">4th ×1</span><span class="sp-m ">5th ×1</span></div>
-          </div>
-        </div>
-        <div class="ctl-item ctl-click" onclick="openModal('sblc',1)">
-          <div class="ctl-dot"></div>
-          <div class="ctl-body">
-            <div class="ctl-top"><div class="ctl-name">State Business Leadership Conference</div></div>
-            <div class="ctl-work">San Diego, CA · Mar 7–9, 2025</div>
-            <div class="ctl-medals"><span class="sp-m g">🥇 ×4 Gold</span><span class="sp-m s">🥈 ×3 Silver</span><span class="sp-m ">🥉 ×1 Bronze</span><span class="sp-m g">🥇 ×5 Obj.</span></div>
-          </div>
-        </div>
-        <div class="ctl-item ctl-click" onclick="openModal('flc',1)">
-          <div class="ctl-dot"></div>
-          <div class="ctl-body">
-            <div class="ctl-top"><div class="ctl-name">Fall Leadership Conference</div></div>
-            <div class="ctl-work">Emeryville, CA · Nov 16–17, 2024</div>
-            <div class="ctl-medals"><span class="sp-m g">🥇 ×1 Gold</span><span class="sp-m s">🥈 ×1 Silver</span><span class="sp-m ">🥉 ×1 Bronze</span></div>
-          </div>
-        </div>
         </div>
       </div>
     </div>
-    <div class="ctl-hint">Select a conference for full results</div>
+    <div class="strip-shell" onclick="openModal('nlc',1)">
+      <div class="strip-page">
+        <div class="sp-left">
+          <div class="sp-tag">Nationals</div>
+          <div class="sp-yr">2025</div>
+          <div class="sp-wm">NL</div>
+        </div>
+        <div class="sp-mid">
+          <div class="sp-conf">National Leadership Conference</div>
+          <div class="sp-loc">Dallas, TX · May 31–Jun 2, 2025</div>
+          <div class="sp-medals">
+              <span class="sp-m g">🥇 ×3 Gold</span>
+              <span class="sp-m s">🥈 ×1 Silver</span>
+              <span class="sp-m">🥉 ×1 Bronze</span>
+              <span class="sp-m">4th ×1</span>
+              <span class="sp-m">5th ×1</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="acc-sub-label">State Business Leadership Conference</div>
+    <div class="strip-shell" onclick="openModal('sblc',0)">
+      <div class="strip-page">
+        <div class="sp-left">
+          <div class="sp-tag">State</div>
+          <div class="sp-yr">2026</div>
+          <div class="sp-wm">SB</div>
+        </div>
+        <div class="sp-mid">
+          <div class="sp-conf">State Business Leadership Conference</div>
+          <div class="sp-loc">Emeryville, CA · Spring 2026</div>
+          <div class="sp-medals">
+              <span class="sp-m sw">🏆 Sweepstakes</span>
+              <span class="sp-m g">🥇 ×6 Gold</span>
+              <span class="sp-m s">🥈 ×8 Silver</span>
+              <span class="sp-m">🥉 ×2 Bronze</span>
+              <span class="sp-m aw">4 Chapter Awards</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="strip-shell" onclick="openModal('sblc',1)">
+      <div class="strip-page">
+        <div class="sp-left">
+          <div class="sp-tag">State</div>
+          <div class="sp-yr">2025</div>
+          <div class="sp-wm">SB</div>
+        </div>
+        <div class="sp-mid">
+          <div class="sp-conf">State Business Leadership Conference</div>
+          <div class="sp-loc">San Diego, CA · Mar 7–9, 2025</div>
+          <div class="sp-medals">
+              <span class="sp-m g">🥇 ×4 Gold</span>
+              <span class="sp-m s">🥈 ×3 Silver</span>
+              <span class="sp-m">🥉 ×1 Bronze</span>
+              <span class="sp-m g">🥇 ×5 Obj.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="acc-sub-label">Fall Leadership Conference</div>
+    <div class="strip-shell" onclick="openModal('flc',0)">
+      <div class="strip-page">
+        <div class="sp-left">
+          <div class="sp-tag">Fall</div>
+          <div class="sp-yr">2025</div>
+          <div class="sp-wm">FL</div>
+        </div>
+        <div class="sp-mid">
+          <div class="sp-conf">Fall Leadership Conference</div>
+          <div class="sp-loc">La Jolla, CA · Nov 8–9, 2025</div>
+          <div class="sp-medals">
+              <span class="sp-m g">🥇 ×1 Gold</span>
+              <span class="sp-m s">🥈 ×1 Silver</span>
+              <span class="sp-m">🥉 ×1 Bronze</span>
+              <span class="sp-m aw">Greatest Membership</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="strip-shell" onclick="openModal('flc',1)">
+      <div class="strip-page">
+        <div class="sp-left">
+          <div class="sp-tag">Fall</div>
+          <div class="sp-yr">2024</div>
+          <div class="sp-wm">FL</div>
+        </div>
+        <div class="sp-mid">
+          <div class="sp-conf">Fall Leadership Conference</div>
+          <div class="sp-loc">Emeryville, CA · Nov 16–17, 2024</div>
+          <div class="sp-medals">
+              <span class="sp-m g">🥇 ×1 Gold</span>
+              <span class="sp-m s">🥈 ×1 Silver</span>
+              <span class="sp-m">🥉 ×1 Bronze</span>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 
-  <!-- ══ CONSULTING ══ -->
   <div class="acc-section">
     <div class="acc-section-header">
       <div class="acc-section-name">Consulting</div>
@@ -230,49 +280,46 @@
     </div>
 
     <div class="acc-sub-label">Consulting Division</div>
-    <div class="strip-shell" onclick="openModal('con',conIdx)">
-      <div class="strip-track" id="track-con" style="width:200%">
-        <div class="strip-page" style="width:50%">
-          <div class="sp-left">
-            <div class="sp-tag">Spring</div>
-            <div class="sp-yr">2026</div>
-            <div class="sp-wm">CD</div>
-          </div>
-          <div class="sp-mid">
-            <div class="sp-conf">Consulting Division</div>
-            <div class="sp-loc">De Anza College · Spring 2026 · Azalea Jewelry, Star One Credit Union, UC Berkeley IEEE</div>
-            <div class="sp-medals">
+    <div class="strip-shell" onclick="openModal('con',0)">
+      <div class="strip-page">
+        <div class="sp-left">
+          <div class="sp-tag">Spring</div>
+          <div class="sp-yr">2026</div>
+          <div class="sp-wm">CD</div>
+        </div>
+        <div class="sp-mid">
+          <div class="sp-conf">Consulting Division</div>
+          <div class="sp-loc">De Anza College · Spring 2026 · Azalea Jewelry, Star One Credit Union, UC Berkeley IEEE</div>
+          <div class="sp-medals">
               <span class="sp-m g">🥇 1st Place</span>
               <span class="sp-m s">🥈 2nd Place</span>
               <span class="sp-m">🥉 3rd Place</span>
               <span class="sp-m aw">3 Clients</span>
-            </div>
           </div>
-          <div class="sp-nav"><button class="sp-btn" onclick="event.stopPropagation();slide('con',1)">→</button></div>
         </div>
-        <div class="strip-page" style="width:50%">
-          <div class="sp-left">
-            <div class="sp-tag">Fall</div>
-            <div class="sp-yr">2025</div>
-            <div class="sp-wm">CD</div>
-          </div>
-          <div class="sp-mid">
-            <div class="sp-conf">Consulting Division</div>
-            <div class="sp-loc">De Anza College · Fall 2025 · Hunger at Home, Palm &amp; Stone, VIDA</div>
-            <div class="sp-medals">
+      </div>
+    </div>
+    <div class="strip-shell" onclick="openModal('con',1)">
+      <div class="strip-page">
+        <div class="sp-left">
+          <div class="sp-tag">Fall</div>
+          <div class="sp-yr">2025</div>
+          <div class="sp-wm">CD</div>
+        </div>
+        <div class="sp-mid">
+          <div class="sp-conf">Consulting Division</div>
+          <div class="sp-loc">De Anza College · Fall 2025 · Hunger at Home, Palm &amp; Stone, VIDA</div>
+          <div class="sp-medals">
               <span class="sp-m g">🥇 1st Place</span>
               <span class="sp-m s">🥈 2nd Place</span>
               <span class="sp-m">🥉 3rd Place</span>
               <span class="sp-m aw">Inaugural Cycle</span>
-            </div>
           </div>
-          <div class="sp-nav"><button class="sp-btn" onclick="event.stopPropagation();slide('con',0)">→</button></div>
         </div>
       </div>
     </div>
   </div>
 
-  <!-- ══ INTERNAL EVENTS ══ -->
   <div class="acc-section">
     <div class="acc-section-header">
       <div class="acc-section-name">Internal Events</div>
@@ -280,68 +327,60 @@
       <div class="acc-section-count">3 Events</div>
     </div>
 
-    <!-- Shark Tank -->
     <div class="acc-sub-label">PBL Shark Tank</div>
-    <div class="strip-shell" onclick="openModal('st',stIdx)">
-      <div class="strip-track" id="track-st" style="width:200%">
-        <div class="strip-page" style="width:50%">
-          <div class="sp-left">
-            <div class="sp-tag">Shark Tank</div>
-            <div class="sp-yr">2026</div>
-            <div class="sp-wm">ST</div>
-          </div>
-          <div class="sp-mid">
-            <div class="sp-conf">PBL Shark Tank</div>
-            <div class="sp-loc">De Anza College · Spring 2026 · 50+ participants, 11 teams</div>
-            <div class="sp-medals">
+    <div class="strip-shell" onclick="openModal('st',0)">
+      <div class="strip-page">
+        <div class="sp-left">
+          <div class="sp-tag">Shark Tank</div>
+          <div class="sp-yr">2026</div>
+          <div class="sp-wm">ST</div>
+        </div>
+        <div class="sp-mid">
+          <div class="sp-conf">PBL Shark Tank</div>
+          <div class="sp-loc">De Anza College · Spring 2026 · 50+ participants, 11 teams</div>
+          <div class="sp-medals">
               <span class="sp-m g">🥇 1st Place</span>
               <span class="sp-m s">🥈 2nd Place</span>
               <span class="sp-m">🥉 3rd Place</span>
               <span class="sp-m aw">3 Special Awards</span>
-            </div>
           </div>
-          <div class="sp-nav"><button class="sp-btn" onclick="event.stopPropagation();slide('st',1)">→</button></div>
-        </div>
-        <div class="strip-page" style="width:50%">
-          <div class="sp-left">
-            <div class="sp-tag">Shark Tank</div>
-            <div class="sp-yr">2025</div>
-            <div class="sp-wm">ST</div>
-          </div>
-          <div class="sp-mid">
-            <div class="sp-conf">PBL Shark Tank</div>
-            <div class="sp-loc">De Anza College · Spring 2025 · 50 participants, 10 teams</div>
-            <div class="sp-medals">
-              <span class="sp-m g">🥇 1st Place</span>
-              <span class="sp-m s">🥈 2nd Place</span>
-              <span class="sp-m">🥉 3rd Place</span>
-            </div>
-          </div>
-          <div class="sp-nav"><button class="sp-btn" onclick="event.stopPropagation();slide('st',0)">→</button></div>
         </div>
       </div>
     </div>
-
-    <!-- DAIS -->
-    <div class="acc-sub-label">De Anza Innovation Summit</div>
-    <div class="strip-shell" onclick="openModal('dais',0)">
-      <div class="strip-track" id="track-dais" style="width:100%">
-        <div class="strip-page" style="width:100%">
-          <div class="sp-left">
-            <div class="sp-tag">DAIS</div>
-            <div class="sp-yr">2025</div>
-            <div class="sp-wm">DA</div>
-          </div>
-          <div class="sp-mid">
-            <div class="sp-conf">De Anza Innovation Summit</div>
-            <div class="sp-loc">De Anza College · Oct 10, 2025 · 80+ participants, 21 teams</div>
-            <div class="sp-medals">
+    <div class="strip-shell" onclick="openModal('st',1)">
+      <div class="strip-page">
+        <div class="sp-left">
+          <div class="sp-tag">Shark Tank</div>
+          <div class="sp-yr">2025</div>
+          <div class="sp-wm">ST</div>
+        </div>
+        <div class="sp-mid">
+          <div class="sp-conf">PBL Shark Tank</div>
+          <div class="sp-loc">De Anza College · Spring 2025 · 50 participants, 10 teams</div>
+          <div class="sp-medals">
               <span class="sp-m g">🥇 1st Place</span>
               <span class="sp-m s">🥈 2nd Place</span>
               <span class="sp-m">🥉 3rd Place</span>
-            </div>
           </div>
-          <div class="sp-nav"><button class="sp-btn" disabled>→</button></div>
+        </div>
+      </div>
+    </div>
+    <div class="acc-sub-label">De Anza Innovation Summit</div>
+    <div class="strip-shell" onclick="openModal('dais',0)">
+      <div class="strip-page">
+        <div class="sp-left">
+          <div class="sp-tag">DAIS</div>
+          <div class="sp-yr">2025</div>
+          <div class="sp-wm">DA</div>
+        </div>
+        <div class="sp-mid">
+          <div class="sp-conf">De Anza Innovation Summit</div>
+          <div class="sp-loc">De Anza College · Oct 10, 2025 · 80+ participants, 21 teams</div>
+          <div class="sp-medals">
+              <span class="sp-m g">🥇 1st Place</span>
+              <span class="sp-m s">🥈 2nd Place</span>
+              <span class="sp-m">🥉 3rd Place</span>
+          </div>
         </div>
       </div>
     </div>
