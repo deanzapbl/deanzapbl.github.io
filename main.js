@@ -1,3 +1,23 @@
+// ── NAV BUTTONS (Org Program + Apply) ──────────────────────────────────────────
+(function() {
+  var apply = document.querySelector('#nav .nav-apply');
+  if(apply) {
+    apply.href = 'https://linktr.ee/deanzapbl';
+    apply.target = '_blank';
+    apply.rel = 'noopener';
+  }
+  var org = document.getElementById('nl-org');
+  if(org && apply) {
+    var li = org.parentNode;
+    org.className = 'nav-apply';
+    org.style.flexShrink = '0';
+    org.style.whiteSpace = 'nowrap';
+    apply.parentNode.insertBefore(org, apply);
+    if(li && li.tagName === 'LI') li.remove();
+    apply.style.marginLeft = '-1.5rem';
+  }
+})();
+
 // ── CURSOR ────────────────────────────────────────────────────────────────────
 var cur = document.getElementById('cur');
 var ring = document.getElementById('ring');
