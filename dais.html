@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>DAIS 2026 · De Anza Innovation Summit</title>
+<meta name="description" content="De Anza Innovation Summit 2026: Find Your Tempo. A two-day student business case competition at De Anza College, Oct 10–11, 2026.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="DAIS 2026 · De Anza Innovation Summit">
+<meta property="og:description" content="De Anza Innovation Summit 2026: Find Your Tempo. A two-day student business case competition at De Anza College, Oct 10–11, 2026.">
+<meta property="og:url" content="https://deanzapbl.com/dais.html">
+<meta property="og:image" content="https://deanzapbl.com/images/dais/og-image.png">
+<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://deanzapbl.com/images/dais/og-image.png">
+<meta name="theme-color" content="#0b0606">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Unbounded:wght@400;700;800&family=IBM+Plex+Sans:wght@300;400;500&family=IBM+Plex+Mono:wght@400;500&family=Playfair+Display:ital,wght@0,400;1,400&family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<style>
+
+:root{--gold1:#fff1c9;--gold2:#fde9b6;--gold3:#f0c56a;--mar:#7e231e;--mar2:#45120f;--ink:#120c0c}
+.gold{background:linear-gradient(90deg,var(--gold2),var(--gold3));-webkit-background-clip:text;background-clip:text;color:transparent}
+.mont{font-family:'Montserrat',sans-serif}
+.h-btns{display:flex;gap:.8rem;flex-wrap:wrap}
+.hb{white-space:nowrap;font-family:'Montserrat',sans-serif;font-weight:600;font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;padding:1rem 1.8rem;text-decoration:none;transition:all .25s;display:inline-flex;align-items:center;gap:.6rem}
+.hb-gold{background:linear-gradient(90deg,var(--gold2),var(--gold3));color:#1a0705}
+.hb-gold:hover{filter:brightness(1.08);transform:translateY(-1px)}
+.hb-line{border:1px solid rgba(253,233,182,.45);color:var(--gold2)}
+.hb-line:hover{background:rgba(253,233,182,.08)}
+.next-stub{height:180px;background:var(--black);border-top:1px solid var(--border)}
+
+.c1{display:flex;align-items:center;gap:2rem}
+.c1-play{display:inline-flex;align-items:center;gap:.9rem;padding:.55rem 1.6rem .55rem .55rem;border-radius:100px;background:linear-gradient(90deg,var(--gold2),var(--gold3));color:#1a0705;text-decoration:none;font-family:Montserrat,sans-serif;font-weight:700;font-size:.74rem;letter-spacing:.16em;text-transform:uppercase;box-shadow:0 10px 30px rgba(240,197,106,.18);transition:transform .25s,box-shadow .25s}
+.c1-play:hover{transform:translateY(-2px);box-shadow:0 14px 40px rgba(240,197,106,.3)}
+.c1-play i{width:38px;height:38px;border-radius:50%;background:#1a0705;color:var(--gold2);display:flex;align-items:center;justify-content:center}
+.c1-link{font-family:Montserrat,sans-serif;font-weight:600;font-size:.74rem;letter-spacing:.16em;text-transform:uppercase;color:#fff;text-decoration:none;border-bottom:1px solid rgba(253,233,182,.5);padding-bottom:.35rem;transition:color .2s}
+.c1-link:hover{color:var(--gold2)}
+.c2{display:flex;align-items:center;gap:0;border:1px solid rgba(253,233,182,.25);border-radius:100px;padding:.35rem;background:rgba(20,8,8,.5);backdrop-filter:blur(8px)}
+.c2 a{font-family:Montserrat,sans-serif;font-weight:600;font-size:.7rem;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.75);text-decoration:none;padding:.85rem 1.4rem;border-radius:100px;transition:all .2s}
+.c2 a:hover{color:#fff;background:rgba(253,233,182,.08)}
+.c2 a.pri{background:linear-gradient(90deg,var(--gold2),var(--gold3));color:#1a0705}
+
+.h2{position:relative;min-height:100vh;overflow:hidden;background:#0b0606;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:7rem 2rem 2.5rem}
+.h2-beam{position:absolute;top:-10%;left:50%;width:140%;height:110%;transform:translateX(-50%);background:conic-gradient(from 180deg at 50% 0%,transparent 160deg,rgba(200,60,45,.35) 170deg,rgba(255,190,140,.16) 180deg,rgba(200,60,45,.35) 190deg,transparent 200deg);filter:blur(6px);animation:beam 7s ease-in-out infinite alternate;pointer-events:none}
+@keyframes beam{from{transform:translateX(-50%) rotate(-3deg)}to{transform:translateX(-50%) rotate(3deg)}}
+.h2-glow{position:absolute;left:50%;top:58%;width:900px;height:500px;transform:translate(-50%,-50%);background:radial-gradient(ellipse,rgba(126,35,30,.55),transparent 65%);pointer-events:none}
+.h2-floor{position:absolute;left:0;right:0;bottom:0;height:35%;background:linear-gradient(transparent,rgba(0,0,0,.6));pointer-events:none}
+.h2>*:not(.h2-beam):not(.h2-glow):not(.h2-floor){position:relative;z-index:2}
+.h2-eyebrow{font-family:'Montserrat',sans-serif;font-weight:600;font-size:.72rem;letter-spacing:.42em;text-transform:uppercase;color:var(--gold2);display:flex;align-items:center;gap:1rem}
+.h2-eyebrow::before,.h2-eyebrow::after{content:'';width:40px;height:1px;background:linear-gradient(90deg,transparent,var(--gold3))}
+.h2-eyebrow::after{transform:scaleX(-1)}
+.h2-logo{width:min(70vw,560px);margin:1.6rem 0 1.4rem;filter:drop-shadow(0 20px 60px rgba(0,0,0,.6))}
+.h2-lock{display:flex;align-items:center;gap:1.4rem}
+.h2-lock .a{width:clamp(56px,5vw,78px)}
+.h2-lock .t{width:clamp(200px,20vw,300px)}
+.h2-info{display:flex;align-items:stretch;margin:2.2rem 0 1.8rem;border-top:1px solid rgba(253,233,182,.22);border-bottom:1px solid rgba(253,233,182,.22)}
+.h2-i{padding:1.1rem 2.2rem;display:flex;align-items:center;gap:.8rem;font-family:'Montserrat',sans-serif;font-size:.95rem;color:#fff;font-weight:500}
+.h2-i+.h2-i{border-left:1px solid rgba(253,233,182,.22)}
+.h2-i svg{width:18px;height:18px;color:var(--gold3);flex-shrink:0}
+.h2-partners{margin-top:2.6rem;display:flex;flex-direction:column;align-items:center;gap:1.1rem}
+.h2-pl{font-family:'Montserrat',sans-serif;font-size:.62rem;letter-spacing:.32em;text-transform:uppercase;color:rgba(255,255,255,.45)}
+.h2-row{display:flex;align-items:center;gap:2.6rem}
+.h2-row img{height:34px;opacity:.85;transition:opacity .2s}
+.h2-row img:hover{opacity:1}
+.h2-row img.ey{height:42px}
+.h2-row .div{width:1px;height:28px;background:rgba(255,255,255,.18)}
+.h2-pbl{display:flex;align-items:center;gap:.55rem;color:#fff;opacity:.85}
+.h2-pbl b{font-family:'Playfair Display',serif;font-weight:400;font-size:2rem;line-height:1}
+.h2-pbl span{font-family:'Playfair Display',serif;font-size:.85rem;line-height:1.05;letter-spacing:.05em;text-align:left}
+@media(max-width:800px){
+ .h2-info{flex-direction:column;border:none;gap:0}
+ .h2-i{padding:.7rem 0;justify-content:center}
+ .h2-i+.h2-i{border-left:none;border-top:1px solid rgba(253,233,182,.15)}
+ .h2-row{flex-wrap:wrap;justify-content:center;gap:1.4rem}
+ .h2-row .div{display:none}
+ .h2-row img{height:26px}.h2-row img.ey{height:32px}
+ .h2-eyebrow{font-size:.58rem;letter-spacing:.3em}
+}
+
+@media(max-width:800px){.c1{flex-direction:column;gap:1.4rem}}
+.c3{display:flex;gap:1rem;flex-wrap:wrap;justify-content:center}
+.c3-b{display:inline-flex;align-items:center;gap:1.2rem;padding:1.05rem 1.6rem 1.05rem 1.9rem;border-radius:100px;font-family:Montserrat,sans-serif;font-weight:700;font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;text-decoration:none;transition:transform .25s,box-shadow .25s,background .25s}
+.c3-b span{font-size:1rem;transition:transform .25s}
+.c3-b:hover span{transform:translateX(4px)}
+.c3-b.gold{background:linear-gradient(90deg,var(--gold2),var(--gold3));color:#1a0705;box-shadow:0 10px 30px rgba(240,197,106,.18)}
+.c3-b.gold:hover{transform:translateY(-2px);box-shadow:0 14px 40px rgba(240,197,106,.3)}
+.c3-b.line{border:1px solid rgba(253,233,182,.45);color:var(--gold2)}
+.c3-b.line:hover{background:rgba(253,233,182,.08)}
+.h2{padding-bottom:6.5rem}
+.h2 .c3-scroll{position:relative !important;margin-top:2.2rem;z-index:3;display:flex;flex-direction:column;align-items:center;gap:.6rem;text-decoration:none}
+.c3-scroll span{font-family:Montserrat,sans-serif;font-weight:600;font-size:.58rem;letter-spacing:.3em;text-transform:uppercase;color:rgba(255,255,255,.5)}
+.c3-scroll i{width:22px;height:34px;border:1px solid rgba(253,233,182,.5);border-radius:12px;position:relative}
+.c3-scroll i::after{content:'';position:absolute;left:50%;top:7px;width:3px;height:7px;border-radius:2px;background:var(--gold3);transform:translateX(-50%);animation:wheel 1.6s ease-in-out infinite}
+@keyframes wheel{0%{opacity:0;transform:translate(-50%,0)}30%{opacity:1}100%{opacity:0;transform:translate(-50%,10px)}}
+@media(max-width:800px){.c3{flex-direction:column;align-items:stretch;width:100%;max-width:320px}.c3-b{justify-content:space-between}}
+
+.h2:not(.over) .post{display:none!important}.h2.over .pre{display:none!important}
+.h2.over .h2-logo{width:min(40vw,320px)!important;margin:1.2rem 0 1rem!important}
+.sy{font-family:Montserrat,sans-serif;display:flex;flex-direction:column;align-items:center;line-height:.95}
+.sy .o{font-weight:300;font-size:clamp(1.6rem,3vw,2.4rem);color:rgba(255,255,255,.8)}
+.sy .y{font-weight:800;font-size:clamp(5rem,13vw,10rem);letter-spacing:-.04em;color:transparent;-webkit-text-stroke:2px #f0c56a}
+.sys{font-family:Montserrat,sans-serif;color:rgba(255,255,255,.7);margin:1.2rem auto 2rem;max-width:560px;line-height:1.7}
+
+
+:root{--gold1:#fff1c9;--gold2:#fde9b6;--gold3:#f0c56a;--mar:#7e231e;--mar2:#45120f;--ink:#120c0c}
+.gold{background:linear-gradient(90deg,var(--gold2),var(--gold3));-webkit-background-clip:text;background-clip:text;color:transparent}
+.mont{font-family:'Montserrat',sans-serif}
+.h-btns{display:flex;gap:.8rem;flex-wrap:wrap}
+.hb{white-space:nowrap;font-family:'Montserrat',sans-serif;font-weight:600;font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;padding:1rem 1.8rem;text-decoration:none;transition:all .25s;display:inline-flex;align-items:center;gap:.6rem}
+.hb-gold{background:linear-gradient(90deg,var(--gold2),var(--gold3));color:#1a0705}
+.hb-gold:hover{filter:brightness(1.08);transform:translateY(-1px)}
+.hb-line{border:1px solid rgba(253,233,182,.45);color:var(--gold2)}
+.hb-line:hover{background:rgba(253,233,182,.08)}
+.next-stub{height:180px;background:var(--black);border-top:1px solid var(--border)}
+
+.c1{display:flex;align-items:center;gap:2rem}
+.c1-play{display:inline-flex;align-items:center;gap:.9rem;padding:.55rem 1.6rem .55rem .55rem;border-radius:100px;background:linear-gradient(90deg,var(--gold2),var(--gold3));color:#1a0705;text-decoration:none;font-family:Montserrat,sans-serif;font-weight:700;font-size:.74rem;letter-spacing:.16em;text-transform:uppercase;box-shadow:0 10px 30px rgba(240,197,106,.18);transition:transform .25s,box-shadow .25s}
+.c1-play:hover{transform:translateY(-2px);box-shadow:0 14px 40px rgba(240,197,106,.3)}
+.c1-play i{width:38px;height:38px;border-radius:50%;background:#1a0705;color:var(--gold2);display:flex;align-items:center;justify-content:center}
+.c1-link{font-family:Montserrat,sans-serif;font-weight:600;font-size:.74rem;letter-spacing:.16em;text-transform:uppercase;color:#fff;text-decoration:none;border-bottom:1px solid rgba(253,233,182,.5);padding-bottom:.35rem;transition:color .2s}
+.c1-link:hover{color:var(--gold2)}
+.c2{display:flex;align-items:center;gap:0;border:1px solid rgba(253,233,182,.25);border-radius:100px;padding:.35rem;background:rgba(20,8,8,.5);backdrop-filter:blur(8px)}
+.c2 a{font-family:Montserrat,sans-serif;font-weight:600;font-size:.7rem;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.75);text-decoration:none;padding:.85rem 1.4rem;border-radius:100px;transition:all .2s}
+.c2 a:hover{color:#fff;background:rgba(253,233,182,.08)}
+.c2 a.pri{background:linear-gradient(90deg,var(--gold2),var(--gold3));color:#1a0705}
+
+.h2{position:relative;min-height:100vh;overflow:hidden;background:#0b0606;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:7rem 2rem 2.5rem}
+.h2-beam{position:absolute;top:-10%;left:50%;width:140%;height:110%;transform:translateX(-50%);background:conic-gradient(from 180deg at 50% 0%,transparent 160deg,rgba(200,60,45,.35) 170deg,rgba(255,190,140,.16) 180deg,rgba(200,60,45,.35) 190deg,transparent 200deg);filter:blur(6px);animation:beam 7s ease-in-out infinite alternate;pointer-events:none}
+@keyframes beam{from{transform:translateX(-50%) rotate(-3deg)}to{transform:translateX(-50%) rotate(3deg)}}
+.h2-glow{position:absolute;left:50%;top:58%;width:900px;height:500px;transform:translate(-50%,-50%);background:radial-gradient(ellipse,rgba(126,35,30,.55),transparent 65%);pointer-events:none}
+.h2-floor{position:absolute;left:0;right:0;bottom:0;height:35%;background:linear-gradient(transparent,rgba(0,0,0,.6));pointer-events:none}
+.h2>*:not(.h2-beam):not(.h2-glow):not(.h2-floor){position:relative;z-index:2}
+.h2-eyebrow{font-family:'Montserrat',sans-serif;font-weight:600;font-size:.72rem;letter-spacing:.42em;text-transform:uppercase;color:var(--gold2);display:flex;align-items:center;gap:1rem}
+.h2-eyebrow::before,.h2-eyebrow::after{content:'';width:40px;height:1px;background:linear-gradient(90deg,transparent,var(--gold3))}
+.h2-eyebrow::after{transform:scaleX(-1)}
+.h2-logo{width:min(70vw,560px);margin:1.6rem 0 1.4rem;filter:drop-shadow(0 20px 60px rgba(0,0,0,.6))}
+.h2-lock{display:flex;align-items:center;gap:1.4rem}
+.h2-lock .a{width:clamp(56px,5vw,78px)}
+.h2-lock .t{width:clamp(200px,20vw,300px)}
+.h2-info{display:flex;align-items:stretch;margin:2.2rem 0 1.8rem;border-top:1px solid rgba(253,233,182,.22);border-bottom:1px solid rgba(253,233,182,.22)}
+.h2-i{padding:1.1rem 2.2rem;display:flex;align-items:center;gap:.8rem;font-family:'Montserrat',sans-serif;font-size:.95rem;color:#fff;font-weight:500}
+.h2-i+.h2-i{border-left:1px solid rgba(253,233,182,.22)}
+.h2-i svg{width:18px;height:18px;color:var(--gold3);flex-shrink:0}
+.h2-partners{margin-top:2.6rem;display:flex;flex-direction:column;align-items:center;gap:1.1rem}
+.h2-pl{font-family:'Montserrat',sans-serif;font-size:.62rem;letter-spacing:.32em;text-transform:uppercase;color:rgba(255,255,255,.45)}
+.h2-row{display:flex;align-items:center;gap:2.6rem}
+.h2-row img{height:34px;opacity:.85;transition:opacity .2s}
+.h2-row img:hover{opacity:1}
+.h2-row img.ey{height:42px}
+.h2-row .div{width:1px;height:28px;background:rgba(255,255,255,.18)}
+.h2-pbl{display:flex;align-items:center;gap:.55rem;color:#fff;opacity:.85}
+.h2-pbl b{font-family:'Playfair Display',serif;font-weight:400;font-size:2rem;line-height:1}
+.h2-pbl span{font-family:'Playfair Display',serif;font-size:.85rem;line-height:1.05;letter-spacing:.05em;text-align:left}
+@media(max-width:800px){
+ .h2-info{flex-direction:column;border:none;gap:0}
+ .h2-i{padding:.7rem 0;justify-content:center}
+ .h2-i+.h2-i{border-left:none;border-top:1px solid rgba(253,233,182,.15)}
+ .h2-row{flex-wrap:wrap;justify-content:center;gap:1.4rem}
+ .h2-row .div{display:none}
+ .h2-row img{height:26px}.h2-row img.ey{height:32px}
+ .h2-eyebrow{font-size:.58rem;letter-spacing:.3em}
+}
+
+@media(max-width:800px){.c1{flex-direction:column;gap:1.4rem}}
+.vsec{position:relative;background:#0b0606;overflow:clip}
+.v-eb{font-family:Montserrat,sans-serif;font-weight:600;font-size:.7rem;letter-spacing:.38em;text-transform:uppercase;color:var(--gold2)}
+.v-h{font-family:Montserrat,sans-serif;font-weight:800;font-size:clamp(2.4rem,5.5vw,4.6rem);line-height:1;letter-spacing:-.02em;color:#fff}
+.v-h em{font-style:normal;background:linear-gradient(90deg,var(--gold2),var(--gold3));-webkit-background-clip:text;background-clip:text;color:transparent}
+.v-p{font-family:Montserrat,sans-serif;font-size:1rem;line-height:1.75;color:rgba(255,255,255,.65)}
+.vp{position:relative;aspect-ratio:16/9;overflow:hidden;background:#000}
+.vp video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
+.vp-cover{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;padding-bottom:7%;gap:.9rem;background:linear-gradient(180deg,rgba(0,0,0,0) 45%,rgba(0,0,0,.55));cursor:pointer;border:none;width:100%;transition:opacity .4s}
+.vp.playing .vp-cover{opacity:0;pointer-events:none}
+.vp-btn{width:clamp(64px,7vw,96px);aspect-ratio:1;border-radius:50%;background:linear-gradient(135deg,var(--gold2),var(--gold3));color:#1a0705;display:flex;align-items:center;justify-content:center;position:relative;transition:transform .3s}
+.vp-btn svg{width:34%;margin-left:6%}
+.vp-btn::before{content:'';position:absolute;inset:-10px;border-radius:50%;border:1px solid rgba(253,233,182,.6);animation:ring 2.2s ease-out infinite}
+@keyframes ring{from{transform:scale(.9);opacity:1}to{transform:scale(1.45);opacity:0}}
+.vp-cover:hover .vp-btn{transform:scale(1.07)}
+.vp-cap{font-family:Montserrat,sans-serif;font-weight:600;font-size:.66rem;letter-spacing:.3em;text-transform:uppercase;color:#fff;text-shadow:0 2px 10px rgba(0,0,0,.6)}
+.v-link{font-family:Montserrat,sans-serif;font-weight:600;font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:#fff;text-decoration:none;border-bottom:1px solid rgba(253,233,182,.5);padding-bottom:.35rem}
+.v-link:hover{color:var(--gold2)}
+@media(max-width:700px){.vp-btn{width:56px}.vp-btn::before{inset:-7px}.vp-cap{display:none}.vp-cover{padding-bottom:6%}}
+
+.w5{height:230vh;background:#0b0606}
+.w5-st{position:sticky;top:0;height:100vh;display:flex;align-items:center;justify-content:center;overflow:hidden}
+.w5-bg{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:space-between;padding:9vh 0 5vh;pointer-events:none}
+.w5-bg div{font-family:Montserrat,sans-serif;font-weight:800;font-size:clamp(4rem,15vw,15rem);line-height:.85;letter-spacing:-.04em;color:transparent;-webkit-text-stroke:1.5px rgba(253,233,182,.35);white-space:nowrap}
+.w5-bg div.f{background:linear-gradient(90deg,var(--gold2),var(--gold3));-webkit-background-clip:text;background-clip:text;color:transparent;-webkit-text-stroke:0;opacity:.9}
+.w5-box{position:relative;width:100vw;transform:scale(var(--s,.5));border-radius:calc(28px / var(--s,.5));overflow:hidden;box-shadow:0 40px 120px rgba(0,0,0,.7);will-change:transform}
+.w5-box .vp{border-radius:0}
+.w5-lab{position:absolute;left:2.5rem;bottom:2.5rem;display:flex;flex-direction:column;gap:.9rem;align-items:flex-start;opacity:var(--o,1);transition:opacity .2s;z-index:3}
+@media(max-width:1100px){.w5-lab{left:50%;bottom:1.5rem;transform:translateX(-50%);align-items:center;text-align:center}}
+@media(max-width:700px){.w5{height:170vh}.w5-lab{display:none}.w5-bg{padding:18vh 0 16vh}}
+
+
+:root{--gold1:#fff1c9;--gold2:#fde9b6;--gold3:#f0c56a;--mar:#7e231e;--mar2:#45120f;--ink:#120c0c}
+.gold{background:linear-gradient(90deg,var(--gold2),var(--gold3));-webkit-background-clip:text;background-clip:text;color:transparent}
+.mont{font-family:'Montserrat',sans-serif}
+.h-btns{display:flex;gap:.8rem;flex-wrap:wrap}
+.hb{white-space:nowrap;font-family:'Montserrat',sans-serif;font-weight:600;font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;padding:1rem 1.8rem;text-decoration:none;transition:all .25s;display:inline-flex;align-items:center;gap:.6rem}
+.hb-gold{background:linear-gradient(90deg,var(--gold2),var(--gold3));color:#1a0705}
+.hb-gold:hover{filter:brightness(1.08);transform:translateY(-1px)}
+.hb-line{border:1px solid rgba(253,233,182,.45);color:var(--gold2)}
+.hb-line:hover{background:rgba(253,233,182,.08)}
+.next-stub{height:180px;background:var(--black);border-top:1px solid var(--border)}
+
+.ab{position:relative;background:#0b0606;overflow:clip;font-family:Montserrat,sans-serif;color:#fff}
+.ab .eb{font-weight:600;font-size:.7rem;letter-spacing:.38em;text-transform:uppercase;color:var(--gold2)}
+.ab .gd{background:linear-gradient(90deg,var(--gold2),var(--gold3));-webkit-background-clip:text;background-clip:text;color:transparent}
+.ab p{line-height:1.8;color:rgba(255,255,255,.7)}
+.ab .arw{width:30px;height:30px;flex-shrink:0}
+
+.a1{padding:8rem 3rem}
+.a1-in{max-width:1300px;margin:0 auto;display:grid;grid-template-columns:1.1fr 1fr;gap:6rem;align-items:start}
+.a1-h{font-weight:800;font-size:clamp(3rem,6.5vw,6rem);line-height:.95;letter-spacing:-.03em;margin:1.4rem 0 2rem}
+.a1-l p{font-size:1.08rem;max-width:520px}
+.a1-r{border-left:1px solid rgba(253,233,182,.2);padding-left:3.5rem;padding-top:.4rem}
+.a1-r h3{font-weight:700;font-size:.72rem;letter-spacing:.3em;text-transform:uppercase;color:var(--gold3);margin-bottom:1rem}
+.a1-r p{font-size:.98rem;margin-bottom:3rem}
+.a1-r ul{list-style:none}
+.a1-r li{display:flex;gap:1.1rem;align-items:flex-start;padding:1.2rem 0;border-top:1px solid rgba(255,255,255,.08)}
+.a1-r li b{display:block;font-weight:700;font-size:1.05rem;margin-bottom:.3rem}
+.a1-r li span{font-size:.92rem;color:rgba(255,255,255,.6);line-height:1.6}
+@media(max-width:900px){.a1{padding:5rem 1.4rem}.a1-in{grid-template-columns:1fr;gap:3rem}.a1-r{border-left:none;padding-left:0;border-top:1px solid rgba(253,233,182,.2);padding-top:2.5rem}}
+
+
+:root{--gold1:#fff1c9;--gold2:#fde9b6;--gold3:#f0c56a;--mar:#7e231e;--mar2:#45120f;--ink:#120c0c}
+.gold{background:linear-gradient(90deg,var(--gold2),var(--gold3));-webkit-background-clip:text;background-clip:text;color:transparent}
+.mont{font-family:'Montserrat',sans-serif}
+.h-btns{display:flex;gap:.8rem;flex-wrap:wrap}
+.hb{white-space:nowrap;font-family:'Montserrat',sans-serif;font-weight:600;font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;padding:1rem 1.8rem;text-decoration:none;transition:all .25s;display:inline-flex;align-items:center;gap:.6rem}
+.hb-gold{background:linear-gradient(90deg,var(--gold2),var(--gold3));color:#1a0705}
+.hb-gold:hover{filter:brightness(1.08);transform:translateY(-1px)}
+.hb-line{border:1px solid rgba(253,233,182,.45);color:var(--gold2)}
+.hb-line:hover{background:rgba(253,233,182,.08)}
+.next-stub{height:180px;background:var(--black);border-top:1px solid var(--border)}
+
+.ev{position:relative;background:#0b0606;font-family:Montserrat,sans-serif;color:#fff;padding:8rem 3rem;overflow:clip}
+.ev-in{max-width:1300px;margin:0 auto}
+.ev .eb{font-weight:600;font-size:.7rem;letter-spacing:.38em;text-transform:uppercase;color:var(--gold2)}
+.ev .gd{background:linear-gradient(90deg,var(--gold2),var(--gold3));-webkit-background-clip:text;background-clip:text;color:transparent}
+.ev h2{font-weight:800;font-size:clamp(2.4rem,5vw,4.4rem);letter-spacing:-.03em;line-height:1;margin:1.1rem 0 0}
+.ev p{line-height:1.7;color:rgba(255,255,255,.72);font-size:.92rem}
+.ev a{color:var(--gold2)}
+.due{margin-top:.6rem;font-weight:700;color:#fff!important}
+.mapb{display:inline-flex;margin-top:1rem;padding:.7rem 1.1rem;border-radius:100px;border:1px solid rgba(253,233,182,.4);font-weight:700;font-size:.7rem;letter-spacing:.1em;text-decoration:none;color:var(--gold2)!important;transition:all .2s}
+.mapb:hover{background:linear-gradient(90deg,var(--gold2),var(--gold3));color:#1a0705!important;border-color:transparent}
+.ic{width:42px;height:42px;border-radius:12px;background:linear-gradient(135deg,var(--gold2),var(--gold3));color:#1a0705;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.ic svg{width:21px;height:21px}
+.lab{font-weight:700;font-size:.64rem;letter-spacing:.28em;text-transform:uppercase;color:var(--gold3)}
+@media(max-width:800px){.ev{padding:5rem 1.2rem}}
+
+.tl{position:relative}
+.tl-i{display:grid;grid-template-columns:86px 18px 1fr;gap:1rem;align-items:start;padding:.85rem 0;position:relative}
+.tl-i::before{content:'';position:absolute;left:calc(86px + 1rem + 8px);top:0;bottom:0;width:1px;background:rgba(253,233,182,.18)}
+.tl-i:first-child::before{top:1.3rem}.tl-i:last-child::before{bottom:calc(100% - 1.3rem)}
+.tl-t{font-weight:700;font-size:.78rem;color:rgba(255,255,255,.55);padding-top:.1rem;text-align:right;font-variant-numeric:tabular-nums}
+.tl-d{width:11px;height:11px;border-radius:50%;background:#0b0606;border:1.5px solid rgba(253,233,182,.5);margin:.3rem 0 0 3px;position:relative;z-index:1}
+.tl-i b{display:block;font-weight:700;font-size:1rem}
+.tl-i p{font-size:.82rem;margin-top:.15rem;color:rgba(255,255,255,.55)}
+.tl-i.key .tl-d{background:linear-gradient(135deg,var(--gold2),var(--gold3));border:none;width:15px;height:15px;margin:.2rem 0 0 1px;box-shadow:0 0 0 5px rgba(240,197,106,.15)}
+.tl-i.key b{color:var(--gold2)}
+.tl-i.key .tl-t{color:var(--gold2)}
+@media(max-width:600px){.tl-i{grid-template-columns:64px 16px 1fr;gap:.7rem}.tl-i::before{left:calc(64px + .7rem + 7px)}}
+
+.i1{display:grid;grid-template-columns:1.25fr .9fr;gap:4rem;margin-top:3.5rem;align-items:start}
+.dtabs{display:inline-flex;gap:4px;padding:5px;border-radius:100px;border:1px solid rgba(253,233,182,.2);background:#120707;margin-bottom:1.6rem}
+.dtab{border:none;background:none;color:rgba(255,255,255,.6);font-family:Montserrat,sans-serif;font-weight:700;font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;padding:.8rem 1.4rem;border-radius:100px;cursor:pointer}
+.dtab small{display:block;font-size:.58rem;letter-spacing:.1em;opacity:.7;margin-top:.15rem;font-weight:600}
+.dtab.on{background:linear-gradient(90deg,var(--gold2),var(--gold3));color:#1a0705}
+.dp{display:none}.dp.on{display:block;animation:fadeIn .35s}
+.i1-s{position:sticky;top:100px;display:grid;gap:12px}
+.i1-c{border:1px solid rgba(253,233,182,.16);border-radius:18px;padding:1.4rem 1.5rem;background:linear-gradient(180deg,#170909,#0f0606)}
+.i1-h{display:flex;align-items:center;gap:.9rem;margin-bottom:.8rem}
+@media(max-width:900px){.i1{grid-template-columns:1fr;gap:2.5rem}.i1-s{position:static}}
+
+
+:root{--gold1:#fff1c9;--gold2:#fde9b6;--gold3:#f0c56a;--mar:#7e231e;--mar2:#45120f;--ink:#120c0c}
+.gold{background:linear-gradient(90deg,var(--gold2),var(--gold3));-webkit-background-clip:text;background-clip:text;color:transparent}
+.mont{font-family:'Montserrat',sans-serif}
+.h-btns{display:flex;gap:.8rem;flex-wrap:wrap}
+.hb{white-space:nowrap;font-family:'Montserrat',sans-serif;font-weight:600;font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;padding:1rem 1.8rem;text-decoration:none;transition:all .25s;display:inline-flex;align-items:center;gap:.6rem}
+.hb-gold{background:linear-gradient(90deg,var(--gold2),var(--gold3));color:#1a0705}
+.hb-gold:hover{filter:brightness(1.08);transform:translateY(-1px)}
+.hb-line{border:1px solid rgba(253,233,182,.45);color:var(--gold2)}
+.hb-line:hover{background:rgba(253,233,182,.08)}
+.next-stub{height:180px;background:var(--black);border-top:1px solid var(--border)}
+
+.pr{position:relative;background:#0b0606;overflow:clip;font-family:Montserrat,sans-serif;color:#fff}
+.pr .eb{font-weight:600;font-size:.7rem;letter-spacing:.38em;text-transform:uppercase;color:var(--gold2)}
+.pr .gd{background:linear-gradient(90deg,var(--gold2),var(--gold3));-webkit-background-clip:text;background-clip:text;color:transparent}
+.pr p{line-height:1.8;color:rgba(255,255,255,.72)}
+.pr h2.big{font-weight:800;font-size:clamp(2.6rem,5.5vw,4.8rem);line-height:.98;letter-spacing:-.03em;margin:1.2rem 0 0}
+.lab{font-weight:700;font-size:.66rem;letter-spacing:.3em;text-transform:uppercase;color:var(--gold3)}
+.chips{display:flex;flex-wrap:wrap;gap:.5rem}
+.chips span{font-weight:600;font-size:.72rem;letter-spacing:.08em;padding:.6rem 1rem;border:1px solid rgba(253,233,182,.3);border-radius:100px;color:var(--gold2);transition:all .2s}
+.chips span:hover{background:linear-gradient(90deg,var(--gold2),var(--gold3));color:#1a0705;border-color:transparent}
+
+.p3{padding:8rem 2rem;text-align:center}
+.p3-meta{display:flex;justify-content:center;gap:.6rem;flex-wrap:wrap;margin:1.8rem 0 3rem}
+.p3-meta span{font-size:.78rem;font-weight:600;padding:.5rem 1rem;border-radius:100px;background:rgba(255,255,255,.06);color:rgba(255,255,255,.75)}
+.p3-card{max-width:1000px;margin:0 auto;text-align:left;border:1px solid rgba(253,233,182,.18);border-radius:24px;background:linear-gradient(180deg,#160808,#0e0606);overflow:hidden}
+.p3-tabs{display:flex;border-bottom:1px solid rgba(253,233,182,.15);padding:.5rem;gap:.4rem;overflow-x:auto}
+.p3-t{flex:1;background:none;border:none;color:rgba(255,255,255,.55);font-family:Montserrat,sans-serif;font-weight:700;font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;padding:1rem;border-radius:14px;cursor:pointer;white-space:nowrap;transition:all .2s}
+.p3-t:hover{color:#fff}
+.p3-t.on{background:linear-gradient(90deg,var(--gold2),var(--gold3));color:#1a0705}
+.p3-p{display:none;padding:3rem 3.2rem;min-height:330px;animation:fadeIn .4s}
+.p3-p.on{display:block}
+.p3-p p{font-size:1.05rem}
+.p3-p p+p{margin-top:1rem}
+.p3-ch{font-weight:700;font-size:clamp(1.3rem,2.4vw,1.9rem)!important;line-height:1.4;color:#fff!important}
+.p3-ds{display:grid;grid-template-columns:1fr 1fr;gap:1.6rem 2.4rem}
+.p3-ds div{display:grid;grid-template-columns:40px 1fr;grid-template-rows:auto 1fr;align-content:start;gap:.3rem 1rem}
+.p3-ds i{grid-row:1/3;width:36px;height:36px;border-radius:50%;border:1px solid var(--gold3);color:var(--gold2);font-style:normal;font-weight:700;display:flex;align-items:center;justify-content:center}
+.p3-ds b{font-weight:700}
+.p3-ds span{font-size:.9rem;color:rgba(255,255,255,.62);line-height:1.6}
+@media(max-width:800px){.p3{padding:5rem 1rem}.p3-p{padding:2rem 1.4rem}.p3-ds{grid-template-columns:1fr}.p3-t{flex:none}}
+
+
+.fyt{display:inline-flex;flex-direction:column;align-items:flex-start;line-height:.92;text-align:left}
+.fyt .fy{font-family:Montserrat,sans-serif;font-weight:800;font-size:clamp(1.9rem,3.2vw,2.9rem);color:#fff;letter-spacing:.005em}
+.fyt .tp{font-family:Unbounded,sans-serif;font-weight:800;font-size:clamp(1.9rem,3.2vw,2.9rem);letter-spacing:.02em;display:inline-block;transform:skewX(-14deg);transform-origin:left bottom;background:linear-gradient(90deg,#fff1c9,#fde3a6 50%,#f0c56a);-webkit-background-clip:text;background-clip:text;color:transparent;padding-right:.15em;margin-top:.08em}
+@media(max-width:700px){.fyt .fy,.fyt .tp{font-size:1.6rem}}
+</style>
+</head>
+<body>
+<div class="cur" id="cur"></div>
+<div class="cur-ring" id="ring"></div>
+<div class="mob-overlay" id="mob">
+  <button class="mob-close" onclick="closeMob()">Close ×</button>
+  <ul class="mob-links">
+    <li><a href="index.html">Home</a></li><li><a href="leadership.html">Leadership</a></li><li><a href="events.html">Events</a></li><li><a href="dais.html">DAIS</a></li><li><a href="accolades.html">Accolades</a></li><li><a href="alumni.html">Alumni</a></li><li><a href="consulting.html">Consulting</a></li><li><a href="https://org.deanzapbl.com" target="_blank" rel="noopener">Org Program</a></li><li><a href="polaris.html">Polaris</a></li><li><a href="contact.html">Contact</a></li>
+  </ul>
+  <div class="mob-meta">De Anza College · Cupertino, CA</div>
+</div>
+<nav id="nav">
+  <div class="nav-left">
+    <a href="index.html" style="background:none;border:none;cursor:pointer;padding:0;display:flex;align-items:center;text-decoration:none"><span style="font-family:'Playfair Display',serif;font-size:1.8rem;color:rgba(245,243,239,0.88);line-height:1;user-select:none">Φ</span></a>
+    <div class="nav-wordmark" style="border-left:1px solid var(--border);padding-left:1rem">Phi Beta Lambda<br>De Anza Chapter</div>
+  </div>
+  <div class="nav-right" style="display:flex;align-items:center;gap:2.5rem">
+    <ul class="nav-links">
+      <li><a id="nl-home" href="index.html">Home</a></li><li><a id="nl-leadership" href="leadership.html">Leadership</a></li><li><a id="nl-events" href="events.html">Events</a></li><li><a id="nl-dais" href="dais.html">DAIS</a></li><li><a id="nl-accolades" href="accolades.html">Accolades</a></li><li><a id="nl-alumni" href="alumni.html">Alumni</a></li><li><a id="nl-consulting" href="consulting.html">Consulting</a></li><li><a id="nl-org" href="https://org.deanzapbl.com" target="_blank" rel="noopener">Org Program</a></li><li><a id="nl-polaris" href="polaris.html">Polaris</a></li>
+    </ul>
+    <a href="https://forms.gle/2zixWcFPcGG6sCBF7" target="_blank" class="nav-apply" style="flex-shrink:0">Apply</a>
+    <button class="hamburger" onclick="openMob()"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+
+<div class="page active">
+<section class="h2">
+ <div class="h2-beam"></div><div class="h2-glow"></div><div class="h2-floor"></div>
+ <div class="h2-eyebrow pre">De Anza Innovation Summit 2026</div><div class="h2-eyebrow post">DAIS 2026 is a wrap</div>
+ <img class="h2-logo" src="images/dais/dais-logo-white.svg" alt="DAIS">
+ <div class="h2-lock pre"><img class="a" src="images/dais/tempo-arrow.svg" alt=""><span class="fyt" role="img" aria-label="Find Your Tempo"><span class="fy">FIND YOUR</span><span class="tp">TEMPO</span></span></div>
+ <div class="h2-info pre">
+  <div class="h2-i"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3.5" y="5" width="17" height="15" rx="1.5"/><path d="M3.5 10h17M8 3v4M16 3v4"/></svg>Oct 10 – 11, 2026</div>
+  <div class="h2-i"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>9:00 AM – 4:30 PM</div>
+  <div class="h2-i"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a7 7 0 0 0-7 7c0 5.2 7 13 7 13s7-7.8 7-13a7 7 0 0 0-7-7zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5z"/></svg>De Anza College · Conference Room A&amp;B</div>
+ </div>
+ <div class="post sy"><span class="o">See you in</span><span class="y">2027.</span></div><p class="post sys">Thank you to every team, judge, speaker, and partner who found their tempo with us. Want to help build next year's summit? Join Phi Beta Lambda.</p><div class="c3 post"><a class="c3-b gold" href="https://linktr.ee/deanzapbl" target="_blank" rel="noopener">Join PBL<span>→</span></a><a class="c3-b line" href="dais-judges.html">Meet the Judges<span>→</span></a></div><div class="c3 pre"><a class="c3-b gold" href="dais-rubric.html">How Teams Are Judged<span>→</span></a><a class="c3-b line" href="dais-judges.html">Meet the Judges<span>→</span></a></div>
+ <div class="h2-partners">
+  <div class="h2-pl">Presented in partnership with</div>
+  <div class="h2-row"><div class="h2-pbl"><b>Φ</b><span>PHI BETA<br>LAMBDA</span></div><div class="div"></div><img src="images/dais/logo-sky-white.png" alt="Sky Campus Happiness"><img class="ey" src="images/dais/logo-ey-white.png" alt="EY"><img src="images/dais/logo-keypoint-white.png" alt="KeyPoint Credit Union"></div>
+ </div>
+<a class="c3-scroll pre" href="#case-video"><span>Scroll to Press Play</span><i></i></a></section>
+<section class="vsec w5" id="case-video"><div class="w5-st">
+ <div class="w5-bg"><div>PRESS</div><div class="f">PLAY</div></div>
+ <div class="w5-box" id="w5box"><div class="vp"><video src="videos/dais-2026-case.mp4" poster="images/dais/dais-2026-case-poster.jpg" preload="metadata" playsinline></video><button class="vp-cover" aria-label="Play video"><span class="vp-btn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M7 4.5v15l13-7.5z"/></svg></span><span class="vp-cap">Watch the Case · 2:00</span></button></div></div>
+ <div class="w5-lab"><span class="v-eb">The Case, Explained · 2:00</span><a class="v-link" href="#prompt">Read the Full Prompt ↓</a></div>
+</div></section>
+<script>
+(function(){var s=document.querySelector('.w5'),b=document.getElementById('w5box'),l=document.querySelector('.w5-lab');
+function u(){var r=s.getBoundingClientRect(),tot=s.offsetHeight-innerHeight,p=Math.min(1,Math.max(0,-r.top/(tot*.75)));
+var min=innerWidth<700?.86:.5,sc=min+(1-min)*p;var maxW=Math.min(1,(innerHeight/(innerWidth*9/16)));sc=Math.min(sc,maxW);
+b.style.setProperty('--s',sc.toFixed(4));l.style.setProperty('--o',(1-p*1.6).toFixed(3));}
+addEventListener('scroll',u,{passive:true});addEventListener('resize',u);u();})();
+</script><script>
+document.querySelectorAll('.vp').forEach(function(w){var v=w.querySelector('video'),c=w.querySelector('.vp-cover');
+ if(c)c.addEventListener('click',function(){w.classList.add('playing');v.controls=!w.hasAttribute('data-custom');v.play();});
+ v.addEventListener('play',function(){w.classList.add('playing');document.dispatchEvent(new CustomEvent('vstate'));});
+ v.addEventListener('pause',function(){document.dispatchEvent(new CustomEvent('vstate'));});});
+document.querySelectorAll('[data-t]').forEach(function(b){b.addEventListener('click',function(){var w=document.querySelector('.vp'),v=w.querySelector('video');v.currentTime=+b.dataset.t;w.classList.add('playing');v.controls=!w.hasAttribute('data-custom');v.play();});});
+</script>
+<section class="ab a1"><div class="a1-in">
+ <div class="a1-l"><div class="eb">About DAIS 2026</div><h2 class="a1-h">Find Your<br><span class="gd">Tempo.</span></h2><p>Find Your Tempo is about finding your place and your footing in your career. No two paths move at the same pace. This year, our speakers and judges share how they found theirs, and what that journey can look like for community college students starting right here.</p></div>
+ <div class="a1-r"><h3>Why DAIS</h3><p>Community college is where a lot of careers quietly begin. DAIS puts a real business challenge, real industry judges, and people who have walked this road in one room, so finding your footing does not have to wait until after transfer.</p><h3>What We Aim To Do</h3><ul><li><img class="arw" src="images/dais/tempo-arrow.svg" alt=""><div><b>Find your footing</b><span>Take on a real brand's challenge and see what your skills can do.</span></div></li><li><img class="arw" src="images/dais/tempo-arrow.svg" alt=""><div><b>Learn from their path</b><span>Hear how industry professionals found their tempo, and what they would do in your shoes.</span></div></li><li><img class="arw" src="images/dais/tempo-arrow.svg" alt=""><div><b>Build your momentum</b><span>Leave with feedback, connections, and a clearer next step in your career.</span></div></li></ul></div>
+</div></section>
+<section class="ev" id="info"><div class="ev-in"><div class="eb">Event Info</div><h2>Know before <span class="gd">you go.</span></h2>
+<div class="i1"><div><div class="dtabs"><button class="dtab on" data-d="0">Day 1<small>Sat · Oct 10</small></button><button class="dtab" data-d="1">Day 2<small>Sun · Oct 11</small></button></div><div class="dp on"><div class="tl"><div class="tl-i"><span class="tl-t">9:00 AM</span><span class="tl-d"></span><div><b>Check-in</b><p>Doors open. Late check-in closes at 10:00 AM.</p></div></div><div class="tl-i"><span class="tl-t">9:30 AM</span><span class="tl-d"></span><div><b>Welcome</b><p>Opening remarks from Phi Beta Lambda.</p></div></div><div class="tl-i"><span class="tl-t">9:40 AM</span><span class="tl-d"></span><div><b>Keynote</b><p>Doron Noyman, KeyPoint Credit Union.</p></div></div><div class="tl-i"><span class="tl-t">10:10 AM</span><span class="tl-d"></span><div><b>Mixer</b><p>Meet other competitors before teams form.</p></div></div><div class="tl-i key"><span class="tl-t">10:30 AM</span><span class="tl-d"></span><div><b>Prompt Release</b><p>The case is revealed with our prompt video.</p></div></div><div class="tl-i"><span class="tl-t">10:50 AM</span><span class="tl-d"></span><div><b>Team Formation</b><p>Teams of up to 4. Anyone without a team is placed in one.</p></div></div><div class="tl-i"><span class="tl-t">11:10 AM</span><span class="tl-d"></span><div><b>Work Period 1</b><p>Build your strategy. Officers are around to help.</p></div></div><div class="tl-i"><span class="tl-t">12:30 PM</span><span class="tl-d"></span><div><b>Lunch</b><p>Provided on site.</p></div></div><div class="tl-i"><span class="tl-t">1:30 PM</span><span class="tl-d"></span><div><b>Work Period 2</b><p>Keep building your deck.</p></div></div><div class="tl-i key"><span class="tl-t">3:30 PM</span><span class="tl-d"></span><div><b>Submission</b><p>One member submits the team's deck.</p></div></div><div class="tl-i"><span class="tl-t">4:00 PM</span><span class="tl-d"></span><div><b>Closing</b><p>Wrap-up for Day 1. Come back early tomorrow to prep.</p></div></div></div></div><div class="dp"><div class="tl"><div class="tl-i"><span class="tl-t">9:00 AM</span><span class="tl-d"></span><div><b>Check-in</b><p>Late check-in closes at 10:00 AM.</p></div></div><div class="tl-i"><span class="tl-t">9:30 AM</span><span class="tl-d"></span><div><b>Welcome</b><p>Day 2 kicks off.</p></div></div><div class="tl-i"><span class="tl-t">9:40 AM</span><span class="tl-d"></span><div><b>Judging Overview</b><p>How prelims, finals, and scoring work.</p></div></div><div class="tl-i"><span class="tl-t">10:00 AM</span><span class="tl-d"></span><div><b>Featured Speaker</b><p>Gerri Martin-Flickinger, former CTO of Starbucks.</p></div></div><div class="tl-i key"><span class="tl-t">10:30 AM</span><span class="tl-d"></span><div><b>Preliminary Pitches</b><p>Every team presents to a judging panel.</p></div></div><div class="tl-i"><span class="tl-t">12:30 PM</span><span class="tl-d"></span><div><b>Lunch</b><p>Finalists are announced after lunch.</p></div></div><div class="tl-i key"><span class="tl-t">1:30 PM</span><span class="tl-d"></span><div><b>Finals</b><p>The top 5 teams pitch to our industry judges.</p></div></div><div class="tl-i"><span class="tl-t">2:30 PM</span><span class="tl-d"></span><div><b>Guest Speaker</b><p>While the judges deliberate.</p></div></div><div class="tl-i key"><span class="tl-t">3:00 PM</span><span class="tl-d"></span><div><b>Awards</b><p>Top 5 teams announced, 5th to 1st.</p></div></div><div class="tl-i"><span class="tl-t">3:30 PM</span><span class="tl-d"></span><div><b>Closing</b><p>Thank you, and welcome to PBL.</p></div></div></div></div></div><div class="i1-s"><div class="i1-c"><div class="i1-h"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M7 3h7l5 5v13H7z"/><path d="M14 3v5h5M10 13h6M10 17h6"/></svg></span><span class="lab">How to Submit</span></div><p>One member per team sends your PowerPoint, or shares your Canva deck, to <a href="mailto:deanzacapbl@gmail.com">deanzacapbl@gmail.com</a>.</p><p class="due">Due Saturday, Oct 10 · 4:00 PM</p></div><div class="i1-c"><div class="i1-h"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="9" cy="8" r="3"/><circle cx="17" cy="9" r="2.5"/><path d="M3 20c0-3.5 2.7-6 6-6s6 2.5 6 6M15 14.5c3 0 6 2 6 5"/></svg></span><span class="lab">Teams</span></div><p>Teams of up to 4. Come solo or with friends. Teams form on Day 1 right after the prompt drops.</p></div><div class="i1-c"><div class="i1-h"><span class="ic"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a7 7 0 0 0-7 7c0 5.2 7 13 7 13s7-7.8 7-13a7 7 0 0 0-7-7zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5z"/></svg></span><span class="lab">Where</span></div><p>De Anza College Campus Center<br>Conference Rooms A &amp; B</p><a class="mapb" href="https://maps.app.goo.gl/HR5ZDNmMndwgnQUv6" target="_blank" rel="noopener">Open in Google Maps ↗</a></div><div class="i1-c"><div class="i1-h"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg></span><span class="lab">Questions</span></div><p>Questions before or during the event? Email us and an officer will get back to you.</p><a class="mapb" href="mailto:deanzacapbl@gmail.com">deanzacapbl@gmail.com</a></div></div></div></div></section>
+<script>document.querySelectorAll('.dtab').forEach(function(b){b.onclick=function(){var i=+b.dataset.d;document.querySelectorAll('.dtab').forEach(function(x,j){x.classList.toggle('on',j===i)});document.querySelectorAll('.dp').forEach(function(x,j){x.classList.toggle('on',j===i)})}})</script>
+<section class="pr p3" id="prompt"><div class="eb">The Prompt</div><h2 class="big">Apple <span class="gd">Music.</span></h2>
+<div class="p3-meta"><span>You are: Apple Music's strategy team</span><span>Target: U.S. ages 18–24</span><span>Rivals: Spotify, YouTube Music</span></div>
+<div class="p3-card"><div class="p3-tabs"><button class="p3-t" data-i="0">Background</button><button class="p3-t on" data-i="1">The Challenge</button><button class="p3-t" data-i="2">Levers</button><button class="p3-t" data-i="3">Deliverables</button></div><div class="p3-p"><p>Apple Music operates in one of the world's largest and most competitive digital entertainment markets. In the United States, Spotify and YouTube Music compete heavily for younger listeners, particularly Gen Z consumers ages 18–24, who place strong value on personalization, discovery, social sharing, and cultural relevance.</p><p>You are part of Apple Music's strategy team. Apple leadership wants to strengthen Apple Music's position among U.S. consumers ages 18–24 and make the service a more compelling choice for both existing Apple users and listeners currently using competing platforms.</p></div><div class="p3-p on"><p class="p3-ch">Develop a strategy that helps Apple Music grow its market position among U.S. Gen Z and young adult listeners ages 18–24 and differentiate itself from competitors such as Spotify and YouTube Music.</p><p>Your recommendation should go beyond simply lowering prices or copying an existing competitor feature.</p></div><div class="p3-p"><p style="margin-bottom:1.4rem">Consider how Apple Music could use its ecosystem, partnerships, technology, brand, content, pricing, marketing, or customer experience to attract new users and increase loyalty among existing subscribers.</p><div class="chips"><span>Ecosystem</span><span>Partnerships</span><span>Technology</span><span>Brand</span><span>Content</span><span>Pricing</span><span>Marketing</span><span>Customer Experience</span></div></div><div class="p3-p"><div class="p3-ds"><div><i>1</i><b>Define the Competitive Problem</b><span>Identify the biggest challenge preventing Apple Music from gaining ground among U.S. consumers ages 18–24. What gives competitors an advantage today?</span></div><div><i>2</i><b>Proposed Strategy</b><span>Develop a specific strategy Apple Music could use to strengthen its position within this market.</span></div><div><i>3</i><b>Competitive Advantage</b><span>Explain why your strategy would work and what makes it difficult for competitors to replicate.</span></div><div><i>4</i><b>Implementation & Success Metrics</b><span>Explain how Apple Music should execute your strategy and identify the key metrics you would use to determine whether it is successful.</span></div></div></div></div></section>
+<script>document.querySelectorAll('.p3-t').forEach(function(b){b.onclick=function(){document.querySelectorAll('.p3-t,.p3-p').forEach(function(e){e.classList.remove('on')});b.classList.add('on');document.querySelectorAll('.p3-p')[+b.dataset.i].classList.add('on')}})</script>
+</div>
+<footer style="display:flex;align-items:center;justify-content:space-between;padding:2rem 2.5rem;border-top:1px solid var(--border);flex-wrap:wrap;gap:1rem">
+  <div style="display:flex;align-items:center;gap:1.2rem">
+    <span class="foot-logo">ΦΒΛ</span>
+    <div style="width:1px;height:2rem;background:var(--border)"></div>
+    <span class="foot-copy">© 2025 Phi Beta Lambda · De Anza College</span>
+  </div>
+  <ul class="foot-links">
+    <li><a href="https://instagram.com/deanzapbl" target="_blank">Instagram</a></li><li><a href="https://discord.gg/w7zap3SfUm" target="_blank">Discord</a></li><li><a href="https://linktr.ee/deanzapbl" target="_blank">Linktree</a></li><li><a href="contact.html">Contact</a></li>
+  </ul>
+</footer>
+<script src="main.js"></script>
+<script>(function(){var END=new Date('2026-10-11T16:00:00-07:00').getTime();var q=location.search;if(Date.now()>=END||q.indexOf('after')>-1){var h=document.querySelector('.h2');if(h)h.classList.add('over')}})();</script>
+</body>
+</html>

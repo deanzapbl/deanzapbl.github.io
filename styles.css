@@ -218,3 +218,9 @@ footer{padding:3rem 2.5rem;border-top:1px solid var(--border);display:flex;align
 .ctl-cycle-click{cursor:pointer}
 .ctl-cycle-click:hover .ctl-cycle-yr{color:var(--red)}
 .ctl-cycle-yr{transition:color .2s}
+/* DAIS nav highlight */
+#nl-dais{background:linear-gradient(90deg,#fde9b6,#f0c56a);-webkit-background-clip:text;background-clip:text;color:transparent!important;font-weight:700;letter-spacing:.3em;position:relative}
+#nl-dais::after{content:'';position:absolute;left:0;right:0;bottom:-6px;height:1px;background:linear-gradient(90deg,transparent,#f0c56a,transparent)}
+#nl-dais.active{border-bottom:none;padding-bottom:0}
+#nl-dais.active::after{height:2px;background:linear-gradient(90deg,#fde9b6,#f0c56a)}
+.mob-links a[href="dais.html"]{background:linear-gradient(90deg,#fde9b6,#f0c56a);-webkit-background-clip:text;background-clip:text;color:transparent;display:inline-block}
